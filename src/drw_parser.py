@@ -603,7 +603,7 @@ class DRWParser:
                     break
                 x_raw = (loc_word >> 18) & 0o777777
                 y_raw = loc_word & 0o777777
-                invisible = bool(x_raw & 1)
+                invisible = bool(y_raw & 1)
                 seg = LineSegment(x=int18(x_raw), y=int18(y_raw),
                                   invisible=invisible)
                 bd.lines.append(seg)
@@ -704,10 +704,13 @@ class DRWParser:
 
         Implements RDBOD from IN.FAI:1324-1586.
 
-        When orientation RH has bit 17 set (0o400000): location fields follow.
-        Otherwise: skip directly to BITS/ID.
+        The orientation word is read as a full word at IN.FAI:1338.
+        TRNN TT,400000 (IN.FAI:1349) tests bit 17 of the RIGHT HALF:
+          - If set: location fields (LETTER, NUMBER, NUMBR1) follow
+          - If clear: skip directly to NNFORM (BITS/ID)
         """
         s = self.stream
+        ver = self.result.version
         self._dbg("parse_body_placements")
 
         while not s.at_end():
@@ -717,47 +720,50 @@ class DRWParser:
 
             bp = BodyPlacement()
 
-            # Location of body (X, Y)
+            # Location of body (X, Y) — IN.FAI:1324
             bp.loc = s.read_xy()
 
-            # Orientation word
-            s.read_hw()  # skip left half
-            raw_orient = s.read_hw()
+            # Orientation word — IN.FAI:1338
+            orient_lh = s.read_hw()
+            orient_rh = s.read_hw()
+            bp.orientation = orient_rh
 
-            if raw_orient == 0:
-                bp.orientation = 0
-                bp.has_location = False
-            else:
-                bp.orientation = raw_orient
+            # TRNN TT,400000 — IN.FAI:1349: test bit 17 of RH for location data
+            if orient_rh & 0o400000:
                 bp.has_location = True
 
-                # CARD LOC ,, BODY LOC
-                s.read_hw()  # skip left half
-                bp.card_body_loc = s.read_hw()
+                # LNNEWS (IN.FAI:3770-3773): WORDIN → LETTER, WORDIN → NUMBER
+                # For version ≥ 7, just two words:
+                #   LETTER: card/body location info
+                #   NUMBER: constant offset XY
+                bp.card_body_loc = s.read_full_word()   # LETTER
+                bp.xy_const_offset = s.read_xy()        # NUMBER (X,Y)
 
-                # X,Y constant offset
-                bp.xy_const_offset = s.read_xy()
+                # NUMBR1 — IN.FAI:1355-1357: only for version > 0o23 (19 decimal)
+                # CAILE A,23 / PUSHJ P,WORDIN — skip WORDIN if version ≤ 19
+                if ver > 0o23:
+                    s.read_full_word()  # NUMBR1
+            else:
+                bp.has_location = False
 
-                # X,Y character offset
-                bp.xy_char_offset = s.read_xy()
-
-            # BODY BITS ,, BODY ID
+            # BODY BITS ,, BODY ID — IN.FAI:1370-1374
             bp.body_bits = s.read_hw()
             bp.body_id = s.read_hw()
 
-            # Name of body definition
+            # Name of body definition — IN.FAI:1384
             bp.body_name = s.grab_7bit_ascii()
 
             self._dbg(f"  body: '{bp.body_name}' id={bp.body_id} "
                       f"loc=({bp.loc[0]},{bp.loc[1]}) orient={bp.orientation}")
 
-            # Properties (terminated by zero word)
-            while not s.at_end():
-                if s.check_zero_word():
-                    s.p += 2
-                    break
-                prop = self._parse_property()
-                bp.properties.append(prop)
+            # Properties — IN.FAI:1404-1405 (PROPIN, zero-word terminated)
+            if ver >= 0o23:
+                while not s.at_end():
+                    if s.check_zero_word():
+                        s.p += 2
+                        break
+                    prop = self._parse_property()
+                    bp.properties.append(prop)
 
             self.result.body_placements.append(bp)
 

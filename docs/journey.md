@@ -277,3 +277,46 @@ Found in LOWCOR.FAN[N,DRW]:189: `MD,<IOVER__25>`. The DRAW program writes versio
 | Failed | 0      | 0 |
 
 The remaining 10 warnings are **truncated files** hitting exact EOF boundaries — the files themselves are incomplete (not a parser bug). Files like `a26.drw.O` (128 words), `b07.drw.O`, etc. run cleanly to their last byte and then hit EOF mid-section.
+
+---
+
+### Checkpoint 5: Critical Body Placement Parser Fix + SVG Renderer (Phase 3)
+
+**Date:** 2026-08-04
+
+**Critical Bug Found:**
+The body placement parser had a wrong condition for the `has_location` test. 
+IN.FAI:1349 uses `TRNN TT,400000` (test bit 17 of orientation RH), but our 
+parser was using `raw_orient == 0`. This meant placements with non-zero 
+orientation but WITHOUT bit 17 set (e.g., rotation-only values like `0o140`) 
+would incorrectly enter the location-data branch and read 4 extra words that 
+don't exist, completely desyncing everything downstream.
+
+Also fixed: LNNEWS (IN.FAI:3770-3773) reads exactly 2 words (LETTER + NUMBER) 
+for location data, not 3 as previously coded. Plus NUMBR1 is conditional on 
+version > 0o23.
+
+**Result:** Corpus clean rate improved from 675/685 to **684/685** (99.9%).
+
+**SVG Renderer Created:**
+- `src/svg_renderer.py` — Full SVG rendering engine
+- `src/library.py` — Library loader with auto-discovery + `load_all_defs()`
+- `src/dip_generator.py` — Synthetic DIP body generator from DIPS.LSD[LIB,DRW]
+- `src/cli.py` — CLI entry point with `--auto-lib` flag
+
+**Body Resolution:**
+
+| Approach | Defs | Resolution |
+|----------|------|------------|
+| lib.drw.O only | 252 | 70.7% |
+| All 13 library files | 462 | 88.6% |
+| + Synthetic DIPs | **555** | **94.2%** |
+
+**ALS Discovery:**
+The missing ALS-series TTL parts (ALS245, ALS374, etc.) were in the SAILDART 
+`DIPS.DIP[LIB,DRW]` database (non-DRW binary format). Pin counts were extracted 
+from `DIPS.LSD[LIB,DRW]` and used to generate synthetic DIP body definitions.
+
+**Sample renders:** All 8 sample files now render with 100% body resolution:
+ethernet, Sun-3/60, Sun-2 D-board, color graphics, memory board, mouse, 
+Sun-2 CPU, video memory.
