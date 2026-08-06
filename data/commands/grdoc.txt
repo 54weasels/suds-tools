@@ -1,0 +1,195 @@
+COMMENT ⊗   VALID 00005 PAGES
+C REC  PAGE   DESCRIPTION
+C00001 00001
+C00002 00002
+C00006 00003
+C00011 00004
+C00013 00005
+C00017 ENDMK
+C⊗;
+
+                   SUN COLOR GRAPHICS BOARD                   
+
+
+
+INTRODUCTION
+
+
+
+The Sun Color Graphics Board is a multibus compatible color monitor
+controller.  The controller drives a 15.42 khz monitor with separate red,         
+green, and blue guns and fits on a single high-density Mupac wire-wrap       
+board.
+
+The display memory consists of forty 64K RAMS which are confiqured for
+a resolution of 480 by 640 pixels with each pixel being eight bits 
+deep. The non-flickering CRT image is redisplayed at a rate of 30.0 
+hertz. During video display, a pixel can be modified every 840 nsec,
+and by implementing a 'Look-Behind' Read, both display memory read and
+writes have an access time of less that 40 nsec. During horizontal and
+vertical retrace, the cycle time of the display memory is increased 
+by a factor of two, and to get even faster re-paints, bit 7 in the
+status register can be set to enable writing five consecutive pixels 
+with the same value. If the controller were running at full speed, this
+implies that the entire screen could be reset to some uniform background
+in only 52 msec, and that each pixel could be individually accessed in
+the span of 258 msec.
+
+For accessing the display memory, the controller has separate read and
+write address registers for both X and Y axis. Bit 10 in the display
+memory address space also flags wether or not to actually perform the
+read or write operation. These four registers can decrease the 
+overhead of a block move operation from three CPU instructions to only
+one CPU instruction per pixel.
+
+A readable and writable Color Map is used to map each 8-bit pixel into
+one of 256 colors. Each color is composed of 8 red, 8 green, and 8 blue              
+bits, and two bits in the status register can be used to instantly 
+toggle between any of the four banks of 256 colors . The color map can
+only be updated during vertical retrace, so interrupts or a busy wait
+must be used to catch the start of vertical retrace. Unlike the frame
+buffer, accesses to the color map are unbuffered but are performed
+in an average of 200 nsec.
+
+
+
+
+
+
+ADDRESS SPACE ASSIGNMENTS
+
+
+
+The Color Graphics Board is selected by address bits 13 to 19 (these are
+the most significant). Address bits 9 to 12 are used internally by the
+board for selection purposes, and address bits 0 to 9 form the addresses
+actually used by the controller. The board resides in the multibus memory
+address space versus the multibus I/O address space. 
+
+
+     Address Selection Bits:
+
+        A12   A11   A10    A9     Component Selected.
+        ---   ---   ---   ---     -------------------
+         0     0     0     X      Y-axis Address Register. If a MRead update
+                                  Read Address Register. If a MWrite, update
+                                  Write Address Register and Data-Register.
+
+         0     0     1     X      Y-axis Address Register. If a MRead, output
+                                  value read during previous display memory
+                                  read, update Read Address Register, and
+                                  start current read. IF a MWrite, write
+                                  Y-axis Write Address Register and Data-
+                                  Register. Start current write request.
+
+         0     1     0     X      X-axis Address Register. Operations 
+                                  equivalent to those for Y-axis Address Reg.
+                                  Do not update any pixels.
+
+         0     1     1     X      X-axis Address Register. Begin  either
+                                  a Read or Write operation at the end of 
+                                  the current request.
+
+
+         1     0     0     0      Read or Write from/to Red Color Map.
+
+         1     0     0     1      Read or Write from/to Green Color Map.
+
+         1     0     1     0      Read or Write from/to Blue Color Map.
+
+         1     0     1     1      One bit status read register. Bit 0 active flags
+                                  that the color monitor is in vertical retrace
+                                  and that the color map can be accessed.
+
+         1     1     0     0      Write Data Bus to Status Register.
+
+         1     1     0     1      Write Data Bus to Color Register.
+
+         1     1     1     0      Write Data Bus to Function Register.
+
+ 
+
+
+
+
+
+
+
+STATUS REGISTER BIT ASSIGNMENTS
+
+
+The Status Write Register is an eight bit register used to control the 
+operation of the color graphics board. A hardware reset sets each bit  
+in the status register to its high state. Every signal is active low. 
+
+
+
+      Bit Assignments (bit 7 = MSB)
+
+	   Bits 0-2  :  Specify interrupt levels zero through seven.
+                        The board only interrupts at the start of a 
+			vertical retrace and when interrupts are
+			enabled.
+
+           Bit 3     :  Enable Interrupts. This bit will only generate
+			an interrupt at the start of a vertical retrace.
+ 			This bit must be cleared after an interrupt in
+                        order to clear the pending interrupt.
+
+	   Bits 4-5  :  Select one of the four 256-color Color Maps.
+
+	   Bit 6     :  Enable the color monitor display.
+
+	   Bit 7     :  Enable Paint mode. Writing to any display memory
+			location will write five pixels instead of one.
+			The five pixels will be horizontally adjacent to
+			one another and start at the x-address determined
+                        by 5*(X DIV 5).           
+
+
+
+
+
+
+
+
+
+FUNCTION UNIT
+
+
+
+The Color Graphics Board has a Function Unit which it uses to compute the
+pixel to be written back into the display memory.
+
+Three eight-bit registers and one eight-bit data bus fiqure in the 
+computation of the Function Unit output. These three data registers are
+the 'Function-Register', the 'Color-Register', and the 'Data-Register'.
+The eight-bit data bus is derived from a 5-to-1 MUX on the output of the
+display memory, and it holds the old eight-bit color of the referenced
+pixel.
+
+Each bit of the Function Unit output-bus is computed using a separate
+8-to-1 MUX. The Function-Register feeds the data inputs of each MUX,
+and the select-lines are composed from the respective bits of the
+Color-Reg, the Data-Reg, and the RAM output-bus. The Color-Register bits
+are the most-significant select input, and the RAM output-bits are
+the least-significant select input.
+
+For example, to get the Data-Register to be passed through as the 
+Function Unit output, the Function-Register could be set to '11001100'.
+To get the Color-Register to be passed through as the Function Unit
+output, the Function-Register could be set to '11110000'. To get 
+the old pixel value written back into the display memory, the
+Function-Register could be set to '10101010'.  To invert the value
+of the color read from the display memory, the Function Register 
+could be set to '01010101';and, to clear the three high-order bits of
+the old pixel's value, the Function Register could be set to '00001010' 
+and the Color Register could be set to '11100000'. The Function Unit
+is fully general and at a small price in complexity, it provides an
+extremely flexible method for operating on the display memory.
+
+Note: The Function Register and the Color Register must be explicitly
+loaded with some value. The Data Register is loaded every time a write
+access is made to the frame buffer. 
+
+

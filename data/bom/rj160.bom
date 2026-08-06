@@ -1,0 +1,17 @@
+
+Data-Base: parts.lst
+Part-File: RJ160
+
+
+GENERIC	PINS SMIPART	QTY	COST	TOTAL	MFC	MFPART		DESCRIPTION
+
+C	2   110-____        5	    .08	    .40	ANY	CAPACITOR	CAPACITOR GENERIC
+RJ11	4   130-1030        2	    .50	   1.00	AMP	520250-2	PCB MODULAR JACK RJ11C 6POS 4CON
+DB15	9   130-1028        1	   1.50	   1.50	AMP	745782-4	DB-15 CONNECTOR, PCB MOUNT
+
+Total Estimated Cost:    2.90
+Total Types of Parts:       3
+Total Number of Parts:	      8
+Total Number of ICs:	      0
+Total Number of Pins:	     27
+16-pin equivalents:	   1.69

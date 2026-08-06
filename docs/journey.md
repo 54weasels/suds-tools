@@ -369,3 +369,13 @@ coverage for rendering.
 | Synthetic DIP fallbacks | ~90 |
 
 **Phase 3 Status: COMPLETE.**
+
+---
+
+### Checkpoint 7: Wirelist-Based Board Registry & Data Restructure
+
+- Discovered that `.wl` (wirelist) files are the canonical source for board→page mappings
+- Created `data/` directory incorporating DRW files, wirelists, parts lists, BOMs, and command scripts from the SMI archive
+- Rewrote `src/board_registry.py` to use wirelist-based grouping (57 boards) with metadata fallback (110 boards)
+- Fixed rendering issues: p2.svg viewBox explosion (coordinate clamping), r3.drw.O empty parse (header string termination)
+- Updated batch renderer to use new data directory paths

@@ -1,0 +1,166 @@
+00README.TXT                                                    (11 July 1983)
+
+
+                 COLUMBIA UNIVERSITY KERMIT DISTRIBUTION TAPE
+
+
+This tape includes all the versions of Kermit which were in our possession as
+of the time this distribution tape was made, plus some miscellanous files.
+The files on the tape have names of the form
+
+	NAME.TYPE
+
+Where NAME is the name of file, and TYPE is its type (program source,
+documentation, executable core image, etc).  No NAME is more than 9 characters
+long (the maximum accepted by VAX/VMS), and every NAME is unique in the first
+6 characters (the maximum under TOPS-10).  On TOPS-10 BACKUP/Interchange
+tapes, names longer than 6 will be truncated to 6.  No type is longer than 3
+characters.  NAME and TYPE are separated by a period.
+
+
+* Prefixed Files:
+
+The file names for files associated with each implementation of KERMIT are
+prefixed by a few characters denoting the implementation.  The following are
+presently used:
+
+      Prefix    Machine(s)             Operating System      Language
+
+	10	DECsystem-10           TOPS-10               MACRO-10
+	20	DECSYSTEM-20           TOPS-20               MACRO-20
+        VMS     VAX-11                 VMS                   Bliss-32
+	CMS	IBM 370 Series         VM/CMS                IBM Assembler
+	UX	VAX, SUN, PDP-11, etc  Berkeley UNIX         C
+	RT	PDP-11                 RT-11                 OMSI Pascal
+	CPM	8080, 8085, or Z80     CP/M                  ASM
+       	PC	IBM PC or Zenith Z100  PC DOS, MS DOS        PC Macro assembler
+        APP     Apple II 6502          Apple DOS             DEC-10 CROSS
+
+In some cases, binaries (.REL, .EXE, .COM, etc) are not supplied.  For
+instance, no binaries come with the UNIX sources, since these can be compiled
+to run on many different machines, under different versions of UNIX.  No
+binaries come with the VAX/VMS source, since the VMS file attributes cannot be
+saved on the DEC-20 tape.  Binaries are provided when it makes sense, however:
+DEC-10 and DEC-20 .EXE files are provided on DEC-10 and -20 distribution
+tapes, MODULE files for CMS KERMIT on the IBM VM/CMS tape.  In any event, all
+necessary files for building each version of Kermit from program source are
+included on all tapes.
+
+When working with one of these implementations, you would normally copy them
+to a separate area and strip the prefix from the file names, and install the
+programs on the appropriate systems without the prefix.  For instance, on the
+DEC-20 you would copy 20KERMIT.MAC to KERMIT.MAC, then assemble it, and store
+the result as KERMIT.EXE in SYS:.  The VAX/VMS version is an exception; in
+this case REPLACE the "VMS" prefix with "KER".
+
+The following HEX files for specific CP/M implementations are included:
+
+ CPMAPPLE.HEX     Apple II with Z80 Softcard & DC Hayes Micromodem
+ CPMAPPLE.SSC     Notes for using above with Super Serial Card
+ CPMBRAIN.HEX     Intetec SuperBrain
+ CPMDMII.HEX      DECmate II with CP/M
+ CPMGENERI.HEX    "Generic" CP/M Kermit.
+ CPMHEATH.HEX     Heath/Zenith 89
+ CPMKAYPRO.HEX    Kaypro-II
+ CPMKERMIT.ASM    Source file for all Kermit-80s but Generic Kermit
+ CPMOSBORN.HEX    Osborne 1
+ CPMOSI.HEX       Ohio Scientific
+ CPMPLUS.HEX      For any system running CP/M-Plus (3.0)
+ CPMRAINBO.HEX    DEC Rainbow-100
+ CPMROBIN.HEX     DEC VT180 "Robin"
+ CPMTELCON.HEX    Telcon Zorba
+ CPMTRS80.HEX     TRS-80 II with Lifeboat CP/M 2.25
+ CPMVECTOR.HEX    Vector Graphics
+ CPMZ100.HEX      Heath/Zenith Z100 with CP/M-85
+
+The file CPMKERMIT.DOC explains the CPM Kermit program in more detail.  The
+"Generic Kermit" can be used on micros not specifically supported, if the CP/M
+IOBYTE facility is implemented, and the fields of the IOBYTE point to the
+right devices.  The CP/M-Plus version can run "generically" on any CP/M 3.0
+system.  See the User Guide for details.
+
+The Kermit Users Guide contains instructions for installing or bootstrapping
+the various versions of Kermit.
+
+* Manuals:
+
+There are two Kermit manuals: USER and PROTO, a user's guide and a protocol
+manual, respectively.  Four versions of these files are provided:
+
+	.MSS	Scribe (UNILOGIC Ltd text formatter) source.
+	.LPT	Line Printer format (overstriking, underscore, etc).
+	.DOC	No special effects, suitable for reading on line.
+	.FOR    Like .LPT, but with Fortran-style carriage control.
+
+If you have Scribe and the appropriate Scribe device drivers, you can run the
+.MSS files through it to produce output suitable for printing on any device
+supported at your site, including the Xerox-9700, Imagen Imprint-10, or other
+multifont laser printers or photocomposers.  As of this writing, Scribe is not
+entirely bug-free; you may notice some problems with the footnotes in the .DOC
+and .LPT files.  Note that some parts of the user manual rely on underlining
+to clarify examples; the underlines are missing from the .DOC files, but will
+be found in the .LPT and .FOR files.
+
+The user's guide is intended for users of Kermit (including those who want to
+install it), the protocol manual is for those who would like to write a new
+implementation (i.e. a Kermit program for a new machine or operating system).
+
+ASCII.MSS is the ASCII/EBCDIC character table, which is included as an
+appendix in both manuals.
+
+MANUAL.HYP is a hyphenation dictionary for building the manual with Scribe.
+
+
+* Other Files:
+
+00README.TXT is this file, which should appear at the top of any alphabetical
+directory listing, and is the first file on the tape.
+
+CORNELL.TXT contains a UNIX implementation of KERMIT from Cornell University,
+which we have not been able to bring up successfully at Columbia, but which
+might be of interest.
+
+The files MAC80.*, M80UNV, etc, are an 8080 cross assembler for the DEC-10 or
+DEC-20; MAC80.DOC is a brief description.  TORTUR.M80 is a "torture test" for
+MAC80, which illustrates its features.  MAC80 is used to assemble CP/M KERMIT,
+and is mostly compatible with the standard CP/M 8080 assembler.
+
+HEXIFY.* is a program for converting a CP/M  .COM file resident on the DEC-10
+or DEC-20 to a CP/M .HEX file.  This is handy when binary file transfers are
+failing to work for some reason.  The .HEX file can be LOADed on the CP/M
+system in the normal way to reconstruct the original .COM file.
+
+The files CROSS.* are a general purpose cross assembler for the DEC-10 and
+DEC-20; CROSS.DOC is the manual.  CROSS is used to assemble Apple DOS KERMIT.
+
+TTLINK.* is a terminal linking program for the DEC-20, allowing you to log in
+to another system over a TTY line (e.g. using an autodialer).  KERMIT-20 runs
+TTLINK to execute the CONNECT command.
+
+EZFIX.* is a utility for converting EasyWriter files sent to the DEC-20 from
+the IBM PC into ordinary text form.
+
+KERMIT.WHO is a list of all the sites Columbia has sent KERMIT tapes to.
+
+
+* Finally...
+
+If you make any modifications to Kermit, fix any bugs, or write any new
+implementations or documentation, please send them back to us on magnetic tape
+so we can distribute them to other Kermit users:
+
+	KERMIT Distribution
+	Columbia University
+	Center for Computing Activities
+	612 West 115th Street
+	7th Floor
+	New York NY 10025
+
+or via network mail notify
+
+	CC.FDC@COLUMBIA-20.ARPA
+	SY.FDC@CU20B.BITNET
+
+We'll return your tape to you with the latest Kermit distribution.
+
+[End of 00README.TXT]

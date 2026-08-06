@@ -1,0 +1,2 @@
+login:nomail,xmail,xdigest,me,cookie,who,noarrow,width=256;
+PURGE:FOO.*,TEST.*,*.TMP,*.LST,*.REL,*.BIN,*.VRN,*.DMP,*.LAP,*.DVI,*.XGP,*.PRE,*.plt,*.wd,*.wlr,*.wl,*.WPC,*.WLS,*.WLU,*.WLC,*.PCP

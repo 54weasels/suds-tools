@@ -27,6 +27,37 @@ significant machines, drawn by Andy Bechtolsheim and others.
 | SUDS Repo | `../../saildart/SUDS/` | PDP-10/SUDS GitHub repo with tools & docs |
 | PDP-10 Source | `../../saildart/SUDS/bits/saildart/` | Authoritative DRAW program assembly source |
 
+### Data Directory Layout
+```text
+data/
+├── drw/            # 685 DRW schematic page files (binary, octal-encoded)
+├── wirelists/      # 68 WL wirelist files (text) — canonical board→page mappings
+├── parts/          # 100 PRT parts list files (text)
+├── wirelist_errors/ # 90 WLS error summary files (text)
+├── bom/            # 54 BOM bill-of-materials files (text)
+└── commands/       # COM/TXT batch command scripts for WL tool
+```
+
+### File Extension Reference
+| Extension | Type | Purpose |
+|-----------|------|---------|
+| `.drw.O` | Binary (octal) | Schematic drawing page |
+| `.wl` | Text | Wirelist — canonical board→page mapping + netlist |
+| `.prt` | Text | Parts list / BOM |
+| `.plt.O` | Binary (octal) | Pen plotter output |
+| `.pc.O` | Binary (octal) | PCB layout |
+| `.wpc.O` | Binary (octal) | Wire-to-PC mapping |
+| `.wd.O` | Binary (octal) | Wire data (intermediate) |
+| `.wls` | Text | Wirelist error/warning summary |
+| `.bom` | Text | Bill of materials |
+| `.con` | Text | Connectivity table |
+| `.vrn.O` | Binary (octal) | DRC verification data |
+| `.net` | Text | Raw pin-to-pin netlist |
+| `.dip.O` | Binary (octal) | IC package database |
+| `.lsd` | Text | Human-readable DIP dump |
+| `.mss` | Text | Scribe document sources |
+| `.msg` | Text | Email/notes archive |
+
 ## Project Structure
 
 ```
@@ -58,24 +89,15 @@ suds-tools/
 
 ## Usage
 
-### Render a single schematic
-
 ```bash
-python3 -m src.cli best_drw/qx1.drw.O --auto-lib best_drw --output qx1.svg
-```
+# List all boards (wirelist-based grouping)
+python3 scripts/batch_render.py --list
 
-### Batch render Q-series (Sun-2 68010 CPU board)
+# Render all boards with PDFs and HTML index
+python3 scripts/batch_render.py --all --pdf --index
 
-```bash
-python3 scripts/render_q_series.py --dir best_drw --output-dir output/q_series
-```
-
-This renders all Q-series pages to SVG and converts to PNG via `rsvg-convert`.
-
-### Render all DRW files
-
-```bash
-python3 scripts/render_q_series.py --dir best_drw --output-dir output/all --all
+# Render a single board
+python3 scripts/batch_render.py --board q
 ```
 
 ## Status

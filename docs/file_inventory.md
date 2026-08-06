@@ -85,6 +85,32 @@ These are the primary target files — the actual Sun workstation schematics.
 
 ---
 
+## Canonical Board Groupings (Wirelist-Derived)
+
+Wirelist (`.wl`) files are the canonical source for board→page mappings. Below are the 57 wirelist-derived boards organized by category:
+
+**Sun-2 CPU Boards**: a, q, qb
+**Sun-2 Memory**: m1, m11, m16
+**Sun-2 Color**: sc
+**Sun-2 I/O**: d, ethp
+**Sun-2/50**: 25
+**Sun-2/100 (Fileserver)**: 20
+**Sun-2/LC**: c
+**Sun-2060 VME**: b
+**Sun-3/E**: em, ep, xc, xm
+**Sun-3/F**: x, f, fm
+**Sun-3/60 (Ferrari)**: 60, f
+**Sun Model 25**: 25, 26
+**Graphics**: cg, gr
+**Video**: v, ve1, vmev
+**Ethernet**: ethp, es
+**SCSI**: scsi
+**M-160 Backplane**: back
+**ROPC**: r
+**Misc**: vme3x2, vmxpig, ti2, etc.
+
+---
+
 ## SAILDART Archive (`/sun/saildart/SUDS/bits/saildart/`)
 
 Hundreds of files from the WAITS-era SAIL system, organized by PDP-10 directory:

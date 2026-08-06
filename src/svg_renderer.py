@@ -284,6 +284,9 @@ def render_svg(drw: DRWFile,
         if y > max_y: max_y = y
 
     for p in drw.points:
+        # Skip outlier points (likely corrupted data)
+        if abs(p.loc[0]) > 5000 or abs(p.loc[1]) > 5000:
+            continue
         expand(p.loc[0], p.loc[1])
 
     for bp in drw.body_placements:

@@ -483,10 +483,10 @@ class DRWParser:
         self.result.version = s.read_hw()  # up[1]
 
         # Nomenclature type (7-bit ASCIZ)
-        self.result.nomenclature_type = s.grab_7bit_ascii()
+        self.result.nomenclature_type, _ = s.rstrz()
 
         # Board type (7-bit ASCIZ)
-        self.result.board_type = s.grab_7bit_ascii()
+        self.result.board_type, _ = s.rstrz()
 
         self._dbg(f"version={self.result.version}, "
                   f"nom='{self.result.nomenclature_type}', "

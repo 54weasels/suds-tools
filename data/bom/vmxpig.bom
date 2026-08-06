@@ -1,0 +1,17 @@
+
+Data-Base: parts.lst
+Part-File: VMXPIG
+
+
+GENERIC	PINS SMIPART	QTY	COST	TOTAL	MFC	MFPART		DESCRIPTION
+
+DB50	9   130-____        1	   5.00	   5.00	AMP	        	DB-50, PCB MOUNT, 3 ROWS PINS
+P96	64  --------        5	   3.00	  15.00	AMP	???????		EUROCONNECTOR
+J.16	16  130-0273        1	   1.60	   1.60	BERG	STICK, 16 PINS	
+
+Total Estimated Cost:   21.60
+Total Types of Parts:       3
+Total Number of Parts:	      7
+Total Number of ICs:	      6
+Total Number of Pins:	    345
+16-pin equivalents:	  21.56

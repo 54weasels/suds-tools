@@ -1,0 +1,24 @@
+
+Data-Base: parts.lst
+Part-File: BACK
+
+
+GENERIC	PINS SMIPART	QTY	COST	TOTAL	MFC	MFPART		DESCRIPTION
+
+J.16	16  130-0273        2	   1.60	   3.20	BERG	STICK, 16 PINS	
+J.2	2   130-0273       10	    .20	   2.00	BERG	STICK, 2 PINS	
+J.8	8   130-0273       40	    .80	  32.00	BERG	STICK, 8 PINS	
+K	2   110-0047      103	    .08	   8.24	AVX	CAPACITOR	CAPACITOR TANTALUM 10 UF
+LED	2   150-0056        4	    .50	   2.00	HP	XXX		LED
+P96	64  --------       36	   3.00	 108.00	AMP	???????		EUROCONNECTOR
+R	2   120-____        4	    .05	    .20	ANY	RESISTOR 1/8W	100 OHM
+S10.T	10  ___-____	   48       .00	    .00	?	?	?
+ZENER	2   ___-____        2	    .50	   1.00	MOT	?		ZENER DIODE 8.0VT
+DIODE	2   ___¬____        4	    .00	    .00	?	1N4148
+
+Total Estimated Cost:  156.64
+Total Types of Parts:      10
+Total Number of Parts:	    253
+Total Number of ICs:	     38
+Total Number of Pins:	   2902
+16-pin equivalents:	 181.38
