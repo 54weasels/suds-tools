@@ -43,12 +43,13 @@ BORDER_STROKE = "#000000"
 BORDER_STROKE_W = "1.0"
 PADDING = 20
 
-# Text size scaling: SUDS text_size=1 → 6 drawing units tall
-# This matches the original plotter where text is roughly 75 mils high
-TEXT_SCALE = 5.0  # multiplier: text_size * TEXT_SCALE = font-size in drawing units
+# Text size scaling: SUDS text_size=1 → ~5 drawing units tall
+# Calibrated to match the original plotter where text fits cleanly
+# inside standard 24-unit wide DIP body outlines.
+TEXT_SCALE = 4.0  # multiplier: text_size * TEXT_SCALE = font-size in drawing units
 
 # Pin number text is slightly smaller than body/signal text
-PIN_NUM_FONT_SIZE = 3.5  # drawing units
+PIN_NUM_FONT_SIZE = 3.0  # drawing units
 
 
 def _clean_text(s: str) -> str:
@@ -91,6 +92,18 @@ def _make_text(parent: ET.Element, x: float, y: float, text: str,
     return txt
 
 
+def _body_box(bd: BodyDefinition):
+    """Compute bounding box of body's line segments.
+
+    Returns (min_x, max_x, min_y, max_y) or None if no lines.
+    """
+    if not bd.lines:
+        return None
+    xs = [s.draw_x for s in bd.lines]
+    ys = [s.draw_y for s in bd.lines]
+    return (min(xs), max(xs), min(ys), max(ys))
+
+
 def _make_symbol(defs_el: ET.Element, name: str, bd: BodyDefinition):
     """Create an SVG <symbol> for a body definition.
 
@@ -104,6 +117,17 @@ def _make_symbol(defs_el: ET.Element, name: str, bd: BodyDefinition):
     """
     safe_id = name.replace('\\', '_').replace('*', '_').replace('.', '_')
     sym = ET.SubElement(defs_el, 'symbol', id=f"bd_{safe_id}", overflow="visible")
+
+    # --- Compute body box extent for text alignment decisions ---
+    box = _body_box(bd)
+    if box:
+        box_minx, box_maxx, box_miny, box_maxy = box
+        box_cx = (box_minx + box_maxx) / 2.0
+        box_w = box_maxx - box_minx
+    else:
+        box_minx = box_maxx = box_miny = box_maxy = 0
+        box_cx = 0
+        box_w = 0
 
     # --- Lines (IC outline / symbol shape) ---
     if bd.lines:
@@ -121,6 +145,9 @@ def _make_symbol(defs_el: ET.Element, name: str, bd: BodyDefinition):
         path.set('fill', 'none')
 
     # --- Pin dots + pin numbers ---
+    # Pin number offset: push numbers slightly outside the body box
+    # so they sit between the pin dot and the body edge
+    PIN_NUM_OFFSET = 1.5
     for pin in bd.pins:
         px, py = pin.loc
         ET.SubElement(sym, 'circle',
@@ -135,7 +162,7 @@ def _make_symbol(defs_el: ET.Element, name: str, bd: BodyDefinition):
             pos = pin.pin_pos
             pin_fs = f"{PIN_NUM_FONT_SIZE}px"
             if pos == 2:        # Left-side pin → number goes left of dot
-                _make_text(sym, px - 1.5, py, pin_text,
+                _make_text(sym, px - PIN_NUM_OFFSET, py, pin_text,
                            pin_fs, PIN_NUM_COLOR,
                            anchor='end', baseline='central')
             elif pos == 4:      # Bottom pin → number goes below dot
@@ -147,11 +174,15 @@ def _make_symbol(defs_el: ET.Element, name: str, bd: BodyDefinition):
                            pin_fs, PIN_NUM_COLOR,
                            anchor='middle', baseline='auto')
             else:               # Right-side pin (pos=0 or default)
-                _make_text(sym, px + 1.5, py, pin_text,
+                _make_text(sym, px + PIN_NUM_OFFSET, py, pin_text,
                            pin_fs, PIN_NUM_COLOR,
                            anchor='start', baseline='central')
 
     # --- Body-level property text (pin names like A0, Q0, DIPTYPE) ---
+    # Determine text anchor based on position relative to body box center.
+    # This ensures left-side labels read rightward into the body,
+    # right-side labels end at the right edge, and centered labels
+    # (like body type name) are centered.
     for prop in bd.properties:
         text_val = _clean_text(prop.value_text)
         if not text_val:
@@ -160,8 +191,23 @@ def _make_symbol(defs_el: ET.Element, name: str, bd: BodyDefinition):
         if sz <= 0:
             continue  # hidden property (text_size=0)
         tx, ty = prop.text_loc
-        # Determine text anchor from position within body
-        anchor = 'end' if tx < 0 else 'start'
+
+        # Smart anchor detection based on text position within body box
+        if box_w > 0:
+            # Relative position of text within body box (0=left edge, 1=right edge)
+            rel_x = (tx - box_minx) / box_w if box_w > 0 else 0.5
+            if rel_x < 0.35:
+                # Left region: text starts here, reads rightward
+                anchor = 'start'
+            elif rel_x > 0.65:
+                # Right region: text ends here
+                anchor = 'end'
+            else:
+                # Center region: text is centered
+                anchor = 'middle'
+        else:
+            anchor = 'start'
+
         _make_text(sym, tx, ty, text_val,
                    f"{sz}px", LABEL_COLOR,
                    anchor=anchor, baseline='central')
@@ -303,8 +349,12 @@ def render_svg(drw: DRWFile,
             _render_placeholder(g_bodies, x, y, bp.body_name)
 
     # --- Placement property text (ref des, values) ---
+    # Designators (like Q2, U4) are centered above the body for IC-sized
+    # components. Smaller passives (R, C) keep their original text offset.
     g_labels = ET.SubElement(g, 'g', id="labels")
     for bp in drw.body_placements:
+        bd = all_defs.get(bp.body_name)
+        box = _body_box(bd) if bd else None
         for prop in bp.properties:
             text_val = _clean_text(prop.value_text)
             if not text_val:
@@ -315,8 +365,19 @@ def render_svg(drw: DRWFile,
             # xy_const_offset is the XY offset from the body placement location
             tx = bp.loc[0] + prop.xy_const_offset[0]
             ty = bp.loc[1] + prop.xy_const_offset[1]
+            anchor = 'start'
+            if box:
+                box_minx, box_maxx, box_miny, box_maxy = box
+                box_w = box_maxx - box_minx
+                box_cx = (box_minx + box_maxx) / 2.0
+                # Only center designators for IC-sized bodies (width >= 20)
+                if box_w >= 20:
+                    tx = bp.loc[0] + box_cx
+                    # Place designator above the body top
+                    ty = bp.loc[1] + box_maxy + sz * 0.6
+                    anchor = 'middle'
             _make_text(g_labels, tx, ty, text_val,
-                       f"{sz}px", REFDES_COLOR)
+                       f"{sz}px", REFDES_COLOR, anchor=anchor)
 
     # --- Wiring ---
     g_wires = ET.SubElement(g, 'g', id="wires")
