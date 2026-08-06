@@ -40,11 +40,42 @@ suds-tools/
 ├── src/
 │   ├── word36.py               # 36-bit PDP-10 word primitives
 │   ├── unpack.py               # Binary format decoder (octal/ITS)
-│   ├── drw_model.py            # Data model (dataclasses)
-│   └── drw_parser.py           # DRW binary parser
+│   ├── drw_model.py            # Data model (13 dataclasses)
+│   ├── drw_parser.py           # DRW binary parser (all 13 sections)
+│   ├── svg_renderer.py         # SVG rendering engine
+│   ├── library.py              # Library file loader with auto-discovery
+│   ├── dip_generator.py        # Synthetic DIP fallback body generator
+│   └── cli.py                  # CLI entry point
+├── scripts/
+│   └── render_q_series.py      # Batch render script for Q-series boards
+├── best_drw/                   # Curated best-version DRW files for rendering
+├── output/
+│   └── q_series/               # Rendered SVG + PNG output (28 pages)
 └── test/
     ├── test_unpack.py           # Unpack verification tests
     └── foo.drw.*                # Test DRW files
+```
+
+## Usage
+
+### Render a single schematic
+
+```bash
+python3 -m src.cli best_drw/qx1.drw.O --auto-lib best_drw --output qx1.svg
+```
+
+### Batch render Q-series (Sun-2 68010 CPU board)
+
+```bash
+python3 scripts/render_q_series.py --dir best_drw --output-dir output/q_series
+```
+
+This renders all Q-series pages to SVG and converts to PNG via `rsvg-convert`.
+
+### Render all DRW files
+
+```bash
+python3 scripts/render_q_series.py --dir best_drw --output-dir output/all --all
 ```
 
 ## Status
@@ -53,9 +84,9 @@ suds-tools/
 |-------|-------------|--------|
 | 1. Binary Decoder | 36-bit word unpacking (`word36.py`, `unpack.py`) | ✅ Complete |
 | 2. DRW Parser | Full file parser (`drw_parser.py`, `drw_model.py`) | ✅ 675/685 clean (98.5%) |
-| 3. SVG Renderer | Schematic → SVG rendering | 🔲 Next |
+| 3. SVG Renderer | Schematic → SVG rendering | ✅ Complete |
 | 4. KiCad Export | Netlist extraction → KiCad format | 🔲 Planned |
-| 5. Batch Tools | CLI for bulk conversion | 🔲 Planned |
+| 5. Batch Tools | Multi-page PDF, index, bulk conversion | 🔲 Planned |
 
 ### Corpus Statistics (685 files)
 
@@ -66,5 +97,21 @@ suds-tools/
 | Connection points | 461,931 |
 | Properties | 19,662 |
 | Files with trailers | 685/685 |
+| Library body defs (auto-discovered) | 669 |
+| Synthetic DIP fallbacks | ~90 |
+| Files rendered | 685/685 (100%) |
 
-10 files produce warnings — all are truncated archive files hitting exact EOF boundaries.
+10 files produce parse warnings — all are truncated archive files hitting exact EOF boundaries.
+
+### SVG Renderer Details
+
+The renderer produces monochrome SVG output calibrated against original SUDS pen plotter
+output (`.plt` files rendered via `harscn`). Key parameters:
+
+| Setting | Value | Notes |
+|---------|-------|-------|
+| `TEXT_SCALE` | 4.0 | SUDS text_size × 4.0 = SVG font-size in drawing units |
+| `PIN_NUM_FONT_SIZE` | 3.0 | Pin numbers slightly smaller than body text |
+| Coordinate system | 1 unit = 12.5 mils | Standard SUDS grid |
+| Y-axis | Flipped via `scale(1,-1)` | SUDS Y-up → SVG Y-down |
+| Body resolution | Auto-discover 12 library files | Library defs override synthetic DIPs |

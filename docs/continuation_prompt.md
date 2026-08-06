@@ -13,6 +13,7 @@ You are continuing work on a project to build tools that read vintage Stanford S
 - **Tools/docs**: `/Users/dmoisa/Documents/sun/smi/suds-tools/`
 - **SMI archive** (text files, emails, docs): `/Users/dmoisa/Documents/sun/smi/smi/`
 - **Binary DRW files** (octal-encoded): `/Users/dmoisa/Documents/sun/smi/smi/octal/` — 685 `.drw.O` files
+- **Best-version DRW files** (curated): `/Users/dmoisa/Documents/sun/smi/suds-tools/best_drw/`
 - **SUDS tools & source**: `/Users/dmoisa/Documents/sun/saildart/SUDS/`
   - `tools/suds.txt` — DRW format specification
   - `tools/soap.c` — existing DRW parser (netlist only, no graphics) by brad@heeltoe.com
@@ -66,34 +67,48 @@ SUDS was a CAD system on PDP-10 mainframes (1970s-80s) used by Andy Bechtolsheim
 **5. soap.c is NOT authoritative:**
    It gets several things wrong (byte-level strings, property format for v21 files, point bits as enum not bitfield). Use the PDP-10 IN.FAI source as the primary reference.
 
-### Corpus Status
-- **675/685 files** parse cleanly (98.5%)
-- **10 files** have warnings (all are truncated files hitting EOF at exact file boundary)
-- **0 failures**
-
 ### What Has Been Completed
-- Phase 1: Binary format decoder (`word36.py`, `unpack.py`) — bit-perfect
-- Phase 2: DRW parser (`drw_parser.py`, `drw_model.py`) — 98.5% clean
-  - Header, type names, library filespecs
-  - Body definitions with correct RSTRZ + PROPIN (and BTEXT for old versions)
-  - Macros, body placements, points (halfword-level, working)
-  - Set centers, trailer, extra parts, signals, DIP/wire-rule filespecs
+
+**Phase 1: Binary Format Decoder** ✅
+- `word36.py`, `unpack.py` — bit-perfect decoding verified against `cat36`
+
+**Phase 2: DRW Parser** ✅
+- `drw_parser.py`, `drw_model.py` — 675/685 clean (98.5%)
+- All 13 file sections parsed
+
+**Phase 3: SVG Renderer** ✅
+- `svg_renderer.py` — Full rendering engine (body symbols, wiring, text, title block)
+- `library.py` — Auto-discovers 12 library files (669 unique body defs)
+- `dip_generator.py` — Synthetic DIP fallback for bodies not in libraries
+- `render_q_series.py` — Batch rendering script
+- 685/685 files render successfully (100%)
+- 28 Q-series pages (Sun-2 68010 CPU) rendered with 100% body resolution
+- Monochrome plotter-style output calibrated against original `.plt` output
+- Text scale: `TEXT_SCALE=4.0`, `PIN_NUM_FONT_SIZE=3.0`
+- Library defs always override synthetic DIPs (fixed priority bug with 68010)
+- Pin numbers offset above wire lines to avoid collision
+- IC designators centered above body; passives preserve SUDS editor offsets
 
 ### What Needs To Be Done Next
-1. **SVG Renderer** — Map body def lines to SVG paths, handle orientation transforms, render text
-2. **KiCad Netlist Export** — Traverse point connectivity graph, output KiCad format
-3. **Component Library Parsing** — Load `lib.drw.O` symbol database for cross-referenced drawings
-4. **Batch Processing** — CLI tools to batch-convert directories
+1. **KiCad Netlist Export** — Traverse point connectivity graph, output KiCad format
+2. **Batch Processing** — Multi-page PDF output, board-level aggregation, index pages
+3. **Further visual refinements** — Any remaining text alignment or body rendering issues
 
 ### Key Reference Files
 - Journey: `suds-tools/docs/journey.md`
 - Format spec: `suds-tools/docs/drw_format.md`
 - PDP-10 source: `saildart/SUDS/bits/saildart/IN.FAI[NEW,DRW]` (THE authority)
+- Renderer: `suds-tools/src/svg_renderer.py`
 - Parser: `suds-tools/src/drw_parser.py`
 - Model: `suds-tools/src/drw_model.py`
 - Binary decoder: `suds-tools/src/word36.py`, `suds-tools/src/unpack.py`
+- Library loader: `suds-tools/src/library.py`
+- Batch script: `suds-tools/scripts/render_q_series.py`
 
 ### Architecture
 - **Python** for the toolchain
 - **Pipeline**: `unpack(bytes) → parse_drw(words) → render_svg(drawing)`
 - **Body defs use word-level RSTRZ**, placements/points use halfword-level grab_7bit_ascii
+- **Library priority**: Inline defs > Library defs > Synthetic DIPs
+- **SVG coordinate system**: Y-flipped via `scale(1,-1)`, viewBox from bounding box + 20u padding
+- **Transform order**: `translate(x,y) scale(-1,1) rotate(angle)` (SVG right-to-left)

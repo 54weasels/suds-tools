@@ -145,9 +145,10 @@ def _make_symbol(defs_el: ET.Element, name: str, bd: BodyDefinition):
         path.set('fill', 'none')
 
     # --- Pin dots + pin numbers ---
-    # Pin number offset: push numbers slightly outside the body box
-    # so they sit between the pin dot and the body edge
-    PIN_NUM_OFFSET = 1.5
+    # Pin number offset: push numbers outside the body box and slightly
+    # above pin center so they don't collide with horizontal signal wires.
+    PIN_NUM_OFFSET_X = 1.5    # horizontal offset from pin dot
+    PIN_NUM_OFFSET_Y = 1.8    # vertical offset above pin center to clear wires
     for pin in bd.pins:
         px, py = pin.loc
         ET.SubElement(sym, 'circle',
@@ -161,22 +162,22 @@ def _make_symbol(defs_el: ET.Element, name: str, bd: BodyDefinition):
             #   0 = right of pin, 2 = left of pin, 4 = below pin, 6 = above pin
             pos = pin.pin_pos
             pin_fs = f"{PIN_NUM_FONT_SIZE}px"
-            if pos == 2:        # Left-side pin → number goes left of dot
-                _make_text(sym, px - PIN_NUM_OFFSET, py, pin_text,
+            if pos == 2:        # Left-side pin → number goes left of dot, above wire
+                _make_text(sym, px - PIN_NUM_OFFSET_X, py + PIN_NUM_OFFSET_Y, pin_text,
                            pin_fs, PIN_NUM_COLOR,
-                           anchor='end', baseline='central')
-            elif pos == 4:      # Bottom pin → number goes below dot
-                _make_text(sym, px, py - 2.5, pin_text,
+                           anchor='end', baseline='auto')
+            elif pos == 4:      # Bottom pin → number goes below dot, left of wire
+                _make_text(sym, px - PIN_NUM_OFFSET_Y, py - 2.5, pin_text,
                            pin_fs, PIN_NUM_COLOR,
-                           anchor='middle', baseline='auto')
-            elif pos == 6:      # Top pin → number goes above dot
-                _make_text(sym, px, py + 2.5, pin_text,
+                           anchor='end', baseline='auto')
+            elif pos == 6:      # Top pin → number goes above dot, left of wire
+                _make_text(sym, px - PIN_NUM_OFFSET_Y, py + 2.5, pin_text,
                            pin_fs, PIN_NUM_COLOR,
-                           anchor='middle', baseline='auto')
-            else:               # Right-side pin (pos=0 or default)
-                _make_text(sym, px + PIN_NUM_OFFSET, py, pin_text,
+                           anchor='end', baseline='auto')
+            else:               # Right-side pin (pos=0 or default) → above wire
+                _make_text(sym, px + PIN_NUM_OFFSET_X, py + PIN_NUM_OFFSET_Y, pin_text,
                            pin_fs, PIN_NUM_COLOR,
-                           anchor='start', baseline='central')
+                           anchor='start', baseline='auto')
 
     # --- Body-level property text (pin names like A0, Q0, DIPTYPE) ---
     # Determine text anchor based on position relative to body box center.
@@ -323,17 +324,7 @@ def render_svg(drw: DRWFile,
                   width=str(width), height=str(height),
                   fill=BG_COLOR)
 
-    # Drawing border frame
-    frame_margin = 6
-    ET.SubElement(g, 'rect',
-                  x=str(min_x + frame_margin),
-                  y=str(min_y + frame_margin),
-                  width=str(width - 2 * frame_margin),
-                  height=str(height - 2 * frame_margin),
-                  stroke=BORDER_STROKE,
-                  fill='none')
-    frame_rect = (min_x + frame_margin, min_y + frame_margin,
-                  width - 2 * frame_margin, height - 2 * frame_margin)
+    # No drawing border frame — matches user preference for clean output
 
     # --- Body placements ---
     g_bodies = ET.SubElement(g, 'g', id="bodies")
@@ -436,7 +427,7 @@ def render_svg(drw: DRWFile,
 
     # --- Title block ---
     if drw.trailer:
-        _render_title_block(g, drw.trailer, frame_rect)
+        _render_title_block(g, drw.trailer, min_x, min_y, width, height)
 
     # Serialize
     ET.indent(root, space='  ')
@@ -444,13 +435,13 @@ def render_svg(drw: DRWFile,
 
 
 def _render_title_block(g: ET.Element, trailer: Trailer,
-                        frame_rect: tuple):
+                        vb_x: float, vb_y: float, vb_w: float, vb_h: float):
     """Render the title block matching original SUDS plotter layout.
 
-    Title at bottom-left, page number at bottom-right, inside the frame.
+    Title at bottom-left, page number at bottom-right.
     """
     g_title = ET.SubElement(g, 'g', id="title_block")
-    fx, fy, fw, fh = frame_rect
+    fx, fy, fw, fh = vb_x, vb_y, vb_w, vb_h
 
     # Title text (bottom-left, inside frame)
     title = f"{trailer.title_line_1}"

@@ -320,3 +320,52 @@ from `DIPS.LSD[LIB,DRW]` and used to generate synthetic DIP body definitions.
 **Sample renders:** All 8 sample files now render with 100% body resolution:
 ethernet, Sun-3/60, Sun-2 D-board, color graphics, memory board, mouse, 
 Sun-2 CPU, video memory.
+
+---
+
+### Checkpoint 6: SVG Renderer Calibration & Phase 3 Completion
+
+**Date:** 2026-08-05
+
+**Text Calibration Against Plotter Output:**
+User provided reference PNGs from original SUDS `.plt` plotter output (rendered
+via `harscn`). Compared against SVG renders and iterated on three rounds of fixes:
+
+1. **Text scale** — Reduced `TEXT_SCALE` from 5.0 → 4.0 and `PIN_NUM_FONT_SIZE`
+   from 3.5 → 3.0. At 5.0, pin labels consistently bled outside 24-unit wide DIP
+   body outlines. 4.0 is the proven limit for legibility.
+
+2. **Designator positioning** — IC-sized bodies (box width ≥ 20 units) now get
+   designators (e.g., `Q2`) centered horizontally above the body top edge. Small
+   passives (R, C) preserve original `xy_const_offset` positioning from the SUDS
+   editor, since those offsets are carefully hand-placed relative to small symbols.
+
+3. **Three final fixes:**
+   - **68010 body box bug**: The synthetic DIP generator created a 64-pin DIP for
+     the 68010 with y=[-128, 128], but the real library definition spans y=[-416, 160]
+     (576 units tall, 120 pins). Both had 5 outline lines, so the "keep the one with
+     more lines" heuristic never replaced the synthetic. Fixed `render_q_series.py`
+     to track synthetic defs and always prefer real library defs.
+   - **Drawing border removal**: Removed the `<rect>` border frame around the entire
+     drawing — not present in original plotter output.
+   - **Pin number collision avoidance**: Pin numbers were vertically centered on pins
+     (`baseline='central'`), colliding with horizontal signal wires. Changed to offset
+     1.8 units above pin center so numbers sit above the wire line.
+
+**Best-Version DRW Curation:**
+Created `best_drw/` directory with the most complete version of each DRW file,
+selected from version logs across the archive. This provides maximum body definition
+coverage for rendering.
+
+**Batch Render Results:**
+
+| Metric | Result |
+|--------|--------|
+| Total files rendered | 685 / 685 (100%) |
+| Q-series pages rendered | 28 / 28 |
+| Body resolution (QX1 CPU) | 22 / 22 (100%) |
+| Body resolution (QX6 PROMs) | 12 / 12 (100%) |
+| Library body defs (auto-discovered) | 669 |
+| Synthetic DIP fallbacks | ~90 |
+
+**Phase 3 Status: COMPLETE.**
