@@ -120,13 +120,37 @@ class BodyPlacement:
     loc: tuple[int, int] = (0, 0)       # X,Y position on the drawing
     orientation: int = 0                 # Rotation/mirror encoding
     has_location: bool = False           # True if CARD LOC field follows orientation
-    card_body_loc: int = 0              # Card location encoding (slot, position)
+    card_body_loc: int = 0              # Card location encoding (Bay-Rack-Slot)
     xy_const_offset: tuple[int, int] = (0, 0)  # Constant offset for location text
     xy_char_offset: tuple[int, int] = (0, 0)   # Character offset for location text
     body_bits: int = 0                   # Body instance attribute bits
     body_id: int = 0                     # Generated body ID
     body_name: str = ""                  # Reference to BodyDefinition.name
+    designation: str = ""                # Reference designator (e.g., 'U100', 'C604')
+                                         # Assigned from WL LOC table, not from DRW file
     properties: list[Property] = field(default_factory=list)
+
+    @property
+    def physical_loc(self) -> str:
+        """Decode card_body_loc into physical Bay-Rack-Slot position code.
+        
+        From soap.c:
+            refdes[0] = '0' + ((card_body_loc >> 15) & 7)  # Bay digit
+            refdes[1] = ('A'-1) + ((card_body_loc >> 12) & 7)  # Rack letter
+            refdes[2:4] = sprintf("%02d", (card_body_loc >> 6) & 077)  # Slot
+        
+        Returns:
+            4-character string like '1A01', '2B03', or '0@00' if no location.
+        """
+        if not self.has_location or self.card_body_loc == 0:
+            return ''
+        val = self.card_body_loc
+        bay = (val >> 15) & 7
+        rack = (val >> 12) & 7
+        slot = (val >> 6) & 0o77
+        bay_c = chr(ord('0') + bay)
+        rack_c = chr(ord('A') - 1 + rack) if rack > 0 else '@'
+        return f"{bay_c}{rack_c}{slot:02d}"
 
     @property
     def rotation(self) -> int:

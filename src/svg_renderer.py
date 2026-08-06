@@ -238,19 +238,24 @@ def _orientation_transform(bp: BodyPlacement) -> str:
 
 
 def render_svg(drw: DRWFile,
-               library: Optional[Dict[str, BodyDefinition]] = None) -> str:
+               library: Optional[Dict[str, BodyDefinition]] = None,
+               designators: Optional[Dict[int, str]] = None) -> str:
     """Render a DRW file to an SVG string.
 
     Args:
         drw: Parsed DRW file
         library: Dict of body definition name -> BodyDefinition from library files
+        designators: Dict mapping body_id -> reference designator string (e.g., 'U100').
+                     When provided, renders designator text above each body.
+                     Typically sourced from WL LOC table.
 
     Returns:
         SVG document as a string
     """
     if library is None:
         library = {}
-
+    if designators is None:
+        designators = {}
     # Build combined body def index (inline defs override library)
     all_defs: Dict[str, BodyDefinition] = {}
     all_defs.update(library)
@@ -349,6 +354,22 @@ def render_svg(drw: DRWFile,
     for bp in drw.body_placements:
         bd = all_defs.get(bp.body_name)
         box = _body_box(bd) if bd else None
+        
+        # Render WL-derived designator above body (if available)
+        desig = designators.get(bp.body_id, '')
+        if desig and box:
+            box_minx, box_maxx, box_miny, box_maxy = box
+            box_cx = (box_minx + box_maxx) / 2.0
+            # Place designator above the body, centered
+            dx = bp.loc[0] + box_cx
+            dy = bp.loc[1] + box_maxy + 8  # 8 units above body top
+            _make_text(g_labels, dx, dy, desig,
+                       "7px", REFDES_COLOR, anchor='middle')
+        elif desig:
+            # No box info, place at body location offset
+            _make_text(g_labels, bp.loc[0], bp.loc[1] + 12, desig,
+                       "7px", REFDES_COLOR, anchor='middle')
+        
         for prop in bp.properties:
             text_val = _clean_text(prop.value_text)
             if not text_val:
