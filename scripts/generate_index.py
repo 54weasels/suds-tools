@@ -41,12 +41,33 @@ def load_wl_authority(path='data/wl_authority.json'):
     return {}
 
 
+def load_canonical_sets(path='data/canonical_board_sets.json'):
+    """Load the canonical board sets analysis."""
+    if os.path.exists(path):
+        with open(path) as f:
+            return json.load(f)
+    return {'boards': {}, 'metadata': {}}
+
+
+def load_manifest(path='data/drw_provenance_manifest.json'):
+    """Load the provenance manifest (which version was actually used)."""
+    if os.path.exists(path):
+        with open(path) as f:
+            data = json.load(f)
+        # Build lookup: basename -> manifest entry
+        return {e['basename']: e for e in data.get('files', [])}
+    return {}
+
 def generate_provenance_index(output_dir, drw_dir, wl_dir):
     """Generate the full provenance-rich HTML index."""
 
     boards = discover_boards(drw_dir, wl_dir=wl_dir)
     recovery = load_recovery_data()
     wl_auth = load_wl_authority()
+    canonical = load_canonical_sets()
+    manifest = load_manifest()
+
+    canonical_meta = canonical.get('metadata', {})
 
     # Build recovery lookup: filename -> recovery info
     recovery_map = {}
@@ -100,6 +121,18 @@ def generate_provenance_index(output_dir, drw_dir, wl_dir):
             if wl_info:
                 wl_note = f'WL: {wl_info.get("board", "")} {wl_info.get("function", "")}'.strip()
 
+            # Check provenance manifest (source version)
+            mf = manifest.get(pv.name, {})
+            source_note = ''
+            if mf:
+                ver = mf.get('version', 'latest')
+                if ver != 'latest' and mf.get('action') == 'copied':
+                    source_note = f'prev/v{ver}'
+                elif mf.get('action') == 'copied':
+                    source_note = 'latest (copied)'
+                else:
+                    source_note = 'latest'
+
             page_rows.append({
                 'name': pv.name,
                 'page': pv.page_num,
@@ -114,6 +147,7 @@ def generate_provenance_index(output_dir, drw_dir, wl_dir):
                 'is_best': assigned.is_best if assigned else False,
                 'recovery_note': recovery_note,
                 'wl_note': wl_note,
+                'source_note': source_note,
             })
 
         # Find PDFs
@@ -173,6 +207,9 @@ def generate_provenance_index(output_dir, drw_dir, wl_dir):
             wl_td = f'<td class="wl-info">{pr["wl_note"]}</td>' if pr['wl_note'] else '<td></td>'
             svg_link = f'<a href="{board.board_id}/{pr["name"]}.svg">{pr["name"]}</a>'
 
+            source_cls = ' class="from-prev"' if pr.get('source_note', '').startswith('prev/') else ''
+            source_td = f'<td{source_cls}>{pr.get("source_note", "")}</td>'
+
             page_table_rows += (
                 f'<tr{cls}>'
                 f'<td>{svg_link}</td>'
@@ -182,6 +219,7 @@ def generate_provenance_index(output_dir, drw_dir, wl_dir):
                 f'<td>{pr["bodies"]}</td>'
                 f'<td>{pr["assigned_version"]}</td>'
                 f'<td>{pr["assigned_score"]}</td>'
+                f'{source_td}'
                 f'{recovery_td}'
                 f'{wl_td}'
                 f'</tr>\n'
@@ -201,7 +239,7 @@ def generate_provenance_index(output_dir, drw_dir, wl_dir):
             <tr>
                 <th>Page</th><th>Pg/Of</th><th>Board Designator</th><th>Function</th>
                 <th>Bodies</th><th>Version</th><th>Score</th>
-                <th>Recovery</th><th>WL Authority</th>
+                <th>Source</th><th>Recovery</th><th>WL Authority</th>
             </tr>
         </thead>
         <tbody>{page_table_rows}</tbody>
@@ -270,6 +308,7 @@ h2 {{ color: #f0f6fc; margin: 0 0 10px 0; }}
 
 .recovery {{ color: #d29922; font-size: 0.85em; }}
 .wl-info {{ color: #79c0ff; font-size: 0.85em; }}
+.from-prev {{ color: #d2a8ff; font-size: 0.85em; font-weight: bold; }}
 
 .provenance-note {{
     background: #1c2128; border: 1px solid #30363d; border-radius: 6px;
@@ -287,15 +326,18 @@ footer {{ margin-top: 40px; padding: 20px; color: #484f58; font-size: 0.85em; te
     <div class="summary-item"><div class="value">{len(board_sections)}</div><div class="label">Boards</div></div>
     <div class="summary-item"><div class="value">{total_pages}</div><div class="label">Total Pages</div></div>
     <div class="summary-item"><div class="value">{total_versions}</div><div class="label">Version Sets</div></div>
-    <div class="summary-item"><div class="value">{rec_summary.get('total_mismatches', 0)}</div><div class="label">Files Recovered</div></div>
+    <div class="summary-item"><div class="value">{canonical_meta.get('source_files', 0)}</div><div class="label">Source Files Indexed</div></div>
+    <div class="summary-item"><div class="value">{canonical_meta.get('total_board_sets', 0)}</div><div class="label">Canonical Board Sets</div></div>
+    <div class="summary-item"><div class="value">{canonical_meta.get('sets_using_prev_versions', 0)}</div><div class="label">Sets Using Prev/</div></div>
 </div>
 
 <div class="provenance-note">
     <strong>Provenance Information</strong><br>
     Generated: {timestamp}<br>
-    Source: SAILDART SMI archive (smi/octal/) with {rec_summary.get('total_mismatches', 0)} files recovered from version history.<br>
+    Source: SAILDART SMI archive — {canonical_meta.get('source_files', 0)} DRW files indexed across octal/ and prev/ directories.<br>
     Grouping: Designator-first coherence algorithm — board identity from title block has maximum weight (0.35).<br>
     WL Authority: {len(wl_auth)} wirelists parsed for per-page board assignment.<br>
+    Version Selection: Best version per page selected from all available versions (latest + history).<br>
     Scoring: Score = 0.35×C_desig + 0.20×C_of + 0.20×C_coverage + 0.15×C_wl + 0.10×C_size
 </div>
 

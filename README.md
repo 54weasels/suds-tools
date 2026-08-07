@@ -30,13 +30,22 @@ significant machines, drawn by Andy Bechtolsheim and others.
 ### Data Directory Layout
 ```text
 data/
-├── drw/            # 685 DRW schematic page files (binary, octal-encoded)
-├── wirelists/      # 68 WL wirelist files (text) — canonical board→page mappings
-├── wd/             # WD wire data files (binary) — intermediate netlists
-├── parts/          # 100 PRT parts list files (text)
-├── wirelist_errors/ # 90 WLS error summary files (text)
-├── bom/            # 54 BOM bill-of-materials files (text)
-└── commands/       # COM/TXT batch command scripts for WL tool
+├── drw/                        # 685 DRW files (best canonical version per page)
+├── wirelists/                  # 68 WL wirelist files — canonical board→page mappings
+├── wd/                         # WD wire data files (binary) — intermediate netlists
+├── parts/                      # 100 PRT parts list files (text)
+├── bom/                        # 54 BOM bill-of-materials files (text)
+├── wirelist_errors/            # 90 WLS error summary files (text)
+├── commands/                   # COM/TXT batch command scripts for WL tool
+├── board_pdfs/                 # Best-version PDFs for each board (checked in)
+├── board_pdfs/index.html       # Provenance-rich HTML index
+├── drw_version_index.json      # Complete index of all 2,215 DRW file versions
+├── canonical_board_sets.json   # 352 board sets with scoring and page selection
+├── drw_provenance_manifest.json # Which version was selected per page and why
+├── wl_authority.json           # WL per-page board authority map (66 WLs, 564 pages)
+├── version_recovery.json       # Recovery audit trail
+├── board_registry.json         # Cross-referenced board registry
+└── pdf_groupings.json          # OCR-extracted PDF page assignments
 ```
 
 ### File Extension Reference
@@ -89,16 +98,22 @@ DRW "Page X of Y" consistency      ★★★☆☆  Self-declared page total
 BOM/WD cross-reference             ★★☆☆☆  Confirmation signal
 ```
 
-### Version Recovery
+### Comprehensive Version Index
 
-The `data/drw/` files are sourced from `smi/octal/` (latest SAILDART version).
-An initial curation step had incorrectly selected older versions for 189 files.
-These were recovered by comparing all 685 files against the canonical archive and
-replacing mismatched versions. The recovery audit trail is in `data/version_recovery.json`.
+All **2,215 DRW files** across `smi/octal/` (685 latest) and `smi/prev/` (1,530
+older versions) are indexed in `data/drw_version_index.json`. For each file, the
+index records: board designator, page number, page-of total, file date, size, and
+body count.
 
-**Example:** For the X board (SUN-3/F), files `x2.drw.O` through `x4.drw.O` had
-been populated with a 1982 "SUN 68000 MEMORY BOARD" instead of the 1986 SUN-3/F
-schematics. After recovery, the SUN-3/F board went from 10/15 to 14/15 pages.
+The canonical best version of each page is selected by the coherence algorithm,
+which may pull from version history when an older version produces a more coherent
+board set. For example, `g1.drw.O` through `g5.drw.O` use `prev/v1-v2` versions
+(SUN GRAPHICS, 7/7 pages, score 0.85) instead of the latest versions.
+
+The complete pipeline:
+```
+build_version_index.py → build_canonical_sets.py → populate_best_versions.py → batch_render.py → generate_index.py
+```
 
 ### WL Authority Map
 
@@ -106,6 +121,14 @@ The `data/wl_authority.json` file contains per-page board identity extracted fro
 66 wirelist file headers. Each entry records the board name, page function, sheet
 number, and date from when the wirelist was generated. This is the highest-authority
 source for page-to-board assignment.
+
+## Output
+
+The best-version PDFs and provenance index are checked in under `data/board_pdfs/`:
+
+- **`data/board_pdfs/index.html`** — Browse all boards with provenance info
+- **`data/board_pdfs/{board_id}/{board_id}_v{N}_..._{BEST}.pdf`** — Best version per board
+- Each PDF filename encodes: version number, board designator, page total, coherence score
 
 ## Project Structure
 
@@ -133,7 +156,10 @@ suds-tools/
 │   └── cli.py                      # CLI entry point
 ├── scripts/
 │   ├── batch_render.py             # Batch SVG/PDF renderer with --versions
-│   └── generate_index.py           # Provenance-rich HTML index generator
+│   ├── generate_index.py           # Provenance-rich HTML index generator
+│   ├── build_version_index.py      # Scan all 2,215 DRW files for metadata
+│   ├── build_canonical_sets.py     # Build 352 canonical board sets
+│   └── populate_best_versions.py   # Copy best versions to data/drw/
 ├── data/
 │   ├── drw/                        # 685 DRW files (canonical from smi/octal)
 │   ├── wirelists/                  # 68 WL wirelist files
@@ -160,17 +186,18 @@ suds-tools/
 ## Usage
 
 ```bash
-# List all discovered boards
-python3 scripts/batch_render.py --list
+# Full pipeline: index all versions, build canonical sets, populate best, render
+python3 scripts/build_version_index.py
+python3 scripts/build_canonical_sets.py
+python3 scripts/populate_best_versions.py
+python3 scripts/batch_render.py --all --pdf --versions
+python3 scripts/generate_index.py
 
-# Render all boards with version-aware PDFs and HTML index
-python3 scripts/batch_render.py --all --pdf --versions --index
-
-# Render a single board
+# Or, quick single-board render
 python3 scripts/batch_render.py --board x --pdf --versions
 
-# Generate provenance-rich index (after batch render)
-python3 scripts/generate_index.py
+# List all discovered boards
+python3 scripts/batch_render.py --list
 ```
 
 ### Version-Aware PDF Output
@@ -199,16 +226,18 @@ x_v3_sun_3_of12_s63%.pdf                # 1/12 SUN-3 (earlier revision)
 
 | Metric | Count |
 |--------|-------|
-| DRW files (canonical versions) | 685 |
+| Total DRW files indexed (octal + prev) | 2,215 |
+| DRW files in data/drw/ (canonical best) | 685 |
 | Body definitions discovered | 1,433 |
 | Body placements | 33,339 |
 | Connection points | 461,931 |
 | Library body defs (auto-discovered) | 669 |
-| Synthetic DIP fallbacks | ~90 |
 | Files rendered | 685/685 (100%) |
 | Board directories | 163 |
-| Version-aware PDFs | 279 |
-| Files recovered from version history | 189 |
+| Canonical board sets identified | 352 |
+| Board sets using version history | 146 |
+| Version-aware PDFs | ~280 |
+| Best-version PDFs (checked in) | ~91 |
 | Wirelists parsed for authority data | 66 |
 
 ### SVG Renderer Details

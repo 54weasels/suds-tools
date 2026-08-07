@@ -1,0 +1,3402 @@
+{
+  "generated": "2026-08-06 19:45:12",
+  "total_files": 374,
+  "already_correct": 347,
+  "copied": 27,
+  "prev_versions_used": 27,
+  "files": [
+    {
+      "basename": "1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/1.drw.O",
+      "version": "latest",
+      "designator": "SUN-2060",
+      "set": "SUN-2060",
+      "score": 0.661
+    },
+    {
+      "basename": "10",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/10.drw.O",
+      "version": "latest",
+      "designator": "501-1007-08",
+      "set": "501-1007-08",
+      "score": 0.672
+    },
+    {
+      "basename": "2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2.drw.O",
+      "version": "latest",
+      "designator": "SUN-2060",
+      "set": "SUN-2060",
+      "score": 0.661
+    },
+    {
+      "basename": "2001",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2001.drw.O",
+      "version": "latest",
+      "designator": "FILESERVER",
+      "set": "FILESERVER",
+      "score": 0.683
+    },
+    {
+      "basename": "2002",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2002.drw.O",
+      "version": "latest",
+      "designator": "FILESERVER",
+      "set": "FILESERVER",
+      "score": 0.683
+    },
+    {
+      "basename": "2003",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2003.drw.O",
+      "version": "latest",
+      "designator": "FILESERVER",
+      "set": "FILESERVER",
+      "score": 0.683
+    },
+    {
+      "basename": "2004",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2004.drw.O",
+      "version": "latest",
+      "designator": "FILESERVER",
+      "set": "FILESERVER",
+      "score": 0.683
+    },
+    {
+      "basename": "2005",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2005.drw.O",
+      "version": "latest",
+      "designator": "FILESERVER",
+      "set": "FILESERVER",
+      "score": 0.683
+    },
+    {
+      "basename": "2006",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2006.drw.O",
+      "version": "latest",
+      "designator": "FILESERVER",
+      "set": "FILESERVER",
+      "score": 0.683
+    },
+    {
+      "basename": "2007",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2007.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.661
+    },
+    {
+      "basename": "2008",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2008.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.661
+    },
+    {
+      "basename": "2501",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2501.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "2502",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2502.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "2503",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2503.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "2504",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2504.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "2505",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2505.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "2506",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2506.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "2507",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2507.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "2508",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2508.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "2509",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2509.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "2510",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2510.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "2511",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2511.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "2512",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2512.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "2513",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2513.drw.O",
+      "version": "latest",
+      "designator": "M25",
+      "set": "M25",
+      "score": 0.661
+    },
+    {
+      "basename": "2514",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2514.drw.O",
+      "version": "latest",
+      "designator": "M25",
+      "set": "M25",
+      "score": 0.661
+    },
+    {
+      "basename": "2515",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2515.drw.O",
+      "version": "latest",
+      "designator": "M25",
+      "set": "M25",
+      "score": 0.661
+    },
+    {
+      "basename": "2516",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2516.drw.O",
+      "version": "latest",
+      "designator": "M25",
+      "set": "M25",
+      "score": 0.661
+    },
+    {
+      "basename": "2517",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2517.drw.O",
+      "version": "latest",
+      "designator": "M25",
+      "set": "M25",
+      "score": 0.661
+    },
+    {
+      "basename": "2518",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2518.drw.O",
+      "version": "latest",
+      "designator": "M25",
+      "set": "M25",
+      "score": 0.661
+    },
+    {
+      "basename": "2519",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2519.drw.O",
+      "version": "latest",
+      "designator": "M25",
+      "set": "M25",
+      "score": 0.661
+    },
+    {
+      "basename": "2607",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2607.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "2608",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2608.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "2609",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2609.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "2610",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2610.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "2611",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2611.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "2612",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/2612.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/3.drw.O",
+      "version": "latest",
+      "designator": "SUN-2060",
+      "set": "SUN-2060",
+      "score": 0.661
+    },
+    {
+      "basename": "6001",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6001.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "6002",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6002.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.661
+    },
+    {
+      "basename": "6003",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6003.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "6004",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6004.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "6005",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6005.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "6006",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6006.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "6007",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6007.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.661
+    },
+    {
+      "basename": "6008",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6008.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.661
+    },
+    {
+      "basename": "6009",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6009.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "6010",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6010.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.661
+    },
+    {
+      "basename": "6011",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6011.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "6012",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6012.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "6013",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6013.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "6014",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6014.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "6015",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6015.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "6016",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6016.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "6017",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6017.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "6018",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6018.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "6019",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6019.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "6020",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/6020.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "a01",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a01.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a02",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a02.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a03",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a03.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a04",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a04.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a05",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a05.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a06",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a06.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a07",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a07.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a08",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a08.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a09",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a09.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a10",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a10.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a11",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a11.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a12",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a12.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a13",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a13.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a15",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a15.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a17",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a17.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a18",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a18.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a19",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a19.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a3.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "a4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/a4.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.976
+    },
+    {
+      "basename": "anew",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/anew.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.661
+    },
+    {
+      "basename": "ap2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ap2.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.66
+    },
+    {
+      "basename": "atest",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/atest.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.661
+    },
+    {
+      "basename": "augat",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/augat.drw.O",
+      "version": "latest",
+      "designator": "SUN 68010",
+      "set": "SUN 68010",
+      "score": 0.683
+    },
+    {
+      "basename": "avb",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/avb.drw.O",
+      "version": "latest",
+      "designator": "MODEL 25",
+      "set": "MODEL 25",
+      "score": 0.661
+    },
+    {
+      "basename": "ax1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ax1.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.66
+    },
+    {
+      "basename": "b01",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/b01.drw.6.O",
+      "version": 6,
+      "version_str": "prev/v6",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b02",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/b02.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b03",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/b03.drw.5.O",
+      "version": 5,
+      "version_str": "prev/v5",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b04",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/b04.drw.5.O",
+      "version": 5,
+      "version_str": "prev/v5",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b05",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/b05.drw.5.O",
+      "version": 5,
+      "version_str": "prev/v5",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b06",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/b06.drw.4.O",
+      "version": 4,
+      "version_str": "prev/v4",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b07",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/b07.drw.6.O",
+      "version": 6,
+      "version_str": "prev/v6",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b08",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/b08.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b09",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/b09.drw.6.O",
+      "version": 6,
+      "version_str": "prev/v6",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b10",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/b10.drw.4.O",
+      "version": 4,
+      "version_str": "prev/v4",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b11",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/b11.drw.4.O",
+      "version": 4,
+      "version_str": "prev/v4",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b12",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/b12.drw.5.O",
+      "version": 5,
+      "version_str": "prev/v5",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b13",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/b13.drw.4.O",
+      "version": 4,
+      "version_str": "prev/v4",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b14",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/b14.drw.2.O",
+      "version": 2,
+      "version_str": "prev/v2",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b15",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/b15.drw.5.O",
+      "version": 5,
+      "version_str": "prev/v5",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b16",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/b16.drw.4.O",
+      "version": 4,
+      "version_str": "prev/v4",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b17",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/b17.drw.7.O",
+      "version": 7,
+      "version_str": "prev/v7",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b18",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/b18.drw.6.O",
+      "version": 6,
+      "version_str": "prev/v6",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "b19",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/b19.drw.4.O",
+      "version": 4,
+      "version_str": "prev/v4",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.845
+    },
+    {
+      "basename": "back1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/back1.drw.O",
+      "version": "latest",
+      "designator": "M-160 BACKPLANE",
+      "set": "M-160 BACKPLANE",
+      "score": 0.985
+    },
+    {
+      "basename": "back10",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/back10.drw.O",
+      "version": "latest",
+      "designator": "M-160 BACKPLANE",
+      "set": "M-160 BACKPLANE",
+      "score": 0.985
+    },
+    {
+      "basename": "back11",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/back11.drw.O",
+      "version": "latest",
+      "designator": "M-160 BACKPLANE",
+      "set": "M-160 BACKPLANE",
+      "score": 0.985
+    },
+    {
+      "basename": "back13",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/back13.drw.O",
+      "version": "latest",
+      "designator": "M-160 BACKPLANE",
+      "set": "M-160 BACKPLANE",
+      "score": 0.985
+    },
+    {
+      "basename": "back2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/back2.drw.O",
+      "version": "latest",
+      "designator": "M-160 BACKPLANE",
+      "set": "M-160 BACKPLANE",
+      "score": 0.985
+    },
+    {
+      "basename": "back3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/back3.drw.O",
+      "version": "latest",
+      "designator": "M-160 BACKPLANE",
+      "set": "M-160 BACKPLANE",
+      "score": 0.985
+    },
+    {
+      "basename": "back4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/back4.drw.O",
+      "version": "latest",
+      "designator": "M-160 BACKPLANE",
+      "set": "M-160 BACKPLANE",
+      "score": 0.985
+    },
+    {
+      "basename": "back5",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/back5.drw.1.O",
+      "version": 1,
+      "version_str": "prev/v1",
+      "designator": "M-160 BACKPLANE",
+      "set": "M-160 BACKPLANE",
+      "score": 0.985
+    },
+    {
+      "basename": "back6",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/back6.drw.O",
+      "version": "latest",
+      "designator": "M-160 BACKPLANE",
+      "set": "M-160 BACKPLANE",
+      "score": 0.985
+    },
+    {
+      "basename": "back7",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/back7.drw.O",
+      "version": "latest",
+      "designator": "M-160 BACKPLANE",
+      "set": "M-160 BACKPLANE",
+      "score": 0.985
+    },
+    {
+      "basename": "back8",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/back8.drw.O",
+      "version": "latest",
+      "designator": "M-160 BACKPLANE",
+      "set": "M-160 BACKPLANE",
+      "score": 0.985
+    },
+    {
+      "basename": "back9",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/back9.drw.O",
+      "version": "latest",
+      "designator": "M-160 BACKPLANE",
+      "set": "M-160 BACKPLANE",
+      "score": 0.985
+    },
+    {
+      "basename": "bar",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/bar.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.661
+    },
+    {
+      "basename": "bfoo",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/bfoo.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.661
+    },
+    {
+      "basename": "c",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/c.drw.O",
+      "version": "latest",
+      "designator": "SUN-2/LC",
+      "set": "SUN-2/LC",
+      "score": 0.901
+    },
+    {
+      "basename": "c2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/c2.drw.O",
+      "version": "latest",
+      "designator": "SUN-2/LC",
+      "set": "SUN-2/LC",
+      "score": 0.901
+    },
+    {
+      "basename": "c4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/c4.drw.O",
+      "version": "latest",
+      "designator": "SUN-2/LC",
+      "set": "SUN-2/LC",
+      "score": 0.901
+    },
+    {
+      "basename": "c5",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/c5.drw.O",
+      "version": "latest",
+      "designator": "SUN-2/LC",
+      "set": "SUN-2/LC",
+      "score": 0.901
+    },
+    {
+      "basename": "c7",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/c7.drw.O",
+      "version": "latest",
+      "designator": "SUN-2/LC",
+      "set": "SUN-2/LC",
+      "score": 0.901
+    },
+    {
+      "basename": "cas",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/cas.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "cg1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/cg1.drw.O",
+      "version": "latest",
+      "designator": "COLOR BOARD",
+      "set": "COLOR BOARD",
+      "score": 1.0
+    },
+    {
+      "basename": "cg2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/cg2.drw.O",
+      "version": "latest",
+      "designator": "COLOR BOARD",
+      "set": "COLOR BOARD",
+      "score": 1.0
+    },
+    {
+      "basename": "cg3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/cg3.drw.O",
+      "version": "latest",
+      "designator": "COLOR BOARD",
+      "set": "COLOR BOARD",
+      "score": 1.0
+    },
+    {
+      "basename": "cg4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/cg4.drw.O",
+      "version": "latest",
+      "designator": "COLOR BOARD",
+      "set": "COLOR BOARD",
+      "score": 1.0
+    },
+    {
+      "basename": "cg5",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/cg5.drw.O",
+      "version": "latest",
+      "designator": "COLOR BOARD",
+      "set": "COLOR BOARD",
+      "score": 1.0
+    },
+    {
+      "basename": "cg6old",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/cg6old.drw.O",
+      "version": "latest",
+      "designator": "COLOR BOARD",
+      "set": "COLOR BOARD",
+      "score": 1.0
+    },
+    {
+      "basename": "cg7",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/cg7.drw.O",
+      "version": "latest",
+      "designator": "COLOR BOARD",
+      "set": "COLOR BOARD",
+      "score": 1.0
+    },
+    {
+      "basename": "clock",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/clock.drw.O",
+      "version": "latest",
+      "designator": "SUN-2060",
+      "set": "SUN-2060",
+      "score": 0.667
+    },
+    {
+      "basename": "d1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/d1.drw.O",
+      "version": "latest",
+      "designator": "IOBOARD",
+      "set": "IOBOARD",
+      "score": 0.92
+    },
+    {
+      "basename": "d2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/d2.drw.O",
+      "version": "latest",
+      "designator": "IOBOARD",
+      "set": "IOBOARD",
+      "score": 0.92
+    },
+    {
+      "basename": "d3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/d3.drw.O",
+      "version": "latest",
+      "designator": "IOBOARD",
+      "set": "IOBOARD",
+      "score": 0.92
+    },
+    {
+      "basename": "d4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/d4.drw.O",
+      "version": "latest",
+      "designator": "IOBOARD",
+      "set": "IOBOARD",
+      "score": 0.92
+    },
+    {
+      "basename": "dac",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/dac.drw.O",
+      "version": "latest",
+      "designator": "SUN-3",
+      "set": "SUN-3",
+      "score": 0.663
+    },
+    {
+      "basename": "dbus",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/dbus.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "decode",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/decode.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "dold1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/dold1.drw.O",
+      "version": "latest",
+      "designator": "IOBOARD",
+      "set": "IOBOARD",
+      "score": 0.8
+    },
+    {
+      "basename": "dold2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/dold2.drw.O",
+      "version": "latest",
+      "designator": "IOBOARD",
+      "set": "IOBOARD",
+      "score": 0.8
+    },
+    {
+      "basename": "dold4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/dold4.drw.O",
+      "version": "latest",
+      "designator": "IOBOARD",
+      "set": "IOBOARD",
+      "score": 0.8
+    },
+    {
+      "basename": "dx1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/dx1.drw.O",
+      "version": "latest",
+      "designator": "IOBOARD",
+      "set": "IOBOARD",
+      "score": 0.85
+    },
+    {
+      "basename": "dx2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/dx2.drw.O",
+      "version": "latest",
+      "designator": "IOBOARD",
+      "set": "IOBOARD",
+      "score": 0.85
+    },
+    {
+      "basename": "dx3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/dx3.drw.O",
+      "version": "latest",
+      "designator": "IOBOARD",
+      "set": "IOBOARD",
+      "score": 0.85
+    },
+    {
+      "basename": "dx4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/dx4.drw.O",
+      "version": "latest",
+      "designator": "IOBOARD",
+      "set": "IOBOARD",
+      "score": 0.85
+    },
+    {
+      "basename": "em1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/em1.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/E",
+      "set": "SUN-3/E",
+      "score": 0.93
+    },
+    {
+      "basename": "em2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/em2.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/E",
+      "set": "SUN-3/E",
+      "score": 0.93
+    },
+    {
+      "basename": "em3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/em3.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/E",
+      "set": "SUN-3/E",
+      "score": 0.93
+    },
+    {
+      "basename": "em4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/em4.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/E",
+      "set": "SUN-3/E",
+      "score": 0.93
+    },
+    {
+      "basename": "ep1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ep1.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/E",
+      "set": "SUN-3/E",
+      "score": 0.93
+    },
+    {
+      "basename": "ep10",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ep10.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/E",
+      "set": "SUN-3/E",
+      "score": 0.93
+    },
+    {
+      "basename": "ep2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ep2.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/E",
+      "set": "SUN-3/E",
+      "score": 0.93
+    },
+    {
+      "basename": "ep3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ep3.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/E",
+      "set": "SUN-3/E",
+      "score": 0.93
+    },
+    {
+      "basename": "ep4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ep4.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/E",
+      "set": "SUN-3/E",
+      "score": 0.93
+    },
+    {
+      "basename": "ep5",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ep5.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/E",
+      "set": "SUN-3/E",
+      "score": 0.93
+    },
+    {
+      "basename": "ep6",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ep6.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/E",
+      "set": "SUN-3/E",
+      "score": 0.93
+    },
+    {
+      "basename": "ep7",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/ep7.drw.1.O",
+      "version": 1,
+      "version_str": "prev/v1",
+      "designator": "SUN-3/E",
+      "set": "SUN-3/E",
+      "score": 0.93
+    },
+    {
+      "basename": "ep8",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ep8.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/E",
+      "set": "SUN-3/E",
+      "score": 0.93
+    },
+    {
+      "basename": "ep9",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ep9.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/E",
+      "set": "SUN-3/E",
+      "score": 0.93
+    },
+    {
+      "basename": "es1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/es1.drw.O",
+      "version": "latest",
+      "designator": "ETHERNET SERVER",
+      "set": "ETHERNET SERVER",
+      "score": 0.766
+    },
+    {
+      "basename": "eth1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/eth1.drw.O",
+      "version": "latest",
+      "designator": "ETHERNET BOARD",
+      "set": "ETHERNET BOARD",
+      "score": 0.776
+    },
+    {
+      "basename": "eth2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/eth2.drw.O",
+      "version": "latest",
+      "designator": "ETHERNET BOARD",
+      "set": "ETHERNET BOARD",
+      "score": 0.776
+    },
+    {
+      "basename": "eth4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/eth4.drw.O",
+      "version": "latest",
+      "designator": "ETHERNET BOARD",
+      "set": "ETHERNET BOARD",
+      "score": 0.776
+    },
+    {
+      "basename": "eth5",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/eth5.drw.O",
+      "version": "latest",
+      "designator": "ETHERNET BOARD",
+      "set": "ETHERNET BOARD",
+      "score": 0.776
+    },
+    {
+      "basename": "eth7",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/eth7.drw.1.O",
+      "version": 1,
+      "version_str": "prev/v1",
+      "designator": "ETHERNET BOARD",
+      "set": "ETHERNET BOARD",
+      "score": 0.776
+    },
+    {
+      "basename": "eth7mm",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/eth7mm.drw.O",
+      "version": "latest",
+      "designator": "ETHERNET BOARD",
+      "set": "ETHERNET BOARD",
+      "score": 0.776
+    },
+    {
+      "basename": "ethbuf",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ethbuf.drw.O",
+      "version": "latest",
+      "designator": "ETHERNET/MEMORY BOARD",
+      "set": "ETHERNET/MEMORY BOARD",
+      "score": 0.683
+    },
+    {
+      "basename": "ethcon",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ethcon.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.66
+    },
+    {
+      "basename": "ethp2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ethp2.drw.O",
+      "version": "latest",
+      "designator": "ETHERNET BOARD",
+      "set": "ETHERNET BOARD",
+      "score": 0.89
+    },
+    {
+      "basename": "ethp4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ethp4.drw.O",
+      "version": "latest",
+      "designator": "ETHERNET BOARD",
+      "set": "ETHERNET BOARD",
+      "score": 0.89
+    },
+    {
+      "basename": "ethp5",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ethp5.drw.O",
+      "version": "latest",
+      "designator": "ETHERNET BOARD",
+      "set": "ETHERNET BOARD",
+      "score": 0.89
+    },
+    {
+      "basename": "ethp6",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ethp6.drw.O",
+      "version": "latest",
+      "designator": "ETHERNET BOARD",
+      "set": "ETHERNET BOARD",
+      "score": 0.89
+    },
+    {
+      "basename": "ethp7",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ethp7.drw.O",
+      "version": "latest",
+      "designator": "ETHERNET BOARD",
+      "set": "ETHERNET BOARD",
+      "score": 0.89
+    },
+    {
+      "basename": "ethp8",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ethp8.drw.O",
+      "version": "latest",
+      "designator": "ETHERNET BOARD",
+      "set": "ETHERNET BOARD",
+      "score": 0.89
+    },
+    {
+      "basename": "ethpal",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ethpal.drw.O",
+      "version": "latest",
+      "designator": "I/O BOARD",
+      "set": "I/O BOARD",
+      "score": 0.7
+    },
+    {
+      "basename": "ethsta",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ethsta.drw.O",
+      "version": "latest",
+      "designator": "ETHERNET/MEMORY BOARD",
+      "set": "ETHERNET/MEMORY BOARD",
+      "score": 0.683
+    },
+    {
+      "basename": "ethw8",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ethw8.drw.O",
+      "version": "latest",
+      "designator": "ETHERNET BOARD",
+      "set": "ETHERNET BOARD",
+      "score": 0.679
+    },
+    {
+      "basename": "ethx2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ethx2.drw.O",
+      "version": "latest",
+      "designator": "ETHER",
+      "set": "ETHER",
+      "score": 0.733
+    },
+    {
+      "basename": "ethx3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ethx3.drw.O",
+      "version": "latest",
+      "designator": "ETHER",
+      "set": "ETHER",
+      "score": 0.733
+    },
+    {
+      "basename": "ev1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ev1.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.713
+    },
+    {
+      "basename": "ev2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ev2.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.713
+    },
+    {
+      "basename": "ev4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ev4.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.713
+    },
+    {
+      "basename": "f01",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f01.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f02",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f02.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f03",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f03.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f04",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f04.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f05",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f05.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f06",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f06.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f07",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f07.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f08",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f08.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f09",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f09.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f10",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f10.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f11",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f11.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f12",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f12.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f13",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f13.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f14",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f14.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f15",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f15.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f16",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f16.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f17",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f17.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f18",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f18.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f19",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f19.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "f20",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/f20.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "fm1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/fm1.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "fm10",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/fm10.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "fm11",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/fm11.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "fm2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/fm2.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "fm3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/fm3.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "fm4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/fm4.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "fm5",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/fm5.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "fm6",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/fm6.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "fm7",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/fm7.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "fm8",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/fm8.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "fm9",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/fm9.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 1.0
+    },
+    {
+      "basename": "foo",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/foo.drw.14.O",
+      "version": 14,
+      "version_str": "prev/v14",
+      "designator": "LONG-DISTANCE-KIT",
+      "set": "LONG-DISTANCE-KIT",
+      "score": 0.735
+    },
+    {
+      "basename": "fooo",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/fooo.drw.O",
+      "version": "latest",
+      "designator": "501-1013-02",
+      "set": "501-1013-02",
+      "score": 0.663
+    },
+    {
+      "basename": "fw1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/fw1.drw.O",
+      "version": "latest",
+      "designator": "WINCHESTER CONTROLLER",
+      "set": "WINCHESTER CONTROLLER",
+      "score": 0.908
+    },
+    {
+      "basename": "fw2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/fw2.drw.O",
+      "version": "latest",
+      "designator": "WINCHESTER CONTROLLER",
+      "set": "WINCHESTER CONTROLLER",
+      "score": 0.908
+    },
+    {
+      "basename": "fwc",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/fwc.drw.O",
+      "version": "latest",
+      "designator": "WINCHESTER",
+      "set": "WINCHESTER",
+      "score": 0.717
+    },
+    {
+      "basename": "g1",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/g1.drw.1.O",
+      "version": 1,
+      "version_str": "prev/v1",
+      "designator": "SUN GRAPHICS",
+      "set": "SUN GRAPHICS",
+      "score": 0.85
+    },
+    {
+      "basename": "g2",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/g2.drw.1.O",
+      "version": 1,
+      "version_str": "prev/v1",
+      "designator": "SUN GRAPHICS",
+      "set": "SUN GRAPHICS",
+      "score": 0.85
+    },
+    {
+      "basename": "g3",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/g3.drw.1.O",
+      "version": 1,
+      "version_str": "prev/v1",
+      "designator": "SUN GRAPHICS",
+      "set": "SUN GRAPHICS",
+      "score": 0.85
+    },
+    {
+      "basename": "g4",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/g4.drw.2.O",
+      "version": 2,
+      "version_str": "prev/v2",
+      "designator": "SUN GRAPHICS",
+      "set": "SUN GRAPHICS",
+      "score": 0.85
+    },
+    {
+      "basename": "g5",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/g5.drw.2.O",
+      "version": 2,
+      "version_str": "prev/v2",
+      "designator": "SUN GRAPHICS",
+      "set": "SUN GRAPHICS",
+      "score": 0.85
+    },
+    {
+      "basename": "g6",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/g6.drw.O",
+      "version": "latest",
+      "designator": "SUN GRAPHICS",
+      "set": "SUN GRAPHICS",
+      "score": 0.85
+    },
+    {
+      "basename": "g7",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/g7.drw.O",
+      "version": "latest",
+      "designator": "SUN GRAPHICS",
+      "set": "SUN GRAPHICS",
+      "score": 0.85
+    },
+    {
+      "basename": "h1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/h1.drw.O",
+      "version": "latest",
+      "designator": "SUN-2 GRAPHICS",
+      "set": "SUN-2 GRAPHICS",
+      "score": 0.766
+    },
+    {
+      "basename": "h2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/h2.drw.O",
+      "version": "latest",
+      "designator": "SUN-2 GRAPHICS",
+      "set": "SUN-2 GRAPHICS",
+      "score": 0.766
+    },
+    {
+      "basename": "h4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/h4.drw.O",
+      "version": "latest",
+      "designator": "SUN-2 GRAPHICS",
+      "set": "SUN-2 GRAPHICS",
+      "score": 0.766
+    },
+    {
+      "basename": "h5",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/h5.drw.O",
+      "version": "latest",
+      "designator": "SUN-2 GRAPHICS",
+      "set": "SUN-2 GRAPHICS",
+      "score": 0.766
+    },
+    {
+      "basename": "in",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/in.drw.O",
+      "version": "latest",
+      "designator": "SUN 68010",
+      "set": "SUN 68010",
+      "score": 0.675
+    },
+    {
+      "basename": "io",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/io.drw.O",
+      "version": "latest",
+      "designator": "SUN 68010",
+      "set": "SUN 68010",
+      "score": 0.683
+    },
+    {
+      "basename": "j1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/j1.drw.O",
+      "version": "latest",
+      "designator": "SUN-2 GRAPHICS",
+      "set": "SUN-2 GRAPHICS",
+      "score": 0.81
+    },
+    {
+      "basename": "j2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/j2.drw.O",
+      "version": "latest",
+      "designator": "SUN-2 GRAPHICS",
+      "set": "SUN-2 GRAPHICS",
+      "score": 0.81
+    },
+    {
+      "basename": "j4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/j4.drw.O",
+      "version": "latest",
+      "designator": "SUN-2 GRAPHICS",
+      "set": "SUN-2 GRAPHICS",
+      "score": 0.81
+    },
+    {
+      "basename": "j5",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/j5.drw.O",
+      "version": "latest",
+      "designator": "SUN-2 GRAPHICS",
+      "set": "SUN-2 GRAPHICS",
+      "score": 0.81
+    },
+    {
+      "basename": "la1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/la1.drw.O",
+      "version": "latest",
+      "designator": "LOGIC ANALYSER",
+      "set": "LOGIC ANALYSER",
+      "score": 0.75
+    },
+    {
+      "basename": "la3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/la3.drw.O",
+      "version": "latest",
+      "designator": "LOGIC ANALYSER",
+      "set": "LOGIC ANALYSER",
+      "score": 0.75
+    },
+    {
+      "basename": "m1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/m1.drw.O",
+      "version": "latest",
+      "designator": "501-1007-08",
+      "set": "501-1007-08",
+      "score": 0.751
+    },
+    {
+      "basename": "m2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/m2.drw.O",
+      "version": "latest",
+      "designator": "501-1007-08",
+      "set": "501-1007-08",
+      "score": 0.751
+    },
+    {
+      "basename": "m3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/m3.drw.O",
+      "version": "latest",
+      "designator": "501-1007-08",
+      "set": "501-1007-08",
+      "score": 0.751
+    },
+    {
+      "basename": "m4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/m4.drw.O",
+      "version": "latest",
+      "designator": "501-1007-08",
+      "set": "501-1007-08",
+      "score": 0.751
+    },
+    {
+      "basename": "m5",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/m5.drw.O",
+      "version": "latest",
+      "designator": "501-1007-08",
+      "set": "501-1007-08",
+      "score": 0.751
+    },
+    {
+      "basename": "m7",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/m7.drw.O",
+      "version": "latest",
+      "designator": "501-1007-08",
+      "set": "501-1007-08",
+      "score": 0.751
+    },
+    {
+      "basename": "m8",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/m8.drw.O",
+      "version": "latest",
+      "designator": "501-1007-08",
+      "set": "501-1007-08",
+      "score": 0.751
+    },
+    {
+      "basename": "multib",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/multib.drw.O",
+      "version": "latest",
+      "designator": "COLOR BOARD",
+      "set": "COLOR BOARD",
+      "score": 0.679
+    },
+    {
+      "basename": "newf08",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/newf08.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "p1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/p1.drw.O",
+      "version": "latest",
+      "designator": "SUN 68000-10",
+      "set": "SUN 68000-10",
+      "score": 0.773
+    },
+    {
+      "basename": "p2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/p2.drw.O",
+      "version": "latest",
+      "designator": "SUN 68000-10",
+      "set": "SUN 68000-10",
+      "score": 0.773
+    },
+    {
+      "basename": "p3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/p3.drw.O",
+      "version": "latest",
+      "designator": "SUN 68000-10",
+      "set": "SUN 68000-10",
+      "score": 0.773
+    },
+    {
+      "basename": "p4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/p4.drw.O",
+      "version": "latest",
+      "designator": "SUN 68000-10",
+      "set": "SUN 68000-10",
+      "score": 0.773
+    },
+    {
+      "basename": "pag",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/pag.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "picc",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/picc.drw.O",
+      "version": "latest",
+      "designator": "SUN 68010",
+      "set": "SUN 68010",
+      "score": 0.675
+    },
+    {
+      "basename": "px1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/px1.drw.O",
+      "version": "latest",
+      "designator": "SUN 68000",
+      "set": "SUN 68000",
+      "score": 1.0
+    },
+    {
+      "basename": "px2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/px2.drw.O",
+      "version": "latest",
+      "designator": "SUN 68000",
+      "set": "SUN 68000",
+      "score": 1.0
+    },
+    {
+      "basename": "px3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/px3.drw.O",
+      "version": "latest",
+      "designator": "SUN 68000",
+      "set": "SUN 68000",
+      "score": 1.0
+    },
+    {
+      "basename": "px4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/px4.drw.O",
+      "version": "latest",
+      "designator": "SUN 68000",
+      "set": "SUN 68000",
+      "score": 1.0
+    },
+    {
+      "basename": "px5",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/px5.drw.O",
+      "version": "latest",
+      "designator": "SUN 68000",
+      "set": "SUN 68000",
+      "score": 1.0
+    },
+    {
+      "basename": "px6",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/px6.drw.O",
+      "version": "latest",
+      "designator": "SUN 68000",
+      "set": "SUN 68000",
+      "score": 1.0
+    },
+    {
+      "basename": "px7",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/px7.drw.O",
+      "version": "latest",
+      "designator": "SUN 68000",
+      "set": "SUN 68000",
+      "score": 1.0
+    },
+    {
+      "basename": "q1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/q1.drw.O",
+      "version": "latest",
+      "designator": "501-1007-08",
+      "set": "501-1007-08",
+      "score": 1.0
+    },
+    {
+      "basename": "q2b",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/q2b.drw.O",
+      "version": "latest",
+      "designator": "501-1007-08",
+      "set": "501-1007-08",
+      "score": 1.0
+    },
+    {
+      "basename": "q3b",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/q3b.drw.O",
+      "version": "latest",
+      "designator": "501-1007-08",
+      "set": "501-1007-08",
+      "score": 1.0
+    },
+    {
+      "basename": "q4b",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/q4b.drw.O",
+      "version": "latest",
+      "designator": "501-1007-08",
+      "set": "501-1007-08",
+      "score": 1.0
+    },
+    {
+      "basename": "q5b",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/q5b.drw.O",
+      "version": "latest",
+      "designator": "501-1007-08",
+      "set": "501-1007-08",
+      "score": 1.0
+    },
+    {
+      "basename": "q6b",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/q6b.drw.O",
+      "version": "latest",
+      "designator": "501-1007-08",
+      "set": "501-1007-08",
+      "score": 1.0
+    },
+    {
+      "basename": "q7b",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/q7b.drw.O",
+      "version": "latest",
+      "designator": "501-1007-08",
+      "set": "501-1007-08",
+      "score": 1.0
+    },
+    {
+      "basename": "q8b",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/q8b.drw.O",
+      "version": "latest",
+      "designator": "501-1007-08",
+      "set": "501-1007-08",
+      "score": 1.0
+    },
+    {
+      "basename": "q9b",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/q9b.drw.O",
+      "version": "latest",
+      "designator": "501-1007-08",
+      "set": "501-1007-08",
+      "score": 1.0
+    },
+    {
+      "basename": "qq9",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/qq9.drw.O",
+      "version": "latest",
+      "designator": "SUN 68010",
+      "set": "SUN 68010",
+      "score": 0.672
+    },
+    {
+      "basename": "qx1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/qx1.drw.O",
+      "version": "latest",
+      "designator": "SUN 68010",
+      "set": "SUN 68010",
+      "score": 0.839
+    },
+    {
+      "basename": "qx2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/qx2.drw.O",
+      "version": "latest",
+      "designator": "SUN 68010",
+      "set": "SUN 68010",
+      "score": 0.839
+    },
+    {
+      "basename": "qx3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/qx3.drw.O",
+      "version": "latest",
+      "designator": "SUN 68010",
+      "set": "SUN 68010",
+      "score": 0.839
+    },
+    {
+      "basename": "qx4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/qx4.drw.O",
+      "version": "latest",
+      "designator": "SUN 68010",
+      "set": "SUN 68010",
+      "score": 0.839
+    },
+    {
+      "basename": "qx5",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/qx5.drw.O",
+      "version": "latest",
+      "designator": "SUN 68010",
+      "set": "SUN 68010",
+      "score": 0.839
+    },
+    {
+      "basename": "qx6",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/qx6.drw.O",
+      "version": "latest",
+      "designator": "SUN 68010",
+      "set": "SUN 68010",
+      "score": 0.839
+    },
+    {
+      "basename": "qx7",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/qx7.drw.O",
+      "version": "latest",
+      "designator": "SUN 68010",
+      "set": "SUN 68010",
+      "score": 0.839
+    },
+    {
+      "basename": "qx8",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/qx8.drw.O",
+      "version": "latest",
+      "designator": "SUN 68010",
+      "set": "SUN 68010",
+      "score": 0.839
+    },
+    {
+      "basename": "r1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/r1.drw.O",
+      "version": "latest",
+      "designator": "ROPC",
+      "set": "ROPC",
+      "score": 0.933
+    },
+    {
+      "basename": "r2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/r2.drw.O",
+      "version": "latest",
+      "designator": "ROPC",
+      "set": "ROPC",
+      "score": 0.933
+    },
+    {
+      "basename": "ras",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ras.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "refres",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/refres.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "rj160",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/rj160.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.661
+    },
+    {
+      "basename": "s1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/s1.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.76
+    },
+    {
+      "basename": "s10old",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/s10old.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.76
+    },
+    {
+      "basename": "s11",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/s11.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.76
+    },
+    {
+      "basename": "s2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/s2.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.76
+    },
+    {
+      "basename": "s3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/s3.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.76
+    },
+    {
+      "basename": "s4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/s4.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.76
+    },
+    {
+      "basename": "s5",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/s5.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.76
+    },
+    {
+      "basename": "s6old",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/s6old.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.76
+    },
+    {
+      "basename": "s7old",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/s7old.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.76
+    },
+    {
+      "basename": "s8",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/s8.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.76
+    },
+    {
+      "basename": "s9",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/s9.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.76
+    },
+    {
+      "basename": "save",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/save.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/X",
+      "set": "SUN-3/X",
+      "score": 0.67
+    },
+    {
+      "basename": "sc13",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/sc13.drw.O",
+      "version": "latest",
+      "designator": "VIDEO OUTPUT BUFFERS",
+      "set": "VIDEO OUTPUT BUFFERS",
+      "score": 0.819
+    },
+    {
+      "basename": "sc14",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/sc14.drw.O",
+      "version": "latest",
+      "designator": "VIDEO OUTPUT BUFFERS",
+      "set": "VIDEO OUTPUT BUFFERS",
+      "score": 0.819
+    },
+    {
+      "basename": "scsi",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/scsi.drw.O",
+      "version": "latest",
+      "designator": "M25",
+      "set": "M25",
+      "score": 0.661
+    },
+    {
+      "basename": "sio1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/sio1.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 1.0
+    },
+    {
+      "basename": "sio2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/sio2.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 1.0
+    },
+    {
+      "basename": "sio3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/sio3.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 1.0
+    },
+    {
+      "basename": "sio4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/sio4.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 1.0
+    },
+    {
+      "basename": "sio5",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/sio5.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 1.0
+    },
+    {
+      "basename": "siod1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/siod1.drw.O",
+      "version": "latest",
+      "designator": "I/O BOARD",
+      "set": "I/O BOARD",
+      "score": 0.78
+    },
+    {
+      "basename": "siod2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/siod2.drw.O",
+      "version": "latest",
+      "designator": "I/O BOARD",
+      "set": "I/O BOARD",
+      "score": 0.78
+    },
+    {
+      "basename": "siod3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/siod3.drw.O",
+      "version": "latest",
+      "designator": "I/O BOARD",
+      "set": "I/O BOARD",
+      "score": 0.78
+    },
+    {
+      "basename": "siox1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/siox1.drw.O",
+      "version": "latest",
+      "designator": "I/O BOARD",
+      "set": "I/O BOARD",
+      "score": 0.78
+    },
+    {
+      "basename": "siox2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/siox2.drw.O",
+      "version": "latest",
+      "designator": "I/O BOARD",
+      "set": "I/O BOARD",
+      "score": 0.78
+    },
+    {
+      "basename": "siox3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/siox3.drw.O",
+      "version": "latest",
+      "designator": "I/O BOARD",
+      "set": "I/O BOARD",
+      "score": 0.78
+    },
+    {
+      "basename": "smd1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/smd1.drw.O",
+      "version": "latest",
+      "designator": "DISK",
+      "set": "DISK",
+      "score": 0.821
+    },
+    {
+      "basename": "smd2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/smd2.drw.O",
+      "version": "latest",
+      "designator": "DISK",
+      "set": "DISK",
+      "score": 0.821
+    },
+    {
+      "basename": "smd3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/smd3.drw.O",
+      "version": "latest",
+      "designator": "DISK",
+      "set": "DISK",
+      "score": 0.821
+    },
+    {
+      "basename": "smd4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/smd4.drw.O",
+      "version": "latest",
+      "designator": "DISK",
+      "set": "DISK",
+      "score": 0.821
+    },
+    {
+      "basename": "smd5",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/smd5.drw.O",
+      "version": "latest",
+      "designator": "DISK",
+      "set": "DISK",
+      "score": 0.821
+    },
+    {
+      "basename": "smd6",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/smd6.drw.O",
+      "version": "latest",
+      "designator": "DISK",
+      "set": "DISK",
+      "score": 0.821
+    },
+    {
+      "basename": "sx2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/sx2.drw.O",
+      "version": "latest",
+      "designator": "COLOR BOARD",
+      "set": "COLOR BOARD",
+      "score": 0.679
+    },
+    {
+      "basename": "sy1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/sy1.drw.O",
+      "version": "latest",
+      "designator": "SUN2 COLOR BOARD",
+      "set": "SUN2 COLOR BOARD",
+      "score": 0.843
+    },
+    {
+      "basename": "sy14",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/sy14.drw.O",
+      "version": "latest",
+      "designator": "SUN2 COLOR BOARD",
+      "set": "SUN2 COLOR BOARD",
+      "score": 0.843
+    },
+    {
+      "basename": "sy2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/sy2.drw.O",
+      "version": "latest",
+      "designator": "SUN2 COLOR BOARD",
+      "set": "SUN2 COLOR BOARD",
+      "score": 0.843
+    },
+    {
+      "basename": "ti1old",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ti1old.drw.O",
+      "version": "latest",
+      "designator": "SUN 1/4\" TAPE",
+      "set": "SUN 1/4\" TAPE",
+      "score": 0.83
+    },
+    {
+      "basename": "ti2old",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ti2old.drw.O",
+      "version": "latest",
+      "designator": "SUN 1/4\" TAPE",
+      "set": "SUN 1/4\" TAPE",
+      "score": 0.83
+    },
+    {
+      "basename": "ti3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ti3.drw.O",
+      "version": "latest",
+      "designator": "SUN 1/4\" TAPE",
+      "set": "SUN 1/4\" TAPE",
+      "score": 0.83
+    },
+    {
+      "basename": "ti4",
+      "action": "copied",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/prev/ti4.drw.2.O",
+      "version": 2,
+      "version_str": "prev/v2",
+      "designator": "SUN 1/4\" TAPE",
+      "set": "SUN 1/4\" TAPE",
+      "score": 0.83
+    },
+    {
+      "basename": "v1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/v1.drw.O",
+      "version": "latest",
+      "designator": "501-1003-07",
+      "set": "501-1003-07",
+      "score": 0.925
+    },
+    {
+      "basename": "v2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/v2.drw.O",
+      "version": "latest",
+      "designator": "501-1003-07",
+      "set": "501-1003-07",
+      "score": 0.925
+    },
+    {
+      "basename": "v3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/v3.drw.O",
+      "version": "latest",
+      "designator": "501-1003-07",
+      "set": "501-1003-07",
+      "score": 0.925
+    },
+    {
+      "basename": "v4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/v4.drw.O",
+      "version": "latest",
+      "designator": "501-1003-07",
+      "set": "501-1003-07",
+      "score": 0.925
+    },
+    {
+      "basename": "v5",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/v5.drw.O",
+      "version": "latest",
+      "designator": "501-1003-07",
+      "set": "501-1003-07",
+      "score": 0.925
+    },
+    {
+      "basename": "ve1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ve1.drw.O",
+      "version": "latest",
+      "designator": "SUN-2 VIDEO",
+      "set": "SUN-2 VIDEO",
+      "score": 0.75
+    },
+    {
+      "basename": "ve3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/ve3.drw.O",
+      "version": "latest",
+      "designator": "SUN-2 VIDEO",
+      "set": "SUN-2 VIDEO",
+      "score": 0.75
+    },
+    {
+      "basename": "vfoo",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/vfoo.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.7
+    },
+    {
+      "basename": "vme3x2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/vme3x2.drw.O",
+      "version": "latest",
+      "designator": "VME 3X TO 2X ADAPTER",
+      "set": "VME 3X TO 2X ADAPTER",
+      "score": 0.75
+    },
+    {
+      "basename": "vmem1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/vmem1.drw.O",
+      "version": "latest",
+      "designator": "SUN 2251 MEMORY BOARD",
+      "set": "SUN 2251 MEMORY BOARD",
+      "score": 0.921
+    },
+    {
+      "basename": "vmem2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/vmem2.drw.O",
+      "version": "latest",
+      "designator": "SUN 2251 MEMORY BOARD",
+      "set": "SUN 2251 MEMORY BOARD",
+      "score": 0.921
+    },
+    {
+      "basename": "vmem3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/vmem3.drw.O",
+      "version": "latest",
+      "designator": "SUN 2251 MEMORY BOARD",
+      "set": "SUN 2251 MEMORY BOARD",
+      "score": 0.921
+    },
+    {
+      "basename": "vmem4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/vmem4.drw.O",
+      "version": "latest",
+      "designator": "SUN 2251 MEMORY BOARD",
+      "set": "SUN 2251 MEMORY BOARD",
+      "score": 0.921
+    },
+    {
+      "basename": "vmep11",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/vmep11.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.667
+    },
+    {
+      "basename": "vmes1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/vmes1.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.811
+    },
+    {
+      "basename": "vmev2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/vmev2.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.95
+    },
+    {
+      "basename": "vmev3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/vmev3.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.95
+    },
+    {
+      "basename": "vmev4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/vmev4.drw.O",
+      "version": "latest",
+      "designator": "SUN-2",
+      "set": "SUN-2",
+      "score": 0.95
+    },
+    {
+      "basename": "vmxpig",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/vmxpig.drw.O",
+      "version": "latest",
+      "designator": "M-160 BACKPLANE",
+      "set": "M-160 BACKPLANE",
+      "score": 0.665
+    },
+    {
+      "basename": "vx1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/vx1.drw.O",
+      "version": "latest",
+      "designator": "SUN-2 GRAPHICS",
+      "set": "SUN-2 GRAPHICS",
+      "score": 0.75
+    },
+    {
+      "basename": "vx2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/vx2.drw.O",
+      "version": "latest",
+      "designator": "SUN-2 GRAPHICS",
+      "set": "SUN-2 GRAPHICS",
+      "score": 0.75
+    },
+    {
+      "basename": "x1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/x1.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/F",
+      "set": "SUN-3/F",
+      "score": 0.962
+    },
+    {
+      "basename": "x10",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/x10.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/F",
+      "set": "SUN-3/F",
+      "score": 0.962
+    },
+    {
+      "basename": "x11",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/x11.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/F",
+      "set": "SUN-3/F",
+      "score": 0.962
+    },
+    {
+      "basename": "x12",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/x12.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/F",
+      "set": "SUN-3/F",
+      "score": 0.962
+    },
+    {
+      "basename": "x13",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/x13.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/F",
+      "set": "SUN-3/F",
+      "score": 0.962
+    },
+    {
+      "basename": "x14",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/x14.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/F",
+      "set": "SUN-3/F",
+      "score": 0.962
+    },
+    {
+      "basename": "x15",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/x15.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/F",
+      "set": "SUN-3/F",
+      "score": 0.962
+    },
+    {
+      "basename": "x2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/x2.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/F",
+      "set": "SUN-3/F",
+      "score": 0.962
+    },
+    {
+      "basename": "x3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/x3.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/F",
+      "set": "SUN-3/F",
+      "score": 0.962
+    },
+    {
+      "basename": "x4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/x4.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/F",
+      "set": "SUN-3/F",
+      "score": 0.962
+    },
+    {
+      "basename": "x5",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/x5.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/F",
+      "set": "SUN-3/F",
+      "score": 0.962
+    },
+    {
+      "basename": "x6",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/x6.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/F",
+      "set": "SUN-3/F",
+      "score": 0.962
+    },
+    {
+      "basename": "x7",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/x7.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/F",
+      "set": "SUN-3/F",
+      "score": 0.962
+    },
+    {
+      "basename": "x8",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/x8.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/F",
+      "set": "SUN-3/F",
+      "score": 0.962
+    },
+    {
+      "basename": "x9",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/x9.drw.O",
+      "version": "latest",
+      "designator": "SUN-3/F",
+      "set": "SUN-3/F",
+      "score": 0.962
+    },
+    {
+      "basename": "xamd",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/xamd.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "xc10",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/xc10.drw.O",
+      "version": "latest",
+      "designator": "SUN-3",
+      "set": "SUN-3",
+      "score": 0.69
+    },
+    {
+      "basename": "xc11",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/xc11.drw.O",
+      "version": "latest",
+      "designator": "SUN-3",
+      "set": "SUN-3",
+      "score": 0.69
+    },
+    {
+      "basename": "xc15",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/xc15.drw.O",
+      "version": "latest",
+      "designator": "SUN-3",
+      "set": "SUN-3",
+      "score": 0.69
+    },
+    {
+      "basename": "xintel",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/xintel.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.66
+    },
+    {
+      "basename": "xscsi",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/xscsi.drw.O",
+      "version": "latest",
+      "designator": "FERRARI",
+      "set": "FERRARI",
+      "score": 0.85
+    },
+    {
+      "basename": "xx1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/xx1.drw.O",
+      "version": "latest",
+      "designator": "SUN/X",
+      "set": "SUN/X",
+      "score": 0.876
+    },
+    {
+      "basename": "xx10",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/xx10.drw.O",
+      "version": "latest",
+      "designator": "SUN/X",
+      "set": "SUN/X",
+      "score": 0.876
+    },
+    {
+      "basename": "xx2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/xx2.drw.O",
+      "version": "latest",
+      "designator": "SUN/X",
+      "set": "SUN/X",
+      "score": 0.876
+    },
+    {
+      "basename": "xx3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/xx3.drw.O",
+      "version": "latest",
+      "designator": "SUN/X",
+      "set": "SUN/X",
+      "score": 0.876
+    },
+    {
+      "basename": "xx4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/xx4.drw.O",
+      "version": "latest",
+      "designator": "SUN/X",
+      "set": "SUN/X",
+      "score": 0.876
+    },
+    {
+      "basename": "xx5",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/xx5.drw.O",
+      "version": "latest",
+      "designator": "SUN/X",
+      "set": "SUN/X",
+      "score": 0.876
+    },
+    {
+      "basename": "xx6",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/xx6.drw.O",
+      "version": "latest",
+      "designator": "SUN/X",
+      "set": "SUN/X",
+      "score": 0.876
+    },
+    {
+      "basename": "xx8",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/xx8.drw.O",
+      "version": "latest",
+      "designator": "SUN/X",
+      "set": "SUN/X",
+      "score": 0.876
+    },
+    {
+      "basename": "y1",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/y1.drw.O",
+      "version": "latest",
+      "designator": "501-1013-02",
+      "set": "501-1013-02",
+      "score": 0.98
+    },
+    {
+      "basename": "y2",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/y2.drw.O",
+      "version": "latest",
+      "designator": "501-1013-02",
+      "set": "501-1013-02",
+      "score": 0.98
+    },
+    {
+      "basename": "y3",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/y3.drw.O",
+      "version": "latest",
+      "designator": "501-1013-02",
+      "set": "501-1013-02",
+      "score": 0.98
+    },
+    {
+      "basename": "y4",
+      "action": "already_correct",
+      "source": "/Users/dmoisa/Documents/sun/smi/smi/octal/y4.drw.O",
+      "version": "latest",
+      "designator": "501-1013-02",
+      "set": "501-1013-02",
+      "score": 0.98
+    }
+  ]
+}
