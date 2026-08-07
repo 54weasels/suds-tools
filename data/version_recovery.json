@@ -1,0 +1,3602 @@
+{
+  "mismatches": [
+    {
+      "filename": "b12.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, MEMORY INTERFACE",
+        "title2": "",
+        "page": "12",
+        "of": "19",
+        "size": 60437
+      },
+      "octal_meta": {
+        "title1": "SUN-2060, MEMORY INTERFACE",
+        "title2": "",
+        "page": "12",
+        "of": "19",
+        "size": 46800
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-2060, MEMORY INTERFACE, data/drw has old PROPRIETARY SMI, SUN-2, MEMORY INTERFACE"
+    },
+    {
+      "filename": "sy11.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 106444
+      },
+      "octal_meta": {
+        "title1": "HORIZ. & VERT. STATE MACHINES",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 50037
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is HORIZ. & VERT. STATE MACHINES, data/drw has old "
+    },
+    {
+      "filename": "back13.drw.O",
+      "data_drw_meta": {
+        "title1": "SMI, M-160 BACKPLANE, TERMINATORS & CAPS",
+        "title2": "",
+        "page": "13",
+        "of": "13",
+        "size": 150215
+      },
+      "octal_meta": {
+        "title1": "SMI, M-160 BACKPLANE, TERMINATORS & CAPS",
+        "title2": "",
+        "page": "13",
+        "of": "13",
+        "size": 98735
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SMI, M-160 BACKPLANE, TERMINATORS & CAPS, data/drw has old SMI, M-160 BACKPLANE, TERMINATORS & CAPS"
+    },
+    {
+      "filename": "ethp7.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 129272
+      },
+      "octal_meta": {
+        "title1": "ETHERNET BOARD, MEMORY",
+        "title2": "",
+        "page": "7",
+        "of": "8",
+        "size": 129272
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is ETHERNET BOARD, MEMORY, data/drw has old "
+    },
+    {
+      "filename": "xx2.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN/X",
+        "title2": "",
+        "page": "2",
+        "of": "6",
+        "size": 69953
+      },
+      "octal_meta": {
+        "title1": "SUN/X",
+        "title2": "",
+        "page": "2",
+        "of": "6",
+        "size": 65429
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN/X, data/drw has old SUN/X"
+    },
+    {
+      "filename": "ep1.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN-3/E",
+        "title2": "",
+        "page": "1",
+        "of": "10",
+        "size": 100178
+      },
+      "octal_meta": {
+        "title1": "SUN-3/E",
+        "title2": "",
+        "page": "1",
+        "of": "10",
+        "size": 87334
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/E, data/drw has old SUN-3/E"
+    },
+    {
+      "filename": "x2.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI SUN 68000 MEMORY BOARD",
+        "title2": "",
+        "page": "2",
+        "of": "4",
+        "size": 153101
+      },
+      "octal_meta": {
+        "title1": "SUN-3/F",
+        "title2": "",
+        "page": "2",
+        "of": "15",
+        "size": 102024
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/F, data/drw has old (C) 1982 SMI SUN 68000 MEMORY BOARD"
+    },
+    {
+      "filename": "cg1.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 67353
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, COLOR BOARD, 796-BUS INTERFACE.",
+        "title2": "",
+        "page": "1",
+        "of": "7",
+        "size": 55029
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, COLOR BOARD, 796-BUS INTERFACE., data/drw has old "
+    },
+    {
+      "filename": "sc8.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 105781
+      },
+      "octal_meta": {
+        "title1": "(C) SUN-2 COLOR, WORD-MODE DATA PATHS",
+        "title2": "",
+        "page": "8",
+        "of": "21",
+        "size": 126035
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) SUN-2 COLOR, WORD-MODE DATA PATHS, data/drw has old "
+    },
+    {
+      "filename": "qx2.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1983 SMI, SUN 68010, CLOCKS",
+        "title2": "",
+        "page": "2",
+        "of": "8",
+        "size": 43511
+      },
+      "octal_meta": {
+        "title1": "(C) 1983 SMI, SUN 68010, CLOCKS",
+        "title2": "",
+        "page": "2",
+        "of": "8",
+        "size": 39780
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1983 SMI, SUN 68010, CLOCKS, data/drw has old (C) 1983 SMI, SUN 68010, CLOCKS"
+    },
+    {
+      "filename": "f18.drw.O",
+      "data_drw_meta": {
+        "title1": "FERRARI",
+        "title2": "TERMINATORS, RESET",
+        "page": "18",
+        "of": "20",
+        "size": 42133
+      },
+      "octal_meta": {
+        "title1": "FERRARI",
+        "title2": "TERMINATORS, RESET",
+        "page": "18",
+        "of": "20",
+        "size": 36023
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is FERRARI, data/drw has old FERRARI"
+    },
+    {
+      "filename": "cg3.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 290563
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, COLOR BOARD, FRAME BUFFER MEMORY.",
+        "title2": "",
+        "page": "3",
+        "of": "7",
+        "size": 225641
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, COLOR BOARD, FRAME BUFFER MEMORY., data/drw has old "
+    },
+    {
+      "filename": "p5.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 68000, CONNECTORS",
+        "title2": "",
+        "page": "5",
+        "of": "5",
+        "size": 128908
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN 68000, CONNECTORS",
+        "title2": "",
+        "page": "5",
+        "of": "5",
+        "size": 128817
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN 68000, CONNECTORS, data/drw has old (C) 1982 SMI, SUN 68000, CONNECTORS"
+    },
+    {
+      "filename": "ti2.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 117052
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN 1/4\" TAPE, 796-BUS INTERFACE",
+        "title2": "",
+        "page": "2",
+        "of": "4",
+        "size": 80418
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN 1/4\" TAPE, 796-BUS INTERFACE, data/drw has old "
+    },
+    {
+      "filename": "f1.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN FLOATING POINT BOARD",
+        "title2": "",
+        "page": "1",
+        "of": "4",
+        "size": 83200
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN FLOATING POINT BOARD",
+        "title2": "",
+        "page": "1",
+        "of": "4",
+        "size": 84019
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN FLOATING POINT BOARD, data/drw has old PROPRIETARY SMI, SUN FLOATING POINT BOARD"
+    },
+    {
+      "filename": "b4.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2/LC",
+        "title2": "",
+        "page": "4",
+        "of": "9",
+        "size": 80327
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2/LC",
+        "title2": "",
+        "page": "4",
+        "of": "7",
+        "size": 54392
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2/LC, data/drw has old PROPRIETARY SMI, SUN-2/LC"
+    },
+    {
+      "filename": "a08.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE",
+        "title2": "",
+        "page": "8",
+        "of": "20",
+        "size": 78338
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2",
+        "title2": "",
+        "page": "8",
+        "of": "19",
+        "size": 66612
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, data/drw has old PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE"
+    },
+    {
+      "filename": "b09.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, VIDEO CONTROLLER",
+        "title2": "",
+        "page": "9",
+        "of": "20",
+        "size": 63648
+      },
+      "octal_meta": {
+        "title1": "SUN-2060, VME BUS INTERFACE",
+        "title2": "",
+        "page": "9",
+        "of": "19",
+        "size": 52013
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-2060, VME BUS INTERFACE, data/drw has old PROPRIETARY SMI, SUN-2, VIDEO CONTROLLER"
+    },
+    {
+      "filename": "f01.drw.O",
+      "data_drw_meta": {
+        "title1": "FERRARI",
+        "title2": "",
+        "page": "1",
+        "of": "20",
+        "size": 89999
+      },
+      "octal_meta": {
+        "title1": "FERRARI",
+        "title2": "CPU",
+        "page": "1",
+        "of": "20",
+        "size": 73424
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is FERRARI, data/drw has old FERRARI"
+    },
+    {
+      "filename": "a11.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1983 SMI, SUN-2, FRAME BUFFER INTERFACE",
+        "title2": "",
+        "page": "11",
+        "of": "20",
+        "size": 102336
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "title2": "",
+        "page": "11",
+        "of": "19",
+        "size": 70837
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, BUS CONNECTORS, data/drw has old (C) 1983 SMI, SUN-2, FRAME BUFFER INTERFACE"
+    },
+    {
+      "filename": "back11.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 84734
+      },
+      "octal_meta": {
+        "title1": "SMI, M-160 BACKPLANE, SLOT 11",
+        "title2": "",
+        "page": "11",
+        "of": "13",
+        "size": 84734
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SMI, M-160 BACKPLANE, SLOT 11, data/drw has old "
+    },
+    {
+      "filename": "gr2.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 125567
+      },
+      "octal_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 114959
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is , data/drw has old "
+    },
+    {
+      "filename": "r1.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1983 SMI, ROPC, REGISTERS",
+        "title2": "",
+        "page": "1",
+        "of": "2",
+        "size": 178321
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, ROPC, REGISTERS",
+        "title2": "",
+        "page": "1",
+        "of": "3",
+        "size": 178321
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, ROPC, REGISTERS, data/drw has old (C) 1983 SMI, ROPC, REGISTERS"
+    },
+    {
+      "filename": "v4.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, VIDEO CONTROLLER",
+        "title2": "",
+        "page": "4",
+        "of": "4",
+        "size": 72605
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1003-07",
+        "page": "4",
+        "of": "5",
+        "size": 54366
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old PROPRIETARY SMI, SUN-2, VIDEO CONTROLLER"
+    },
+    {
+      "filename": "f05.drw.O",
+      "data_drw_meta": {
+        "title1": "FERRARI",
+        "title2": "SERIAL I/O",
+        "page": "5",
+        "of": "20",
+        "size": 72618
+      },
+      "octal_meta": {
+        "title1": "FERRARI",
+        "title2": "SERIAL I/O",
+        "page": "5",
+        "of": "20",
+        "size": 69706
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is FERRARI, data/drw has old FERRARI"
+    },
+    {
+      "filename": "xx4.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN/X",
+        "title2": "",
+        "page": "4",
+        "of": "6",
+        "size": 47164
+      },
+      "octal_meta": {
+        "title1": "SUN/X",
+        "title2": "",
+        "page": "4",
+        "of": "6",
+        "size": 32708
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN/X, data/drw has old SUN/X"
+    },
+    {
+      "filename": "sx3.drw.O",
+      "data_drw_meta": {
+        "title1": "HORIZ. & VERT. STATE MACHINES",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 37843
+      },
+      "octal_meta": {
+        "title1": "HORIZ. & VERT. STATE MACHINES",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 37206
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is HORIZ. & VERT. STATE MACHINES, data/drw has old HORIZ. & VERT. STATE MACHINES"
+    },
+    {
+      "filename": "b14.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, MEMORY",
+        "title2": "",
+        "page": "13",
+        "of": "19",
+        "size": 264043
+      },
+      "octal_meta": {
+        "title1": "SUN-2060, MEMORY 2-4M",
+        "title2": "",
+        "page": "13",
+        "of": "19",
+        "size": 253071
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-2060, MEMORY 2-4M, data/drw has old PROPRIETARY SMI, SUN-2, MEMORY"
+    },
+    {
+      "filename": "foo2.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, FRAME BUFFER",
+        "title2": "",
+        "page": "17",
+        "of": "20",
+        "size": 33566
+      },
+      "octal_meta": {
+        "title1": "FERRARI",
+        "title2": "MMU",
+        "page": "3",
+        "of": "20",
+        "size": 8099
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is FERRARI, data/drw has old PROPRIETARY SMI, SUN-2, FRAME BUFFER"
+    },
+    {
+      "filename": "sc18.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) SUN-2 COLOR, CAPACITORS",
+        "title2": "",
+        "page": "18",
+        "of": "20",
+        "size": 150722
+      },
+      "octal_meta": {
+        "title1": "(C) SUN-2 COLOR, SYNC GENERATION",
+        "title2": "",
+        "page": "18",
+        "of": "21",
+        "size": 54951
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) SUN-2 COLOR, SYNC GENERATION, data/drw has old (C) SUN-2 COLOR, CAPACITORS"
+    },
+    {
+      "filename": "x4.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI SUN 68000 MEMORY BOARD",
+        "title2": "",
+        "page": "4",
+        "of": "4",
+        "size": 153101
+      },
+      "octal_meta": {
+        "title1": "SUN-3/F",
+        "title2": "UARTS",
+        "page": "4",
+        "of": "10",
+        "size": 66612
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/F, data/drw has old (C) 1982 SMI SUN 68000 MEMORY BOARD"
+    },
+    {
+      "filename": "nlib.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 17355
+      },
+      "octal_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 17355
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is , data/drw has old "
+    },
+    {
+      "filename": "vmem2.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, MEMORY",
+        "title2": "",
+        "page": "2",
+        "of": "4",
+        "size": 89609
+      },
+      "octal_meta": {
+        "title1": "SUN 2251 MEMORY BOARD",
+        "title2": "",
+        "page": "2",
+        "of": "4",
+        "size": 86125
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN 2251 MEMORY BOARD, data/drw has old PROPRIETARY SMI, SUN-2, MEMORY"
+    },
+    {
+      "filename": "x6.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN-3/F",
+        "title2": "SCSI",
+        "page": "6",
+        "of": "15",
+        "size": 121719
+      },
+      "octal_meta": {
+        "title1": "SUN-3/F",
+        "title2": "SCSI",
+        "page": "6",
+        "of": "15",
+        "size": 121498
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/F, data/drw has old SUN-3/F"
+    },
+    {
+      "filename": "ti4.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 1/4\" TAPE, CONNECTORS",
+        "title2": "",
+        "page": "4",
+        "of": "4",
+        "size": 135031
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN 1/4\" TAPE, MEMORY",
+        "title2": "",
+        "page": "3",
+        "of": "4",
+        "size": 137605
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN 1/4\" TAPE, MEMORY, data/drw has old (C) 1982 SMI, SUN 1/4\" TAPE, CONNECTORS"
+    },
+    {
+      "filename": "cg5.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 155948
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, COLOR BOARD, ADDRESS LOGIC.",
+        "title2": "",
+        "page": "5",
+        "of": "7",
+        "size": 104169
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, COLOR BOARD, ADDRESS LOGIC., data/drw has old "
+    },
+    {
+      "filename": "p3.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 68000-10, MEMORY",
+        "title2": "",
+        "page": "3",
+        "of": "5",
+        "size": 182351
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN 68000-10, MEMORY",
+        "title2": "",
+        "page": "3",
+        "of": "5",
+        "size": 182247
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN 68000-10, MEMORY, data/drw has old (C) 1982 SMI, SUN 68000-10, MEMORY"
+    },
+    {
+      "filename": "sy8.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 167440
+      },
+      "octal_meta": {
+        "title1": "MEMORY PLANES D,E,F",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 98709
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is MEMORY PLANES D,E,F, data/drw has old "
+    },
+    {
+      "filename": "d02.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, CLOCKS",
+        "title2": "",
+        "page": "2",
+        "of": "20",
+        "size": 37310
+      },
+      "octal_meta": {
+        "title1": "SUN-2060, I/O DECODING, MISC. I/O",
+        "title2": "",
+        "page": "5",
+        "of": "12",
+        "size": 57642
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-2060, I/O DECODING, MISC. I/O, data/drw has old PROPRIETARY SMI, SUN-2, CLOCKS"
+    },
+    {
+      "filename": "m19.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, VIDEO",
+        "title2": "",
+        "page": "19",
+        "of": "19",
+        "size": 118560
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, VIDEO",
+        "title2": "",
+        "page": "19",
+        "of": "19",
+        "size": 108368
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, VIDEO, data/drw has old PROPRIETARY SMI, SUN-2, VIDEO"
+    },
+    {
+      "filename": "qx4.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 68010, MEMORY INTERFACE",
+        "title2": "",
+        "page": "4",
+        "of": "8",
+        "size": 87464
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN 68010, MEMORY INTERFACE",
+        "title2": "",
+        "page": "4",
+        "of": "8",
+        "size": 86749
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN 68010, MEMORY INTERFACE, data/drw has old (C) 1982 SMI, SUN 68010, MEMORY INTERFACE"
+    },
+    {
+      "filename": "v2.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2 GRAPHICS, DATA PATHS",
+        "title2": "",
+        "page": "2",
+        "of": "4",
+        "size": 146042
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1003-07",
+        "page": "2",
+        "of": "5",
+        "size": 94627
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old PROPRIETARY SMI, SUN-2 GRAPHICS, DATA PATHS"
+    },
+    {
+      "filename": "a17.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1983 SMI, SUN-2, MEMORY",
+        "title2": "",
+        "page": "17",
+        "of": "20",
+        "size": 251420
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, FRAME BUFFER",
+        "title2": "",
+        "page": "17",
+        "of": "19",
+        "size": 150020
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, FRAME BUFFER, data/drw has old (C) 1983 SMI, SUN-2, MEMORY"
+    },
+    {
+      "filename": "xamd.drw.O",
+      "data_drw_meta": {
+        "title1": "FERRARI",
+        "title2": "",
+        "page": "7",
+        "of": "20",
+        "size": 93535
+      },
+      "octal_meta": {
+        "title1": "FERRARI",
+        "title2": "",
+        "page": "7",
+        "of": "20",
+        "size": 86060
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is FERRARI, data/drw has old FERRARI"
+    },
+    {
+      "filename": "f07.drw.O",
+      "data_drw_meta": {
+        "title1": "FERRARI",
+        "title2": "",
+        "page": "7",
+        "of": "20",
+        "size": 58344
+      },
+      "octal_meta": {
+        "title1": "FERRARI",
+        "title2": "PARITY LOGIC",
+        "page": "7",
+        "of": "20",
+        "size": 54236
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is FERRARI, data/drw has old FERRARI"
+    },
+    {
+      "filename": "sx1.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 1/4\" TAPE, 796-BUS INTERFACE",
+        "title2": "",
+        "page": "2",
+        "of": "4",
+        "size": 93899
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN 1/4\" TAPE, 796-BUS INTERFACE",
+        "title2": "",
+        "page": "2",
+        "of": "4",
+        "size": 92287
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN 1/4\" TAPE, 796-BUS INTERFACE, data/drw has old (C) 1982 SMI, SUN 1/4\" TAPE, 796-BUS INTERFACE"
+    },
+    {
+      "filename": "xx6.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN/X",
+        "title2": "",
+        "page": "6",
+        "of": "6",
+        "size": 63141
+      },
+      "octal_meta": {
+        "title1": "SUN/X",
+        "title2": "",
+        "page": "6",
+        "of": "10",
+        "size": 30641
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN/X, data/drw has old SUN/X"
+    },
+    {
+      "filename": "a09.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, SCSI",
+        "title2": "",
+        "page": "9",
+        "of": "20",
+        "size": 125281
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2",
+        "title2": "",
+        "page": "9",
+        "of": "19",
+        "size": 65923
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, data/drw has old PROPRIETARY SMI, SUN-2, SCSI"
+    },
+    {
+      "filename": "b08.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE",
+        "title2": "",
+        "page": "8",
+        "of": "20",
+        "size": 78546
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2",
+        "title2": "",
+        "page": "8",
+        "of": "19",
+        "size": 67158
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, data/drw has old PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE"
+    },
+    {
+      "filename": "x1.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN-3/F",
+        "title2": "",
+        "page": "1",
+        "of": "15",
+        "size": 90181
+      },
+      "octal_meta": {
+        "title1": "SUN-3/F",
+        "title2": "",
+        "page": "1",
+        "of": "15",
+        "size": 106795
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/F, data/drw has old SUN-3/F"
+    },
+    {
+      "filename": "b5.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE",
+        "title2": "",
+        "page": "5",
+        "of": "9",
+        "size": 90805
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2/LC",
+        "title2": "",
+        "page": "5",
+        "of": "7",
+        "size": 121550
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2/LC, data/drw has old PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE"
+    },
+    {
+      "filename": "m8.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1007-08",
+        "page": "8",
+        "of": "",
+        "size": 90987
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1007-08",
+        "page": "8",
+        "of": "9",
+        "size": 88868
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old SUN MICROSYSTEMS INC"
+    },
+    {
+      "filename": "p4.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 68000-10, I/O",
+        "title2": "",
+        "page": "4",
+        "of": "5",
+        "size": 88959
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN 68000-10, I/O",
+        "title2": "",
+        "page": "4",
+        "of": "5",
+        "size": 89076
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN 68000-10, I/O, data/drw has old (C) 1982 SMI, SUN 68000-10, I/O"
+    },
+    {
+      "filename": "qx3.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 68010, MMU",
+        "title2": "",
+        "page": "3",
+        "of": "8",
+        "size": 94432
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN 68010, MMU",
+        "title2": "",
+        "page": "3",
+        "of": "8",
+        "size": 93704
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN 68010, MMU, data/drw has old (C) 1982 SMI, SUN 68010, MMU"
+    },
+    {
+      "filename": "gr3.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 193219
+      },
+      "octal_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 192361
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is , data/drw has old "
+    },
+    {
+      "filename": "v5.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, VIDEO BOARD",
+        "title2": "",
+        "page": "5",
+        "of": "5",
+        "size": 49868
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1003-07",
+        "page": "5",
+        "of": "5",
+        "size": 33241
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old PROPRIETARY SMI, SUN-2, VIDEO BOARD"
+    },
+    {
+      "filename": "h4.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1983 SMI, SUN-2 GRAPHICS, VIDEO INTERFACE",
+        "title2": "",
+        "page": "4",
+        "of": "5",
+        "size": 56277
+      },
+      "octal_meta": {
+        "title1": "(C) 1983 SMI, SUN-2 GRAPHICS, VIDEO INTERFACE",
+        "title2": "",
+        "page": "4",
+        "of": "5",
+        "size": 55536
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1983 SMI, SUN-2 GRAPHICS, VIDEO INTERFACE, data/drw has old (C) 1983 SMI, SUN-2 GRAPHICS, VIDEO INTERFACE"
+    },
+    {
+      "filename": "a10.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2",
+        "title2": "",
+        "page": "10",
+        "of": "19",
+        "size": 31707
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2",
+        "title2": "",
+        "page": "10",
+        "of": "19",
+        "size": 25103
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, data/drw has old PROPRIETARY SMI, SUN-2"
+    },
+    {
+      "filename": "b11.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "title2": "",
+        "page": "11",
+        "of": "20",
+        "size": 39559
+      },
+      "octal_meta": {
+        "title1": "SUN-2060, DIN CONNECTORS",
+        "title2": "",
+        "page": "11",
+        "of": "19",
+        "size": 71526
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-2060, DIN CONNECTORS, data/drw has old PROPRIETARY SMI, SUN-2, BUS CONNECTORS"
+    },
+    {
+      "filename": "ep2.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN-3/E",
+        "title2": "",
+        "page": "2",
+        "of": "10",
+        "size": 102115
+      },
+      "octal_meta": {
+        "title1": "SUN-3/E",
+        "title2": "",
+        "page": "2",
+        "of": "10",
+        "size": 98696
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/E, data/drw has old SUN-3/E"
+    },
+    {
+      "filename": "micro.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 715260
+      },
+      "octal_meta": {
+        "title1": "SMI LIBRARY",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 692978
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SMI LIBRARY, data/drw has old "
+    },
+    {
+      "filename": "sx6.drw.O",
+      "data_drw_meta": {
+        "title1": "ECL COLOR MAP AND DACS",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 142714
+      },
+      "octal_meta": {
+        "title1": "ECL COLOR MAP AND DACS",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 136643
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is ECL COLOR MAP AND DACS, data/drw has old ECL COLOR MAP AND DACS"
+    },
+    {
+      "filename": "d4.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1983 SMI, IOBOARD, SCC",
+        "title2": "",
+        "page": "4",
+        "of": "4",
+        "size": 85969
+      },
+      "octal_meta": {
+        "title1": "(C) 1983 SMI, IOBOARD, DMA",
+        "title2": "",
+        "page": "4",
+        "of": "4",
+        "size": 91845
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1983 SMI, IOBOARD, DMA, data/drw has old (C) 1983 SMI, IOBOARD, SCC"
+    },
+    {
+      "filename": "px7.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 42497
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN 68000, P-CONNECTORS",
+        "title2": "",
+        "page": "7",
+        "of": "7",
+        "size": 42497
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN 68000, P-CONNECTORS, data/drw has old "
+    },
+    {
+      "filename": "xx1.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN/X",
+        "title2": "",
+        "page": "1",
+        "of": "6",
+        "size": 86073
+      },
+      "octal_meta": {
+        "title1": "SUN/X",
+        "title2": "",
+        "page": "1",
+        "of": "10",
+        "size": 72774
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN/X, data/drw has old SUN/X"
+    },
+    {
+      "filename": "xx3.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN-3/F",
+        "title2": "ETHERNET",
+        "page": "3",
+        "of": "6",
+        "size": 95329
+      },
+      "octal_meta": {
+        "title1": "SUN/X",
+        "title2": "",
+        "page": "3",
+        "of": "10",
+        "size": 89011
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN/X, data/drw has old SUN-3/F"
+    },
+    {
+      "filename": "gr1.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 47164
+      },
+      "octal_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 60073
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is , data/drw has old "
+    },
+    {
+      "filename": "r2.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1983 SMI, ROPC, SHIFTER",
+        "title2": "",
+        "page": "2",
+        "of": "2",
+        "size": 105079
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, ROPC, SHIFTER",
+        "title2": "",
+        "page": "2",
+        "of": "3",
+        "size": 92534
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, ROPC, SHIFTER, data/drw has old (C) 1983 SMI, ROPC, SHIFTER"
+    },
+    {
+      "filename": "b13.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, MEMORY",
+        "title2": "",
+        "page": "13",
+        "of": "19",
+        "size": 265512
+      },
+      "octal_meta": {
+        "title1": "SUN-2060, MEMORY 0-2M",
+        "title2": "",
+        "page": "13",
+        "of": "19",
+        "size": 253071
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-2060, MEMORY 0-2M, data/drw has old PROPRIETARY SMI, SUN-2, MEMORY"
+    },
+    {
+      "filename": "sy10.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 66027
+      },
+      "octal_meta": {
+        "title1": "TTL COLOR MAP",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 88179
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is TTL COLOR MAP, data/drw has old "
+    },
+    {
+      "filename": "d07.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, SERIAL I/O",
+        "title2": "X",
+        "page": "7",
+        "of": "20",
+        "size": 113282
+      },
+      "octal_meta": {
+        "title1": "SUN-2060, MEMORY INTERFACE",
+        "title2": "",
+        "page": "7",
+        "of": "12",
+        "size": 81601
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-2060, MEMORY INTERFACE, data/drw has old PROPRIETARY SMI, SUN-2, SERIAL I/O"
+    },
+    {
+      "filename": "sc9.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 114439
+      },
+      "octal_meta": {
+        "title1": "(C) SUN-2 COLOR, WORD-MODE DATA PATHS",
+        "title2": "",
+        "page": "9",
+        "of": "21",
+        "size": 126022
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) SUN-2 COLOR, WORD-MODE DATA PATHS, data/drw has old "
+    },
+    {
+      "filename": "qx1.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 68010, CPU",
+        "title2": "",
+        "page": "1",
+        "of": "8",
+        "size": 105118
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN 68010, CPU",
+        "title2": "",
+        "page": "1",
+        "of": "8",
+        "size": 48282
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN 68010, CPU, data/drw has old (C) 1982 SMI, SUN 68010, CPU"
+    },
+    {
+      "filename": "test.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 11947
+      },
+      "octal_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 10166
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is , data/drw has old "
+    },
+    {
+      "filename": "x3.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI SUN 68000 MEMORY BOARD",
+        "title2": "",
+        "page": "3",
+        "of": "4",
+        "size": 153101
+      },
+      "octal_meta": {
+        "title1": "SUN-3/F",
+        "title2": "",
+        "page": "3",
+        "of": "15",
+        "size": 72293
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/F, data/drw has old (C) 1982 SMI SUN 68000 MEMORY BOARD"
+    },
+    {
+      "filename": "ti1.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 1/4\" TAPE, TAPE INTERFACE",
+        "title2": "",
+        "page": "1",
+        "of": "4",
+        "size": 99112
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN 1/4\" TAPE, TAPE INTERFACE",
+        "title2": "",
+        "page": "1",
+        "of": "4",
+        "size": 87438
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN 1/4\" TAPE, TAPE INTERFACE, data/drw has old (C) 1982 SMI, SUN 1/4\" TAPE, TAPE INTERFACE"
+    },
+    {
+      "filename": "foo1.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI SUN 68000 MEMORY BOARD",
+        "title2": "",
+        "page": "4",
+        "of": "4",
+        "size": 92703
+      },
+      "octal_meta": {
+        "title1": "FERRARI",
+        "title2": "MEMORY CONTROL AND DRIVERS",
+        "page": "7",
+        "of": "10",
+        "size": 2171
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is FERRARI, data/drw has old (C) 1982 SMI SUN 68000 MEMORY BOARD"
+    },
+    {
+      "filename": "m18.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, VIDEO",
+        "title2": "",
+        "page": "18",
+        "of": "19",
+        "size": 85254
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, VIDEO",
+        "title2": "",
+        "page": "18",
+        "of": "19",
+        "size": 84812
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, VIDEO, data/drw has old PROPRIETARY SMI, SUN-2, VIDEO"
+    },
+    {
+      "filename": "qx5.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 68010, 796-BUS",
+        "title2": "",
+        "page": "5",
+        "of": "8",
+        "size": 65962
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN 68010, 796-BUS",
+        "title2": "",
+        "page": "5",
+        "of": "8",
+        "size": 56290
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN 68010, 796-BUS, data/drw has old (C) 1982 SMI, SUN 68010, 796-BUS"
+    },
+    {
+      "filename": "cg4.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 90701
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, COLOR BOARD, FUNCTION UNIT.",
+        "title2": "",
+        "page": "4",
+        "of": "7",
+        "size": 56823
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, COLOR BOARD, FUNCTION UNIT., data/drw has old "
+    },
+    {
+      "filename": "x7.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN-3",
+        "title2": "MEMORY",
+        "page": "7",
+        "of": "10",
+        "size": 170313
+      },
+      "octal_meta": {
+        "title1": "SUN-3/F",
+        "title2": "PARITY",
+        "page": "7",
+        "of": "15",
+        "size": 62322
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/F, data/drw has old SUN-3"
+    },
+    {
+      "filename": "px1.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 108030
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN 68000, CPU",
+        "title2": "",
+        "page": "1",
+        "of": "7",
+        "size": 108030
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN 68000, CPU, data/drw has old "
+    },
+    {
+      "filename": "ep4.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN-3/E",
+        "title2": "",
+        "page": "4",
+        "of": "10",
+        "size": 66690
+      },
+      "octal_meta": {
+        "title1": "SUN-3/E",
+        "title2": "",
+        "page": "4",
+        "of": "10",
+        "size": 59397
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/E, data/drw has old SUN-3/E"
+    },
+    {
+      "filename": "a16.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 100113
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, SINGLE BOARD",
+        "title2": "",
+        "page": "16",
+        "of": "19",
+        "size": 104169
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, SINGLE BOARD, data/drw has old "
+    },
+    {
+      "filename": "b17.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1983 SMI, SUN-2, MEMORY",
+        "title2": "",
+        "page": "17",
+        "of": "20",
+        "size": 240617
+      },
+      "octal_meta": {
+        "title1": "SUN-2060, VIDEO MEMORY AND BUFFERS",
+        "title2": "",
+        "page": "17",
+        "of": "19",
+        "size": 164554
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-2060, VIDEO MEMORY AND BUFFERS, data/drw has old (C) 1983 SMI, SUN-2, MEMORY"
+    },
+    {
+      "filename": "b15.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, FRAME BUFFER",
+        "title2": "",
+        "page": "15",
+        "of": "19",
+        "size": 63427
+      },
+      "octal_meta": {
+        "title1": "SUN-2060, DECOUPLING CAPS",
+        "title2": "",
+        "page": "15",
+        "of": "19",
+        "size": 53196
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-2060, DECOUPLING CAPS, data/drw has old PROPRIETARY SMI, SUN-2, FRAME BUFFER"
+    },
+    {
+      "filename": "xx10.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN-3/X",
+        "title2": "",
+        "page": "10",
+        "of": "10",
+        "size": 86645
+      },
+      "octal_meta": {
+        "title1": "SUN/X",
+        "title2": "",
+        "page": "10",
+        "of": "10",
+        "size": 84955
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN/X, data/drw has old SUN-3/X"
+    },
+    {
+      "filename": "xx5.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN/X",
+        "title2": "",
+        "page": "5",
+        "of": "6",
+        "size": 135070
+      },
+      "octal_meta": {
+        "title1": "SUN/X",
+        "title2": "",
+        "page": "5",
+        "of": "6",
+        "size": 103883
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN/X, data/drw has old SUN/X"
+    },
+    {
+      "filename": "q9.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1983 SMI, SUN 68010, CAPACITORS",
+        "title2": "",
+        "page": "9",
+        "of": "9",
+        "size": 80652
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1007-08",
+        "page": "9",
+        "of": "",
+        "size": 37284
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old (C) 1983 SMI, SUN 68010, CAPACITORS"
+    },
+    {
+      "filename": "f04.drw.O",
+      "data_drw_meta": {
+        "title1": "FERRARI",
+        "title2": "",
+        "page": "4",
+        "of": "20",
+        "size": 57915
+      },
+      "octal_meta": {
+        "title1": "FERRARI",
+        "title2": "MISC. I/O DEVICES",
+        "page": "4",
+        "of": "20",
+        "size": 64636
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is FERRARI, data/drw has old FERRARI"
+    },
+    {
+      "filename": "ep6.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN-3/E",
+        "title2": "",
+        "page": "6",
+        "of": "10",
+        "size": 48659
+      },
+      "octal_meta": {
+        "title1": "SUN-3/E",
+        "title2": "",
+        "page": "6",
+        "of": "10",
+        "size": 40417
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/E, data/drw has old SUN-3/E"
+    },
+    {
+      "filename": "x5.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN-3/F",
+        "title2": "ETHERNET",
+        "page": "5",
+        "of": "15",
+        "size": 115947
+      },
+      "octal_meta": {
+        "title1": "SUN-3/F",
+        "title2": "ETHERNET",
+        "page": "5",
+        "of": "15",
+        "size": 110942
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/F, data/drw has old SUN-3/F"
+    },
+    {
+      "filename": "vmem1.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "title2": "",
+        "page": "1",
+        "of": "4",
+        "size": 48516
+      },
+      "octal_meta": {
+        "title1": "SUN 2251 MEMORY BOARD",
+        "title2": "",
+        "page": "1",
+        "of": "4",
+        "size": 48373
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN 2251 MEMORY BOARD, data/drw has old PROPRIETARY SMI, SUN-2, BUS CONNECTORS"
+    },
+    {
+      "filename": "f20.drw.O",
+      "data_drw_meta": {
+        "title1": "FERRARI",
+        "title2": "",
+        "page": "20",
+        "of": "20",
+        "size": 55380
+      },
+      "octal_meta": {
+        "title1": "FERRARI",
+        "title2": "CONNECTORS",
+        "page": "20",
+        "of": "20",
+        "size": 68913
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is FERRARI, data/drw has old FERRARI"
+    },
+    {
+      "filename": "foo3.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI SUN 68000 MEMORY BOARD",
+        "title2": "",
+        "page": "3",
+        "of": "4",
+        "size": 13416
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "title2": "",
+        "page": "11",
+        "of": "19",
+        "size": 23153
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, BUS CONNECTORS, data/drw has old (C) 1982 SMI SUN 68000 MEMORY BOARD"
+    },
+    {
+      "filename": "v2x.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2 GRAPHICS, DATA PATHS",
+        "title2": "",
+        "page": "2",
+        "of": "4",
+        "size": 146042
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, VIDEO BOARD",
+        "title2": "",
+        "page": "2",
+        "of": "5",
+        "size": 125138
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, VIDEO BOARD, data/drw has old PROPRIETARY SMI, SUN-2 GRAPHICS, DATA PATHS"
+    },
+    {
+      "filename": "d01.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, CPU",
+        "title2": "",
+        "page": "1",
+        "of": "20",
+        "size": 57330
+      },
+      "octal_meta": {
+        "title1": "SUN-2060, RESET, CAPS",
+        "title2": "",
+        "page": "1",
+        "of": "12",
+        "size": 87854
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-2060, RESET, CAPS, data/drw has old PROPRIETARY SMI, SUN-2, CPU"
+    },
+    {
+      "filename": "cg6.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 85332
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, COLOR BOARD, CMAPS & DACS",
+        "title2": "",
+        "page": "6",
+        "of": "7",
+        "size": 144352
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, COLOR BOARD, CMAPS & DACS, data/drw has old "
+    },
+    {
+      "filename": "lib.drw.O",
+      "data_drw_meta": {
+        "title1": "SMI LIBRARY",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 1052935
+      },
+      "octal_meta": {
+        "title1": "SMI LIBRARY",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 780104
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SMI LIBRARY, data/drw has old SMI LIBRARY"
+    },
+    {
+      "filename": "f11.drw.O",
+      "data_drw_meta": {
+        "title1": "FERRARI",
+        "title2": "",
+        "page": "11",
+        "of": "20",
+        "size": 250042
+      },
+      "octal_meta": {
+        "title1": "FERRARI",
+        "title2": "MAIN MEMORY 4/8 MEGABYTES",
+        "page": "11",
+        "of": "20",
+        "size": 133510
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is FERRARI, data/drw has old FERRARI"
+    },
+    {
+      "filename": "smd4.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 75764
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, DISK, DISK DRIVE INTERFACE.",
+        "title2": "",
+        "page": "4",
+        "of": "7",
+        "size": 84682
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, DISK, DISK DRIVE INTERFACE., data/drw has old "
+    },
+    {
+      "filename": "6018.drw.O",
+      "data_drw_meta": {
+        "title1": "FERRARI",
+        "title2": "",
+        "page": "18",
+        "of": "19",
+        "size": 40508
+      },
+      "octal_meta": {
+        "title1": "FERRARI",
+        "title2": "",
+        "page": "18",
+        "of": "20",
+        "size": 36920
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is FERRARI, data/drw has old FERRARI"
+    },
+    {
+      "filename": "sy7.drw.O",
+      "data_drw_meta": {
+        "title1": "MEMORY PLANES A,B,C",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 196703
+      },
+      "octal_meta": {
+        "title1": "MEMORY PLANES A,B,C",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 180609
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is MEMORY PLANES A,B,C, data/drw has old MEMORY PLANES A,B,C"
+    },
+    {
+      "filename": "sc15.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) SUN-2 COLOR, COLOR MAPS AND DACS",
+        "title2": "",
+        "page": "15",
+        "of": "20",
+        "size": 95823
+      },
+      "octal_meta": {
+        "title1": "(C) SUN-2 COLOR, ECL SHIFTERS",
+        "title2": "",
+        "page": "15",
+        "of": "21",
+        "size": 72059
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) SUN-2 COLOR, ECL SHIFTERS, data/drw has old (C) SUN-2 COLOR, COLOR MAPS AND DACS"
+    },
+    {
+      "filename": "a01.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2",
+        "title2": "",
+        "page": "1",
+        "of": "19",
+        "size": 102531
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2",
+        "title2": "",
+        "page": "1",
+        "of": "19",
+        "size": 72059
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, data/drw has old PROPRIETARY SMI, SUN-2"
+    },
+    {
+      "filename": "q5.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2 CPU, P2-BUS INTERFACE",
+        "title2": "",
+        "page": "5",
+        "of": "8",
+        "size": 92573
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1007-08",
+        "page": "5",
+        "of": "",
+        "size": 91403
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old PROPRIETARY SMI, SUN-2 CPU, P2-BUS INTERFACE"
+    },
+    {
+      "filename": "6001.drw.O",
+      "data_drw_meta": {
+        "title1": "FERRARI",
+        "title2": "",
+        "page": "1",
+        "of": "19",
+        "size": 69472
+      },
+      "octal_meta": {
+        "title1": "FERRARI",
+        "title2": "",
+        "page": "1",
+        "of": "20",
+        "size": 85904
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is FERRARI, data/drw has old FERRARI"
+    },
+    {
+      "filename": "a25.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, CAPS",
+        "title2": "",
+        "page": "25",
+        "of": "25",
+        "size": 62881
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, CAPS",
+        "title2": "",
+        "page": "25",
+        "of": "25",
+        "size": 62101
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, CAPS, data/drw has old PROPRIETARY SMI, SUN-2, CAPS"
+    },
+    {
+      "filename": "f08.drw.O",
+      "data_drw_meta": {
+        "title1": "FERRARI",
+        "title2": "",
+        "page": "8",
+        "of": "20",
+        "size": 118547
+      },
+      "octal_meta": {
+        "title1": "FERRARI",
+        "title2": "MEMORY CONTROL AND DRIVERS",
+        "page": "8",
+        "of": "20",
+        "size": 112385
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is FERRARI, data/drw has old FERRARI"
+    },
+    {
+      "filename": "b19.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN-2, CAPS",
+        "title2": "",
+        "page": "19",
+        "of": "20",
+        "size": 57837
+      },
+      "octal_meta": {
+        "title1": "SUN-2060, RESET, CAPS",
+        "title2": "",
+        "page": "19",
+        "of": "19",
+        "size": 45604
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-2060, RESET, CAPS, data/drw has old (C) 1982 SMI, SUN-2, CAPS"
+    },
+    {
+      "filename": "sio4.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 113672
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, SCSI BOARD, UARTS",
+        "title2": "",
+        "page": "4",
+        "of": "5",
+        "size": 117390
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, SCSI BOARD, UARTS, data/drw has old "
+    },
+    {
+      "filename": "a18.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 68000 MEMORY BOARD",
+        "title2": "",
+        "page": "3",
+        "of": "4",
+        "size": 251446
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, VIDEO CONTROLLER",
+        "title2": "",
+        "page": "18",
+        "of": "19",
+        "size": 65195
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, VIDEO CONTROLLER, data/drw has old (C) 1982 SMI, SUN 68000 MEMORY BOARD"
+    },
+    {
+      "filename": "g3.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 56238
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 MSI. SUN GRAPHICS, VIDEO CONTROLLER",
+        "title2": "",
+        "page": "3",
+        "of": "5",
+        "size": 56979
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 MSI. SUN GRAPHICS, VIDEO CONTROLLER, data/drw has old "
+    },
+    {
+      "filename": "y2.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN 1 MBYTE MEMORY BOARD, REV-C",
+        "title2": "",
+        "page": "2",
+        "of": "4",
+        "size": 250848
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1013-02",
+        "page": "2",
+        "of": "4",
+        "size": 250809
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old PROPRIETARY SMI, SUN 1 MBYTE MEMORY BOARD, REV-C"
+    },
+    {
+      "filename": "q7.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 68010, I/O",
+        "title2": "",
+        "page": "7",
+        "of": "8",
+        "size": 82225
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1007-08",
+        "page": "7",
+        "of": "",
+        "size": 51584
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old (C) 1982 SMI, SUN 68010, I/O"
+    },
+    {
+      "filename": "s3.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN-2, 128-BIT DATA PATH",
+        "title2": "",
+        "page": "3",
+        "of": "12",
+        "size": 237341
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN-2, MEMORY INTERFACE",
+        "title2": "",
+        "page": "3",
+        "of": "15",
+        "size": 45695
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN-2, MEMORY INTERFACE, data/drw has old (C) 1982 SMI, SUN-2, 128-BIT DATA PATH"
+    },
+    {
+      "filename": "m2.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1007-08",
+        "page": "2",
+        "of": "9",
+        "size": 44876
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1007-08",
+        "page": "2",
+        "of": "9",
+        "size": 41743
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old SUN MICROSYSTEMS INC"
+    },
+    {
+      "filename": "x14.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN-3",
+        "title2": "PULLUPS AND CAPS",
+        "page": "14",
+        "of": "15",
+        "size": 26585
+      },
+      "octal_meta": {
+        "title1": "SUN-3/F",
+        "title2": "MONOCHROME VIDEO",
+        "page": "14",
+        "of": "15",
+        "size": 84994
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/F, data/drw has old SUN-3"
+    },
+    {
+      "filename": "a03.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2",
+        "title2": "",
+        "page": "3",
+        "of": "19",
+        "size": 102791
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2",
+        "title2": "",
+        "page": "3",
+        "of": "19",
+        "size": 101868
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, data/drw has old PROPRIETARY SMI, SUN-2"
+    },
+    {
+      "filename": "qx9.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1983 SMI, SUN 68010, CAPACITORS",
+        "title2": "",
+        "page": "9",
+        "of": "9",
+        "size": 47008
+      },
+      "octal_meta": {
+        "title1": "(C) 1983 SMI, SUN 68010, CAPACITORS",
+        "title2": "",
+        "page": "9",
+        "of": "9",
+        "size": 40209
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1983 SMI, SUN 68010, CAPACITORS, data/drw has old (C) 1983 SMI, SUN 68010, CAPACITORS"
+    },
+    {
+      "filename": "eth1.drw.O",
+      "data_drw_meta": {
+        "title1": "ETHERNET/MEMORY BOARD, ETHERNET INTERFACE",
+        "title2": "",
+        "page": "1",
+        "of": "6",
+        "size": 77948
+      },
+      "octal_meta": {
+        "title1": "ETHERNET BOARD, ETHERNET INTERFACE",
+        "title2": "",
+        "page": "1",
+        "of": "7",
+        "size": 60515
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is ETHERNET BOARD, ETHERNET INTERFACE, data/drw has old ETHERNET/MEMORY BOARD, ETHERNET INTERFACE"
+    },
+    {
+      "filename": "smd6.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 132301
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, DISK, DISK CABLE RECEIVERS & TRANSCEIVERS",
+        "title2": "",
+        "page": "6",
+        "of": "7",
+        "size": 106067
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, DISK, DISK CABLE RECEIVERS & TRANSCEIVERS, data/drw has old "
+    },
+    {
+      "filename": "f13.drw.O",
+      "data_drw_meta": {
+        "title1": "FERRARI",
+        "title2": "",
+        "page": "13",
+        "of": "20",
+        "size": 69524
+      },
+      "octal_meta": {
+        "title1": "FERRARI",
+        "title2": "VIDEO MEMORY Y PLANE 0-3",
+        "page": "13",
+        "of": "20",
+        "size": 104364
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is FERRARI, data/drw has old FERRARI"
+    },
+    {
+      "filename": "sc1.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) SUN-2 COLOR, P2-BUS INTERFACE",
+        "title2": "",
+        "page": "1",
+        "of": "20",
+        "size": 107497
+      },
+      "octal_meta": {
+        "title1": "(C) SUN-2 COLOR, VME-BUS INTERFACE",
+        "title2": "",
+        "page": "1",
+        "of": "21",
+        "size": 92729
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) SUN-2 COLOR, VME-BUS INTERFACE, data/drw has old (C) SUN-2 COLOR, P2-BUS INTERFACE"
+    },
+    {
+      "filename": "sy5.drw.O",
+      "data_drw_meta": {
+        "title1": "HORIZONTAL ZOOM AND MEMORY CONTROL",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 85865
+      },
+      "octal_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 109460
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is , data/drw has old HORIZONTAL ZOOM AND MEMORY CONTROL"
+    },
+    {
+      "filename": "b06.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, I/O",
+        "title2": "X",
+        "page": "6",
+        "of": "19",
+        "size": 77675
+      },
+      "octal_meta": {
+        "title1": "SUN-2060, SERIAL PORTS",
+        "title2": "",
+        "page": "6",
+        "of": "19",
+        "size": 69927
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-2060, SERIAL PORTS, data/drw has old PROPRIETARY SMI, SUN-2, I/O"
+    },
+    {
+      "filename": "a07.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE",
+        "title2": "",
+        "page": "7",
+        "of": "19",
+        "size": 97578
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE",
+        "title2": "",
+        "page": "7",
+        "of": "19",
+        "size": 96187
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE, data/drw has old PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE"
+    },
+    {
+      "filename": "x10.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN-3",
+        "title2": "PULLUPS AND CAPS",
+        "page": "9",
+        "of": "10",
+        "size": 26585
+      },
+      "octal_meta": {
+        "title1": "SUN-3/F",
+        "title2": "VIDEO CONTROL",
+        "page": "10",
+        "of": "15",
+        "size": 108212
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/F, data/drw has old SUN-3"
+    },
+    {
+      "filename": "sc13.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) SUN-2 COLOR, VIDEO OUTPUT BUFFERS",
+        "title2": "",
+        "page": "13",
+        "of": "20",
+        "size": 107614
+      },
+      "octal_meta": {
+        "title1": "(C) SUN-2 COLOR, VIDEO OUTPUT BUFFERS",
+        "title2": "",
+        "page": "13",
+        "of": "21",
+        "size": 98865
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) SUN-2 COLOR, VIDEO OUTPUT BUFFERS, data/drw has old (C) SUN-2 COLOR, VIDEO OUTPUT BUFFERS"
+    },
+    {
+      "filename": "sc5.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 226005
+      },
+      "octal_meta": {
+        "title1": "(C) SUN-2 COLOR, RAS + CAS DECODING",
+        "title2": "",
+        "page": "5",
+        "of": "21",
+        "size": 67769
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) SUN-2 COLOR, RAS + CAS DECODING, data/drw has old "
+    },
+    {
+      "filename": "sy1.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 1/4\" TAPE, 796-BUS INTERFACE",
+        "title2": "",
+        "page": "2",
+        "of": "4",
+        "size": 57395
+      },
+      "octal_meta": {
+        "title1": "(C) 1983 SMI, SUN2 COLOR BOARD, ADDRESS DECODERS",
+        "title2": "",
+        "page": "1",
+        "of": "14",
+        "size": 56004
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1983 SMI, SUN2 COLOR BOARD, ADDRESS DECODERS, data/drw has old (C) 1982 SMI, SUN 1/4\" TAPE, 796-BUS INTERFACE"
+    },
+    {
+      "filename": "eth5.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1983 SMI, SUN 68010, MEMORY INTERFACE",
+        "title2": "",
+        "page": "5",
+        "of": "8",
+        "size": 51220
+      },
+      "octal_meta": {
+        "title1": "ETHERNET BOARD, MULTIBUS AND BOARD SELECT",
+        "title2": "",
+        "page": "5",
+        "of": "7",
+        "size": 51207
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is ETHERNET BOARD, MULTIBUS AND BOARD SELECT, data/drw has old (C) 1983 SMI, SUN 68010, MEMORY INTERFACE"
+    },
+    {
+      "filename": "g7.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1981 VSI. SUN GRAPHICS, CONNECTORS",
+        "title2": "",
+        "page": "7",
+        "of": "7",
+        "size": 37063
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI. SUN GRAPHICS, MULTIBUS CONNECTOR",
+        "title2": "",
+        "page": "7",
+        "of": "7",
+        "size": 29653
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI. SUN GRAPHICS, MULTIBUS CONNECTOR, data/drw has old (C) 1981 VSI. SUN GRAPHICS, CONNECTORS"
+    },
+    {
+      "filename": "c2.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN-2/200, RASTEROP UNIT",
+        "title2": "",
+        "page": "1",
+        "of": "9",
+        "size": 101660
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2/LC",
+        "title2": "",
+        "page": "2",
+        "of": "7",
+        "size": 104663
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2/LC, data/drw has old (C) 1982 SMI, SUN-2/200, RASTEROP UNIT"
+    },
+    {
+      "filename": "sio2.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, SCSI BOARD, DMA",
+        "title2": "",
+        "page": "2",
+        "of": "5",
+        "size": 50388
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, SCSI BOARD, DMA",
+        "title2": "",
+        "page": "2",
+        "of": "5",
+        "size": 46904
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, SCSI BOARD, DMA, data/drw has old PROPRIETARY SMI, SUN-2, SCSI BOARD, DMA"
+    },
+    {
+      "filename": "a.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "title2": "",
+        "page": "11",
+        "of": "19",
+        "size": 47554
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, CLOCKS",
+        "title2": "",
+        "page": "2",
+        "of": "19",
+        "size": 3432
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, CLOCKS, data/drw has old PROPRIETARY SMI, SUN-2, BUS CONNECTORS"
+    },
+    {
+      "filename": "smd6ol.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 105534
+      },
+      "octal_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 105534
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is , data/drw has old "
+    },
+    {
+      "filename": "10.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1983 SMI, SUN 68010, BUS INTERFACE",
+        "title2": "",
+        "page": "7",
+        "of": "8",
+        "size": 129935
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1007-08",
+        "page": "3",
+        "of": "9",
+        "size": 90883
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old (C) 1983 SMI, SUN 68010, BUS INTERFACE"
+    },
+    {
+      "filename": "q3.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2 CPU, MMU",
+        "title2": "",
+        "page": "3",
+        "of": "8",
+        "size": 93613
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1007-08",
+        "page": "3",
+        "of": "",
+        "size": 92937
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old PROPRIETARY SMI, SUN-2 CPU, MMU"
+    },
+    {
+      "filename": "sx8.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 73190
+      },
+      "octal_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 67847
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is , data/drw has old "
+    },
+    {
+      "filename": "a21.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "title2": "",
+        "page": "21",
+        "of": "25",
+        "size": 133523
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2051",
+        "title2": "",
+        "page": "21",
+        "of": "25",
+        "size": 132717
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2051, data/drw has old PROPRIETARY SMI, SUN-2, BUS CONNECTORS"
+    },
+    {
+      "filename": "q1.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 68010, CPU",
+        "title2": "",
+        "page": "1",
+        "of": "6",
+        "size": 91910
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1007-08",
+        "page": "1",
+        "of": "9",
+        "size": 53131
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old (C) 1982 SMI, SUN 68010, CPU"
+    },
+    {
+      "filename": "g5.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN GRAPHICS, MULTIBUS INTERFACE",
+        "title2": "",
+        "page": "5",
+        "of": "5",
+        "size": 96330
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN GRAPHICS, MULTIBUS INTERFACE",
+        "title2": "",
+        "page": "5",
+        "of": "5",
+        "size": 96005
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN GRAPHICS, MULTIBUS INTERFACE, data/drw has old (C) 1982 SMI, SUN GRAPHICS, MULTIBUS INTERFACE"
+    },
+    {
+      "filename": "y4.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 68000 MEMORY BOARD",
+        "title2": "",
+        "page": "4",
+        "of": "4",
+        "size": 66833
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1013-02",
+        "page": "4",
+        "of": "4",
+        "size": 60281
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old (C) 1982 SMI, SUN 68000 MEMORY BOARD"
+    },
+    {
+      "filename": "ethp8.drw.O",
+      "data_drw_meta": {
+        "title1": "ETHERNET BOARD, CAPACITORS",
+        "title2": "",
+        "page": "8",
+        "of": "8",
+        "size": 40612
+      },
+      "octal_meta": {
+        "title1": "ETHERNET BOARD, CAPACITORS",
+        "title2": "",
+        "page": "8",
+        "of": "8",
+        "size": 38961
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is ETHERNET BOARD, CAPACITORS, data/drw has old ETHERNET BOARD, CAPACITORS"
+    },
+    {
+      "filename": "sc7.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 163436
+      },
+      "octal_meta": {
+        "title1": "(C) SUN-2 COLOR, PIXEL-MODE DATA PATHS",
+        "title2": "",
+        "page": "7",
+        "of": "21",
+        "size": 130208
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) SUN-2 COLOR, PIXEL-MODE DATA PATHS, data/drw has old "
+    },
+    {
+      "filename": "sy3.drw.O",
+      "data_drw_meta": {
+        "title1": "HORIZONTAL ZOOM AND MEMORY CONTROL",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 85267
+      },
+      "octal_meta": {
+        "title1": "HORIZONTAL ZOOM AND MEMORY CONTROL",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 77961
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is HORIZONTAL ZOOM AND MEMORY CONTROL, data/drw has old HORIZONTAL ZOOM AND MEMORY CONTROL"
+    },
+    {
+      "filename": "ti2old.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 117052
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN 1/4\" TAPE, 796-BUS INTERFACE",
+        "title2": "",
+        "page": "2",
+        "of": "4",
+        "size": 84344
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN 1/4\" TAPE, 796-BUS INTERFACE, data/drw has old "
+    },
+    {
+      "filename": "f15.drw.O",
+      "data_drw_meta": {
+        "title1": "FERRARI",
+        "title2": "",
+        "page": "15",
+        "of": "20",
+        "size": 103818
+      },
+      "octal_meta": {
+        "title1": "FERRARI",
+        "title2": "VIDEO CLOCK AND SHIFTERS",
+        "page": "15",
+        "of": "20",
+        "size": 56849
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is FERRARI, data/drw has old FERRARI"
+    },
+    {
+      "filename": "a05.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, DATA PATHS",
+        "title2": "",
+        "page": "5",
+        "of": "20",
+        "size": 69888
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2,",
+        "title2": "",
+        "page": "5",
+        "of": "19",
+        "size": 74789
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2,, data/drw has old PROPRIETARY SMI, DATA PATHS"
+    },
+    {
+      "filename": "b04.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2",
+        "title2": "",
+        "page": "4",
+        "of": "19",
+        "size": 37453
+      },
+      "octal_meta": {
+        "title1": "SUN-2060, PARITY LOGIC",
+        "title2": "",
+        "page": "4",
+        "of": "19",
+        "size": 35347
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-2060, PARITY LOGIC, data/drw has old PROPRIETARY SMI, SUN-2"
+    },
+    {
+      "filename": "m4.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1007-08",
+        "page": "4",
+        "of": "9",
+        "size": 69771
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1007-08",
+        "page": "4",
+        "of": "9",
+        "size": 69667
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old SUN MICROSYSTEMS INC"
+    },
+    {
+      "filename": "ep9.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN-3/E",
+        "title2": "",
+        "page": "9",
+        "of": "10",
+        "size": 31408
+      },
+      "octal_meta": {
+        "title1": "SUN-3/E",
+        "title2": "",
+        "page": "9",
+        "of": "10",
+        "size": 27872
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/E, data/drw has old SUN-3/E"
+    },
+    {
+      "filename": "q6.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982, SUN 68010, CONNECTORS",
+        "title2": "",
+        "page": "6",
+        "of": "6",
+        "size": 129246
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1007-08",
+        "page": "6",
+        "of": "",
+        "size": 83473
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old (C) 1982, SUN 68010, CONNECTORS"
+    },
+    {
+      "filename": "sc0.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 137345
+      },
+      "octal_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 139087
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is , data/drw has old "
+    },
+    {
+      "filename": "foo.drw.O",
+      "data_drw_meta": {
+        "title1": "SMI LIBRARY",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 1011842
+      },
+      "octal_meta": {
+        "title1": "SUN-3/F",
+        "title2": "ETHERNET",
+        "page": "5",
+        "of": "15",
+        "size": 2158
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/F, data/drw has old SMI LIBRARY"
+    },
+    {
+      "filename": "b01.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2",
+        "title2": "",
+        "page": "1",
+        "of": "19",
+        "size": 88127
+      },
+      "octal_meta": {
+        "title1": "SUN-2060, RESET, CAPS",
+        "title2": "",
+        "page": "1",
+        "of": "19",
+        "size": 103051
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-2060, RESET, CAPS, data/drw has old PROPRIETARY SMI, SUN-2"
+    },
+    {
+      "filename": "sc14.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) SUN-2 COLOR, VIDEO OUTPUT BUFFERS",
+        "title2": "",
+        "page": "14",
+        "of": "20",
+        "size": 106288
+      },
+      "octal_meta": {
+        "title1": "(C) SUN-2 COLOR, VIDEO OUTPUT BUFFERS",
+        "title2": "",
+        "page": "14",
+        "of": "21",
+        "size": 97539
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) SUN-2 COLOR, VIDEO OUTPUT BUFFERS, data/drw has old (C) SUN-2 COLOR, VIDEO OUTPUT BUFFERS"
+    },
+    {
+      "filename": "x8.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN-3",
+        "title2": "VIDEO MEMORY",
+        "page": "8",
+        "of": "10",
+        "size": 98280
+      },
+      "octal_meta": {
+        "title1": "SUN-3/F",
+        "title2": "RAS/CAS",
+        "page": "8",
+        "of": "15",
+        "size": 30797
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/F, data/drw has old SUN-3"
+    },
+    {
+      "filename": "sc2.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 62166
+      },
+      "octal_meta": {
+        "title1": "(2) SUN-2 COLOR, VIDEO ADDRESSING",
+        "title2": "",
+        "page": "2",
+        "of": "21",
+        "size": 85774
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (2) SUN-2 COLOR, VIDEO ADDRESSING, data/drw has old "
+    },
+    {
+      "filename": "sy6.drw.O",
+      "data_drw_meta": {
+        "title1": "RAS, CAS, WE DRIVERS",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 57980
+      },
+      "octal_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 122863
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is , data/drw has old RAS, CAS, WE DRIVERS"
+    },
+    {
+      "filename": "m17.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, VIDEO",
+        "title2": "",
+        "page": "17",
+        "of": "20",
+        "size": 145223
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, FRAME BUFFER",
+        "title2": "",
+        "page": "17",
+        "of": "19",
+        "size": 175578
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, FRAME BUFFER, data/drw has old PROPRIETARY SMI, SUN-2, VIDEO"
+    },
+    {
+      "filename": "back4.drw.O",
+      "data_drw_meta": {
+        "title1": "SMI, M-160 BACKPLANE, SLOT 4",
+        "title2": "",
+        "page": "4",
+        "of": "13",
+        "size": 84201
+      },
+      "octal_meta": {
+        "title1": "SMI, M-160 BACKPLANE, SLOT 4",
+        "title2": "",
+        "page": "4",
+        "of": "13",
+        "size": 84201
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SMI, M-160 BACKPLANE, SLOT 4, data/drw has old SMI, M-160 BACKPLANE, SLOT 4"
+    },
+    {
+      "filename": "y1.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN 1MBYTE MEMORY BOARD, REV-C",
+        "title2": "",
+        "page": "1",
+        "of": "4",
+        "size": 117858
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1013-02",
+        "page": "1",
+        "of": "4",
+        "size": 111774
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old PROPRIETARY SMI, SUN 1MBYTE MEMORY BOARD, REV-C"
+    },
+    {
+      "filename": "b18.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 68000 MEMORY BOARD",
+        "title2": "",
+        "page": "18",
+        "of": "20",
+        "size": 240643
+      },
+      "octal_meta": {
+        "title1": "SUN-2060, VIDEO CONTROLLER",
+        "title2": "",
+        "page": "18",
+        "of": "19",
+        "size": 50466
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-2060, VIDEO CONTROLLER, data/drw has old (C) 1982 SMI, SUN 68000 MEMORY BOARD"
+    },
+    {
+      "filename": "sio5.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, I/O BOARD, CAPACITORS",
+        "title2": "",
+        "page": "5",
+        "of": "5",
+        "size": 17563
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, SCSI BOARD, CAPACITORS",
+        "title2": "",
+        "page": "5",
+        "of": "5",
+        "size": 9542
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, SCSI BOARD, CAPACITORS, data/drw has old PROPRIETARY SMI, I/O BOARD, CAPACITORS"
+    },
+    {
+      "filename": "a19.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN-2, CAPS",
+        "title2": "",
+        "page": "19",
+        "of": "20",
+        "size": 57837
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, CAPS",
+        "title2": "",
+        "page": "19",
+        "of": "19",
+        "size": 103324
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, CAPS, data/drw has old (C) 1982 SMI, SUN-2, CAPS"
+    },
+    {
+      "filename": "f09.drw.O",
+      "data_drw_meta": {
+        "title1": "FERRARI",
+        "title2": "MEMORY DECODE AND DRIVERS",
+        "page": "9",
+        "of": "20",
+        "size": 138788
+      },
+      "octal_meta": {
+        "title1": "FERRARI",
+        "title2": "VIDEO MEMORY CONTROL AND DRIVERS",
+        "page": "9",
+        "of": "20",
+        "size": 138151
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is FERRARI, data/drw has old FERRARI"
+    },
+    {
+      "filename": "ep10.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN-3/E",
+        "title2": "",
+        "page": "10",
+        "of": "10",
+        "size": 49738
+      },
+      "octal_meta": {
+        "title1": "SUN-3/E",
+        "title2": "",
+        "page": "10",
+        "of": "10",
+        "size": 49244
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/E, data/drw has old SUN-3/E"
+    },
+    {
+      "filename": "q4.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 68010, MEMORY INTERFACE",
+        "title2": "",
+        "page": "4",
+        "of": "8",
+        "size": 87464
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1007-08",
+        "page": "4",
+        "of": "",
+        "size": 67327
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old (C) 1982 SMI, SUN 68010, MEMORY INTERFACE"
+    },
+    {
+      "filename": "sio1.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, I/O BOARD, SCSI INTERFACE",
+        "title2": "",
+        "page": "1",
+        "of": "5",
+        "size": 92625
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, SCSI BOARD, SCSI IFCE",
+        "title2": "",
+        "page": "1",
+        "of": "5",
+        "size": 86463
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, SCSI BOARD, SCSI IFCE, data/drw has old PROPRIETARY SMI, I/O BOARD, SCSI INTERFACE"
+    },
+    {
+      "filename": "c1.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN-2/200, RASTEROP UNIT",
+        "title2": "",
+        "page": "1",
+        "of": "9",
+        "size": 162253
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2/LC",
+        "title2": "",
+        "page": "1",
+        "of": "7",
+        "size": 67132
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2/LC, data/drw has old (C) 1982 SMI, SUN-2/200, RASTEROP UNIT"
+    },
+    {
+      "filename": "a20.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, CAPS",
+        "title2": "",
+        "page": "20",
+        "of": "20",
+        "size": 27872
+      },
+      "octal_meta": {
+        "title1": "MODEL 50 BACKPLANE",
+        "title2": "",
+        "page": "20",
+        "of": "20",
+        "size": 169429
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is MODEL 50 BACKPLANE, data/drw has old PROPRIETARY SMI, SUN-2, CAPS"
+    },
+    {
+      "filename": "s4.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN-2, RASTEROP UNIT",
+        "title2": "",
+        "page": "4",
+        "of": "12",
+        "size": 119379
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN-2, MEMORY DATA PATHS",
+        "title2": "",
+        "page": "4",
+        "of": "15",
+        "size": 104208
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN-2, MEMORY DATA PATHS, data/drw has old (C) 1982 SMI, SUN-2, RASTEROP UNIT"
+    },
+    {
+      "filename": "a04.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, DECODING AND PROMS",
+        "title2": "",
+        "page": "4",
+        "of": "20",
+        "size": 85787
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2",
+        "title2": "",
+        "page": "4",
+        "of": "19",
+        "size": 39195
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, data/drw has old PROPRIETARY SMI, SUN-2, DECODING AND PROMS"
+    },
+    {
+      "filename": "b05.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, DATA PATHS",
+        "title2": "",
+        "page": "5",
+        "of": "20",
+        "size": 52676
+      },
+      "octal_meta": {
+        "title1": "SUN-2060, I/O DECODING, MISC. I/O",
+        "title2": "",
+        "page": "5",
+        "of": "19",
+        "size": 96031
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-2060, I/O DECODING, MISC. I/O, data/drw has old PROPRIETARY SMI, DATA PATHS"
+    },
+    {
+      "filename": "eth6.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, I/O BOARD, MULTIBUS INTERFACE",
+        "title2": "",
+        "page": "3",
+        "of": "4",
+        "size": 56602
+      },
+      "octal_meta": {
+        "title1": "ETHERNET BOARD, PARITY",
+        "title2": "",
+        "page": "6",
+        "of": "8",
+        "size": 17316
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is ETHERNET BOARD, PARITY, data/drw has old PROPRIETARY SMI, I/O BOARD, MULTIBUS INTERFACE"
+    },
+    {
+      "filename": "smd1.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 120991
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, DISK, 796-BUS INTERFACE",
+        "title2": "",
+        "page": "1",
+        "of": "7",
+        "size": 102661
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, DISK, 796-BUS INTERFACE, data/drw has old "
+    },
+    {
+      "filename": "sc6.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 226031
+      },
+      "octal_meta": {
+        "title1": "(C) SUN-2 COLOR, ADDR DRIVERS + TERMINATORS",
+        "title2": "",
+        "page": "6",
+        "of": "21",
+        "size": 158314
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) SUN-2 COLOR, ADDR DRIVERS + TERMINATORS, data/drw has old "
+    },
+    {
+      "filename": "sy2.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1983 SMI, SUN2 COLOR BOARD, VIDEO ADDRESS GENERATION",
+        "title2": "",
+        "page": "2",
+        "of": "14",
+        "size": 100074
+      },
+      "octal_meta": {
+        "title1": "(C) 1983 SMI, SUN2 COLOR BOARD, VIDEO ADDRESS GENERATION",
+        "title2": "",
+        "page": "2",
+        "of": "14",
+        "size": 97565
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1983 SMI, SUN2 COLOR BOARD, VIDEO ADDRESS GENERATION, data/drw has old (C) 1983 SMI, SUN2 COLOR BOARD, VIDEO ADDRESS GENERATION"
+    },
+    {
+      "filename": "a5.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2,",
+        "title2": "",
+        "page": "5",
+        "of": "20",
+        "size": 74919
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, SINGLE BOARD",
+        "title2": "",
+        "page": "16",
+        "of": "19",
+        "size": 6552
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, SINGLE BOARD, data/drw has old PROPRIETARY SMI, SUN-2,"
+    },
+    {
+      "filename": "smd3.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 229554
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, DISK, MEMORY.",
+        "title2": "",
+        "page": "3",
+        "of": "7",
+        "size": 164047
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, DISK, MEMORY., data/drw has old "
+    },
+    {
+      "filename": "sc4.drw.O",
+      "data_drw_meta": {
+        "title1": "",
+        "title2": "",
+        "page": "",
+        "of": "",
+        "size": 226005
+      },
+      "octal_meta": {
+        "title1": "(C) SUN-2 COLOR, MEMORY CONTROL",
+        "title2": "",
+        "page": "4",
+        "of": "21",
+        "size": 98423
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) SUN-2 COLOR, MEMORY CONTROL, data/drw has old "
+    },
+    {
+      "filename": "s6.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN-2, RASTEROP UNIT",
+        "title2": "",
+        "page": "4",
+        "of": "12",
+        "size": 119379
+      },
+      "octal_meta": {
+        "title1": "(C) 1982 SMI, SUN-2, VIDEO INTERFACE",
+        "title2": "",
+        "page": "6",
+        "of": "15",
+        "size": 55549
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is (C) 1982 SMI, SUN-2, VIDEO INTERFACE, data/drw has old (C) 1982 SMI, SUN-2, RASTEROP UNIT"
+    },
+    {
+      "filename": "x11.drw.O",
+      "data_drw_meta": {
+        "title1": "SUN-3",
+        "title2": "VIDEO MEMORY",
+        "page": "11",
+        "of": "15",
+        "size": 182130
+      },
+      "octal_meta": {
+        "title1": "SUN-3/F",
+        "title2": "VIDEO MUX",
+        "page": "11",
+        "of": "15",
+        "size": 55861
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-3/F, data/drw has old SUN-3"
+    },
+    {
+      "filename": "b07.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE",
+        "title2": "",
+        "page": "7",
+        "of": "19",
+        "size": 93015
+      },
+      "octal_meta": {
+        "title1": "SUN-2060, ETHERNET INTERFACE",
+        "title2": "",
+        "page": "7",
+        "of": "19",
+        "size": 93236
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN-2060, ETHERNET INTERFACE, data/drw has old PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE"
+    },
+    {
+      "filename": "a06.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, I/O",
+        "title2": "X",
+        "page": "6",
+        "of": "19",
+        "size": 79742
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, I/O",
+        "title2": "X",
+        "page": "6",
+        "of": "19",
+        "size": 71305
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2, I/O, data/drw has old PROPRIETARY SMI, SUN-2, I/O"
+    },
+    {
+      "filename": "q2.drw.O",
+      "data_drw_meta": {
+        "title1": "(C) 1982 SMI, SUN 68010, MMU",
+        "title2": "",
+        "page": "2",
+        "of": "6",
+        "size": 94783
+      },
+      "octal_meta": {
+        "title1": "SUN MICROSYSTEMS INC",
+        "title2": "501-1007-08",
+        "page": "2",
+        "of": "",
+        "size": 37050
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is SUN MICROSYSTEMS INC, data/drw has old (C) 1982 SMI, SUN 68010, MMU"
+    },
+    {
+      "filename": "a22.drw.O",
+      "data_drw_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2, MEMORY INTERFACE",
+        "title2": "",
+        "page": "22",
+        "of": "25",
+        "size": 87594
+      },
+      "octal_meta": {
+        "title1": "PROPRIETARY SMI, SUN-2051",
+        "title2": "",
+        "page": "22",
+        "of": "25",
+        "size": 93262
+      },
+      "action": "replace_with_octal",
+      "reason": "octal version is PROPRIETARY SMI, SUN-2051, data/drw has old PROPRIETARY SMI, SUN-2, MEMORY INTERFACE"
+    }
+  ],
+  "summary": {
+    "total_drw": 685,
+    "total_compared": 685,
+    "total_mismatches": 189,
+    "total_recoverable": 189,
+    "missing_added": 0
+  }
+}

@@ -35,6 +35,47 @@ VERSIONED_WIRELISTS = {
     'x10': 'x',   # subset of x
 }
 
+# PDF-validated board groupings for multi-prefix and special boards.
+# These override both WL and PLT-based groupings.
+# Derived from manual analysis of /Users/dmoisa/Downloads/pdf/ files.
+PDF_BOARD_OVERRIDES = {
+    # cg.pdf contains cg1-cg7 + g1-g5 (two related boards merged)
+    'cg': ['cg1', 'cg2', 'cg3', 'cg4', 'cg5', 'cg6', 'cg7',
+           'g1', 'g2', 'g3', 'g4', 'g5'],
+    # ethp.pdf includes ethw8 as an extra page
+    'ethp': ['ethp1', 'ethp2', 'ethp3', 'ethp4', 'ethp5',
+             'ethp6', 'ethp7', 'ethp8', 'ethw8'],
+    # v.pdf includes variant pages (x/y suffixes)
+    'v': ['v1', 'v1y', 'v2', 'v2x', 'v2y', 'v3', 'v3x', 'v3y',
+          'v4', 'v4x', 'v4y', 'v5', 'v5y'],
+    # vme.pdf contains two different VME adapter pages
+    'vme': ['vme3x1', 'vme3x2'],
+    # vmev.pdf includes vmes pages
+    'vmev': ['vmev1', 'vmev2', 'vmev3', 'vmev4', 'vmes1', 'vmes2'],
+    # foo.pdf includes sc3, sc4
+    'foo': ['foo1', 'sc3', 'sc4'],
+    # fw.pdf includes fwc
+    'fw': ['fw1', 'fw2', 'fw3', 'fw4', 'fwc'],
+    # vx.pdf aggregates vx + vmev + vmes
+    'vx': ['vx1', 'vx2', 'vmev1', 'vmev2', 'vmev3', 'vmev4', 'vmes1', 'vmes2'],
+    # loose.pdf is miscellaneous pages from various boards
+    'loose': ['ecllib', 'xc15', 'tnlib', 'fm10', 'grext', 'ig'],
+    # nums.pdf groups numeric part-number boards
+    'nums': [f'{n}' for n in list(range(2001, 2007)) + list(range(2501, 2520)) +
+             list(range(2607, 2613)) + list(range(6001, 6021))],
+    # cplt: alternate plots of c-prefix boards with extras
+    'cplt': ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c09',
+             'c10', 'c11', 'c12', 'c13', 'c14', 'c15', 'c16', 'c17', 'c18', 'c19'],
+    # xplt: alternate plots of x-prefix boards (Sun-3 CPU)
+    'xplt': ['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9',
+             'x10', 'x10m', 'x11', 'x12', 'x13', 'x14', 'x14m', 'x15',
+             'x003p1', 'x003p2', 'x003p3'],
+    # rplt: alternate plots of r-prefix boards (ROPC)
+    'rplt': ['r1', 'r2', 'r3'],
+    # fsing: single-page subset of f-prefix boards
+    'fsing': ['f2', 'f4', 'f5', 'f1'],
+}
+
 
 @dataclass
 class BoardPage:
@@ -248,12 +289,18 @@ def discover_boards(drw_dir: str, wl_dir: str | None = None) -> list[Board]:
         wl_boards = _parse_wirelists(wl_dir)
         logger.info(f"Parsed {len(wl_boards)} wirelists from {wl_dir}")
     
-    # Phase 3: Build boards from wirelists
+    # Phase 3: Build boards from wirelists, with PDF overrides
     boards = []
     
     for wl_name, wl_data in sorted(wl_boards.items()):
+        # PDF override takes precedence over WL page list
+        if wl_name in PDF_BOARD_OVERRIDES:
+            page_names = PDF_BOARD_OVERRIDES[wl_name]
+        else:
+            page_names = wl_data['pages']
+        
         pages = []
-        for page_name in wl_data['pages']:
+        for page_name in page_names:
             page_upper = page_name.upper()
             if page_upper in all_pages:
                 pages.append(all_pages[page_upper])
@@ -297,6 +344,45 @@ def discover_boards(drw_dir: str, wl_dir: str | None = None) -> list[Board]:
             pages=sorted_pages,
             source='wirelist',
             wirelist=wl_name
+        )
+        boards.append(board)
+    
+    # Phase 3b: Add PDF-only boards (those in PDF_BOARD_OVERRIDES but not in WL)
+    for pdf_name, pdf_pages in PDF_BOARD_OVERRIDES.items():
+        if any(b.wirelist == pdf_name for b in boards):
+            continue  # Already handled via WL
+        
+        pages = []
+        for page_name in pdf_pages:
+            page_upper = page_name.upper()
+            if page_upper in all_pages:
+                pages.append(all_pages[page_upper])
+                claimed_pages.add(page_upper)
+        
+        if not pages:
+            continue
+        
+        sorted_pages = sorted(pages, key=_page_sort_key)
+        
+        # Get display title from first page
+        display_title = ''
+        for p in sorted_pages:
+            if p.title.strip():
+                display_title = p.title.strip()
+                for pfx in ['PROPRIETARY SMI, ', '(C) 1982 SMI, ', '(C) 1983 SMI, ',
+                            '(C) SUN-2 COLOR, ', 'SUN MICROSYSTEMS INC', 'SMI, ']:
+                    if display_title.upper().startswith(pfx):
+                        display_title = display_title[len(pfx):].strip()
+                        break
+                break
+        
+        board_name = f"{pdf_name.upper()} — {display_title}" if display_title else pdf_name.upper()
+        
+        board = Board(
+            board_id=slugify(pdf_name),
+            name=board_name,
+            pages=sorted_pages,
+            source='pdf',
         )
         boards.append(board)
     

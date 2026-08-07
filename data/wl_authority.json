@@ -1,0 +1,4844 @@
+{
+  "20": {
+    "page_count": 6,
+    "pages": {
+      "2001": {
+        "board": "FILESERVER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 6,
+        "date": "14-MAY-85"
+      },
+      "2002": {
+        "board": "FILESERVER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 6,
+        "date": "14-MAY-85"
+      },
+      "2003": {
+        "board": "FILESERVER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 6,
+        "date": "14-MAY-85"
+      },
+      "2004": {
+        "board": "FILESERVER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 6,
+        "date": "14-MAY-85"
+      },
+      "2005": {
+        "board": "FILESERVER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 6,
+        "date": "14-MAY-85"
+      },
+      "2006": {
+        "board": "FILESERVER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 6,
+        "date": "14-MAY-85"
+      }
+    }
+  },
+  "25": {
+    "page_count": 16,
+    "pages": {
+      "2501": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2502": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2503": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2504": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2505": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2506": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2507": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2508": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2509": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 19,
+        "date": "02-APR-85"
+      },
+      "2510": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 19,
+        "date": "01-APR-85"
+      },
+      "2511": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 19,
+        "date": "02-APR-85"
+      },
+      "2512": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2513": {
+        "board": "PROPRIETARY SUN, M25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 19,
+        "date": "02-APR-85"
+      },
+      "2514": {
+        "board": "PROPRIETARY SUN, M25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 19,
+        "date": "03-APR-85"
+      },
+      "2515": {
+        "board": "PROPRIETARY SUN, M25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2516": {
+        "board": "PROPRIETARY SUN, M25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 16,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      }
+    }
+  },
+  "26": {
+    "page_count": 16,
+    "pages": {
+      "2501": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2502": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2503": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2504": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2505": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2506": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2513": {
+        "board": "PROPRIETARY SUN, M25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 19,
+        "date": "02-APR-85"
+      },
+      "2514": {
+        "board": "PROPRIETARY SUN, M25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 19,
+        "date": "03-APR-85"
+      },
+      "2515": {
+        "board": "PROPRIETARY SUN, M25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2516": {
+        "board": "PROPRIETARY SUN, M25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 16,
+        "sheet_of": 19,
+        "date": "08-APR-85"
+      },
+      "2607": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 19,
+        "date": "25-APR-85"
+      },
+      "2608": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 19,
+        "date": "25-APR-85"
+      },
+      "2609": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 19,
+        "date": "25-APR-85"
+      },
+      "2610": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 19,
+        "date": "25-APR-85"
+      },
+      "2611": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 19,
+        "date": "25-APR-85"
+      },
+      "2612": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 19,
+        "date": "25-APR-85"
+      }
+    }
+  },
+  "60": {
+    "page_count": 19,
+    "pages": {
+      "6001": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6002": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6003": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6004": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6005": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6006": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6007": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6008": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6009": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6010": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6011": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6012": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6013": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6014": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6015": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6016": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 16,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6017": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 17,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6018": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 18,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      },
+      "6019": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 19,
+        "sheet_of": 19,
+        "date": "14-MAY-85"
+      }
+    }
+  },
+  "a": {
+    "page_count": 19,
+    "pages": {
+      "A01": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A02": {
+        "board": "PROPRIETARY SMI, SUN-2, CLOCKS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A03": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A04": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A05": {
+        "board": "PROPRIETARY SMI, SUN-2,",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A06": {
+        "board": "PROPRIETARY SMI, SUN-2, I/O",
+        "function": "X",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A07": {
+        "board": "PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A08": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A09": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A10": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A11": {
+        "board": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A12": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A13": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A14": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A15": {
+        "board": "PROPRIETARY SMI, SUN-2, FRAME BUFFER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A16": {
+        "board": "PROPRIETARY SMI, SUN-2, SINGLE BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 16,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A17": {
+        "board": "PROPRIETARY SMI, SUN-2, FRAME BUFFER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 17,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A18": {
+        "board": "PROPRIETARY SMI, SUN-2, VIDEO CONTROLLER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 18,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      },
+      "A19": {
+        "board": "PROPRIETARY SMI, SUN-2, CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 19,
+        "sheet_of": 19,
+        "date": "07-OCT-84"
+      }
+    }
+  },
+  "a0518": {
+    "page_count": 19,
+    "pages": {
+      "A01": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 19,
+        "date": "17-MAY-84"
+      },
+      "A02": {
+        "board": "PROPRIETARY SMI, SUN-2, CLOCKS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 19,
+        "date": "12-MAY-84"
+      },
+      "A03": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 19,
+        "date": "08-MAY-84"
+      },
+      "A04": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 19,
+        "date": "14-MAY-84"
+      },
+      "A05": {
+        "board": "PROPRIETARY SMI, SUN-2,",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 19,
+        "date": "14-MAY-84"
+      },
+      "A06": {
+        "board": "PROPRIETARY SMI, SUN-2, I/O",
+        "function": "X",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 19,
+        "date": "12-MAY-84"
+      },
+      "A07": {
+        "board": "PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 19,
+        "date": "14-MAY-84"
+      },
+      "A08": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 19,
+        "date": "17-MAY-84"
+      },
+      "A09": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 19,
+        "date": "17-MAY-84"
+      },
+      "A10": {
+        "board": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 19,
+        "date": "07-MAY-84"
+      },
+      "A11": {
+        "board": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 19,
+        "date": "12-MAY-84"
+      },
+      "A12": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 19,
+        "date": "17-MAY-84"
+      },
+      "A13": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 19,
+        "date": "06-MAY-84"
+      },
+      "A14": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 19,
+        "date": "06-MAY-84"
+      },
+      "A15": {
+        "board": "PROPRIETARY SMI, SUN-2, CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 19,
+        "date": "14-MAY-84"
+      },
+      "A16": {
+        "board": "PROPRIETARY SMI, SUN-2, SINGLE BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 16,
+        "sheet_of": 19,
+        "date": "18-MAY-84"
+      },
+      "A17": {
+        "board": "PROPRIETARY SMI, SUN-2, FRAME BUFFER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 17,
+        "sheet_of": 19,
+        "date": "12-MAY-84"
+      },
+      "A18": {
+        "board": "PROPRIETARY SMI, SUN-2, VIDEO CONTROLLER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 18,
+        "sheet_of": 19,
+        "date": "18-MAY-84"
+      },
+      "A19": {
+        "board": "PROPRIETARY SMI, SUN-2, CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 19,
+        "sheet_of": 19,
+        "date": "14-MAY-84"
+      }
+    }
+  },
+  "a0621": {
+    "page_count": 19,
+    "pages": {
+      "A01": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 19,
+        "date": "21-JUN-84"
+      },
+      "A02": {
+        "board": "PROPRIETARY SMI, SUN-2, CLOCKS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 19,
+        "date": "21-JUN-84"
+      },
+      "A03": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 19,
+        "date": "08-MAY-84"
+      },
+      "A04": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 19,
+        "date": "14-MAY-84"
+      },
+      "A05": {
+        "board": "PROPRIETARY SMI, SUN-2,",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 19,
+        "date": "14-MAY-84"
+      },
+      "A06": {
+        "board": "PROPRIETARY SMI, SUN-2, I/O",
+        "function": "X",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 19,
+        "date": "21-JUN-84"
+      },
+      "A07": {
+        "board": "PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 19,
+        "date": "21-JUN-84"
+      },
+      "A08": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 19,
+        "date": "21-JUN-84"
+      },
+      "A09": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 19,
+        "date": "14-JUN-84"
+      },
+      "A10": {
+        "board": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 19,
+        "date": "07-MAY-84"
+      },
+      "A11": {
+        "board": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 19,
+        "date": "12-MAY-84"
+      },
+      "A12": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 19,
+        "date": "21-JUN-84"
+      },
+      "A13": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 19,
+        "date": "06-MAY-84"
+      },
+      "A14": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 19,
+        "date": "06-MAY-84"
+      },
+      "A15": {
+        "board": "PROPRIETARY SMI, SUN-2, CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 19,
+        "date": "14-MAY-84"
+      },
+      "A16": {
+        "board": "PROPRIETARY SMI, SUN-2, SINGLE BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 16,
+        "sheet_of": 19,
+        "date": "26-MAY-84"
+      },
+      "A17": {
+        "board": "PROPRIETARY SMI, SUN-2, FRAME BUFFER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 17,
+        "sheet_of": 19,
+        "date": "16-JUN-84"
+      },
+      "A18": {
+        "board": "PROPRIETARY SMI, SUN-2, VIDEO CONTROLLER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 18,
+        "sheet_of": 19,
+        "date": "16-JUN-84"
+      },
+      "A19": {
+        "board": "PROPRIETARY SMI, SUN-2, CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 19,
+        "sheet_of": 19,
+        "date": "21-JUN-84"
+      }
+    }
+  },
+  "a1": {
+    "page_count": 19,
+    "pages": {
+      "A01": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 19,
+        "date": "15-MAR-84"
+      },
+      "A02": {
+        "board": "PROPRIETARY SMI, SUN-2, CLOCKS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 19,
+        "date": "15-MAR-84"
+      },
+      "A03": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 19,
+        "date": "18-MAR-84"
+      },
+      "A04": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 19,
+        "date": "15-MAR-84"
+      },
+      "A05": {
+        "board": "PROPRIETARY SMI, SUN-2,",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 19,
+        "date": "18-MAR-84"
+      },
+      "A06": {
+        "board": "PROPRIETARY SMI, SUN-2, I/O",
+        "function": "X",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 19,
+        "date": "15-MAR-84"
+      },
+      "A07": {
+        "board": "PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 19,
+        "date": "18-MAR-84"
+      },
+      "A08": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 19,
+        "date": "18-MAR-84"
+      },
+      "A09": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 19,
+        "date": "18-MAR-84"
+      },
+      "A10": {
+        "board": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 19,
+        "date": "18-MAR-84"
+      },
+      "A11": {
+        "board": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 19,
+        "date": "15-MAR-84"
+      },
+      "A12": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 19,
+        "date": "15-MAR-84"
+      },
+      "A13": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 19,
+        "date": "15-MAR-84"
+      },
+      "A14": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 19,
+        "date": "15-MAR-84"
+      },
+      "A15": {
+        "board": "PROPRIETARY SMI, SUN-2, CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 19,
+        "date": "15-MAR-84"
+      },
+      "A16": {
+        "board": "PROPRIETARY SMI, SUN-2, SINGLE BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 16,
+        "sheet_of": 19,
+        "date": "19-MAR-84"
+      },
+      "A17": {
+        "board": "PROPRIETARY SMI, SUN-2, FRAME BUFFER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 17,
+        "sheet_of": 19,
+        "date": "15-MAR-84"
+      },
+      "A18": {
+        "board": "PROPRIETARY SMI, SUN-2, VIDEO CONTROLLER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 18,
+        "sheet_of": 19,
+        "date": "15-MAR-84"
+      },
+      "A19": {
+        "board": "PROPRIETARY SMI, SUN-2, CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 19,
+        "sheet_of": 19,
+        "date": "15-MAR-84"
+      }
+    }
+  },
+  "a12": {
+    "page_count": 4,
+    "pages": {
+      "A12": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 20,
+        "date": "11-DEC-83"
+      },
+      "A13": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 20,
+        "date": "17-NOV-83"
+      },
+      "A14": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 20,
+        "date": "17-NOV-83"
+      },
+      "A15": {
+        "board": "PROPRIETARY SMI, SUN-2, CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 20,
+        "date": "17-NOV-83"
+      }
+    }
+  },
+  "a16": {
+    "page_count": 3,
+    "pages": {
+      "A16": {
+        "board": "PROPRIETARY SMI, SUN-2, SINGLE BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 16,
+        "sheet_of": 19,
+        "date": "25-JAN-84"
+      },
+      "A17": {
+        "board": "PROPRIETARY SMI, SUN-2, FRAME BUFFER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 17,
+        "sheet_of": 19,
+        "date": "25-JAN-84"
+      },
+      "A18": {
+        "board": "PROPRIETARY SMI, SUN-2, VIDEO CONTROLLER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 18,
+        "sheet_of": 19,
+        "date": "25-JAN-84"
+      }
+    }
+  },
+  "a20": {
+    "page_count": 1,
+    "pages": {
+      "A20": {
+        "board": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 20,
+        "sheet_of": 20,
+        "date": "07-OCT-84"
+      }
+    }
+  },
+  "a21": {
+    "page_count": 5,
+    "pages": {
+      "A21": {
+        "board": "PROPRIETARY SMI, SUN-2051",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 21,
+        "sheet_of": 25,
+        "date": "07-OCT-84"
+      },
+      "A22": {
+        "board": "PROPRIETARY SMI, SUN-2051",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 22,
+        "sheet_of": 25,
+        "date": "07-OCT-84"
+      },
+      "A23": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 23,
+        "sheet_of": 25,
+        "date": "07-OCT-84"
+      },
+      "A24": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 24,
+        "sheet_of": 25,
+        "date": "07-OCT-84"
+      },
+      "A25": {
+        "board": "PROPRIETARY SMI, SUN-2, CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 25,
+        "sheet_of": 25,
+        "date": "07-OCT-84"
+      }
+    }
+  },
+  "all": {
+    "page_count": 26,
+    "pages": {
+      "A01": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 19,
+        "date": "29-DEC-83"
+      },
+      "A02": {
+        "board": "PROPRIETARY SMI, SUN-2, CLOCKS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 19,
+        "date": "29-DEC-83"
+      },
+      "A03": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 19,
+        "date": "29-DEC-83"
+      },
+      "A04": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 19,
+        "date": "28-DEC-83"
+      },
+      "A05": {
+        "board": "PROPRIETARY SMI, SUN-2,",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 19,
+        "date": "28-DEC-83"
+      },
+      "A06": {
+        "board": "PROPRIETARY SMI, SUN-2, I/O",
+        "function": "X",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 19,
+        "date": "27-DEC-83"
+      },
+      "A07": {
+        "board": "PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 19,
+        "date": "29-DEC-83"
+      },
+      "A08": {
+        "board": "PROPRIETARY SMI, SUN-2/50",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 19,
+        "date": "28-DEC-83"
+      },
+      "A09": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 19,
+        "date": "29-DEC-83"
+      },
+      "A10": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 19,
+        "date": "28-DEC-83"
+      },
+      "A11": {
+        "board": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 19,
+        "date": "29-DEC-83"
+      },
+      "A12": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 19,
+        "date": "29-DEC-83"
+      },
+      "A13": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 19,
+        "date": "28-DEC-83"
+      },
+      "A14": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 19,
+        "date": "28-DEC-83"
+      },
+      "A15": {
+        "board": "PROPRIETARY SMI, SUN-2, CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 19,
+        "date": "29-DEC-83"
+      },
+      "A16": {
+        "board": "PROPRIETARY SMI, SUN-2, SINGLE BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 16,
+        "sheet_of": 19,
+        "date": "28-DEC-83"
+      },
+      "A17": {
+        "board": "PROPRIETARY SMI, SUN-2, FRAME BUFFER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 17,
+        "sheet_of": 19,
+        "date": "28-DEC-83"
+      },
+      "A18": {
+        "board": "PROPRIETARY SMI, SUN-2, VIDEO CONTROLLER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 18,
+        "sheet_of": 19,
+        "date": "29-DEC-83"
+      },
+      "A19": {
+        "board": "PROPRIETARY SMI, SUN-2, CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 19,
+        "sheet_of": 19,
+        "date": "27-DEC-83"
+      },
+      "A20": {
+        "board": "",
+        "function": "1,SMI",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "28-DEC-83"
+      },
+      "A21": {
+        "board": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 21,
+        "sheet_of": 25,
+        "date": "29-DEC-83"
+      },
+      "A22": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 22,
+        "sheet_of": 25,
+        "date": "29-DEC-83"
+      },
+      "A23": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 23,
+        "sheet_of": 25,
+        "date": "29-DEC-83"
+      },
+      "A24": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 24,
+        "sheet_of": 25,
+        "date": "29-DEC-83"
+      },
+      "A25": {
+        "board": "PROPRIETARY SMI, SUN-2, CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 25,
+        "sheet_of": 25,
+        "date": "29-DEC-83"
+      },
+      "A26": {
+        "board": "",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 26,
+        "sheet_of": 26,
+        "date": "29-DEC-83"
+      }
+    }
+  },
+  "aold": {
+    "page_count": 20,
+    "pages": {
+      "A01": {
+        "board": "PROPRIETARY SMI, SUN-2, CPU",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 20,
+        "date": "31-MAY-83"
+      },
+      "A02": {
+        "board": "PROPRIETARY SMI, SUN-2, CLOCKS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 20,
+        "date": "11-JUN-83"
+      },
+      "A03": {
+        "board": "PROPRIETARY SMI, SUN-2, MMU",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 20,
+        "date": "31-MAY-83"
+      },
+      "A04": {
+        "board": "PROPRIETARY SMI, SUN-2, DECODING AND PROMS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 20,
+        "date": "06-JUN-83"
+      },
+      "A05": {
+        "board": "PROPRIETARY SMI, DATA PATHS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 20,
+        "date": "31-MAY-83"
+      },
+      "A06": {
+        "board": "PROPRIETARY SMI, SUN-2, I/O",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 20,
+        "date": "11-JUN-83"
+      },
+      "A07": {
+        "board": "PROPRIETARY SMI, SUN-2, SERIAL I/O",
+        "function": "X",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 20,
+        "date": "11-JUN-83"
+      },
+      "A08": {
+        "board": "PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 20,
+        "date": "31-MAY-83"
+      },
+      "A09": {
+        "board": "PROPRIETARY SMI, SUN-2, SCSI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 20,
+        "date": "11-JUN-83"
+      },
+      "A10": {
+        "board": "PROPRIETARY SMI, SUN-2, BUS INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 20,
+        "date": "11-JUN-83"
+      },
+      "A11": {
+        "board": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 20,
+        "date": "11-JUN-83"
+      },
+      "A12": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 20,
+        "date": "31-MAY-83"
+      },
+      "A13": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 20,
+        "date": "31-MAY-83"
+      },
+      "A14": {
+        "board": "PROPRIETARY SMI, SUN-2, MEMORY-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 20,
+        "date": "31-MAY-83"
+      },
+      "A15": {
+        "board": "PROPRIETARY SMI, SUN-2, CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 20,
+        "date": "31-MAY-83"
+      },
+      "A16": {
+        "board": "PROPRIETARY SMI, SUN-2, FRAME BUFFER INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 16,
+        "sheet_of": 20,
+        "date": "11-JUN-83"
+      },
+      "A17": {
+        "board": "PROPRIETARY SMI, SUN-2, FRAME BUFFER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 17,
+        "sheet_of": 20,
+        "date": "11-JUN-83"
+      },
+      "A18": {
+        "board": "PROPRIETARY SMI, SUN-2, VIDEO CONTROLLER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 18,
+        "sheet_of": 20,
+        "date": "11-JUN-83"
+      },
+      "A19": {
+        "board": "PROPRIETARY SMI, SUN-2, BLANK PAGE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 19,
+        "sheet_of": 20,
+        "date": "31-MAY-83"
+      },
+      "A20": {
+        "board": "PROPRIETARY SMI, SUN-2, CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 20,
+        "sheet_of": 20,
+        "date": "31-MAY-83"
+      }
+    }
+  },
+  "atest": {
+    "page_count": 1,
+    "pages": {
+      "ATEST": {
+        "board": "PROPRIETARY SMI, SUN-2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 19,
+        "date": "02-AUG-84"
+      }
+    }
+  },
+  "ax": {
+    "page_count": 1,
+    "pages": {
+      "AX": {
+        "board": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "23-MAR-84"
+      }
+    }
+  },
+  "b": {
+    "page_count": 22,
+    "pages": {
+      "B01": {
+        "board": "SUN-2060, RESET, CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 19,
+        "date": "10-SEP-84"
+      },
+      "B02A": {
+        "board": "SUN-2060, CLOCKS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "10-SEP-84"
+      },
+      "B02B": {
+        "board": "SUN-2060, DVMA CONTROLLER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "10-SEP-84"
+      },
+      "B03": {
+        "board": "SUN-2060, MMU",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 19,
+        "date": "10-SEP-84"
+      },
+      "B04": {
+        "board": "SUN-2060, PARITY LOGIC",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 19,
+        "date": "10-SEP-84"
+      },
+      "B05": {
+        "board": "SUN-2060, I/O DECODING, MISC. I/O",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 19,
+        "date": "10-SEP-84"
+      },
+      "B06": {
+        "board": "SUN-2060, SERIAL PORTS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 19,
+        "date": "10-SEP-84"
+      },
+      "B07": {
+        "board": "SUN-2060, ETHERNET INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 19,
+        "date": "10-SEP-84"
+      },
+      "B08A": {
+        "board": "SUN-2060, VME ARBITER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "10-SEP-84"
+      },
+      "B08B": {
+        "board": "SUN-2060, VME INTERFACE MASTER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "10-SEP-84"
+      },
+      "B08C": {
+        "board": "SUN-2060. VME INTERFACE SLAVE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "10-SEP-84"
+      },
+      "B09": {
+        "board": "SUN-2060, VME BUS INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 19,
+        "date": "10-SEP-84"
+      },
+      "B10": {
+        "board": "SUN-2060, INTERRUPT LOGIC",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 19,
+        "date": "10-SEP-84"
+      },
+      "B11": {
+        "board": "SUN-2060, DIN CONNECTORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 19,
+        "date": "04-SEP-84"
+      },
+      "B12": {
+        "board": "SUN-2060, MEMORY INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 19,
+        "date": "10-SEP-84"
+      },
+      "B13": {
+        "board": "SUN-2060, MEMORY 0-2M",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 19,
+        "date": "04-SEP-84"
+      },
+      "B14": {
+        "board": "SUN-2060, MEMORY 2-4M",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 19,
+        "date": "04-SEP-84"
+      },
+      "B15": {
+        "board": "SUN-2060, DECOUPLING CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 19,
+        "date": "04-SEP-84"
+      },
+      "B16": {
+        "board": "SUN-2060, VIDEO INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 16,
+        "sheet_of": 19,
+        "date": "04-SEP-84"
+      },
+      "B17": {
+        "board": "SUN-2060, VIDEO MEMORY AND BUFFERS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 17,
+        "sheet_of": 19,
+        "date": "04-SEP-84"
+      },
+      "B18": {
+        "board": "SUN-2060, VIDEO CONTROLLER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 18,
+        "sheet_of": 19,
+        "date": "10-SEP-84"
+      },
+      "B19": {
+        "board": "SUN-2060, RESET, CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 19,
+        "sheet_of": 19,
+        "date": "04-SEP-84"
+      }
+    }
+  },
+  "back": {
+    "page_count": 13,
+    "pages": {
+      "BACK1": {
+        "board": "SMI, M-160 BACKPLANE, SLOT1",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 13,
+        "date": "29-JUN-84"
+      },
+      "BACK10": {
+        "board": "SMI, M-160 BACKPLANE, SLOT 10",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 13,
+        "date": "14-JUN-84"
+      },
+      "BACK11": {
+        "board": "SMI, M-160 BACKPLANE, SLOT 11",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 13,
+        "date": "14-JUN-84"
+      },
+      "BACK12": {
+        "board": "SMI, M-160 BACKPLANE, SLOT 11",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 13,
+        "date": "29-JUN-84"
+      },
+      "BACK13": {
+        "board": "SMI, M-160 BACKPLANE, TERMINATORS & CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 13,
+        "date": "29-JUN-84"
+      },
+      "BACK2": {
+        "board": "SMI, M-160 BACKPLANE, SLOT 2",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 13,
+        "date": "14-JUN-84"
+      },
+      "BACK3": {
+        "board": "SMI, M-160 BACKPLANE, SLOT3",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 13,
+        "date": "14-JUN-84"
+      },
+      "BACK4": {
+        "board": "SMI, M-160 BACKPLANE, SLOT 4",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 13,
+        "date": "29-JUN-84"
+      },
+      "BACK5": {
+        "board": "SMI, M-160 BACKPLANE, SLOT 4",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 13,
+        "date": "29-JUN-84"
+      },
+      "BACK6": {
+        "board": "SMI, M-160 BACKPLANE,SLOT 6",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 13,
+        "date": "14-JUN-84"
+      },
+      "BACK7": {
+        "board": "SMI, M-160 BACKPLANE, SLOT 7",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 13,
+        "date": "14-JUN-84"
+      },
+      "BACK8": {
+        "board": "SMI, M-160 BACKPLANE, SLOT 8",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 13,
+        "date": "14-JUN-84"
+      },
+      "BACK9": {
+        "board": "SMI, M-160 BACKPLANE, SLOT 9",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 13,
+        "date": "14-JUN-84"
+      }
+    }
+  },
+  "c": {
+    "page_count": 7,
+    "pages": {
+      "B1": {
+        "board": "PROPRIETARY SMI, SUN-2/LC",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 7,
+        "date": "26-MAR-84"
+      },
+      "B2": {
+        "board": "PROPRIETARY SMI, SUN-2/LC",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 7,
+        "date": "26-MAR-84"
+      },
+      "B3": {
+        "board": "PROPRIETRY SMI, SUN-2/LC",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 7,
+        "date": "26-MAR-84"
+      },
+      "B4": {
+        "board": "PROPRIETARY SMI, SUN-2/LC",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 7,
+        "date": "26-MAR-84"
+      },
+      "B5": {
+        "board": "PROPRIETARY SMI, SUN-2/LC",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 7,
+        "date": "26-MAR-84"
+      },
+      "B6": {
+        "board": "PROPRIETARY SMI, SUN-2, FRAME BUFFER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 7,
+        "date": "26-MAR-84"
+      },
+      "B7": {
+        "board": "PROPRIETARY SMI, SUN-2/LC",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 7,
+        "date": "21-MAR-84"
+      }
+    }
+  },
+  "cg": {
+    "page_count": 7,
+    "pages": {
+      "CG1": {
+        "board": "(C) 1982 SMI, COLOR BOARD, 796-BUS INTERFACE.",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 7,
+        "date": "16-MAY-84"
+      },
+      "CG2": {
+        "board": "(C) 1982 SMI, COLOR BOARD, STATE MACHINE.",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 7,
+        "date": "16-MAY-84"
+      },
+      "CG3": {
+        "board": "(C) 1982 SMI, COLOR BOARD, FRAME BUFFER MEMORY.",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 7,
+        "date": "26-MAR-83"
+      },
+      "CG4": {
+        "board": "(C) 1982 SMI, COLOR BOARD, FUNCTION UNIT.",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 7,
+        "date": "23-JAN-83"
+      },
+      "CG5": {
+        "board": "(C) 1982 SMI, COLOR BOARD, ADDRESS LOGIC.",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 7,
+        "date": "16-MAY-84"
+      },
+      "CG6": {
+        "board": "(C) 1982 SMI, COLOR BOARD, CMAPS & DACS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 7,
+        "date": "26-MAR-83"
+      },
+      "CG7": {
+        "board": "(C) 1982 SMI, COLOR BOARD, CONNECTORS.",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 7,
+        "date": "16-MAY-84"
+      }
+    }
+  },
+  "d": {
+    "page_count": 4,
+    "pages": {
+      "D1": {
+        "board": "(C) 1983 SMI, IOBOARD, SCSI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 4,
+        "date": "06-FEB-83"
+      },
+      "D2": {
+        "board": "(C) 1983 SMI, IOBOARD, EDLC",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 4,
+        "date": "20-JAN-83"
+      },
+      "D3": {
+        "board": "(C) 1983 SMI, IOBOARD, UART & RTC & SOUND",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 4,
+        "date": "06-FEB-83"
+      },
+      "D4": {
+        "board": "(C) 1983 SMI, IOBOARD, DMA",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 4,
+        "date": "06-FEB-83"
+      }
+    }
+  },
+  "em": {
+    "page_count": 4,
+    "pages": {
+      "EM1": {
+        "board": "SUN-3/E",
+        "function": "MEMORY BOARD",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 5,
+        "date": "22-NOV-85"
+      },
+      "EM2": {
+        "board": "SUN-3/E",
+        "function": "MEMORY BOARD",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 4,
+        "date": "22-NOV-85"
+      },
+      "EM3": {
+        "board": "SUN-3/E",
+        "function": "MEMORY BOARD",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 4,
+        "date": "22-NOV-85"
+      },
+      "EM4": {
+        "board": "SUN-3/E",
+        "function": "MEMORY BOARD",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 4,
+        "date": "22-NOV-85"
+      }
+    }
+  },
+  "ep": {
+    "page_count": 10,
+    "pages": {
+      "EP1": {
+        "board": "SUN-3/E",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 10,
+        "date": "10-JUL-86"
+      },
+      "EP10": {
+        "board": "SUN-3/E",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 10,
+        "date": "25-APR-86"
+      },
+      "EP2": {
+        "board": "SUN-3/E",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 10,
+        "date": "10-JUL-86"
+      },
+      "EP3": {
+        "board": "SUN-3/E",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 20,
+        "date": "25-APR-86"
+      },
+      "EP4": {
+        "board": "SUN-3/E",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 10,
+        "date": "08-APR-86"
+      },
+      "EP5": {
+        "board": "SUN-3/E",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 10,
+        "date": "01-APR-86"
+      },
+      "EP6": {
+        "board": "SUN-3/E",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 10,
+        "date": "25-APR-86"
+      },
+      "EP7": {
+        "board": "SUN-3",
+        "function": "MEMORY",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 10,
+        "date": "25-APR-86"
+      },
+      "EP8": {
+        "board": "SUN-3/E",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 10,
+        "date": "25-APR-86"
+      },
+      "EP9": {
+        "board": "SUN-3/E",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 10,
+        "date": "08-APR-86"
+      }
+    }
+  },
+  "es": {
+    "page_count": 5,
+    "pages": {
+      "ES1": {
+        "board": "ETHERNET SERVER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 5,
+        "date": "01-MAY-85"
+      },
+      "ES2": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 19,
+        "date": "01-MAY-85"
+      },
+      "ES3": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 19,
+        "date": "01-MAY-85"
+      },
+      "ES4": {
+        "board": "PROPRIETARY SUN, M25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 19,
+        "date": "01-MAY-85"
+      },
+      "ES5": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 19,
+        "date": "01-MAY-85"
+      }
+    }
+  },
+  "ethp": {
+    "page_count": 8,
+    "pages": {
+      "ETHP1": {
+        "board": "PROPRIETARY SMI, SUN-2, ETHERNET INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 8,
+        "date": "22-JUN-84"
+      },
+      "ETHP2": {
+        "board": "ETHERNET BOARD, ADDRESS BUS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 8,
+        "date": "21-JUN-84"
+      },
+      "ETHP3": {
+        "board": "PROPRIETARY SMI, I/O BOARD, MULTIBUS INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 8,
+        "date": "21-JUN-84"
+      },
+      "ETHP4": {
+        "board": "ETHERNET BOARD, MEMORY DRIVERS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 8,
+        "date": "22-JUN-84"
+      },
+      "ETHP5": {
+        "board": "ETHERNET BOARD, MULTIBUS DECODING AND DRIVERS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 8,
+        "date": "21-JUN-84"
+      },
+      "ETHP6": {
+        "board": "ETHERNET BOARD, PARITY",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 8,
+        "date": "21-JUN-84"
+      },
+      "ETHP7": {
+        "board": "ETHERNET BOARD, MEMORY",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 8,
+        "date": "21-JUN-84"
+      },
+      "ETHP8": {
+        "board": "ETHERNET BOARD, CAPACITORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 8,
+        "date": "21-JUN-84"
+      }
+    }
+  },
+  "f": {
+    "page_count": 20,
+    "pages": {
+      "F01": {
+        "board": "FERRARI",
+        "function": "CPU",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 20,
+        "date": "03-SEP-85"
+      },
+      "F02": {
+        "board": "FERRARI",
+        "function": "IO AND IOX BUS INTERFACE",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F03": {
+        "board": "FERRARI",
+        "function": "MISC. I/O DEVICES",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F04": {
+        "board": "FERRARI",
+        "function": "MISC. I/O DEVICES",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F05": {
+        "board": "FERRARI",
+        "function": "SERIAL I/O",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F06": {
+        "board": "FERRARI",
+        "function": "ETHERNET INTERFACE",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F07": {
+        "board": "FERRARI",
+        "function": "PARITY LOGIC",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F08": {
+        "board": "FERRARI",
+        "function": "MEMORY CONTROL AND MUXES",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F09": {
+        "board": "FERRARI",
+        "function": "MEMORY DECODE AND DRIVERS",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F10": {
+        "board": "FERRARI",
+        "function": "MAIN MEMORY 4/8 MEGABYTES",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 20,
+        "date": "31-AUG-85"
+      },
+      "F11": {
+        "board": "FERRARI",
+        "function": "MAIN MEMORY 4/8 MEGABYTES",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 20,
+        "date": "31-AUG-85"
+      },
+      "F12": {
+        "board": "FERRARI",
+        "function": "VIDEO RAM X PLANE 0-1",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 20,
+        "date": "31-AUG-85"
+      },
+      "F13": {
+        "board": "FERRARI",
+        "function": "VIDEO MEMORY Y PLANE 0-3",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 20,
+        "date": "31-AUG-85"
+      },
+      "F14": {
+        "board": "FERRARI",
+        "function": "VIDEO MEMORY Y PLANE 4-7",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 20,
+        "date": "31-AUG-85"
+      },
+      "F15": {
+        "board": "FERRARI",
+        "function": "VIDEO CLOCK AND SHIFTERS",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F16": {
+        "board": "FERRARI",
+        "function": "VIDEO CLOCK AND SHIFTERS",
+        "board_type": "DECPC",
+        "sheet_x": 16,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F17": {
+        "board": "FERRARI",
+        "function": "VIDEO DACS AND OUTPUT",
+        "board_type": "DECPC",
+        "sheet_x": 17,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F18": {
+        "board": "FERRARI",
+        "function": "TERMINATORS, RESET",
+        "board_type": "DECPC",
+        "sheet_x": 18,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F19": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 19,
+        "sheet_of": 20,
+        "date": "25-AUG-85"
+      },
+      "F20": {
+        "board": "FERRARI",
+        "function": "CONNECTORS",
+        "board_type": "DECPC",
+        "sheet_x": 20,
+        "sheet_of": 20,
+        "date": "25-AUG-85"
+      }
+    }
+  },
+  "fm": {
+    "page_count": 11,
+    "pages": {
+      "FM1": {
+        "board": "FERRARI",
+        "function": "MEMORY BOARD",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 11,
+        "date": "26-FEB-86"
+      },
+      "FM10": {
+        "board": "FERRARI",
+        "function": "MEMORY BOARD",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 11,
+        "date": "26-FEB-86"
+      },
+      "FM11": {
+        "board": "FERRARI",
+        "function": "MEMORY BOARD",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 11,
+        "date": "26-FEB-86"
+      },
+      "FM2": {
+        "board": "FERRARI",
+        "function": "MEMORY BOARD",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 11,
+        "date": "26-FEB-86"
+      },
+      "FM3": {
+        "board": "FERRARI",
+        "function": "MEMORY BOARD",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 11,
+        "date": "26-FEB-86"
+      },
+      "FM4": {
+        "board": "FERRARI",
+        "function": "MEMORY BOARD",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 11,
+        "date": "26-FEB-86"
+      },
+      "FM5": {
+        "board": "FERRARI",
+        "function": "MEMORY BOARD",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 11,
+        "date": "26-FEB-86"
+      },
+      "FM6": {
+        "board": "FERRARI",
+        "function": "MEMORY BOARD",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 11,
+        "date": "26-FEB-86"
+      },
+      "FM7": {
+        "board": "FERRARI",
+        "function": "MEMORY BOARD",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 11,
+        "date": "26-FEB-86"
+      },
+      "FM8": {
+        "board": "FERRARI",
+        "function": "MEMORY BOARD",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 11,
+        "date": "26-FEB-86"
+      },
+      "FM9": {
+        "board": "FERRARI",
+        "function": "MEMORY BOARD",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 11,
+        "date": "26-FEB-86"
+      }
+    }
+  },
+  "fold": {
+    "page_count": 20,
+    "pages": {
+      "F01": {
+        "board": "FERRARI",
+        "function": "CPU",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F02": {
+        "board": "FERRARI",
+        "function": "IO AND IOX BUS INTERFACE",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F03": {
+        "board": "FERRARI",
+        "function": "MISC. I/O DEVICES",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F04": {
+        "board": "FERRARI",
+        "function": "MISC. I/O DEVICES",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 20,
+        "date": "31-AUG-85"
+      },
+      "F05": {
+        "board": "FERRARI",
+        "function": "SERIAL I/O",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F06": {
+        "board": "FERRARI",
+        "function": "ETHERNET INTERFACE",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F07": {
+        "board": "FERRARI",
+        "function": "PARITY LOGIC",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F08": {
+        "board": "FERRARI",
+        "function": "MEMORY CONTROL AND MUXES",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F09": {
+        "board": "FERRARI",
+        "function": "MEMORY DECODE AND DRIVERS",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F10": {
+        "board": "FERRARI",
+        "function": "MAIN MEMORY 4/8 MEGABYTES",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 20,
+        "date": "31-AUG-85"
+      },
+      "F11": {
+        "board": "FERRARI",
+        "function": "MAIN MEMORY 4/8 MEGABYTES",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 20,
+        "date": "31-AUG-85"
+      },
+      "F12": {
+        "board": "FERRARI",
+        "function": "VIDEO RAM X PLANE 0-1",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 20,
+        "date": "31-AUG-85"
+      },
+      "F13": {
+        "board": "FERRARI",
+        "function": "VIDEO MEMORY Y PLANE 0-3",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 20,
+        "date": "31-AUG-85"
+      },
+      "F14": {
+        "board": "FERRARI",
+        "function": "VIDEO MEMORY Y PLANE 4-7",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 20,
+        "date": "31-AUG-85"
+      },
+      "F15": {
+        "board": "FERRARI",
+        "function": "VIDEO CLOCK AND SHIFTERS",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 20,
+        "date": "31-AUG-85"
+      },
+      "F16": {
+        "board": "FERRARI",
+        "function": "VIDEO CLOCK AND SHIFTERS",
+        "board_type": "DECPC",
+        "sheet_x": 16,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F17": {
+        "board": "FERRARI",
+        "function": "VIDEO DACS AND OUTPUT",
+        "board_type": "DECPC",
+        "sheet_x": 17,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F18": {
+        "board": "FERRARI",
+        "function": "TERMINATORS, RESET",
+        "board_type": "DECPC",
+        "sheet_x": 18,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      },
+      "F19": {
+        "board": "FERRARI",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 19,
+        "sheet_of": 20,
+        "date": "25-AUG-85"
+      },
+      "F20": {
+        "board": "FERRARI",
+        "function": "CONNECTORS",
+        "board_type": "DECPC",
+        "sheet_x": 20,
+        "sheet_of": 20,
+        "date": "25-AUG-85"
+      }
+    }
+  },
+  "foo": {
+    "page_count": 1,
+    "pages": {
+      "FOO": {
+        "board": "FERRARI",
+        "function": "CPU",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 20,
+        "date": "02-SEP-85"
+      }
+    }
+  },
+  "fw": {
+    "page_count": 3,
+    "pages": {
+      "FW1": {
+        "board": "WINCHESTER CONTROLLER",
+        "function": "Multibus",
+        "board_type": "8136-UG1",
+        "sheet_x": 1,
+        "sheet_of": 3,
+        "date": "31-JUL-83"
+      },
+      "FW2": {
+        "board": "WINCHESTER CONTROLLER",
+        "function": "Multibus",
+        "board_type": "8136-UG1",
+        "sheet_x": 2,
+        "sheet_of": 3,
+        "date": "01-AUG-83"
+      },
+      "FW3": {
+        "board": "WINCHESTER",
+        "function": "Multibus",
+        "board_type": "8136-UG1",
+        "sheet_x": 3,
+        "sheet_of": 3,
+        "date": "01-AUG-83"
+      }
+    }
+  },
+  "gr": {
+    "page_count": 6,
+    "pages": {
+      "GR1": {
+        "board": "",
+        "function": "1,SMI",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "30-APR-82"
+      },
+      "GR2": {
+        "board": "",
+        "function": "1,SMI",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "30-APR-82"
+      },
+      "GR3": {
+        "board": "",
+        "function": "1,SMI",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "30-APR-82"
+      },
+      "GR4": {
+        "board": "",
+        "function": "1,SMI",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "30-APR-82"
+      },
+      "GR5": {
+        "board": "",
+        "function": "1,SMI",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "30-APR-82"
+      },
+      "GR6": {
+        "board": "",
+        "function": "",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "30-APR-82"
+      }
+    }
+  },
+  "grext": {
+    "page_count": 1,
+    "pages": {
+      "GREXT": {
+        "board": "",
+        "function": "",
+        "board_type": "8136-UG1",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "28-JUN-82"
+      }
+    }
+  },
+  "m1": {
+    "page_count": 9,
+    "pages": {
+      "M1": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 9,
+        "date": "26-JUL-84"
+      },
+      "M2": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 9,
+        "date": "26-JUL-84"
+      },
+      "M3": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 9,
+        "date": "26-JUL-84"
+      },
+      "M4": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 9,
+        "date": "26-JUL-84"
+      },
+      "M5": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 9,
+        "date": "26-JUL-84"
+      },
+      "M6": {
+        "board": "PROPRIETARY SMI, SUN-2,",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 9,
+        "date": "17-JUN-84"
+      },
+      "M7": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 9,
+        "date": "27-JUL-84"
+      },
+      "M8": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 9,
+        "date": "17-JUN-84"
+      },
+      "M9": {
+        "board": "PROPRIETARY SMI, SUN-2, CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 9,
+        "date": "17-JUN-84"
+      }
+    }
+  },
+  "m11": {
+    "page_count": 5,
+    "pages": {
+      "M11": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1013-02",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 15,
+        "date": "26-MAY-84"
+      },
+      "M12": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 15,
+        "date": "26-MAY-84"
+      },
+      "M13": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 15,
+        "date": "26-MAY-84"
+      },
+      "M14": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 15,
+        "date": "26-MAY-84"
+      },
+      "M15": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 15,
+        "date": "26-MAY-84"
+      }
+    }
+  },
+  "m16": {
+    "page_count": 4,
+    "pages": {
+      "M16": {
+        "board": "PROPRIETARY SMI, SUN-2, VIDEO",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 16,
+        "sheet_of": 19,
+        "date": "03-OCT-84"
+      },
+      "M17": {
+        "board": "PROPRIETARY SMI, SUN-2, FRAME BUFFER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 17,
+        "sheet_of": 19,
+        "date": "03-OCT-84"
+      },
+      "M18": {
+        "board": "PROPRIETARY SMI, SUN-2, VIDEO",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 18,
+        "sheet_of": 19,
+        "date": "09-OCT-84"
+      },
+      "M19": {
+        "board": "PROPRIETARY SMI, SUN-2, VIDEO",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 19,
+        "sheet_of": 19,
+        "date": "09-OCT-84"
+      }
+    }
+  },
+  "m20": {
+    "page_count": 1,
+    "pages": {
+      "M20": {
+        "board": "LONG-DISTANCE KEYBOARD/MOUSE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 19,
+        "sheet_of": 19,
+        "date": "28-JUN-84"
+      }
+    }
+  },
+  "mouse2": {
+    "page_count": 1,
+    "pages": {
+      "MOUSE2": {
+        "board": "",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "30-OCT-83"
+      }
+    }
+  },
+  "pc": {
+    "page_count": 9,
+    "pages": {
+      "XX1": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 10,
+        "date": "25-JUL-86"
+      },
+      "XX10": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 10,
+        "date": "25-JUL-86"
+      },
+      "XX3": {
+        "board": "SUN-3/F",
+        "function": "ETHERNET",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 6,
+        "date": "25-JUL-86"
+      },
+      "XX4": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 6,
+        "date": "17-JUL-86"
+      },
+      "XX5": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 6,
+        "date": "25-JUL-86"
+      },
+      "XX6": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 6,
+        "date": "25-JUL-86"
+      },
+      "XX7": {
+        "board": "SUN-3/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 10,
+        "date": "25-JUL-86"
+      },
+      "XX8": {
+        "board": "SUN-3/F",
+        "function": "COLOR VIDEO MEMORY",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 10,
+        "date": "23-JUL-86"
+      },
+      "XX9": {
+        "board": "SUN-3/F",
+        "function": "COLOR VIDEO",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 10,
+        "date": "23-JUL-86"
+      }
+    }
+  },
+  "px": {
+    "page_count": 7,
+    "pages": {
+      "PX1": {
+        "board": "(C) 1982 SMI, SUN 68000, CPU",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 7,
+        "date": "29-APR-82"
+      },
+      "PX2": {
+        "board": "(C) 1982 SMI, SUN 68000, RAM",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 7,
+        "date": "29-APR-82"
+      },
+      "PX3": {
+        "board": "(C) 1982 SMI, SUN 68000, MULTIBUS INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 7,
+        "date": "29-APR-82"
+      },
+      "PX4": {
+        "board": "(C) 1982 SMI, SUN 68000, I/O AND INIT",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 7,
+        "date": "29-APR-82"
+      },
+      "PX5": {
+        "board": "(C) 1982 SMI, SUN 68000, CLOCK AND CONTROL",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 7,
+        "date": "29-APR-82"
+      },
+      "PX6": {
+        "board": "(C) 1982 SMI, SUN 68000, J-CONNETORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 7,
+        "date": "29-APR-82"
+      },
+      "PX7": {
+        "board": "(C) 1982 SMI, SUN 68000, P-CONNECTORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 7,
+        "date": "29-APR-82"
+      }
+    }
+  },
+  "q": {
+    "page_count": 9,
+    "pages": {
+      "Q1": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 9,
+        "date": "05-APR-84"
+      },
+      "Q2": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "05-APR-84"
+      },
+      "Q3": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "05-APR-84"
+      },
+      "Q4": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "05-APR-84"
+      },
+      "Q5": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "05-APR-84"
+      },
+      "Q6": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "05-APR-84"
+      },
+      "Q7": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "05-APR-84"
+      },
+      "Q8": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "05-APR-84"
+      },
+      "Q9": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "05-APR-84"
+      }
+    }
+  },
+  "q9": {
+    "page_count": 9,
+    "pages": {
+      "Q1": {
+        "board": "PROPRIETARY SMI, SUN-2 CPU, CPU",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 8,
+        "date": "27-OCT-83"
+      },
+      "Q2": {
+        "board": "PROPRIETARY SMI, SUN-2 CPU, CLOCKS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 8,
+        "date": "27-OCT-83"
+      },
+      "Q3": {
+        "board": "PROPRIETARY SMI, SUN-2 CPU, MMU",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 8,
+        "date": "27-OCT-83"
+      },
+      "Q4": {
+        "board": "PROPRIETARY SMI, SUN-2 CPU, DECODING AND PROMS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 8,
+        "date": "27-OCT-83"
+      },
+      "Q5": {
+        "board": "PROPRIETARY SMI, SUN-2 CPU, P2-BUS INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 8,
+        "date": "27-OCT-83"
+      },
+      "Q6": {
+        "board": "PROPRIETARY SMI, SUN-2 CPU, I/O",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 8,
+        "date": "27-OCT-83"
+      },
+      "Q7": {
+        "board": "PROPRIETARY SMI, SUN-2 CPU, P1-BUS INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 8,
+        "date": "27-OCT-83"
+      },
+      "Q8": {
+        "board": "PROPRIETARY SMI, SUN-2 CPU, CONNECTORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 8,
+        "date": "27-OCT-83"
+      },
+      "Q9": {
+        "board": "PROPRIETARY SMI, SUN-2 CPU, DECOUPLING CAPS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 9,
+        "date": "27-OCT-83"
+      }
+    }
+  },
+  "qb": {
+    "page_count": 9,
+    "pages": {
+      "Q1B": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 8,
+        "date": "19-MAR-84"
+      },
+      "Q2B": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 9,
+        "date": "19-MAR-84"
+      },
+      "Q3B": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 9,
+        "date": "19-MAR-84"
+      },
+      "Q4B": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 9,
+        "date": "19-MAR-84"
+      },
+      "Q5B": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 9,
+        "date": "19-MAR-84"
+      },
+      "Q6B": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 9,
+        "date": "19-MAR-84"
+      },
+      "Q7B": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 9,
+        "date": "19-MAR-84"
+      },
+      "Q8B": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 9,
+        "date": "19-MAR-84"
+      },
+      "Q9B": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1007-08",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 9,
+        "date": "19-MAR-84"
+      }
+    }
+  },
+  "r": {
+    "page_count": 3,
+    "pages": {
+      "R1": {
+        "board": "PROPRIETARY SMI, ROPC, REGISTERS",
+        "function": "",
+        "board_type": "8136-UG1",
+        "sheet_x": 1,
+        "sheet_of": 3,
+        "date": "15-MAY-83"
+      },
+      "R2": {
+        "board": "PROPRIETARY SMI, ROPC, SHIFTER",
+        "function": "",
+        "board_type": "8136-UG1",
+        "sheet_x": 2,
+        "sheet_of": 3,
+        "date": "15-MAY-83"
+      },
+      "R3": {
+        "board": "PROPRIETARY SMI, ROPC, BUS INTERFACE",
+        "function": "",
+        "board_type": "8136-UG1",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "15-MAY-83"
+      }
+    }
+  },
+  "rj160": {
+    "page_count": 1,
+    "pages": {
+      "RJ160": {
+        "board": "PROPRIETARY SMI, SUN-2, I/O",
+        "function": "X",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 19,
+        "date": "26-JUL-84"
+      }
+    }
+  },
+  "sc": {
+    "page_count": 21,
+    "pages": {
+      "SC1": {
+        "board": "(C) SUN-2 COLOR, VME-BUS INTERFACE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 21,
+        "date": "27-AUG-84"
+      },
+      "SC10": {
+        "board": "(C) SUN-2 COLOR, MEMORY PLANES A + B + C",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 21,
+        "date": "31-AUG-84"
+      },
+      "SC11": {
+        "board": "(C) SUN-2 COLOR, MEMORY PLANES D + E + F",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 21,
+        "date": "31-AUG-84"
+      },
+      "SC12": {
+        "board": "(C) SUN-2 COLOR, MEMORY PLANES G + H",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 21,
+        "date": "31-AUG-84"
+      },
+      "SC13": {
+        "board": "(C) SUN-2 COLOR, VIDEO OUTPUT BUFFERS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 21,
+        "date": "31-AUG-84"
+      },
+      "SC14": {
+        "board": "(C) SUN-2 COLOR, VIDEO OUTPUT BUFFERS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 21,
+        "date": "09-JUL-84"
+      },
+      "SC15": {
+        "board": "(C) SUN-2 COLOR, ECL SHIFTERS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 21,
+        "date": "31-AUG-84"
+      },
+      "SC16": {
+        "board": "(C) SUN-2 COLOR, COLOR MAPS AND DACS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 16,
+        "sheet_of": 21,
+        "date": "31-AUG-84"
+      },
+      "SC17": {
+        "board": "(C) SUN-2 COLOR, ZOOM CLOCK GENERATION",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 17,
+        "sheet_of": 21,
+        "date": "31-AUG-84"
+      },
+      "SC18": {
+        "board": "(C) SUN-2 COLOR, SYNC GENERATION",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 18,
+        "sheet_of": 21,
+        "date": "31-AUG-84"
+      },
+      "SC19": {
+        "board": "(C) SUN-2 COLOR, CAPACITORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 19,
+        "sheet_of": 21,
+        "date": "21-NOV-83"
+      },
+      "SC2": {
+        "board": "(2) SUN-2 COLOR, VIDEO ADDRESSING",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 21,
+        "date": "27-AUG-84"
+      },
+      "SC20": {
+        "board": "(C) SUN-2 COLOR, CAPACITORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 20,
+        "sheet_of": 21,
+        "date": "31-AUG-84"
+      },
+      "SC21": {
+        "board": "(C) SUN-2 COLOR, CONNECTORS AND SPARES",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 21,
+        "sheet_of": 21,
+        "date": "31-AUG-84"
+      },
+      "SC3": {
+        "board": "(2) SUN-2 COLOR, VIDEO ADDRESSING",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 21,
+        "date": "27-AUG-84"
+      },
+      "SC4": {
+        "board": "(C) SUN-2 COLOR, MEMORY CONTROL",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 21,
+        "date": "27-AUG-84"
+      },
+      "SC5": {
+        "board": "(C) SUN-2 COLOR, RAS + CAS DECODING",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 21,
+        "date": "27-AUG-84"
+      },
+      "SC6": {
+        "board": "(C) SUN-2 COLOR, ADDR DRIVERS + TERMINATORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 21,
+        "date": "27-AUG-84"
+      },
+      "SC7": {
+        "board": "(C) SUN-2 COLOR, PIXEL-MODE DATA PATHS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 21,
+        "date": "31-AUG-84"
+      },
+      "SC8": {
+        "board": "(C) SUN-2 COLOR, WORD-MODE DATA PATHS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 21,
+        "date": "31-AUG-84"
+      },
+      "SC9": {
+        "board": "(C) SUN-2 COLOR, WORD-MODE DATA PATHS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 21,
+        "date": "31-AUG-84"
+      }
+    }
+  },
+  "scsi": {
+    "page_count": 4,
+    "pages": {
+      "2513": {
+        "board": "PROPRIETARY SUN, M25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 19,
+        "date": "02-APR-85"
+      },
+      "2514": {
+        "board": "PROPRIETARY SUN, M25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 19,
+        "date": "02-APR-85"
+      },
+      "2515": {
+        "board": "PROPRIETARY SUN, M25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 19,
+        "date": "02-APR-85"
+      },
+      "2516": {
+        "board": "PROPRIETARY SUN, M25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 16,
+        "sheet_of": 19,
+        "date": "02-APR-85"
+      }
+    }
+  },
+  "sio": {
+    "page_count": 5,
+    "pages": {
+      "SIO1": {
+        "board": "PROPRIETARY SMI, SUN-2, SCSI BOARD, SCSI IFCE",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 5,
+        "date": "05-APR-84"
+      },
+      "SIO2": {
+        "board": "PROPRIETARY SMI, SUN-2, SCSI BOARD, DMA",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 5,
+        "date": "05-APR-84"
+      },
+      "SIO3": {
+        "board": "PROPRIETARY SMI, SUN-2, SCSI BOARD, P796",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 5,
+        "date": "05-APR-84"
+      },
+      "SIO4": {
+        "board": "PROPRIETARY SMI, SUN-2, SCSI BOARD, UARTS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 5,
+        "date": "05-APR-84"
+      },
+      "SIO5": {
+        "board": "PROPRIETARY SMI, SUN-2, SCSI BOARD, CAPACITORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 5,
+        "date": "05-APR-84"
+      }
+    }
+  },
+  "sx": {
+    "page_count": 2,
+    "pages": {
+      "SX1": {
+        "board": "(C) 1982 SMI, SUN 1/4\" TAPE, 796-BUS INTERFACE",
+        "function": "",
+        "board_type": "8136-UG1",
+        "sheet_x": 2,
+        "sheet_of": 4,
+        "date": "07-JUN-83"
+      },
+      "SX2": {
+        "board": "(C) 1982 SMI, COLOR BOARD, CONNECTORS.",
+        "function": "",
+        "board_type": "8136-UG1",
+        "sheet_x": 7,
+        "sheet_of": 7,
+        "date": "07-JUN-83"
+      }
+    }
+  },
+  "sy": {
+    "page_count": 14,
+    "pages": {
+      "SY1": {
+        "board": "(C) 1983 SMI, SUN2 COLOR BOARD, ADDRESS DECODERS",
+        "function": "",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 1,
+        "sheet_of": 14,
+        "date": "06-JUN-83"
+      },
+      "SY10": {
+        "board": "TTL COLOR MAP",
+        "function": "1,SMI",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "06-JUN-83"
+      },
+      "SY11": {
+        "board": "HORIZ. & VERT. STATE MACHINES",
+        "function": "1,SMI",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "06-JUN-83"
+      },
+      "SY12": {
+        "board": "",
+        "function": "1,SMI",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "07-JUN-83"
+      },
+      "SY13": {
+        "board": "",
+        "function": "1,SMI",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "07-JUN-83"
+      },
+      "SY14": {
+        "board": "(C) 1983 SMI, SUN2 COLOR BOARD, CONNECTORS",
+        "function": "",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 14,
+        "sheet_of": 14,
+        "date": "07-JUN-83"
+      },
+      "SY2": {
+        "board": "(C) 1983 SMI, SUN2 COLOR BOARD, VIDEO ADDRESS GENERATION",
+        "function": "",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 2,
+        "sheet_of": 14,
+        "date": "06-JUN-83"
+      },
+      "SY3": {
+        "board": "HORIZONTAL ZOOM AND MEMORY CONTROL",
+        "function": "1,SMI",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "06-JUN-83"
+      },
+      "SY4": {
+        "board": "RAS, CAS, WE DRIVERS",
+        "function": "1,SMI",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "07-JUN-83"
+      },
+      "SY5": {
+        "board": "",
+        "function": "1,SMI",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "06-JUN-83"
+      },
+      "SY6": {
+        "board": "",
+        "function": "1,SMI",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "06-JUN-83"
+      },
+      "SY7": {
+        "board": "MEMORY PLANES A,B,C",
+        "function": "1,SMI",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "06-JUN-83"
+      },
+      "SY8": {
+        "board": "MEMORY PLANES D,E,F",
+        "function": "1,SMI",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "06-JUN-83"
+      },
+      "SY9": {
+        "board": "VIDEO OUTPUT BUFFER",
+        "function": "",
+        "board_type": "UNIVERSAL",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "07-JUN-83"
+      }
+    }
+  },
+  "test": {
+    "page_count": 14,
+    "pages": {
+      "2501": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 19,
+        "date": "03-APR-85"
+      },
+      "2502": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 19,
+        "date": "02-APR-85"
+      },
+      "2503": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 19,
+        "date": "03-APR-85"
+      },
+      "2504": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 19,
+        "date": "03-APR-85"
+      },
+      "2505": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 19,
+        "date": "03-APR-85"
+      },
+      "2506": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 19,
+        "date": "03-APR-85"
+      },
+      "2507": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 19,
+        "date": "02-APR-85"
+      },
+      "2508": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 19,
+        "date": "01-APR-85"
+      },
+      "2509": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 19,
+        "date": "02-APR-85"
+      },
+      "2512": {
+        "board": "MODEL 25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 19,
+        "date": "02-APR-85"
+      },
+      "2513": {
+        "board": "PROPRIETARY SUN, M25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 19,
+        "date": "02-APR-85"
+      },
+      "2514": {
+        "board": "PROPRIETARY SUN, M25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 19,
+        "date": "03-APR-85"
+      },
+      "2515": {
+        "board": "PROPRIETARY SUN, M25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 19,
+        "date": "03-APR-85"
+      },
+      "2516": {
+        "board": "PROPRIETARY SUN, M25",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 16,
+        "sheet_of": 19,
+        "date": "02-APR-85"
+      }
+    }
+  },
+  "ti2": {
+    "page_count": 2,
+    "pages": {
+      "TI1": {
+        "board": "",
+        "function": "1,SMI",
+        "board_type": "8136-UG1",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "23-AUG-82"
+      },
+      "TI2": {
+        "board": "",
+        "function": "",
+        "board_type": "8136-UG1",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "23-AUG-82"
+      }
+    }
+  },
+  "v": {
+    "page_count": 5,
+    "pages": {
+      "V1": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1003-07",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 5,
+        "date": "19-MAR-84"
+      },
+      "V2": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1003-07",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 5,
+        "date": "19-MAR-84"
+      },
+      "V3": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1003-07",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 5,
+        "date": "19-MAR-84"
+      },
+      "V4": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1003-07",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 5,
+        "date": "19-MAR-84"
+      },
+      "V5": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1003-07",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 5,
+        "date": "19-MAR-84"
+      }
+    }
+  },
+  "ve1": {
+    "page_count": 4,
+    "pages": {
+      "VE1": {
+        "board": "PROPRIETARY SMI, SUN-2 VIDEO, ECL",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 4,
+        "date": "31-JUL-84"
+      },
+      "VE2": {
+        "board": "PROPRIETARY SMI, SUN-2 FRAME BUFFER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 4,
+        "date": "02-AUG-84"
+      },
+      "VE3": {
+        "board": "PROPRIETARY SMI, SUN-2 VIDEO, ECL",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 4,
+        "date": "07-AUG-84"
+      },
+      "VE4": {
+        "board": "PROPRIETARY SMI, SN-2 VIDEO, ECL",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 4,
+        "date": "05-AUG-84"
+      }
+    }
+  },
+  "vme3x2": {
+    "page_count": 2,
+    "pages": {
+      "VME3X1": {
+        "board": "SMI, VME 3X TO 2X ADAPTER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 2,
+        "date": "09-OCT-84"
+      },
+      "VME3X2": {
+        "board": "SMI, VME 3X TO 2X ADAPTER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 2,
+        "date": "09-OCT-84"
+      }
+    }
+  },
+  "vmem": {
+    "page_count": 4,
+    "pages": {
+      "VMEM1": {
+        "board": "SUN 2251 MEMORY BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 4,
+        "date": "04-DEC-84"
+      },
+      "VMEM2": {
+        "board": "SUN 2251 MEMORY BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 4,
+        "date": "04-DEC-84"
+      },
+      "VMEM3": {
+        "board": "SUN 2251 MEMORY BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 4,
+        "date": "04-DEC-84"
+      },
+      "VMEM4": {
+        "board": "SUN 2251 MEMORY BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 4,
+        "date": "04-DEC-84"
+      }
+    }
+  },
+  "vmep": {
+    "page_count": 10,
+    "pages": {
+      "VMEP1": {
+        "board": "SUN 2250 CPU BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "04-DEC-84"
+      },
+      "VMEP10": {
+        "board": "SUN 2250 CPU BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "04-DEC-84"
+      },
+      "VMEP2": {
+        "board": "SUN 2250 CPU BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "04-DEC-84"
+      },
+      "VMEP3": {
+        "board": "SUN 2250 CPU BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "04-DEC-84"
+      },
+      "VMEP4": {
+        "board": "SUN 2250 CPU BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "04-DEC-84"
+      },
+      "VMEP5": {
+        "board": "SUN 2250 CPU BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "04-DEC-84"
+      },
+      "VMEP6": {
+        "board": "SUN 2250 CPU BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "04-DEC-84"
+      },
+      "VMEP7": {
+        "board": "SUN 2250 CPU BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "04-DEC-84"
+      },
+      "VMEP8": {
+        "board": "SUN 2250 CPU BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "04-DEC-84"
+      },
+      "VMEP9": {
+        "board": "SUN 2250 CPU BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 0,
+        "sheet_of": 0,
+        "date": "04-DEC-84"
+      }
+    }
+  },
+  "vmes": {
+    "page_count": 2,
+    "pages": {
+      "VMES1": {
+        "board": "PROPRIETARY SMI, SUN-2, BUS CONNECTORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 2,
+        "date": "28-NOV-84"
+      },
+      "VMES2": {
+        "board": "VME SUN-2, CPU",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 2,
+        "date": "28-NOV-84"
+      }
+    }
+  },
+  "vmev": {
+    "page_count": 4,
+    "pages": {
+      "VMEV1": {
+        "board": "VME-BUS CONNECTORS",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 4,
+        "date": "28-NOV-84"
+      },
+      "VMEV2": {
+        "board": "PROPRIETARY SMI, SUN-2, SINGLE BOARD",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 4,
+        "date": "28-NOV-84"
+      },
+      "VMEV3": {
+        "board": "PROPRIETARY SMI, SUN-2, FRAME BUFFER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 4,
+        "date": "28-NOV-84"
+      },
+      "VMEV4": {
+        "board": "PROPRIETARY SMI, SUN-2, VIDEO CONTROLLER",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 4,
+        "date": "28-NOV-84"
+      }
+    }
+  },
+  "vmxpig": {
+    "page_count": 1,
+    "pages": {
+      "VMXPIG": {
+        "board": "SMI, M-160 BACKPLANE, SLOT1",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 13,
+        "date": "26-JUL-84"
+      }
+    }
+  },
+  "x": {
+    "page_count": 15,
+    "pages": {
+      "X1": {
+        "board": "SUN-3/F",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 15,
+        "date": "13-AUG-86"
+      },
+      "X10": {
+        "board": "SUN-3/F",
+        "function": "VIDEO CONTROL",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 15,
+        "date": "29-JUN-86"
+      },
+      "X11": {
+        "board": "SUN-3/F",
+        "function": "VIDEO MUX",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 15,
+        "date": "01-JUN-86"
+      },
+      "X12": {
+        "board": "SUN-3/F",
+        "function": "COLOR VIDEO RAM",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 15,
+        "date": "11-AUG-86"
+      },
+      "X13": {
+        "board": "SUN-3/F",
+        "function": "COLOR VIDEO",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 15,
+        "date": "13-AUG-86"
+      },
+      "X14": {
+        "board": "SUN-3/F",
+        "function": "MONOCHROME VIDEO",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 15,
+        "date": "12-AUG-86"
+      },
+      "X15": {
+        "board": "SUN-3/F",
+        "function": "CAPS AND PULLUPS",
+        "board_type": "DECPC",
+        "sheet_x": 15,
+        "sheet_of": 15,
+        "date": "13-AUG-86"
+      },
+      "X2": {
+        "board": "SUN-3/F",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 15,
+        "date": "08-JUL-86"
+      },
+      "X3": {
+        "board": "SUN-3/F",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 15,
+        "date": "11-AUG-86"
+      },
+      "X4": {
+        "board": "SUN-3/F",
+        "function": "UARTS",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 10,
+        "date": "13-AUG-86"
+      },
+      "X5": {
+        "board": "SUN-3/F",
+        "function": "ETHERNET",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 15,
+        "date": "13-AUG-86"
+      },
+      "X6": {
+        "board": "SUN-3/F",
+        "function": "SCSI",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 15,
+        "date": "11-AUG-86"
+      },
+      "X7": {
+        "board": "SUN-3/F",
+        "function": "PARITY",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 15,
+        "date": "08-JUL-86"
+      },
+      "X8": {
+        "board": "SUN-3/F",
+        "function": "RAS/CAS",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 15,
+        "date": "11-AUG-86"
+      },
+      "X9": {
+        "board": "SUN-3/F",
+        "function": "MEMORY",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 15,
+        "date": "29-JUN-86"
+      }
+    }
+  },
+  "x10": {
+    "page_count": 5,
+    "pages": {
+      "X10": {
+        "board": "SUN-3",
+        "function": "VIDEO MEMORY",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 15,
+        "date": "12-APR-86"
+      },
+      "X11": {
+        "board": "SUN-3",
+        "function": "VIDEO MEMORY",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 15,
+        "date": "12-APR-86"
+      },
+      "X12": {
+        "board": "SUN-3",
+        "function": "VIDEO MEMORY",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 15,
+        "date": "05-APR-86"
+      },
+      "X13": {
+        "board": "SUN-3",
+        "function": "VIDEO MEMORY",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 15,
+        "date": "05-APR-86"
+      },
+      "X14": {
+        "board": "SUN-3",
+        "function": "VIDEO",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 15,
+        "date": "12-APR-86"
+      }
+    }
+  },
+  "xc": {
+    "page_count": 12,
+    "pages": {
+      "X1": {
+        "board": "SUN-3/E",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 15,
+        "date": "17-APR-86"
+      },
+      "X12": {
+        "board": "SUN-3",
+        "function": "VIDEO MEMORY",
+        "board_type": "DECPC",
+        "sheet_x": 12,
+        "sheet_of": 15,
+        "date": "05-APR-86"
+      },
+      "X13": {
+        "board": "SUN-3",
+        "function": "VIDEO MEMORY",
+        "board_type": "DECPC",
+        "sheet_x": 13,
+        "sheet_of": 15,
+        "date": "12-APR-86"
+      },
+      "X2": {
+        "board": "SUN-3/E",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 15,
+        "date": "05-APR-86"
+      },
+      "X3": {
+        "board": "SUN-3/E",
+        "function": "STD DEVICES",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 15,
+        "date": "12-APR-86"
+      },
+      "X4": {
+        "board": "SUN-3",
+        "function": "UARTS",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 10,
+        "date": "16-APR-86"
+      },
+      "X5": {
+        "board": "SUN-3",
+        "function": "ETHERNET",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 10,
+        "date": "12-APR-86"
+      },
+      "X8": {
+        "board": "SUN-3/E",
+        "function": "MEMORY",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 15,
+        "date": "12-APR-86"
+      },
+      "X9": {
+        "board": "SUN-3",
+        "function": "MEMORY",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 15,
+        "date": "12-APR-86"
+      },
+      "XC10": {
+        "board": "SUN-3",
+        "function": "VIDEO MEMORY",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 15,
+        "date": "17-APR-86"
+      },
+      "XC11": {
+        "board": "SUN-3",
+        "function": "VIDEO MEMORY",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 15,
+        "date": "17-APR-86"
+      },
+      "XC15": {
+        "board": "SUN-3",
+        "function": "PULLUPS AND CAPS",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 15,
+        "date": "17-APR-86"
+      }
+    }
+  },
+  "xm": {
+    "page_count": 10,
+    "pages": {
+      "X1": {
+        "board": "SUN-3/E",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 15,
+        "date": "16-APR-86"
+      },
+      "X10M": {
+        "board": "SUN-3",
+        "function": "VIDEO MEMORY",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 15,
+        "date": "16-APR-86"
+      },
+      "X14M": {
+        "board": "SUN-3",
+        "function": "VIDEO",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 15,
+        "date": "15-APR-86"
+      },
+      "X15": {
+        "board": "SUN-3",
+        "function": "PULLUPS AND CAPS",
+        "board_type": "DECPC",
+        "sheet_x": 14,
+        "sheet_of": 15,
+        "date": "16-APR-86"
+      },
+      "X2": {
+        "board": "SUN-3/E",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 15,
+        "date": "05-APR-86"
+      },
+      "X3": {
+        "board": "SUN-3/E",
+        "function": "STD DEVICES",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 15,
+        "date": "12-APR-86"
+      },
+      "X4": {
+        "board": "SUN-3",
+        "function": "UARTS",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 10,
+        "date": "16-APR-86"
+      },
+      "X5": {
+        "board": "SUN-3",
+        "function": "ETHERNET",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 10,
+        "date": "12-APR-86"
+      },
+      "X8": {
+        "board": "SUN-3/E",
+        "function": "MEMORY",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 15,
+        "date": "12-APR-86"
+      },
+      "X9": {
+        "board": "SUN-3",
+        "function": "MEMORY",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 15,
+        "date": "12-APR-86"
+      }
+    }
+  },
+  "xx": {
+    "page_count": 10,
+    "pages": {
+      "XX1": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 10,
+        "date": "02-AUG-86"
+      },
+      "XX10": {
+        "board": "SUN-3/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 10,
+        "date": "02-AUG-86"
+      },
+      "XX2": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 6,
+        "date": "28-JUL-86"
+      },
+      "XX3": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 10,
+        "date": "02-AUG-86"
+      },
+      "XX4": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 6,
+        "date": "28-JUL-86"
+      },
+      "XX5": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 6,
+        "date": "28-JUL-86"
+      },
+      "XX6": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 10,
+        "date": "28-JUL-86"
+      },
+      "XX7": {
+        "board": "SUN-3/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 10,
+        "date": "02-AUG-86"
+      },
+      "XX8": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 10,
+        "date": "02-AUG-86"
+      },
+      "XX9": {
+        "board": "SUN-3/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 10,
+        "date": "02-AUG-86"
+      }
+    }
+  },
+  "xy": {
+    "page_count": 11,
+    "pages": {
+      "XX1": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 10,
+        "date": "07-AUG-86"
+      },
+      "XX10": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 10,
+        "sheet_of": 10,
+        "date": "08-AUG-86"
+      },
+      "XX11": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 11,
+        "sheet_of": 11,
+        "date": "08-AUG-86"
+      },
+      "XX2": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 6,
+        "date": "08-AUG-86"
+      },
+      "XX3": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 10,
+        "date": "09-AUG-86"
+      },
+      "XX4": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 6,
+        "date": "28-JUL-86"
+      },
+      "XX5": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 5,
+        "sheet_of": 6,
+        "date": "28-JUL-86"
+      },
+      "XX6": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 6,
+        "sheet_of": 10,
+        "date": "28-JUL-86"
+      },
+      "XX7": {
+        "board": "SUN-3/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 7,
+        "sheet_of": 10,
+        "date": "02-AUG-86"
+      },
+      "XX8": {
+        "board": "SUN/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 8,
+        "sheet_of": 10,
+        "date": "08-AUG-86"
+      },
+      "XX9": {
+        "board": "SUN-3/X",
+        "function": "",
+        "board_type": "DECPC",
+        "sheet_x": 9,
+        "sheet_of": 10,
+        "date": "09-AUG-86"
+      }
+    }
+  },
+  "y": {
+    "page_count": 4,
+    "pages": {
+      "Y1": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1013-02",
+        "board_type": "DECPC",
+        "sheet_x": 1,
+        "sheet_of": 4,
+        "date": "19-MAR-84"
+      },
+      "Y2": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1013-02",
+        "board_type": "DECPC",
+        "sheet_x": 2,
+        "sheet_of": 4,
+        "date": "19-MAR-84"
+      },
+      "Y3": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1013-02",
+        "board_type": "DECPC",
+        "sheet_x": 3,
+        "sheet_of": 4,
+        "date": "19-MAR-84"
+      },
+      "Y4": {
+        "board": "SUN MICROSYSTEMS INC",
+        "function": "501-1013-02",
+        "board_type": "DECPC",
+        "sheet_x": 4,
+        "sheet_of": 4,
+        "date": "19-MAR-84"
+      }
+    }
+  }
+}

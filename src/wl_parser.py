@@ -113,8 +113,9 @@ class WLNetlist:
         return [n for n in self.nets if n.is_cross_page]
     
     def components_on_page(self, page: str) -> list[WLComponent]:
-        """Get all components assigned to a specific page."""
-        return [c for c in self.components if c.page == page]
+        """Get all components assigned to a specific page (case-insensitive)."""
+        page_upper = page.upper()
+        return [c for c in self.components if c.page.upper() == page_upper]
 
 
 def _parse_pin_line(line: str) -> WLPin | None:

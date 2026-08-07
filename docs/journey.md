@@ -379,3 +379,108 @@ coverage for rendering.
 - Rewrote `src/board_registry.py` to use wirelist-based grouping (57 boards) with metadata fallback (110 boards)
 - Fixed rendering issues: p2.svg viewBox explosion (coordinate clamping), r3.drw.O empty parse (header string termination)
 - Updated batch renderer to use new data directory paths
+
+### Checkpoint 8: Designator Extraction, PDF-Validated Groupings & WD Parser
+
+**Designator System:**
+- Discovered that reference designators (U100, C604, etc.) are NOT in the DRW file
+- They are assigned by the WL (Wirelist) tool based on component type prefix + page number
+- Convention: `[Prefix][Page*100 + Seq]` — e.g., U100 = first IC on page 1
+- Added `designation` field to `BodyPlacement` model and `physical_loc` decoder for Bay-Rack-Slot
+- Integrated designator rendering into SVG output and batch pipeline
+
+**PDF-Validated Groupings:**
+- Analyzed 47 manually-grouped PDFs from `/Users/dmoisa/Downloads/pdf/`
+- Used PyMuPDF + Tesseract OCR to extract page-to-drawing mappings
+- Discovered multi-prefix groupings: CG+G, Q+QB revisions, ETHP+ETHW, V variants, VME aggregates
+- Added `PDF_BOARD_OVERRIDES` to board registry as highest-authority source
+- Registry now has 144 boards: 57 WL + 14 PDF + 73 metadata-fallback
+
+**WD File Parser:**
+- Created `src/wd_parser.py` for Wire Data intermediate format
+- Parses header, bodies (BID, BRSLOC, type, package, properties), signals (names, pin connections)
+- Verified on Q1: 38 bodies, 25 signals
+
+**Documentation:**
+- Created `docs/suds_format_reference.md` — complete technical reference
+- Created `data/pdf_groupings.json` — OCR-extracted PDF page assignments
+- Created `data/board_registry.json` — cross-referenced registry data
+
+---
+
+### Checkpoint 9: Auxiliary Data Analysis & WL Authority
+
+**Discovery — WL as Highest Authority:**
+- Analyzed all non-DRW file types (WL, BOM, WD, PLT) for board grouping signals
+- Found that WL file headers contain **per-page board designator**, page function, and
+  "Sheet X of Y" — the definitive record from when the wirelist was generated
+- This is more authoritative than DRW metadata, because DRW files can be overwritten
+  in the archive while the WL preserves the original mapping
+- Example: `x.wl` lists all 15 pages as "SUN-3/F" even though `x2.drw.O` had been
+  overwritten with "SUN 68000 MEMORY BOARD" content
+
+**WL Authority Map:**
+- Parsed 66 wirelist files → 564 page-level entries
+- Each entry: board name, page function, board type, sheet X of Y, date
+- Saved as `data/wl_authority.json`
+- Multiple WL variants exist for some boards (e.g., `x.wl`, `xm.wl`, `xc.wl`)
+  representing different board configurations (monochrome, color, full)
+
+**Designator-First Coherence Algorithm:**
+- Rewrote `src/version_coherence.py` to use board designator as the primary
+  grouping signal (weight 0.35 — the highest single component)
+- Board designator extracted from title_line_1 by stripping copyright prefixes:
+  ```
+  "(C) 1982 SMI, SUN 68010, CPU"    → "SUN 68010"
+  "SUN MICROSYSTEMS INC" + "501-1007-08" → "501-1007-08" (fallback)
+  ```
+- Normalization merges related names: SUN 68010 / SUN-2 CPU → "SUN-2"
+- Pages grouped by `(designator, of_total)` → merged when same family + same of
+- Score: `0.35×C_desig + 0.20×C_of + 0.20×C_coverage + 0.15×C_wl + 0.10×C_size`
+
+**Board Grouping Example — Q Board:**
+- v1 "501-1007-08" (8/9p, score 0.98) ★ — QB revision with part number
+- v3 "SUN-2" (4/8p, score 0.81) — intermediate revision
+- v5 "SUN-2" (3/6p, score 0.72) — earliest revision
+
+---
+
+### Checkpoint 10: Version Recovery & Provenance Index
+
+**Version Recovery — 189 files corrected:**
+- Discovered that `data/drw/` contained wrong file versions for 189 of 685 files
+- The earlier "best_drw" selection script had picked stale versions from the SAILDART
+  version history (`smi/prev/`) instead of the latest canonical files from `smi/octal/`
+- Compared all 685 files between `data/drw/` and `smi/octal/` via md5sum
+- Replaced all 189 mismatched files with the correct `smi/octal/` versions
+- Recovery audit trail saved to `data/version_recovery.json`
+
+**Version History in SAILDART:**
+- The `smi/prev/` directory contains 5,197 version history files
+- File naming: `{name}.drw.{version}.O` (e.g., `x2.drw.1.O` through `x2.drw.6.O`)
+- Version 1 is oldest, highest number is newest (but the file in `smi/octal/` is the final)
+- Example: `x2.drw.1.O` (1982) = "SUN 68000 MEMORY BOARD" → `x2.drw.6.O` (1986) = "SUN-3/F"
+  The file evolved from a Sun-1 memory board to a SUN-3/F CPU page over 4 years
+
+**X Board Recovery (SUN-3/F):**
+| File | Before (WRONG) | After (CORRECT) |
+|------|----------------|-----------------|
+| x2.drw.O | "(C) 1982 SMI SUN 68000 MEMORY BOARD" 2/4 | "SUN-3/F" 2/15 |
+| x3.drw.O | "(C) 1982 SMI SUN 68000 MEMORY BOARD" 3/4 | "SUN-3/F" 3/15 |
+| x7.drw.O | "SUN-3 MEMORY" 7/10 | "SUN-3/F PARITY" 7/15 |
+| x8.drw.O | "SUN-3 VIDEO MEMORY" 8/10 | "SUN-3/F RAS/CAS" 8/15 |
+
+Result: SUN-3/F went from 10/15 pages (score 0.80) → **14/15 pages (score 0.96)**
+
+**Full Batch Re-render:**
+- All 685 DRW files re-rendered with recovered data
+- 163 board directories created
+- 279 version-aware PDFs generated (best ones marked with `_BEST`)
+
+**Provenance-Rich HTML Index:**
+- Created `scripts/generate_index.py` standalone index generator
+- Index includes: summary dashboard, per-board version pills, per-page provenance
+  table with recovery status, WL authority, coherence score breakdown
+- Generated 381KB `output/boards/index.html`
+- Algorithm version, source archive, and generation timestamp in footer
+

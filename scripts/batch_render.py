@@ -6,6 +6,7 @@ Renders DRW files organized by board, with optional PDF generation and HTML inde
 import argparse
 import glob
 import os
+import re
 import subprocess
 import sys
 import time
@@ -17,7 +18,49 @@ from src.board_registry import discover_boards, Board, BoardPage
 from src.drw_parser import parse_drw_file
 from src.svg_renderer import render_svg
 from src.drw_model import BodyDefinition
+from src.wl_parser import parse_wl_netlist
+from src.version_coherence import (
+    analyze_board_versions, VersionSet, _extract_page_versions,
+    print_diagnostic_table
+)
+from collections import defaultdict
 
+
+
+def build_designator_map(drw, wl_components):
+    """Map DRW body_id -> designator from WL components for this page."""
+    designators = {}
+    
+    # Group WL components by normalized type name
+    wl_by_type = defaultdict(list)
+    for comp in wl_components:
+        key = comp.body.rstrip('\\').rstrip("'")
+        wl_by_type[key].append(comp)
+    
+    # Group DRW bodies by normalized type name
+    drw_by_type = defaultdict(list)
+    for bp in drw.body_placements:
+        key = bp.body_name.rstrip('\\').rstrip("'")
+        drw_by_type[key].append(bp)
+    
+    # Match: zip WL designators with DRW bodies (sorted by body_id)
+    for type_name, wl_comps in wl_by_type.items():
+        drw_bodies = drw_by_type.get(type_name, [])
+        if not drw_bodies:
+            continue
+        drw_bodies.sort(key=lambda bp: bp.body_id)
+        wl_comps.sort(key=lambda c: c.number)
+        
+        if len(wl_comps) == 1 and len(drw_bodies) > 1:
+            desig = wl_comps[0].designator
+            for bp in drw_bodies:
+                designators[bp.body_id] = desig
+        else:
+            for i, bp in enumerate(drw_bodies):
+                if i < len(wl_comps):
+                    designators[bp.body_id] = wl_comps[i].designator
+    
+    return designators
 
 
 def _generate_index_html(board_results, total_pages, total_bodies):
@@ -142,6 +185,10 @@ def main():
     parser.add_argument("--png", action="store_true", help="Generate PNG files")
     parser.add_argument("--index", action="store_true", help="Generate HTML index page")
     parser.add_argument("--png-width", type=int, default=3000, help="PNG width in pixels (default: 3000)")
+    parser.add_argument("--versions", action="store_true",
+                        help="Use coherence scoring to identify design revisions. "
+                             "With --pdf, generates a separate PDF per revision, "
+                             "with version number and score in the filename.")
     
     args = parser.parse_args()
     
@@ -189,6 +236,15 @@ def main():
         board_dir = os.path.join(args.output_dir, board.board_id)
         os.makedirs(board_dir, exist_ok=True)
         
+        wl_data = None
+        if board.wirelist:
+            wl_path = os.path.join(args.wl_dir, f"{board.wirelist}.wl")
+            if os.path.exists(wl_path):
+                try:
+                    wl_data = parse_wl_netlist(wl_path)
+                except Exception as e:
+                    print(f"Warning: failed to parse wirelist {wl_path}: {e}")
+        
         pages_stats = []
         svg_files_for_pdf = []
         
@@ -203,7 +259,12 @@ def main():
                 for bd in drw.body_defs:
                     combined_defs[bd.name] = bd
                     
-                svg_out = render_svg(drw, combined_defs)
+                designators = {}
+                if wl_data:
+                    wl_comps = wl_data.components_on_page(page.name)
+                    designators = build_designator_map(drw, wl_comps)
+                    
+                svg_out = render_svg(drw, combined_defs, designators=designators)
                 svg_filename = f"{page.name}.svg"
                 svg_path = os.path.join(board_dir, svg_filename)
                 
@@ -244,16 +305,21 @@ def main():
                 
         pdf_generated = False
         if args.pdf and svg_files_for_pdf:
-            print(f"  Generating PDF for {board.board_id}...")
-            pdf_path = os.path.join(board_dir, f"{board.board_id}.pdf")
-            try:
-                subprocess.run(
-                    ['rsvg-convert', '-f', 'pdf', '-o', pdf_path] + svg_files_for_pdf,
-                    check=True, capture_output=True
-                )
+            if args.versions:
+                # Version-aware PDF: one per revision
+                _render_versioned_pdfs(board, board_dir, all_defs, args)
                 pdf_generated = True
-            except Exception as e:
-                print(f"  WARNING: PDF generation failed: {e}")
+            else:
+                print(f"  Generating PDF for {board.board_id}...")
+                pdf_path = os.path.join(board_dir, f"{board.board_id}.pdf")
+                try:
+                    subprocess.run(
+                        ['rsvg-convert', '-f', 'pdf', '-o', pdf_path] + svg_files_for_pdf,
+                        check=True, capture_output=True
+                    )
+                    pdf_generated = True
+                except Exception as e:
+                    print(f"  WARNING: PDF generation failed: {e}")
                 
         board_results.append({
             'board': board,
@@ -279,5 +345,88 @@ def main():
         b_name = b_res['board'].name[:35]
         print(f"  {b_name:<35} {len(b_res['pages_stats']):>7} {b_res['total_bodies']:>8}  {b_res['status']}")
 
+def _render_versioned_pdfs(board, board_dir, all_defs, args):
+    """Render separate PDFs for each design revision of a board.
+    
+    Uses the coherence algorithm to identify revisions based on board
+    designator matching, then prints a diagnostic table and renders
+    each revision as a separate PDF.
+    """
+    # Determine prefix from board_id
+    prefix = board.board_id.rstrip('_0123456789')
+    if not prefix:
+        prefix = board.board_id
+    
+    # Get WL page count
+    wl_count = None
+    if board.wirelist:
+        wl_path = os.path.join(args.wl_dir, f"{board.wirelist}.wl")
+        if os.path.exists(wl_path):
+            try:
+                wl = parse_wl_netlist(wl_path)
+                wl_count = len(set(c.page for c in wl.components))
+            except Exception:
+                pass
+    
+    # Run the analysis
+    versions = analyze_board_versions(
+        prefix, args.dir, wl_page_count=wl_count
+    )
+    
+    if not versions:
+        print(f"  No revisions found for prefix '{prefix}'")
+        return
+    
+    # Print diagnostic table BEFORE rendering
+    all_pages = _extract_page_versions(args.dir, prefix)
+    print_diagnostic_table(prefix, all_pages, versions)
+    
+    # Render PDFs
+    for vi, vs in enumerate(versions, 1):
+        best_tag = " ★ BEST" if vs.is_best else ""
+        print(f"  Rendering v{vi}: \"{vs.board_designator}\" of_{vs.of_total} "
+              f"({len(vs.pages)}/{vs.of_total}p, score={vs.score:.2f}){best_tag}")
+        
+        # Render SVGs for this version's pages
+        version_svgs = []
+        for pv in vs.pages:
+            svg_path = os.path.join(board_dir, f"{pv.name}.svg")
+            if os.path.exists(svg_path):
+                version_svgs.append(svg_path)
+            else:
+                try:
+                    drw = parse_drw_file(pv.filepath, debug=False)
+                    combined_defs = dict(all_defs)
+                    for bd in drw.body_defs:
+                        combined_defs[bd.name] = bd
+                    svg_out = render_svg(drw, combined_defs)
+                    with open(svg_path, 'w') as f:
+                        f.write(svg_out)
+                    version_svgs.append(svg_path)
+                except Exception as e:
+                    print(f"      Failed to render {pv.name}: {e}")
+        
+        if not version_svgs:
+            continue
+        
+        # Generate PDF with version info in filename
+        best_suffix = "_BEST" if vs.is_best else ""
+        # Sanitize designator for filename
+        desig_slug = re.sub(r'[^a-zA-Z0-9]+', '_', vs.board_designator).strip('_').lower()
+        pdf_name = (f"{board.board_id}_v{vi}_{desig_slug}_of{vs.of_total}"
+                    f"_s{vs.score:.0%}{best_suffix}.pdf")
+        pdf_path = os.path.join(board_dir, pdf_name)
+        
+        try:
+            subprocess.run(
+                ['rsvg-convert', '-f', 'pdf', '-o', pdf_path] + version_svgs,
+                check=True, capture_output=True
+            )
+            print(f"      → {pdf_name}")
+        except Exception as e:
+            print(f"      PDF failed: {e}")
+
+
 if __name__ == "__main__":
     main()
+
