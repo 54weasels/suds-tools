@@ -423,6 +423,22 @@ def _render_versioned_pdfs(board, board_dir, all_defs, args):
                 check=True, capture_output=True
             )
             print(f"      → {pdf_name}")
+        except subprocess.CalledProcessError:
+            # Retry with reduced zoom for oversized SVGs
+            rendered = False
+            for zoom in ['0.5', '0.25']:
+                try:
+                    subprocess.run(
+                        ['rsvg-convert', '-f', 'pdf', '-z', zoom, '-o', pdf_path] + version_svgs,
+                        check=True, capture_output=True
+                    )
+                    print(f"      → {pdf_name} (zoom={zoom})")
+                    rendered = True
+                    break
+                except subprocess.CalledProcessError:
+                    continue
+            if not rendered:
+                print(f"      PDF failed for {pdf_name}")
         except Exception as e:
             print(f"      PDF failed: {e}")
 

@@ -289,8 +289,8 @@ def render_svg(drw: DRWFile,
         if y > max_y: max_y = y
 
     for p in drw.points:
-        # Skip outlier points (likely corrupted data)
-        if abs(p.loc[0]) > 5000 or abs(p.loc[1]) > 5000:
+        # Skip outlier points (likely corrupted data — normal pages span ~800 units)
+        if abs(p.loc[0]) > 2000 or abs(p.loc[1]) > 2000:
             continue
         expand(p.loc[0], p.loc[1])
 
@@ -320,8 +320,18 @@ def render_svg(drw: DRWFile,
 
     # viewBox: Y-flip → negate Y and swap min/max
     root.set('viewBox', f"{min_x} {-max_y} {width} {height}")
-    root.set('width', '100%')
-    root.set('height', '100%')
+
+    # Set explicit pixel dimensions for rsvg-convert compatibility.
+    # rsvg-convert chokes when (viewBox_dim × DPI) > 32767 pixels.
+    # Target ~8px per SUDS unit, clamped to 16000px max per dimension.
+    PIXELS_PER_UNIT = 8
+    MAX_PX = 16000
+    px_w = min(int(width * PIXELS_PER_UNIT), MAX_PX)
+    px_h = min(int(height * PIXELS_PER_UNIT), MAX_PX)
+    if px_w <= 0: px_w = 800
+    if px_h <= 0: px_h = 600
+    root.set('width', str(px_w))
+    root.set('height', str(px_h))
 
     # Main group with Y-flip
     g = ET.SubElement(root, 'g', transform="scale(1,-1)")
@@ -401,8 +411,13 @@ def render_svg(drw: DRWFile,
     points_by_id = {p.point_id: p for p in drw.points}
     ZERO = (0, 0)
 
+    OUTLIER_LIMIT = 2000  # Same threshold as viewBox calculation
+
     for pt in drw.points:
         x1, y1 = pt.loc
+        # Skip outlier points (corrupted coordinates)
+        if abs(x1) > OUTLIER_LIMIT or abs(y1) > OUTLIER_LIMIT:
+            continue
         neighbor_count = 0
         for n_id in (pt.up, pt.down, pt.left, pt.right):
             if n_id == ZERO:
@@ -410,10 +425,13 @@ def render_svg(drw: DRWFile,
             n_pt = points_by_id.get(n_id)
             if n_pt is None:
                 continue
+            # Skip wires to outlier neighbors
+            x2, y2 = n_pt.loc
+            if abs(x2) > OUTLIER_LIMIT or abs(y2) > OUTLIER_LIMIT:
+                continue
             neighbor_count += 1
             # Draw wire only once: from lower ID to higher ID
             if pt.point_id < n_id:
-                x2, y2 = n_pt.loc
                 wire = ET.SubElement(g_wires, 'line',
                                     x1=str(x1), y1=str(y1),
                                     x2=str(x2), y2=str(y2))
@@ -435,6 +453,9 @@ def render_svg(drw: DRWFile,
         if not name_val:
             continue
         x, y = pt.loc
+        # Skip outlier signal labels
+        if abs(x) > OUTLIER_LIMIT or abs(y) > OUTLIER_LIMIT:
+            continue
         # Use const_offset for text positioning, fall back to small offset
         ox, oy = pt.xy_const_offset if pt.xy_const_offset != (0, 0) else (1, 1)
         # Use text_size from point data if available
