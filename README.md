@@ -7,16 +7,28 @@ from the Stanford AI Lab (SAIL) / Sun Microsystems era into modern SVG vector gr
 
 ## What is SUDS?
 
-SUDS was a pioneering CAD system developed at Stanford in the 1970s, running on PDP-10
-mainframes under the WAITS operating system. It was used to design:
+SUDS was a pioneering schematic CAD system developed at Stanford in the early 1970s,
+running on PDP-10 mainframes under the WAITS operating system. It was used to design:
 
-- The **Super Foonly** (F-1 processor)
+- The **Super Foonly** — a SAIL project (1970–1972) whose design was completed but
+  cancelled before hardware was built. The later **Foonly F-1**, a redesign by the
+  Foonly Inc company in the late 1970s, was delivered to III (Information International
+  Inc) for use in computer-generated graphics for motion pictures.
+- The **DEC KL10** — DEC obtained SUDS (and/or the Super Foonly design) and adapted
+  it internally. The KL10 was designed using SUDS as a stripped-down Super Foonly.
+  In return, SAIL received a KL10.
 - The **S-1 Supercomputer** (SCALD/SUDS at LLNL)
-- The original **Sun-1** and **Sun-2** workstations (by Andy Bechtolsheim)
-- Various Stanford AI Lab hardware
+- The original **Sun-1** and **Sun-2** workstations (by Andy Bechtolsheim at Stanford)
 
-The DRW files in this archive contain the actual schematics for these historically
-significant machines, drawn by Andy Bechtolsheim and others.
+SUDS was also ported to ITS at the MIT AI Lab, where it was used to design:
+
+- The **XGP interface** (Xerox Graphics Printer)
+- **Knight TV** terminals
+- The **CHEOPS** chess accelerator
+- The **CONS** and **CADR** Lisp machines
+
+The DRW files in this archive contain the actual schematics for Sun Microsystems
+boards drawn by Andy Bechtolsheim and others.
 
 ## Data Sources
 
