@@ -144,6 +144,9 @@ The typical data flow from schematic to manufacturing passes through several sta
 1. **DRW** (Draw Tool): Origin format, handles visual schematics and raw graphical representation, logic diagrams.
 2. **WD** (Wirelist Drawing Format): Extracted from `.drw` files, acts as an intermediate logical netlist format representing connectivity before physical wire routing.
 3. **WL** (Wire Lister): A command-line tool that parses `.wd` and `.wpc` files to produce final netlists, summary files, and error checks (such as finding unnamed signals, unconnected pins, component mismatches). The WL tool assigns reference designators and resolves cross-page connections.
+4. **PC** (PC Board Layout): Physical layout of the printed circuit board. DIP component placement, trace routing on component and solder sides, feed-through vias, and inner plane connections.
+5. **CRD** (Card Definition): Physical board template defining outline, edge connector fingers, and shorting bars. Referenced by PC layouts.
+6. **PCP** (PC Plot): Generated Calcomp-format plots for manufacturing artwork.
 
 ## 6. File Extension Reference
 
@@ -159,3 +162,32 @@ The typical data flow from schematic to manufacturing passes through several sta
 * **`.bac`**: Back panel wirelist.
 * **`.plt`**: Plotter file (e.g., Calcomp).
 * **`.dip`**: DIP package database (e.g., `dips.dip`).
+* **`.pc`**: PC board layout (physical, 2-layer traces + inner planes)
+* **`.pcp`**: PC plot file (generated for Calcomp plotting)
+* **`.crd`**: Card definition (board outline, fingers, shorting bars)
+
+## 7. PC File Format (Printed Circuit Board Layout)
+
+- Describe that PC files store physical board layouts with DIP component placements and routed traces on two sides
+- Mention the format structure: version, nomenclature, macros, bodies, side 1 points, side 2 points, set centers, trailer
+- Note that bodies are DIP references (not full symbol definitions) — identified by L field indexing into DIPS.DIP library
+- Side 1 = component side, Side 2 = solder side
+- Points form connectivity graph via neighbor lists, with feed-through IDs linking both sides
+- Inner planes (up to 4) are stored as plane attachment bits on points/vias
+- Set centers terminated by 400001 (not 400000 like DRW)
+- Version: 0o21 (17 decimal) for all observed SMI files
+
+## 8. CRD File Format (Card Definition)
+
+- CRD files define physical board form factors: outline polygon, edge connector fingers, shorting bars
+- Compiled from CARD.FAI assembly source (e.g., MULTI0, VME, E220, E280, AT)
+- These are production reference files, NOT test files
+- Format uses FMARK (400000,,0) and CMARK (0,,400000) as section delimiters
+- 5 sections: outline, front fingers, back fingers, front bars, back bars
+- Known card types: multi0 (Intel Multibus 4.8"x2.7"), vme (2.5"x3.7"), e220/e280 (Eurocard), at (PC/AT 5.2"x1.9")
+
+## 9. DIPS.DIP File Format
+
+- Pin count, DIP name, part number, pin-by-pin data
+- Referenced by PC bodies via L field
+- Existing dip_generator.py provides synthetic fallback
