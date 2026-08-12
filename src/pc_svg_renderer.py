@@ -273,36 +273,15 @@ class PCSVGRenderer:
         g = ET.SubElement(svg, 'g')
         g.set('id', 'board-outline')
 
-        # 1. Filled rectangle covering the full board + finger zone
-        ext = list(self.crd.board_extents)  # [min_x, min_y, max_x, max_y]
-
-        # Extend to cover finger positions
-        for finger in self.crd.front_fingers + self.crd.back_fingers:
-            ext[0] = min(ext[0], finger.start[0], finger.end[0])
-            ext[1] = min(ext[1], finger.start[1], finger.end[1])
-            ext[2] = max(ext[2], finger.start[0], finger.end[0])
-            ext[3] = max(ext[3], finger.start[1], finger.end[1])
-
-        rx = self._sx(ext[0])
-        ry = self._sy(ext[3])  # flip Y — max_y is top in board coords
-        rw = (ext[2] - ext[0]) * self.scale
-        rh = (ext[3] - ext[1]) * self.scale
-        fill_rect = ET.SubElement(g, 'rect')
-        fill_rect.set('x', f'{rx:.1f}')
-        fill_rect.set('y', f'{ry:.1f}')
-        fill_rect.set('width', f'{rw:.1f}')
-        fill_rect.set('height', f'{rh:.1f}')
-        fill_rect.set('fill', COLORS['board_fill'])
-        fill_rect.set('stroke', 'none')
-
-        # 2. Detailed outline polygon (stroke only, no fill)
+        # Board outline polygon — filled AND stroked to show the exact
+        # physical board shape including connector cutouts
         points_str = " ".join(
             f"{self._sx(x):.1f},{self._sy(y):.1f}"
             for x, y in self.crd.outline
         )
         poly = ET.SubElement(g, 'polygon')
         poly.set('points', points_str)
-        poly.set('fill', 'none')
+        poly.set('fill', COLORS['board_fill'])
         poly.set('stroke', COLORS['board_outline'])
         poly.set('stroke-width', '3')
 
@@ -605,6 +584,8 @@ def render_pc_html(pc: PCFile, output_path: str | Path,
 
     if crd:
         renderer._render_board_outline(svg)
+    else:
+        renderer._render_inferred_board(svg)
     renderer._render_traces(svg, pc.side2_points, 'side2', point_idx)
     renderer._render_traces(svg, pc.side1_points, 'side1', point_idx)
     renderer._render_pads(svg, pc.side2_points, 'side2')
