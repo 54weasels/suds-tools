@@ -57,8 +57,9 @@ class CRDFile:
     # Source info
     source_path: str = ""
     word_count: int = 0
+    version: int = 0  # CRDVER (currently 1)
 
-    # Board outline as polygon vertices (X,Y pairs in mils)
+    # Board outline as polygon vertices (X,Y pairs in SUDS units = 0.4 mil)
     outline: list[tuple[int, int]] = field(default_factory=list)
 
     # Edge connector fingers, by side

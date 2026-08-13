@@ -127,6 +127,13 @@ class PCSVGRenderer:
             for pt in self.crd.outline:
                 anchor_x.append(pt[0])
                 anchor_y.append(pt[1])
+            # Include finger and shorting bar extents (connector area)
+            for f in self.crd.front_fingers + self.crd.back_fingers:
+                anchor_x.extend([f.start[0], f.end[0]])
+                anchor_y.extend([f.start[1], f.end[1]])
+            for b in self.crd.front_bars + self.crd.back_bars:
+                anchor_x.extend([b.start[0], b.end[0]])
+                anchor_y.extend([b.start[1], b.end[1]])
 
         if not anchor_x:
             # Fallback: use all points with loose filter
@@ -273,11 +280,43 @@ class PCSVGRenderer:
         g = ET.SubElement(svg, 'g')
         g.set('id', 'board-outline')
 
-        # Board outline polygon — filled AND stroked to show the exact
-        # physical board shape including connector cutouts
+        # Build the full physical board polygon.
+        # The CRD outline polygon covers the main board area down to the
+        # top of the connector slots (Y=0 in stored units). But the physical
+        # PCB connector tabs extend further down to the finger/shorting bar
+        # bottom (Y=-80). We extend each connector tab notch downward.
+        outline = list(self.crd.outline)
+
+        # Find the finger-zone bottom Y from shorting bars and finger endpoints
+        finger_bottom_y = 0
+        for f in self.crd.front_fingers + self.crd.back_fingers:
+            finger_bottom_y = min(finger_bottom_y, f.start[1], f.end[1])
+        for b in self.crd.front_bars + self.crd.back_bars:
+            finger_bottom_y = min(finger_bottom_y, b.start[1], b.end[1])
+
+        # Find connector tab segments in the outline: consecutive point pairs
+        # that drop to the outline's minimum Y (= top of connector slot).
+        # These form the tab boundaries that need extending downward.
+        if finger_bottom_y < 0:
+            # Find the outline's bottom Y (top of connector slots)
+            outline_min_y = min(p[1] for p in outline)
+
+            # Walk the polygon and extend tab segments downward.
+            # Tab pattern: ...(Xr, Y_board) (Xr, Y_slot) ... (Xl, Y_slot) (Xl, Y_board)...
+            # We replace each Y_slot point with two points extending to finger_bottom_y.
+            extended = []
+            for i, (x, y) in enumerate(outline):
+                if y == outline_min_y:
+                    # This point is at the bottom of a connector slot — extend down
+                    extended.append((x, finger_bottom_y))
+                else:
+                    extended.append((x, y))
+            outline = extended
+
+        # Render the physical board polygon (filled + stroked)
         points_str = " ".join(
             f"{self._sx(x):.1f},{self._sy(y):.1f}"
-            for x, y in self.crd.outline
+            for x, y in outline
         )
         poly = ET.SubElement(g, 'polygon')
         poly.set('points', points_str)
@@ -487,7 +526,23 @@ class PCSVGRenderer:
                     y1 -= 10 * self.scale
                     h = 20 * self.scale
 
-            rect = ET.SubElement(g, 'rect')
+            # Wrap each body in a <g> with a unique ID and tooltip
+            if self.dip_lib:
+                dip_name = self.dip_lib.get_name(body.dip_lib_index)
+            else:
+                dip_name = f'L{body.dip_lib_index}'
+
+            body_g = ET.SubElement(g, 'g')
+            body_g.set('id', f'body-{body.body_id}')
+            body_g.set('class', 'dip-body-group')
+
+            # SVG <title> gives native browser tooltip on hover
+            tip = ET.SubElement(body_g, 'title')
+            tip.text = (f'Body #{body.body_id}  {dip_name}  '
+                        f'{body.num_pins}pin  '
+                        f'loc=({body.loc[0]},{body.loc[1]})')
+
+            rect = ET.SubElement(body_g, 'rect')
             rect.set('x', f'{x1:.1f}')
             rect.set('y', f'{y1:.1f}')
             rect.set('width', f'{w:.1f}')
@@ -495,20 +550,14 @@ class PCSVGRenderer:
             rect.set('class', 'dip-body')
             rect.set('rx', f'{4 * self.scale:.1f}')
 
-            # Label at center — show DIP type and pin count
+            # Label at center — body_id + DIP name + pin count
             cx = (x1 + x2) / 2
             cy = (y1 + y2) / 2
             font_size = min(12, max(5, min(w, h) / (3 * self.scale))) * self.scale
 
-            if self.dip_lib:
-                dip_name = self.dip_lib.get_name(body.dip_lib_index)
-            else:
-                dip_name = f'L{body.dip_lib_index}'
+            label_text = f'#{body.body_id} {dip_name}' if body.num_pins <= 2 else f'#{body.body_id} {dip_name}/{body.num_pins}'
 
-            # Show DIP name + pin count for clarity
-            label_text = f'{dip_name}' if body.num_pins <= 2 else f'{dip_name}/{body.num_pins}'
-
-            label = ET.SubElement(g, 'text')
+            label = ET.SubElement(body_g, 'text')
             label.set('x', f'{cx:.1f}')
             label.set('y', f'{cy:.1f}')
             label.set('class', 'body-label')
@@ -647,6 +696,19 @@ def render_pc_html(pc: PCFile, output_path: str | Path,
             overflow: auto; padding: 16px;
             display: flex; justify-content: center;
         }}
+        #coord-readout {{
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: rgba(10,10,10,0.92); border-top: 1px solid #444;
+            padding: 6px 16px; font-size: 13px; color: #ccc;
+            display: flex; gap: 24px; z-index: 100;
+            font-family: 'Consolas','Monaco',monospace;
+        }}
+        #coord-readout .val {{ color: #e94560; font-weight: bold; }}
+        #coord-readout .body-info {{ color: #5dade2; }}
+        .dip-body-group:hover rect.dip-body {{
+            stroke: #FFD700 !important; stroke-width: 2.5 !important;
+            filter: brightness(1.4);
+        }}
     </style>
 </head>
 <body>
@@ -663,15 +725,54 @@ def render_pc_html(pc: PCFile, output_path: str | Path,
         chk = 'checked' if checked else ''
         html += f'        <label class="layer-toggle"><input type="checkbox" {chk} onchange="toggleLayer(\'{layer_id}\', this.checked)">{label}</label>\n'
 
+    # Embed renderer transform constants for JS coordinate conversion
     html += f"""    </div>
     <div class="svg-container">
 {svg_str}
+    </div>
+    <div id="coord-readout">
+        <span>Board: <span class="val" id="cr-board">—</span></span>
+        <span>SVG: <span class="val" id="cr-svg">—</span></span>
+        <span id="cr-body" class="body-info"></span>
     </div>
     <script>
         function toggleLayer(id, visible) {{
             const el = document.getElementById(id);
             if (el) el.style.display = visible ? 'inline' : 'none';
         }}
+
+        // Board-space coordinate readout
+        const MIN_X = {renderer.min_x};
+        const MAX_Y = {renderer.max_y};
+        const SCALE = {renderer.scale};
+        const svg = document.getElementById('board-svg');
+        const crBoard = document.getElementById('cr-board');
+        const crSvg = document.getElementById('cr-svg');
+        const crBody = document.getElementById('cr-body');
+
+        svg.addEventListener('mousemove', function(e) {{
+            const pt = svg.createSVGPoint();
+            pt.x = e.clientX;
+            pt.y = e.clientY;
+            const svgPt = pt.matrixTransform(svg.getScreenCTM().inverse());
+            const bx = (svgPt.x / SCALE) + MIN_X;
+            const by = MAX_Y - (svgPt.y / SCALE);
+            crSvg.textContent = Math.round(svgPt.x) + ', ' + Math.round(svgPt.y);
+            crBoard.textContent = Math.round(bx) + ', ' + Math.round(by);
+        }});
+
+        // Highlight hovered body in the status bar
+        svg.addEventListener('mouseover', function(e) {{
+            const bg = e.target.closest('.dip-body-group');
+            if (bg) {{
+                const title = bg.querySelector('title');
+                crBody.textContent = title ? title.textContent : bg.id;
+            }}
+        }});
+        svg.addEventListener('mouseout', function(e) {{
+            const bg = e.target.closest('.dip-body-group');
+            if (bg) crBody.textContent = '';
+        }});
     </script>
 </body>
 </html>"""

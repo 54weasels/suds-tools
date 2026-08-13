@@ -109,15 +109,37 @@ class CRDParser:
     def _parse_outline(self) -> None:
         """Parse the board outline (X,Y polygon vertices).
 
+        The outline section starts with a CRDVER word (version number,
+        currently 1) followed by X,Y coordinate pairs.  The first XY
+        has an "initial point" flag (bit 0 set in the right half) which
+        must be masked off to recover the true Y coordinate.
+
         Terminated by FMARK.
         """
         self._dbg(f"Parsing outline at word {self.pos}")
+
+        # First word is CRDVER (version number), not a coordinate
+        if not self._at_end() and not self._is_fmark():
+            ver_word = self._read_word()
+            version = right_half(ver_word)
+            self.result.version = version
+            self._dbg(f"  CRD version: {version}")
+
+        first_point = True
         while not self._at_end():
             if self._is_fmark():
                 self._read_word()  # consume FMARK
                 break
-            xy = self._read_xy()
-            self.result.outline.append(xy)
+            x, y = self._read_xy()
+
+            if first_point:
+                # Strip "initial point" flag (bit 0) from Y coordinate
+                # The XY macro with I flag: 1!<X/5*2,,Y/5*2> ORs 1 into
+                # the right half, setting bit 0.
+                y = y & ~1
+                first_point = False
+
+            self.result.outline.append((x, y))
         self._dbg(f"  Outline: {len(self.result.outline)} vertices")
 
     def _parse_fingers(self, side_name: str) -> list[CRDFinger]:
