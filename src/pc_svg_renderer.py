@@ -78,6 +78,25 @@ class PCSVGRenderer:
         self.scale = scale
         self.margin = margin
 
+        # The PC file coordinate system has its origin at the bottom-left
+        # mounting hole (the lever(0,0) in pcdvi.sai's card() function),
+        # while the CRD coordinate system has its origin at the absolute
+        # lower-left corner of the board (including connector tabs).
+        # The offset is the PC origin position in CRD space, read from
+        # the hardware marks section of the CRD file.
+        #
+        # Source evidence: pcdvi.sai card() draws the board outline
+        # starting at (-250,-250) in PC/card space.  The CRD outline
+        # starts at (0,300) in mils.  Every physical feature aligns
+        # with a constant offset of +250 mils (X), +550 mils (Y)
+        # = stored +100 (X), +220 (Y) for Multibus cards.
+        self.pc_offset_x = 0
+        self.pc_offset_y = 0
+        if self.crd:
+            origin = self.crd.pc_origin
+            self.pc_offset_x = origin[0]
+            self.pc_offset_y = origin[1]
+
         # Pre-compute body pin bounding boxes
         self._body_pin_bboxes: dict[int, tuple[int, int, int, int]] = {}
         self._compute_body_bboxes()
@@ -100,8 +119,9 @@ class PCSVGRenderer:
                 body_pins[bid].append(pt)
 
         for bid, pins in body_pins.items():
-            xs = [p.loc[0] for p in pins]
-            ys = [p.loc[1] for p in pins]
+            locs = [self._pc_loc(p.loc) for p in pins]
+            xs = [loc[0] for loc in locs]
+            ys = [loc[1] for loc in locs]
             self._body_pin_bboxes[bid] = (min(xs), min(ys), max(xs), max(ys))
 
     def _compute_bounds(self) -> None:
@@ -116,13 +136,13 @@ class PCSVGRenderer:
         anchor_x: list[int] = []
         anchor_y: list[int] = []
 
-        # Bodies are always placed at real board locations
+        # Bodies are always placed at real board locations (apply XY offset)
         for body in self.pc.bodies:
             if abs(body.loc[0]) < 50000 and abs(body.loc[1]) < 50000:
-                anchor_x.append(body.loc[0])
-                anchor_y.append(body.loc[1])
+                anchor_x.append(self._pc_x(body.loc[0]))
+                anchor_y.append(self._pc_y(body.loc[1]))
 
-        # CRD outline defines the physical board edge
+        # CRD outline defines the physical board edge (already in CRD space)
         if self.crd:
             for pt in self.crd.outline:
                 anchor_x.append(pt[0])
@@ -139,8 +159,8 @@ class PCSVGRenderer:
             # Fallback: use all points with loose filter
             for pt in self.pc.all_points:
                 if abs(pt.loc[0]) < 50000 and abs(pt.loc[1]) < 50000:
-                    anchor_x.append(pt.loc[0])
-                    anchor_y.append(pt.loc[1])
+                    anchor_x.append(self._pc_x(pt.loc[0]))
+                    anchor_y.append(self._pc_y(pt.loc[1]))
 
         if not anchor_x:
             self.min_x = self.min_y = 0
@@ -161,9 +181,10 @@ class PCSVGRenderer:
         all_y: list[int] = list(anchor_y)
 
         for pt in self.pc.all_points:
-            if self._pt_in_board_area(pt.loc):
-                all_x.append(pt.loc[0])
-                all_y.append(pt.loc[1])
+            pc_loc = self._pc_loc(pt.loc)
+            if self._pt_in_board_area(pc_loc):
+                all_x.append(pc_loc[0])
+                all_y.append(pc_loc[1])
 
         self.min_x = min(all_x) - self.margin
         self.min_y = min(all_y) - self.margin
@@ -171,7 +192,7 @@ class PCSVGRenderer:
         self.max_y = max(all_y) + self.margin
 
     def _pt_in_board_area(self, loc: tuple[int, int]) -> bool:
-        """Check if a coordinate is within the computed board area."""
+        """Check if a coordinate (in board/CRD space) is within the board area."""
         return (self._board_min_x <= loc[0] <= self._board_max_x and
                 self._board_min_y <= loc[1] <= self._board_max_y)
 
@@ -184,7 +205,7 @@ class PCSVGRenderer:
         """
         if pt.loc == (0, 0):
             return False
-        return self._pt_in_board_area(pt.loc)
+        return self._pt_in_board_area(self._pc_loc(pt.loc))
 
     def _sx(self, x: int | float) -> float:
         """Scale X coordinate."""
@@ -193,6 +214,18 @@ class PCSVGRenderer:
     def _sy(self, y: int | float) -> float:
         """Scale and flip Y coordinate (SUDS Y-up → SVG Y-down)."""
         return (self.max_y - y) * self.scale
+
+    def _pc_x(self, x: int) -> int:
+        """Translate PC file X coordinate to CRD board space."""
+        return x + self.pc_offset_x
+
+    def _pc_y(self, y: int) -> int:
+        """Translate PC file Y coordinate to CRD board space."""
+        return y + self.pc_offset_y
+
+    def _pc_loc(self, loc: tuple[int, int]) -> tuple[int, int]:
+        """Translate a PC file (x,y) location to CRD board space."""
+        return (loc[0] + self.pc_offset_x, loc[1] + self.pc_offset_y)
 
     def _build_point_index(self) -> dict[int, PCPoint]:
         """Build a lookup from point_id to PCPoint for neighbor resolution.
@@ -398,14 +431,14 @@ class PCSVGRenderer:
                 nb = point_idx.get(nb_id)
                 if nb is None:
                     continue
-                if not self._pt_in_board_area(nb.loc):
+                if not self._pt_in_board_area(self._pc_loc(nb.loc)):
                     continue
 
                 line = ET.SubElement(g, 'line')
-                line.set('x1', f'{self._sx(pt.loc[0]):.1f}')
-                line.set('y1', f'{self._sy(pt.loc[1]):.1f}')
-                line.set('x2', f'{self._sx(nb.loc[0]):.1f}')
-                line.set('y2', f'{self._sy(nb.loc[1]):.1f}')
+                line.set('x1', f'{self._sx(self._pc_x(pt.loc[0])):.1f}')
+                line.set('y1', f'{self._sy(self._pc_y(pt.loc[1])):.1f}')
+                line.set('x2', f'{self._sx(self._pc_x(nb.loc[0])):.1f}')
+                line.set('y2', f'{self._sy(self._pc_y(nb.loc[1])):.1f}')
                 line.set('class', css_class)
 
     def _render_pads(self, svg: ET.Element, points: list[PCPoint],
@@ -420,8 +453,8 @@ class PCSVGRenderer:
             if not self._is_valid_point(pt):
                 continue
 
-            cx = self._sx(pt.loc[0])
-            cy = self._sy(pt.loc[1])
+            cx = self._sx(self._pc_x(pt.loc[0]))
+            cy = self._sy(self._pc_y(pt.loc[1]))
 
             if pt.pad_type == 3:
                 # Pin 1 square pad
@@ -463,8 +496,8 @@ class PCSVGRenderer:
                 continue
             rendered_locs.add(pt.loc)
 
-            cx = self._sx(pt.loc[0])
-            cy = self._sy(pt.loc[1])
+            cx = self._sx(self._pc_x(pt.loc[0]))
+            cy = self._sy(self._pc_y(pt.loc[1]))
             r = DEFAULT_VIA_RADIUS * self.scale
 
             circle = ET.SubElement(g, 'circle')
@@ -575,8 +608,8 @@ class PCSVGRenderer:
             if abs(pt.loc[0]) > 50000 or abs(pt.loc[1]) > 50000:
                 continue
 
-            x = self._sx(pt.loc[0] + pt.text_offset[0])
-            y = self._sy(pt.loc[1] + pt.text_offset[1])
+            x = self._sx(self._pc_x(pt.loc[0] + pt.text_offset[0]))
+            y = self._sy(self._pc_y(pt.loc[1] + pt.text_offset[1]))
 
             text = ET.SubElement(g, 'text')
             text.set('x', f'{x:.1f}')

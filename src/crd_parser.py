@@ -195,6 +195,52 @@ class CRDParser:
         self._dbg(f"  {side_name} shorting bars: {len(bars)}")
         return bars
 
+    def _parse_hardware_marks(self) -> None:
+        """Parse the hardware marks section (mounting holes + targets).
+
+        The card.fai source writes mounting holes first (typically 4,
+        one per board corner), then alignment targets.  The first
+        mounting hole is the bottom-left lever — the reference point
+        that defines the PC coordinate system origin in CRD space.
+        Terminated by CMARK.
+        """
+        self._dbg(f"Parsing hardware marks at word {self.pos}")
+        points: list[tuple[int, int]] = []
+
+        while not self._at_end():
+            if self._is_cmark():
+                self._read_word()  # consume CMARK
+                break
+            if self._is_fmark():
+                self._read_word()  # unexpected but consume
+                break
+            points.append(self._read_xy())
+
+        # Heuristic: mounting holes have positive X and Y (they're
+        # inset from the board edge).  Targets include the board
+        # corners at (0,0) and other extremities.  Mounting holes
+        # come first in the section.
+        #
+        # For MULTI0: 4 holes then 5 targets.
+        # Detect the transition: targets include (0,0) or coordinates
+        # at the board edge, while holes are inset.
+        holes: list[tuple[int, int]] = []
+        targets: list[tuple[int, int]] = []
+        board_ext = self.result.board_extents
+
+        for pt in points:
+            # Points at the board extremities (edge coordinates) are targets
+            x_at_edge = (pt[0] == board_ext[0] or pt[0] == board_ext[2])
+            y_at_edge = (pt[1] == board_ext[1] or pt[1] == board_ext[3])
+            if x_at_edge or y_at_edge:
+                targets.append(pt)
+            else:
+                holes.append(pt)
+
+        self.result.mounting_holes = holes
+        self.result.targets = targets
+        self._dbg(f"  Mounting holes: {len(holes)}, Targets: {len(targets)}")
+
     def parse(self) -> CRDFile:
         """Parse the complete CRD file."""
         if len(self.words) < 3:
@@ -216,12 +262,17 @@ class CRDParser:
         # 4. Front shorting bars (terminated by FMARK)
         self.result.front_bars = self._parse_bars("Front")
 
-        # 5. Back shorting bars (terminated by CMARK)
+        # 5. Back shorting bars (terminated by FMARK)
         self.result.back_bars = self._parse_bars("Back")
 
-        # File should end with CMARK (already consumed above) or be at end
+        # 6. Hardware marks: mounting holes + targets (terminated by CMARK)
+        # The card.fai source writes 4 mounting holes (levers), then
+        # 5 targets, then CMARK.  The first mounting hole is the
+        # bottom-left lever that defines the PC coordinate origin.
+        self._parse_hardware_marks()
+
+        # File should end after CMARK or be at end
         if not self._at_end():
-            # Check for final CMARK
             if self._is_cmark():
                 self._read_word()
 

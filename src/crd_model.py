@@ -53,6 +53,7 @@ class CRDFile:
     3. Back (solder side) fingers
     4. Front shorting bars
     5. Back shorting bars
+    6. Mounting holes and targets (hardware marks)
     """
     # Source info
     source_path: str = ""
@@ -70,6 +71,10 @@ class CRDFile:
     front_bars: list[CRDBar] = field(default_factory=list)
     back_bars: list[CRDBar] = field(default_factory=list)
 
+    # Hardware marks: mounting holes then targets (from CMARK section)
+    mounting_holes: list[tuple[int, int]] = field(default_factory=list)
+    targets: list[tuple[int, int]] = field(default_factory=list)
+
     @property
     def total_fingers(self) -> int:
         """Total finger count (front + back)."""
@@ -79,6 +84,19 @@ class CRDFile:
     def total_bars(self) -> int:
         """Total shorting bar count (front + back)."""
         return len(self.front_bars) + len(self.back_bars)
+
+    @property
+    def pc_origin(self) -> tuple[int, int]:
+        """PC coordinate origin in CRD space (stored units).
+
+        The PC file coordinate system has its origin at the bottom-left
+        mounting hole.  This is defined by lever(0,0) in pcdvi.sai's
+        card() function.  Returns (0, 0) if no mounting holes are
+        available — meaning PC and CRD share the same origin.
+        """
+        if self.mounting_holes:
+            return self.mounting_holes[0]
+        return (0, 0)
 
     @property
     def board_extents(self) -> tuple[int, int, int, int]:
