@@ -315,14 +315,18 @@ class PCParser:
             # XWD BITS, PAD NUMBER
             bits, pad_type = self._read_halves()
 
-            # SIZE OF TEXT
+            # SIZE OF TEXT (full word; text info is in the right half)
+            # Reference: in.501 line 2028: TRNN TTT,-1 (tests RH for non-zero)
+            #   line 2037: ANDI TTT,377777 (mask low 17 bits = size)
+            #   Bit 17 of RH (0o400000): vertical/rotation flag
             text_size_w = self._read_word()
-            # The text size is in the left half of the word
-            text_size = left_half(text_size_w)
+            text_rh = right_half(text_size_w)
+            text_vertical = bool(text_rh & 0o400000)
+            text_size = text_rh & 0o377777
 
             text_offset = (0, 0)
             text = ""
-            if text_size != 0:
+            if text_rh != 0:
                 # X,Y CONSTANT OFFSET FROM POINT LOC
                 text_offset = self._read_xy()
                 # ASCIZ TEXT
@@ -338,6 +342,7 @@ class PCParser:
                 bits=bits,
                 pad_type=pad_type,
                 text_size=text_size,
+                text_vertical=text_vertical,
                 text_offset=text_offset,
                 text=text,
                 feed_through_id=feed_through_id,

@@ -56,7 +56,8 @@ class PCPoint:
     bits: int = 0                        # Point attribute bits (left half of bits word)
     pad_type: int = 0                    # Pad type number (right half of bits word)
                                          #   0=none, 1=standard DIP, 2=clearance, 3=pin-1 square
-    text_size: int = 0                   # Text size (0 if no text)
+    text_size: int = 0                   # Text size (0 if no text); from RH bits 0-16
+    text_vertical: bool = False          # Text rotated CCW 90°; from RH bit 17
     text_offset: tuple[int, int] = (0, 0)  # X,Y text offset (if text_size != 0)
     text: str = ""                       # Text annotation (if text_size != 0)
     feed_through_id: int = 0             # ID of corresponding point on other side (0 if none)

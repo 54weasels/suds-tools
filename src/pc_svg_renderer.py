@@ -40,7 +40,16 @@ DEFAULT_TRACE_WIDTH = 6      # Default trace width (mils) — KiCad narrow
 DEFAULT_PIN1_SIZE = 10       # Pin 1 square pad half-size (mils)
 BODY_PAD_MARGIN = 10         # Margin around pin bbox for body outline (mils)
 BODY_STROKE_WIDTH = 2        # DIP body outline width
-FINGER_WIDTH = 12            # Edge connector finger width
+
+# Edge connector finger widths by pitch, from pcpgrb.sai Gerber output:
+#   P1 (Multibus): rect(x,-600, 90, 350) at 156 mil pitch → 90 mil wide
+#   P2 (Multibus): rect(x,-600, 60, 350) at 100 mil pitch → 60 mil wide
+# Map: measured pitch (mils) → finger width (mils)
+FINGER_WIDTH_BY_PITCH = {
+    156: 90,    # Multibus P1 connector (43 pins)
+    100: 60,    # Multibus P2 connector (30 pins)
+}
+FINGER_WIDTH_FALLBACK_RATIO = 0.58  # Width as fraction of pitch if not in table
 
 # Colors
 COLORS = {
@@ -357,15 +366,53 @@ class PCSVGRenderer:
         poly.set('stroke', COLORS['board_outline'])
         poly.set('stroke-width', '3')
 
-        # Fingers
-        for finger in self.crd.front_fingers + self.crd.back_fingers:
-            line = ET.SubElement(g, 'line')
-            line.set('x1', f'{self._sx(finger.start[0]):.1f}')
-            line.set('y1', f'{self._sy(finger.start[1]):.1f}')
-            line.set('x2', f'{self._sx(finger.end[0]):.1f}')
-            line.set('y2', f'{self._sy(finger.end[1]):.1f}')
-            line.set('class', 'finger')
-            line.set('stroke-width', str(FINGER_WIDTH * self.scale))
+        # Fingers — rendered as rectangles with width derived from pitch
+        # Group fingers by connector group to measure pitch per group
+        from collections import defaultdict
+        finger_groups: dict[str, list] = defaultdict(list)
+        all_fingers = self.crd.front_fingers + self.crd.back_fingers
+        for f in all_fingers:
+            finger_groups[f.connector_group].append(f)
+
+        # Compute width per connector group from measured pitch
+        group_widths: dict[str, float] = {}
+        for gname, fingers in finger_groups.items():
+            # Measure pitch: sort by primary axis coordinate, compute median spacing
+            xs = sorted(set(f.start[0] for f in fingers))
+            if len(xs) > 1:
+                spacings = [xs[i + 1] - xs[i] for i in range(len(xs) - 1)]
+                # Use median to be robust against gaps between sub-connectors
+                spacings.sort()
+                median_spacing = spacings[len(spacings) // 2]
+                pitch_mils = round(median_spacing * 2.5)
+                # Look up width from Gerber source table
+                if pitch_mils in FINGER_WIDTH_BY_PITCH:
+                    group_widths[gname] = FINGER_WIDTH_BY_PITCH[pitch_mils]
+                else:
+                    group_widths[gname] = pitch_mils * FINGER_WIDTH_FALLBACK_RATIO
+            else:
+                group_widths[gname] = 60  # single-finger fallback
+
+        for finger in all_fingers:
+            width_mils = group_widths.get(finger.connector_group, 60)
+            # Fingers are vertical lines — render as centered rectangles
+            cx = (finger.start[0] + finger.end[0]) / 2
+            cy_top = max(finger.start[1], finger.end[1])
+            cy_bot = min(finger.start[1], finger.end[1])
+            height_mils = cy_top - cy_bot
+            half_w = width_mils / 2.5 / 2  # convert mils to board units, then half
+
+            rx = self._sx(cx - half_w)
+            ry = self._sy(cy_top)
+            rw = width_mils / 2.5 * self.scale
+            rh = height_mils * self.scale
+
+            rect = ET.SubElement(g, 'rect')
+            rect.set('x', f'{rx:.1f}')
+            rect.set('y', f'{ry:.1f}')
+            rect.set('width', f'{rw:.1f}')
+            rect.set('height', f'{rh:.1f}')
+            rect.set('class', 'finger')
 
         # Shorting bars
         for bar in self.crd.front_bars + self.crd.back_bars:

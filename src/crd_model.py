@@ -22,11 +22,33 @@ class CRDFinger:
     Each finger is defined by two X,Y endpoints:
       start: the connection end (where the signal meets the board)
       end: the tip end (where the connector inserts)
-    The location encoding uses BYTE(6) format matching body location.
+    The location encoding uses BYTE(6)0,0,0,L1,L2,PN format (card.fai):
+      L1 = connector group letter ('A'=1, 'B'=2, ..., 'M'=13)
+      L2 = pin side/subgroup letter
+      PN = pin number (1-63)
     """
     start: tuple[int, int] = (0, 0)      # X,Y start (connection end), mils
     end: tuple[int, int] = (0, 0)        # X,Y end (tip end), mils
-    location: int = 0                     # BYTE(6)0,0,0,L,L,N location encoding
+    location: int = 0                     # BYTE(6)0,0,0,L1,L2,PN encoding
+
+    @property
+    def connector_group(self) -> str:
+        """Connector group + side letters (e.g. 'MA', 'MC')."""
+        l1 = (self.location >> 12) & 0o77
+        l2 = (self.location >> 6) & 0o77
+        l1c = chr(l1 + ord('A') - 1) if l1 > 0 else '?'
+        l2c = chr(l2 + ord('A') - 1) if l2 > 0 else '?'
+        return f'{l1c}{l2c}'
+
+    @property
+    def pin_number(self) -> int:
+        """Pin number within the connector."""
+        return self.location & 0o77
+
+    @property
+    def pin_name(self) -> str:
+        """Full pin name (e.g. 'MA01', 'MC27')."""
+        return f'{self.connector_group}{self.pin_number:02d}'
 
 
 @dataclass
