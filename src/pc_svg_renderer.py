@@ -67,7 +67,19 @@ COLORS = {
     'finger': '#FFD700',              # Gold fingers
     'bar': '#C0C0C0',                 # Silver shorting bars
     'label': '#999999',
+    'text': '#DDDDDD',                # Board text annotations
+    'silkscreen': '#FFFFFF',          # Silk screen text (component designators)
 }
+
+# The pcpgrb.sai Gerber renderer uses a narrow vector stroke font where
+# character cells are 150×150 mils (size 1) but visible strokes are only
+# ~60% wide.  Modern system fonts are wider per unit height, so we scale
+# the nominal heights to 60% to approximate the original compact look.
+#   Size 1:  125 × 0.60 =  75 mils
+#   Size 2:  187 × 0.60 = 112 mils
+#   Size 3:  250 × 0.60 = 150 mils
+#   Size 4:  312 × 0.60 = 187 mils
+TEXT_SIZE_MILS = {1: 75, 2: 112, 3: 150, 4: 187}
 
 
 class PCSVGRenderer:
@@ -80,10 +92,12 @@ class PCSVGRenderer:
 
     def __init__(self, pc: PCFile, crd: CRDFile | None = None,
                  dip_lib: DIPLibrary | None = None,
+                 silk_pc: PCFile | None = None,
                  scale: float = 1.0, margin: int = 100):
         self.pc = pc
         self.crd = crd
         self.dip_lib = dip_lib
+        self.silk_pc = silk_pc
         self.scale = scale
         self.margin = margin
 
@@ -195,6 +209,23 @@ class PCSVGRenderer:
                 all_x.append(pc_loc[0])
                 all_y.append(pc_loc[1])
 
+        # Include silk screen text positions (in PC coordinate space)
+        if self.silk_pc:
+            for pt in self.silk_pc.all_points:
+                if (pt.text_size > 0 and pt.text and pt.text_size <= 4
+                        and not any(ord(c) < 0x20 for c in pt.text)
+                        and abs(pt.loc[0]) < 50000 and abs(pt.loc[1]) < 50000):
+                    all_x.append(self._pc_x(pt.loc[0] + pt.text_offset[0]))
+                    all_y.append(self._pc_y(pt.loc[1] + pt.text_offset[1]))
+
+        # Also include primary PC file text positions (in PC coordinate space)
+        for pt in self.pc.all_points:
+            if (pt.text_size > 0 and pt.text and pt.text_size <= 4
+                    and not any(ord(c) < 0x20 for c in pt.text)
+                    and abs(pt.loc[0]) < 50000 and abs(pt.loc[1]) < 50000):
+                all_x.append(self._pc_x(pt.loc[0] + pt.text_offset[0]))
+                all_y.append(self._pc_y(pt.loc[1] + pt.text_offset[1]))
+
         self.min_x = min(all_x) - self.margin
         self.min_y = min(all_y) - self.margin
         self.max_x = max(all_x) + self.margin
@@ -284,6 +315,9 @@ class PCSVGRenderer:
         self._render_feed_throughs(svg, point_idx)
         self._render_bodies(svg)
         self._render_labels(svg)
+        self._render_text_annotations(svg, self.pc, 'board-text', 'board-text')
+        if self.silk_pc:
+            self._render_text_annotations(svg, self.silk_pc, 'silk-text', 'silkscreen')
 
         tree = ET.ElementTree(svg)
         ET.indent(tree, space='  ')
@@ -306,6 +340,8 @@ class PCSVGRenderer:
             .finger {{ fill: {COLORS['finger']}; stroke: #B8860B; stroke-width: 1; }}
             .shorting-bar {{ stroke: {COLORS['bar']}; stroke-width: 6; fill: none; }}
             .label {{ fill: {COLORS['label']}; font-family: monospace; font-size: 12px; }}
+            .board-text {{ fill: {COLORS['text']}; font-family: 'Helvetica','Arial',sans-serif; }}
+            .silk-text {{ fill: {COLORS['silkscreen']}; font-family: 'Helvetica','Arial',sans-serif; }}
         """
 
     def _render_board_outline(self, svg: ET.Element) -> None:
@@ -645,25 +681,69 @@ class PCSVGRenderer:
             label.text = label_text
 
     def _render_labels(self, svg: ET.Element) -> None:
-        """Render text annotations from points."""
+        """Render text annotations from the primary PC file's points.
+
+        Note: this renders into the 'labels' layer for backward compatibility.
+        The _render_text_annotations method provides the full-featured version.
+        """
+        # Intentionally left as no-op; text is now rendered by
+        # _render_text_annotations called separately for board text and silk.
         g = ET.SubElement(svg, 'g')
         g.set('id', 'labels')
 
-        for pt in self.pc.all_points:
+    def _render_text_annotations(self, svg: ET.Element, pc: PCFile,
+                                  group_id: str, css_class: str) -> None:
+        """Render text annotations from a PCFile's points.
+
+        Args:
+            pc: The PCFile whose points contain text annotations.
+            group_id: SVG group ID (e.g. 'board-text', 'silkscreen').
+            css_class: CSS class for the text elements.
+        """
+        g = ET.SubElement(svg, 'g')
+        g.set('id', group_id)
+
+        count = 0
+        for pt in pc.all_points:
             if pt.text_size == 0 or not pt.text:
                 continue
+            # Filter garbled entries — valid sizes are 1-4
+            if pt.text_size > 4:
+                continue
+            # Filter text with control characters (misparse artifacts)
+            if any(ord(c) < 0x20 for c in pt.text):
+                continue
+            # Filter out-of-range locations
             if abs(pt.loc[0]) > 50000 or abs(pt.loc[1]) > 50000:
                 continue
 
-            x = self._sx(self._pc_x(pt.loc[0] + pt.text_offset[0]))
-            y = self._sy(self._pc_y(pt.loc[1] + pt.text_offset[1]))
+            # Convert text size (1-4) to height in mils, then to SVG pixels
+            height_mils = TEXT_SIZE_MILS.get(pt.text_size, 125)
+            # Board coordinates are in mils/2.5, so convert
+            font_size_board = height_mils / 2.5
+            font_size_svg = font_size_board * self.scale
 
-            text = ET.SubElement(g, 'text')
-            text.set('x', f'{x:.1f}')
-            text.set('y', f'{y:.1f}')
-            text.set('class', 'label')
-            text.set('font-size', f'{pt.text_size * self.scale:.0f}')
-            text.text = pt.text
+            # Position: loc + text_offset, both in PC coordinate space.
+            # Source: out.318:397-398 writes TCXY as "CONSTANT OFFSET" from
+            # point loc; in.501:2047-2049 reads it the same way.
+            # The PC origin offset must be applied, same as traces/pads.
+            tx = pt.loc[0] + pt.text_offset[0]
+            ty = pt.loc[1] + pt.text_offset[1]
+            sx = self._sx(self._pc_x(tx))
+            sy = self._sy(self._pc_y(ty))
+
+            text_el = ET.SubElement(g, 'text')
+            text_el.set('x', f'{sx:.1f}')
+            text_el.set('y', f'{sy:.1f}')
+            text_el.set('class', css_class)
+            text_el.set('font-size', f'{font_size_svg:.1f}')
+
+            if pt.text_vertical:
+                # Rotate -90° (CCW) around the text origin
+                text_el.set('transform', f'rotate(-90,{sx:.1f},{sy:.1f})')
+
+            text_el.text = pt.text
+            count += 1
 
 
 # ============================================================================
@@ -682,13 +762,15 @@ def render_pc_svg(pc: PCFile, output_path: str | Path,
 def render_pc_html(pc: PCFile, output_path: str | Path,
                    crd: CRDFile | None = None,
                    dip_lib: DIPLibrary | None = None,
+                   silk_pc: PCFile | None = None,
                    scale: float = 1.0, margin: int = 100) -> None:
     """Render a parsed PCFile to an interactive HTML file with layer toggles.
 
     Produces an HTML file embedding the SVG with checkboxes to toggle
     visibility of each layer group.
     """
-    renderer = PCSVGRenderer(pc, crd=crd, dip_lib=dip_lib, scale=scale, margin=margin)
+    renderer = PCSVGRenderer(pc, crd=crd, dip_lib=dip_lib, silk_pc=silk_pc,
+                             scale=scale, margin=margin)
     width = (renderer.max_x - renderer.min_x) * scale
     height = (renderer.max_y - renderer.min_y) * scale
 
@@ -722,6 +804,9 @@ def render_pc_html(pc: PCFile, output_path: str | Path,
     renderer._render_feed_throughs(svg, point_idx)
     renderer._render_bodies(svg)
     renderer._render_labels(svg)
+    renderer._render_text_annotations(svg, pc, 'board-text', 'board-text')
+    if silk_pc:
+        renderer._render_text_annotations(svg, silk_pc, 'silkscreen', 'silk-text')
 
     ET.indent(ET.ElementTree(svg), space='  ')
     svg_str = ET.tostring(svg, encoding='unicode')
@@ -735,7 +820,10 @@ def render_pc_html(pc: PCFile, output_path: str | Path,
         ('side2-pads', 'Side 2 Pads', True),
         ('feed-throughs', 'Feed-throughs (Vias)', True),
         ('labels', 'Text Labels', True),
+        ('board-text', 'Board Text', True),
     ]
+    if silk_pc:
+        layers.append(('silkscreen', 'Silk Screen', True))
 
     board_name = Path(pc.source_path).stem
     s1_pts = len(pc.side1_points)
