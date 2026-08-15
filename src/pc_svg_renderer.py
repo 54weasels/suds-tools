@@ -28,6 +28,7 @@ from typing import Optional
 from .pc_model import PCFile, PCPoint, PCBody
 from .crd_model import CRDFile
 from .dip_library import DIPLibrary
+from .stf_parser import STFFile
 
 
 # ============================================================================
@@ -38,6 +39,12 @@ DEFAULT_PAD_RADIUS = 8       # Standard DIP pad radius (mils)
 DEFAULT_VIA_RADIUS = 7       # Feed-through via radius (mils)
 DEFAULT_TRACE_WIDTH = 6      # Default trace width (mils) — KiCad narrow
 DEFAULT_PIN1_SIZE = 10       # Pin 1 square pad half-size (mils)
+
+# SUDS custom alphabet for component designator prefixes.
+# Skips H, I, O, Q (easily confused with digits 8, 1, 0, 9).
+# SAIL uses 1-based indexing: DECALPH[l for 1] where L=1→A, L=17→U.
+# Source: pcdvi.sai:81, foo.sai:129, pcnet.sai:88, etc.
+SUDS_DECALPH = 'ABCDEFGJKLMNPRSTUVWXYZ'
 BODY_PAD_MARGIN = 10         # Margin around pin bbox for body outline (mils)
 BODY_STROKE_WIDTH = 2        # DIP body outline width
 
@@ -93,11 +100,13 @@ class PCSVGRenderer:
     def __init__(self, pc: PCFile, crd: CRDFile | None = None,
                  dip_lib: DIPLibrary | None = None,
                  silk_pc: PCFile | None = None,
+                 stf: STFFile | None = None,
                  scale: float = 1.0, margin: int = 100):
         self.pc = pc
         self.crd = crd
         self.dip_lib = dip_lib
         self.silk_pc = silk_pc
+        self.stf = stf
         self.scale = scale
         self.margin = margin
 
@@ -331,6 +340,7 @@ class PCSVGRenderer:
             .board-outline {{ fill: {COLORS['board_fill']}; stroke: {COLORS['board_outline']}; stroke-width: 3; }}
             .dip-body {{ fill: {COLORS['body_fill']}; stroke: {COLORS['body_stroke']}; stroke-width: {BODY_STROKE_WIDTH}; opacity: 0.85; }}
             .body-label {{ fill: {COLORS['body_text']}; font-family: monospace; font-size: 10px; text-anchor: middle; dominant-baseline: middle; }}
+            .body-name {{ fill: #FFFFFF; font-family: 'Helvetica','Arial',sans-serif; font-size: 8px; text-anchor: middle; }}
             .side1-trace {{ stroke: {COLORS['side1_trace']}; stroke-width: {DEFAULT_TRACE_WIDTH * s:.1f}; fill: none; stroke-linecap: round; }}
             .side2-trace {{ stroke: {COLORS['side2_trace']}; stroke-width: {DEFAULT_TRACE_WIDTH * s:.1f}; fill: none; stroke-linecap: round; }}
             .side1-pad {{ fill: {COLORS['side1_pad']}; stroke: #DD4444; stroke-width: 1; }}
@@ -593,8 +603,11 @@ class PCSVGRenderer:
         """Render DIP component outlines derived from actual pin positions.
 
         Body outlines are computed from the bounding box of all pins
-        belonging to each body, with a small margin. This ensures
-        bodies align precisely with their pin holes.
+        belonging to each body, with a small margin.  Labels follow
+        the pcdvi.sai plotbody() convention:
+          - No labels for components with fewer than 4 pins (line 1153)
+          - Component designator (SUDS_DECALPH[L-1]+N) centered on the body
+          - DIP type name centered above the body (plottext, line 1168)
         """
         g = ET.SubElement(svg, 'g')
         g.set('id', 'dip-bodies')
@@ -617,7 +630,6 @@ class PCSVGRenderer:
             bx2 = max_px + m
             by2 = max_py + m
 
-            # Clamp to CRD board outline if available
             if self.crd and self.crd.outline:
                 crd_min_x, crd_min_y, crd_max_x, crd_max_y = self.crd.board_extents
                 bx1 = max(bx1, crd_min_x)
@@ -629,35 +641,55 @@ class PCSVGRenderer:
             y1 = self._sy(by2)  # flip Y
             x2 = self._sx(bx2)
             y2 = self._sy(by1)  # flip Y
-
             w = x2 - x1
             h = y2 - y1
 
-            if w < 1 or h < 1:
-                # Degenerate (all pins in a line) — make a thin rectangle
-                if w < 1:
-                    x1 -= 10 * self.scale
-                    w = 20 * self.scale
-                if h < 1:
-                    y1 -= 10 * self.scale
-                    h = 20 * self.scale
+            if w < 1:
+                x1 -= 10 * self.scale
+                w = 20 * self.scale
+            if h < 1:
+                y1 -= 10 * self.scale
+                h = 20 * self.scale
 
-            # Wrap each body in a <g> with a unique ID and tooltip
-            if self.dip_lib:
-                dip_name = self.dip_lib.get_name(body.dip_lib_index)
+            # Derive component designator from L/N using SUDS DECALPH
+            # SAIL 1-based: DECALPH[l for 1] — L=1→A, L=17→U, etc.
+            l = body.dip_lib_index
+            n = body.sequence_num
+            if 1 <= l <= len(SUDS_DECALPH):
+                loc_code = SUDS_DECALPH[l - 1] + str(n)
+            elif l == 0:
+                loc_code = ''  # anonymous (L=0)
             else:
-                dip_name = f'L{body.dip_lib_index}'
+                loc_code = f'?{l}:{n}'
 
+            if self.dip_lib:
+                dip_name = self.dip_lib.get_name(l).rstrip('\\')
+            else:
+                dip_name = ''
+
+            # STF lookup: match by component designator (loc_code)
+            stf_type = ''
+            if self.stf and loc_code:
+                stf_type = self.stf.type_for_designator(loc_code) or ''
+
+            # Body group with tooltip
             body_g = ET.SubElement(g, 'g')
             body_g.set('id', f'body-{body.body_id}')
             body_g.set('class', 'dip-body-group')
 
-            # SVG <title> gives native browser tooltip on hover
+            tip_parts = [f'Body #{body.body_id}']
+            if loc_code:
+                tip_parts.append(loc_code)
+            if stf_type:
+                tip_parts.append(stf_type)
+            elif dip_name:
+                tip_parts.append(dip_name)
+            tip_parts.append(f'{body.num_pins}pin')
+            tip_parts.append(f'loc=({body.loc[0]},{body.loc[1]})')
             tip = ET.SubElement(body_g, 'title')
-            tip.text = (f'Body #{body.body_id}  {dip_name}  '
-                        f'{body.num_pins}pin  '
-                        f'loc=({body.loc[0]},{body.loc[1]})')
+            tip.text = '  '.join(tip_parts)
 
+            # Body outline rectangle
             rect = ET.SubElement(body_g, 'rect')
             rect.set('x', f'{x1:.1f}')
             rect.set('y', f'{y1:.1f}')
@@ -666,19 +698,35 @@ class PCSVGRenderer:
             rect.set('class', 'dip-body')
             rect.set('rx', f'{4 * self.scale:.1f}')
 
-            # Label at center — body_id + DIP name + pin count
+            # Per pcdvi.sai line 1153: no labels for < 4 pin components
+            if body.num_pins < 4:
+                continue
+
             cx = (x1 + x2) / 2
             cy = (y1 + y2) / 2
             font_size = min(12, max(5, min(w, h) / (3 * self.scale))) * self.scale
 
-            label_text = f'#{body.body_id} {dip_name}' if body.num_pins <= 2 else f'#{body.body_id} {dip_name}/{body.num_pins}'
+            # Component designator centered on body (matches plotbox loc label)
+            if loc_code:
+                label = ET.SubElement(body_g, 'text')
+                label.set('x', f'{cx:.1f}')
+                label.set('y', f'{cy:.1f}')
+                label.set('class', 'body-label')
+                label.set('font-size', f'{font_size:.0f}')
+                label.text = loc_code
 
-            label = ET.SubElement(body_g, 'text')
-            label.set('x', f'{cx:.1f}')
-            label.set('y', f'{cy:.1f}')
-            label.set('class', 'body-label')
-            label.set('font-size', f'{font_size:.0f}')
-            label.text = label_text
+            # Chip type name above the body (matches plottext at line 1168)
+            # Prefer STF type (74LS374) over DIP library name (8T97)
+            type_label = stf_type or dip_name
+            if type_label:
+                name_y = y1 - 4 * self.scale
+                name_size = max(5, min(10, font_size * 0.75))
+                name_el = ET.SubElement(body_g, 'text')
+                name_el.set('x', f'{cx:.1f}')
+                name_el.set('y', f'{name_y:.1f}')
+                name_el.set('class', 'body-name')
+                name_el.set('font-size', f'{name_size:.0f}')
+                name_el.text = type_label
 
     def _render_labels(self, svg: ET.Element) -> None:
         """Render text annotations from the primary PC file's points.
@@ -753,9 +801,11 @@ class PCSVGRenderer:
 def render_pc_svg(pc: PCFile, output_path: str | Path,
                   crd: CRDFile | None = None,
                   dip_lib: DIPLibrary | None = None,
+                  stf: STFFile | None = None,
                   scale: float = 1.0, margin: int = 100) -> None:
     """Render a parsed PCFile to SVG."""
-    renderer = PCSVGRenderer(pc, crd=crd, dip_lib=dip_lib, scale=scale, margin=margin)
+    renderer = PCSVGRenderer(pc, crd=crd, dip_lib=dip_lib, stf=stf,
+                              scale=scale, margin=margin)
     renderer.render(output_path)
 
 
@@ -763,6 +813,7 @@ def render_pc_html(pc: PCFile, output_path: str | Path,
                    crd: CRDFile | None = None,
                    dip_lib: DIPLibrary | None = None,
                    silk_pc: PCFile | None = None,
+                   stf: STFFile | None = None,
                    scale: float = 1.0, margin: int = 100) -> None:
     """Render a parsed PCFile to an interactive HTML file with layer toggles.
 
@@ -770,7 +821,7 @@ def render_pc_html(pc: PCFile, output_path: str | Path,
     visibility of each layer group.
     """
     renderer = PCSVGRenderer(pc, crd=crd, dip_lib=dip_lib, silk_pc=silk_pc,
-                             scale=scale, margin=margin)
+                             stf=stf, scale=scale, margin=margin)
     width = (renderer.max_x - renderer.min_x) * scale
     height = (renderer.max_y - renderer.min_y) * scale
 
