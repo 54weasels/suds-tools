@@ -157,12 +157,13 @@ class PCSVGRenderer:
             self._body_pin_bboxes[bid] = (min(xs), min(ys), max(xs), max(ys))
 
     def _compute_bounds(self) -> None:
-        """Compute the bounding box of the actual board area.
+        """Compute viewport bounds tightly fitted to actual board content.
 
-        Derives the board area from body locations (which represent
-        placed components) and the CRD outline (if available),
-        with a generous margin. This excludes unplaced/garbage
-        points that would otherwise inflate the SVG viewport.
+        The board area (used for point filtering) is derived from bodies
+        and the CRD outline.  The viewport bounds (used for SVG viewBox)
+        are computed only from rendered content — bodies, in-area points,
+        and text annotations — so the view is tight around the actual
+        design without blank space from connector tabs or card edges.
         """
         # Stage 1: establish the board area from reliable anchors
         anchor_x: list[int] = []
@@ -208,15 +209,29 @@ class PCSVGRenderer:
         self._board_max_x = max(anchor_x) + BOARD_MARGIN
         self._board_max_y = max(anchor_y) + BOARD_MARGIN
 
-        # Stage 2: compute viewport from in-area points + CRD
-        all_x: list[int] = list(anchor_x)
-        all_y: list[int] = list(anchor_y)
+        # Stage 2: compute tight viewport from actual rendered content only.
+        # Exclude CRD outline/connectors from viewport — they still get
+        # drawn but won't inflate the viewBox with blank space.
+        view_x: list[int] = []
+        view_y: list[int] = []
 
+        # Bodies define the component area
+        for body in self.pc.bodies:
+            if abs(body.loc[0]) < 50000 and abs(body.loc[1]) < 50000:
+                view_x.append(self._pc_x(body.loc[0]))
+                view_y.append(self._pc_y(body.loc[1]))
+
+        # Include pin bounding boxes (extend beyond body centers)
+        for bid, bbox in self._body_pin_bboxes.items():
+            view_x.extend([bbox[0], bbox[2]])
+            view_y.extend([bbox[1], bbox[3]])
+
+        # Include in-area points (traces, pads)
         for pt in self.pc.all_points:
             pc_loc = self._pc_loc(pt.loc)
             if self._pt_in_board_area(pc_loc):
-                all_x.append(pc_loc[0])
-                all_y.append(pc_loc[1])
+                view_x.append(pc_loc[0])
+                view_y.append(pc_loc[1])
 
         # Include silk screen text positions (in PC coordinate space)
         if self.silk_pc:
@@ -224,21 +239,25 @@ class PCSVGRenderer:
                 if (pt.text_size > 0 and pt.text and pt.text_size <= 4
                         and not any(ord(c) < 0x20 for c in pt.text)
                         and abs(pt.loc[0]) < 50000 and abs(pt.loc[1]) < 50000):
-                    all_x.append(self._pc_x(pt.loc[0] + pt.text_offset[0]))
-                    all_y.append(self._pc_y(pt.loc[1] + pt.text_offset[1]))
+                    view_x.append(self._pc_x(pt.loc[0] + pt.text_offset[0]))
+                    view_y.append(self._pc_y(pt.loc[1] + pt.text_offset[1]))
 
         # Also include primary PC file text positions (in PC coordinate space)
         for pt in self.pc.all_points:
             if (pt.text_size > 0 and pt.text and pt.text_size <= 4
                     and not any(ord(c) < 0x20 for c in pt.text)
                     and abs(pt.loc[0]) < 50000 and abs(pt.loc[1]) < 50000):
-                all_x.append(self._pc_x(pt.loc[0] + pt.text_offset[0]))
-                all_y.append(self._pc_y(pt.loc[1] + pt.text_offset[1]))
+                view_x.append(self._pc_x(pt.loc[0] + pt.text_offset[0]))
+                view_y.append(self._pc_y(pt.loc[1] + pt.text_offset[1]))
 
-        self.min_x = min(all_x) - self.margin
-        self.min_y = min(all_y) - self.margin
-        self.max_x = max(all_x) + self.margin
-        self.max_y = max(all_y) + self.margin
+        if not view_x:
+            view_x = list(anchor_x)
+            view_y = list(anchor_y)
+
+        self.min_x = min(view_x) - self.margin
+        self.min_y = min(view_y) - self.margin
+        self.max_x = max(view_x) + self.margin
+        self.max_y = max(view_y) + self.margin
 
     def _pt_in_board_area(self, loc: tuple[int, int]) -> bool:
         """Check if a coordinate (in board/CRD space) is within the board area."""

@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SUDS PC Board Index — 64 Boards</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0a0a0a; color: #ddd;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+        }
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 32px 40px;
+            border-bottom: 2px solid #e94560;
+        }
+        .header h1 {
+            font-size: 28px; color: #fff; font-weight: 300;
+            letter-spacing: 1px; margin-bottom: 8px;
+        }
+        .header h1 span { color: #e94560; font-weight: 600; }
+        .header .subtitle { font-size: 14px; color: #8899aa; }
+        .stats-bar {
+            background: #111; padding: 12px 40px;
+            display: flex; gap: 32px; font-size: 13px; color: #888;
+            border-bottom: 1px solid #222;
+        }
+        .stats-bar .val { color: #e94560; font-weight: 600; }
+        .content { padding: 24px 40px 60px; }
+        .form-factor {
+            margin-bottom: 32px;
+        }
+        .ff-header {
+            font-size: 18px; color: #5dade2; font-weight: 500;
+            margin-bottom: 12px; padding-bottom: 6px;
+            border-bottom: 1px solid #2a2a3a;
+            display: flex; align-items: baseline; gap: 12px;
+        }
+        .ff-header .count {
+            font-size: 12px; color: #666; font-weight: 400;
+        }
+        table {
+            width: 100%; border-collapse: collapse;
+            font-size: 13px;
+        }
+        th {
+            text-align: left; padding: 8px 12px;
+            background: #1a1a2a; color: #8899aa;
+            font-weight: 500; font-size: 11px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            border-bottom: 1px solid #333;
+            position: sticky; top: 0;
+        }
+        td {
+            padding: 7px 12px;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        tr:hover td {
+            background: #151525;
+        }
+        .board-link {
+            color: #e94560; text-decoration: none;
+            font-weight: 600; font-size: 14px;
+        }
+        .board-link:hover {
+            color: #ff6b81; text-decoration: underline;
+        }
+        .title-col { color: #aaa; max-width: 280px; }
+        .num { text-align: right; font-family: 'Consolas','Monaco',monospace; color: #bbb; }
+        .dim { color: #777; font-family: 'Consolas','Monaco',monospace; font-size: 12px; }
+        .src { font-size: 11px; }
+        .src span { 
+            display: inline-block; padding: 1px 6px; border-radius: 3px;
+            margin-right: 3px; font-family: monospace;
+        }
+        .src .prt { background: #1a3a2a; color: #4ade80; }
+        .src .wd  { background: #2a2a1a; color: #fbbf24; }
+        .src .stf { background: #1a2a3a; color: #60a5fa; }
+        .src .dip { background: #2a1a2a; color: #c084fc; }
+        .crd-tag {
+            font-size: 11px; padding: 2px 8px; border-radius: 3px;
+            font-family: monospace;
+        }
+        .crd-multi { background: #2a1a1a; color: #f87171; }
+        .crd-vme   { background: #1a2a1a; color: #4ade80; }
+        .crd-vme3  { background: #1a3a1a; color: #22c55e; }
+        .crd-euro  { background: #1a1a3a; color: #818cf8; }
+        .crd-at    { background: #3a2a1a; color: #fb923c; }
+        .crd-none  { background: #1a1a1a; color: #555; }
+        .filter-bar {
+            margin-bottom: 16px; display: flex; gap: 12px; align-items: center;
+        }
+        .filter-bar input {
+            background: #1a1a2a; border: 1px solid #333; color: #ddd;
+            padding: 8px 14px; border-radius: 6px; font-size: 14px;
+            width: 300px; outline: none;
+        }
+        .filter-bar input:focus { border-color: #e94560; }
+        .filter-bar .count-display { font-size: 13px; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SUDS <span>PC Board</span> Index</h1>
+        <div class="subtitle">
+            Stanford University Drawing System — Sun Microsystems PCB Layout Archive
+        </div>
+    </div>
+    <div class="stats-bar">
+        <span>Boards: <span class="val">64</span></span>
+        <span>Components: <span class="val">13,883</span></span>
+        <span>Trace Points: <span class="val">362,600</span></span>
+        <span>Form Factors: <span class="val">5</span></span>
+    </div>
+    <div class="content">
+        <div class="filter-bar">
+            <input type="text" id="search" placeholder="Filter boards..." oninput="filterBoards(this.value)">
+            <span class="count-display" id="filter-count"></span>
+        </div>
+
+        <div class="form-factor" data-ff="VME 3U×2">
+            <div class="ff-header">
+                <span class="crd-tag crd-vme3">VME 3U×2</span>
+                <span class="count">26 boards</span>
+            </div>
+            <table>
+                <tr>
+                    <th>Board</th>
+                    <th>Description</th>
+                    <th style="text-align:right">Bodies</th>
+                    <th style="text-align:right">S1 Pts</th>
+                    <th style="text-align:right">S2 Pts</th>
+                    <th style="text-align:right">Vias</th>
+                    <th>Size</th>
+                    <th>Data Sources</th>
+                    <th>Ver</th>
+                </tr>
+                <tr class="board-row" data-name="25" data-title="2501">
+                    <td><a class="board-link" href="25_board.html">25</a></td>
+                    <td class="title-col">2501</td>
+                    <td class="num">390</td>
+                    <td class="num">6,004</td>
+                    <td class="num">6,009</td>
+                    <td class="num">0</td>
+                    <td class="dim">6.2×5.6"</td>
+                    <td class="src"><span class="prt">PRT 398</span> <span class="wd">WD 638</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="60" data-title="6001">
+                    <td><a class="board-link" href="60_board.html">60</a></td>
+                    <td class="title-col">6001</td>
+                    <td class="num">420</td>
+                    <td class="num">7,448</td>
+                    <td class="num">7,461</td>
+                    <td class="num">0</td>
+                    <td class="dim">5.9×5.6"</td>
+                    <td class="src"><span class="prt">PRT 685</span> <span class="wd">WD 706</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="a" data-title="a01">
+                    <td><a class="board-link" href="a_board.html">a</a></td>
+                    <td class="title-col">A01</td>
+                    <td class="num">799</td>
+                    <td class="num">8,503</td>
+                    <td class="num">8,503</td>
+                    <td class="num">0</td>
+                    <td class="dim">6.2×5.6"</td>
+                    <td class="src"><span class="prt">PRT 807</span> <span class="wd">WD 1242</span> <span class="stf">STF 740</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="a0518" data-title="">
+                    <td><a class="board-link" href="a0518_board.html">a0518</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">791</td>
+                    <td class="num">8,447</td>
+                    <td class="num">8,447</td>
+                    <td class="num">0</td>
+                    <td class="dim">6.2×5.6"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="a21" data-title="">
+                    <td><a class="board-link" href="a21_board.html">a21</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">373</td>
+                    <td class="num">3,474</td>
+                    <td class="num">3,470</td>
+                    <td class="num">0</td>
+                    <td class="dim">6.0×5.3"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="aold" data-title="">
+                    <td><a class="board-link" href="aold_board.html">aold</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">665</td>
+                    <td class="num">8,103</td>
+                    <td class="num">8,090</td>
+                    <td class="num">0</td>
+                    <td class="dim">6.0×5.4"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="atest" data-title="">
+                    <td><a class="board-link" href="atest_board.html">atest</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">462</td>
+                    <td class="num">4,716</td>
+                    <td class="num">4,716</td>
+                    <td class="num">0</td>
+                    <td class="dim">6.1×5.2"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="b" data-title="b01">
+                    <td><a class="board-link" href="b_board.html">b</a></td>
+                    <td class="title-col">B01</td>
+                    <td class="num">781</td>
+                    <td class="num">8,190</td>
+                    <td class="num">8,191</td>
+                    <td class="num">0</td>
+                    <td class="dim">6.2×5.6"</td>
+                    <td class="src"><span class="prt">PRT 764</span> <span class="wd">WD 889</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="f" data-title="f01">
+                    <td><a class="board-link" href="f_board.html">f</a></td>
+                    <td class="title-col">F01</td>
+                    <td class="num">358</td>
+                    <td class="num">6,722</td>
+                    <td class="num">6,735</td>
+                    <td class="num">0</td>
+                    <td class="dim">6.0×5.5"</td>
+                    <td class="src"><span class="prt">PRT 742</span> <span class="wd">WD 763</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="fm" data-title="fm1">
+                    <td><a class="board-link" href="fm_board.html">fm</a></td>
+                    <td class="title-col">FM1</td>
+                    <td class="num">748</td>
+                    <td class="num">7,448</td>
+                    <td class="num">7,448</td>
+                    <td class="num">0</td>
+                    <td class="dim">5.7×4.8"</td>
+                    <td class="src"><span class="prt">PRT 756</span> <span class="wd">WD 751</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="foo1" data-title="">
+                    <td><a class="board-link" href="foo1_board.html">foo1</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">40</td>
+                    <td class="num">620</td>
+                    <td class="num">619</td>
+                    <td class="num">1</td>
+                    <td class="dim">2.6×1.1"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="m1" data-title="m1">
+                    <td><a class="board-link" href="m1_board.html">m1</a></td>
+                    <td class="title-col">M1</td>
+                    <td class="num">273</td>
+                    <td class="num">2,620</td>
+                    <td class="num">2,620</td>
+                    <td class="num">0</td>
+                    <td class="dim">4.5×2.4"</td>
+                    <td class="src"><span class="prt">PRT 287</span> <span class="wd">WD 572</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="m11" data-title="m11">
+                    <td><a class="board-link" href="m11_board.html">m11</a></td>
+                    <td class="title-col">M11</td>
+                    <td class="num">338</td>
+                    <td class="num">3,346</td>
+                    <td class="num">3,346</td>
+                    <td class="num">0</td>
+                    <td class="dim">4.5×2.4"</td>
+                    <td class="src"><span class="prt">PRT 343</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="m11b" data-title="">
+                    <td><a class="board-link" href="m11b_board.html">m11b</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">338</td>
+                    <td class="num">3,345</td>
+                    <td class="num">3,346</td>
+                    <td class="num">2</td>
+                    <td class="dim">4.5×2.4"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="m16" data-title="m16">
+                    <td><a class="board-link" href="m16_board.html">m16</a></td>
+                    <td class="title-col">M16</td>
+                    <td class="num">217</td>
+                    <td class="num">2,079</td>
+                    <td class="num">2,079</td>
+                    <td class="num">0</td>
+                    <td class="dim">4.6×2.2"</td>
+                    <td class="src"><span class="prt">PRT 244</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="ve" data-title="">
+                    <td><a class="board-link" href="ve_board.html">ve</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">229</td>
+                    <td class="num">2,157</td>
+                    <td class="num">2,157</td>
+                    <td class="num">0</td>
+                    <td class="dim">4.6×2.4"</td>
+                    <td class="src"><span class="wd">WD 231</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="ve1" data-title="ve1">
+                    <td><a class="board-link" href="ve1_board.html">ve1</a></td>
+                    <td class="title-col">VE1</td>
+                    <td class="num">229</td>
+                    <td class="num">2,157</td>
+                    <td class="num">2,157</td>
+                    <td class="num">0</td>
+                    <td class="dim">4.6×2.4"</td>
+                    <td class="src"><span class="prt">PRT 242</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="vme3x2" data-title="vme3x1">
+                    <td><a class="board-link" href="vme3x2_board.html">vme3x2</a></td>
+                    <td class="title-col">VME3X1</td>
+                    <td class="num">7</td>
+                    <td class="num">933</td>
+                    <td class="num">1,056</td>
+                    <td class="num">444</td>
+                    <td class="dim">1.4×4.2"</td>
+                    <td class="src"><span class="prt">PRT 8</span> <span class="stf">STF 7</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="vme3xx" data-title="">
+                    <td><a class="board-link" href="vme3xx_board.html">vme3xx</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">7</td>
+                    <td class="num">817</td>
+                    <td class="num">735</td>
+                    <td class="num">444</td>
+                    <td class="dim">0.5×4.2"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="vme3xy" data-title="">
+                    <td><a class="board-link" href="vme3xy_board.html">vme3xy</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">7</td>
+                    <td class="num">788</td>
+                    <td class="num">825</td>
+                    <td class="num">444</td>
+                    <td class="dim">0.5×4.2"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="vme3xz" data-title="">
+                    <td><a class="board-link" href="vme3xz_board.html">vme3xz</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">7</td>
+                    <td class="num">706</td>
+                    <td class="num">719</td>
+                    <td class="num">444</td>
+                    <td class="dim">0.5×4.2"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="vmemb" data-title="">
+                    <td><a class="board-link" href="vmemb_board.html">vmemb</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">130</td>
+                    <td class="num">1,891</td>
+                    <td class="num">2,281</td>
+                    <td class="num">409</td>
+                    <td class="dim">1.6×4.9"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="vmxpig" data-title="vmxpig">
+                    <td><a class="board-link" href="vmxpig_board.html">vmxpig</a></td>
+                    <td class="title-col">VMXPIG</td>
+                    <td class="num">7</td>
+                    <td class="num">120</td>
+                    <td class="num">116</td>
+                    <td class="num">0</td>
+                    <td class="dim">6.0×4.3"</td>
+                    <td class="src"><span class="prt">PRT 8</span> <span class="stf">STF 7</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="x" data-title="x1">
+                    <td><a class="board-link" href="x_board.html">x</a></td>
+                    <td class="title-col">X1</td>
+                    <td class="num">489</td>
+                    <td class="num">5,904</td>
+                    <td class="num">5,904</td>
+                    <td class="num">0</td>
+                    <td class="dim">6.2×5.5"</td>
+                    <td class="src"><span class="prt">PRT 509</span> <span class="wd">WD 489</span> <span class="stf">STF 83</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="xc" data-title="x1">
+                    <td><a class="board-link" href="xc_board.html">xc</a></td>
+                    <td class="title-col">X1</td>
+                    <td class="num">366</td>
+                    <td class="num">3,648</td>
+                    <td class="num">3,648</td>
+                    <td class="num">0</td>
+                    <td class="dim">5.0×3.5"</td>
+                    <td class="src"><span class="prt">PRT 383</span> <span class="wd">WD 142</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="xold" data-title="">
+                    <td><a class="board-link" href="xold_board.html">xold</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">255</td>
+                    <td class="num">3,176</td>
+                    <td class="num">3,176</td>
+                    <td class="num">0</td>
+                    <td class="dim">5.1×3.5"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form-factor" data-ff="Multibus">
+            <div class="ff-header">
+                <span class="crd-tag crd-multi">Multibus</span>
+                <span class="count">14 boards</span>
+            </div>
+            <table>
+                <tr>
+                    <th>Board</th>
+                    <th>Description</th>
+                    <th style="text-align:right">Bodies</th>
+                    <th style="text-align:right">S1 Pts</th>
+                    <th style="text-align:right">S2 Pts</th>
+                    <th style="text-align:right">Vias</th>
+                    <th>Size</th>
+                    <th>Data Sources</th>
+                    <th>Ver</th>
+                </tr>
+                <tr class="board-row" data-name="cg" data-title="cg1">
+                    <td><a class="board-link" href="cg_board.html">cg</a></td>
+                    <td class="title-col">CG1</td>
+                    <td class="num">317</td>
+                    <td class="num">3,085</td>
+                    <td class="num">3,085</td>
+                    <td class="num">0</td>
+                    <td class="dim">4.4×2.4"</td>
+                    <td class="src"><span class="prt">PRT 320</span> <span class="wd">WD 317</span> <span class="stf">STF 317</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="cgold" data-title="">
+                    <td><a class="board-link" href="cgold_board.html">cgold</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">317</td>
+                    <td class="num">3,093</td>
+                    <td class="num">3,093</td>
+                    <td class="num">0</td>
+                    <td class="dim">4.4×2.3"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="d" data-title="d1">
+                    <td><a class="board-link" href="d_board.html">d</a></td>
+                    <td class="title-col">D1</td>
+                    <td class="num">76</td>
+                    <td class="num">2,445</td>
+                    <td class="num">2,427</td>
+                    <td class="num">549</td>
+                    <td class="dim">4.5×2.4"</td>
+                    <td class="src"><span class="prt">PRT 111</span> <span class="wd">WD 416</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="g" data-title="g1">
+                    <td><a class="board-link" href="g_board.html">g</a></td>
+                    <td class="title-col">G1</td>
+                    <td class="num">215</td>
+                    <td class="num">4,837</td>
+                    <td class="num">4,003</td>
+                    <td class="num">679</td>
+                    <td class="dim">4.6×2.4"</td>
+                    <td class="src"><span class="prt">PRT 186</span> <span class="wd">WD 184</span> <span class="stf">STF 215</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="mm1" data-title="">
+                    <td><a class="board-link" href="mm1_board.html">mm1</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">178</td>
+                    <td class="num">2,984</td>
+                    <td class="num">2,984</td>
+                    <td class="num">0</td>
+                    <td class="dim">4.3×2.2"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="q" data-title="q1b">
+                    <td><a class="board-link" href="q_board.html">q</a></td>
+                    <td class="title-col">Q1B</td>
+                    <td class="num">149</td>
+                    <td class="num">2,413</td>
+                    <td class="num">2,413</td>
+                    <td class="num">0</td>
+                    <td class="dim">4.3×2.4"</td>
+                    <td class="src"><span class="prt">PRT 220</span> <span class="wd">WD 207</span> <span class="stf">STF 205</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="qx" data-title="">
+                    <td><a class="board-link" href="qx_board.html">qx</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">174</td>
+                    <td class="num">3,054</td>
+                    <td class="num">2,896</td>
+                    <td class="num">436</td>
+                    <td class="dim">4.4×2.2"</td>
+                    <td class="src"><span class="wd">WD 151</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="sio" data-title="sio1">
+                    <td><a class="board-link" href="sio_board.html">sio</a></td>
+                    <td class="title-col">SIO1</td>
+                    <td class="num">76</td>
+                    <td class="num">2,445</td>
+                    <td class="num">2,427</td>
+                    <td class="num">549</td>
+                    <td class="dim">4.5×2.4"</td>
+                    <td class="src"><span class="prt">PRT 143</span> <span class="wd">WD 136</span> <span class="stf">STF 136</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="test" data-title="">
+                    <td><a class="board-link" href="test_board.html">test</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">8</td>
+                    <td class="num">145</td>
+                    <td class="num">145</td>
+                    <td class="num">0</td>
+                    <td class="dim">4.4×2.2"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="ti" data-title="ti1">
+                    <td><a class="board-link" href="ti_board.html">ti</a></td>
+                    <td class="title-col">TI1</td>
+                    <td class="num">190</td>
+                    <td class="num">4,826</td>
+                    <td class="num">3,519</td>
+                    <td class="num">502</td>
+                    <td class="dim">4.6×2.2"</td>
+                    <td class="src"><span class="prt">PRT 190</span> <span class="wd">WD 13</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="ti3" data-title="">
+                    <td><a class="board-link" href="ti3_board.html">ti3</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">160</td>
+                    <td class="num">4,415</td>
+                    <td class="num">3,234</td>
+                    <td class="num">366</td>
+                    <td class="dim">4.3×2.2"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="tiold" data-title="">
+                    <td><a class="board-link" href="tiold_board.html">tiold</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">190</td>
+                    <td class="num">4,836</td>
+                    <td class="num">3,628</td>
+                    <td class="num">524</td>
+                    <td class="dim">4.6×2.2"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="tisav" data-title="">
+                    <td><a class="board-link" href="tisav_board.html">tisav</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">160</td>
+                    <td class="num">4,373</td>
+                    <td class="num">3,234</td>
+                    <td class="num">392</td>
+                    <td class="dim">4.3×2.2"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="y" data-title="y1">
+                    <td><a class="board-link" href="y_board.html">y</a></td>
+                    <td class="title-col">Y1</td>
+                    <td class="num">331</td>
+                    <td class="num">4,115</td>
+                    <td class="num">10,403</td>
+                    <td class="num">502</td>
+                    <td class="dim">4.5×2.3"</td>
+                    <td class="src"><span class="prt">PRT 332</span> <span class="wd">WD 331</span> <span class="stf">STF 331</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form-factor" data-ff="VME">
+            <div class="ff-header">
+                <span class="crd-tag crd-vme">VME</span>
+                <span class="count">8 boards</span>
+            </div>
+            <table>
+                <tr>
+                    <th>Board</th>
+                    <th>Description</th>
+                    <th style="text-align:right">Bodies</th>
+                    <th style="text-align:right">S1 Pts</th>
+                    <th style="text-align:right">S2 Pts</th>
+                    <th style="text-align:right">Vias</th>
+                    <th>Size</th>
+                    <th>Data Sources</th>
+                    <th>Ver</th>
+                </tr>
+                <tr class="board-row" data-name="em" data-title="em1">
+                    <td><a class="board-link" href="em_board.html">em</a></td>
+                    <td class="title-col">EM1</td>
+                    <td class="num">182</td>
+                    <td class="num">1,762</td>
+                    <td class="num">1,762</td>
+                    <td class="num">0</td>
+                    <td class="dim">2.0×3.3"</td>
+                    <td class="src"><span class="prt">PRT 185</span> <span class="wd">WD 182</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="ep" data-title="ep1">
+                    <td><a class="board-link" href="ep_board.html">ep</a></td>
+                    <td class="title-col">EP1</td>
+                    <td class="num">170</td>
+                    <td class="num">1,986</td>
+                    <td class="num">1,986</td>
+                    <td class="num">0</td>
+                    <td class="dim">2.4×3.4"</td>
+                    <td class="src"><span class="prt">PRT 183</span> <span class="wd">WD 170</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="ev" data-title="ev1">
+                    <td><a class="board-link" href="ev_board.html">ev</a></td>
+                    <td class="title-col">EV1</td>
+                    <td class="num">55</td>
+                    <td class="num">1,040</td>
+                    <td class="num">1,040</td>
+                    <td class="num">0</td>
+                    <td class="dim">1.8×3.3"</td>
+                    <td class="src"><span class="prt">PRT 128</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="foo" data-title="foo">
+                    <td><a class="board-link" href="foo_board.html">foo</a></td>
+                    <td class="title-col">FOO</td>
+                    <td class="num">24</td>
+                    <td class="num">116</td>
+                    <td class="num">116</td>
+                    <td class="num">0</td>
+                    <td class="dim">0.7×0.8"</td>
+                    <td class="src"><span class="prt">PRT 8</span> <span class="stf">STF 37</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="vmem" data-title="vmem1">
+                    <td><a class="board-link" href="vmem_board.html">vmem</a></td>
+                    <td class="title-col">VMEM1</td>
+                    <td class="num">207</td>
+                    <td class="num">1,818</td>
+                    <td class="num">1,818</td>
+                    <td class="num">0</td>
+                    <td class="dim">2.2×3.5"</td>
+                    <td class="src"><span class="prt">PRT 208</span> <span class="wd">WD 206</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="vmep" data-title="vmep1">
+                    <td><a class="board-link" href="vmep_board.html">vmep</a></td>
+                    <td class="title-col">VMEP1</td>
+                    <td class="num">165</td>
+                    <td class="num">2,110</td>
+                    <td class="num">2,110</td>
+                    <td class="num">0</td>
+                    <td class="dim">2.4×3.6"</td>
+                    <td class="src"><span class="prt">PRT 179</span> <span class="wd">WD 170</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="vmes" data-title="vmes1">
+                    <td><a class="board-link" href="vmes_board.html">vmes</a></td>
+                    <td class="title-col">VMES1</td>
+                    <td class="num">50</td>
+                    <td class="num">462</td>
+                    <td class="num">462</td>
+                    <td class="num">0</td>
+                    <td class="dim">2.2×3.2"</td>
+                    <td class="src"><span class="prt">PRT 54</span> <span class="wd">WD 50</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="xx" data-title="xx1">
+                    <td><a class="board-link" href="xx_board.html">xx</a></td>
+                    <td class="title-col">XX1</td>
+                    <td class="num">192</td>
+                    <td class="num">1,964</td>
+                    <td class="num">1,964</td>
+                    <td class="num">0</td>
+                    <td class="dim">2.3×3.5"</td>
+                    <td class="src"><span class="prt">PRT 235</span> <span class="wd">WD 332</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form-factor" data-ff="Eurocard 280mm">
+            <div class="ff-header">
+                <span class="crd-tag crd-euro">Eurocard 280mm</span>
+                <span class="count">2 boards</span>
+            </div>
+            <table>
+                <tr>
+                    <th>Board</th>
+                    <th>Description</th>
+                    <th style="text-align:right">Bodies</th>
+                    <th style="text-align:right">S1 Pts</th>
+                    <th style="text-align:right">S2 Pts</th>
+                    <th style="text-align:right">Vias</th>
+                    <th>Size</th>
+                    <th>Data Sources</th>
+                    <th>Ver</th>
+                </tr>
+                <tr class="board-row" data-name="xm" data-title="x1">
+                    <td><a class="board-link" href="xm_board.html">xm</a></td>
+                    <td class="title-col">X1</td>
+                    <td class="num">294</td>
+                    <td class="num">3,100</td>
+                    <td class="num">3,100</td>
+                    <td class="num">0</td>
+                    <td class="dim">4.2×3.5"</td>
+                    <td class="src"><span class="prt">PRT 310</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="xy" data-title="xx1">
+                    <td><a class="board-link" href="xy_board.html">xy</a></td>
+                    <td class="title-col">XX1</td>
+                    <td class="num">332</td>
+                    <td class="num">3,264</td>
+                    <td class="num">3,264</td>
+                    <td class="num">0</td>
+                    <td class="dim">4.2×3.5"</td>
+                    <td class="src"><span class="prt">PRT 345</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form-factor" data-ff="AT Card">
+            <div class="ff-header">
+                <span class="crd-tag crd-at">AT Card</span>
+                <span class="count">1 board</span>
+            </div>
+            <table>
+                <tr>
+                    <th>Board</th>
+                    <th>Description</th>
+                    <th style="text-align:right">Bodies</th>
+                    <th style="text-align:right">S1 Pts</th>
+                    <th style="text-align:right">S2 Pts</th>
+                    <th style="text-align:right">Vias</th>
+                    <th>Size</th>
+                    <th>Data Sources</th>
+                    <th>Ver</th>
+                </tr>
+                <tr class="board-row" data-name="pc" data-title="xx1">
+                    <td><a class="board-link" href="pc_board.html">pc</a></td>
+                    <td class="title-col">XX1</td>
+                    <td class="num">205</td>
+                    <td class="num">1,886</td>
+                    <td class="num">1,886</td>
+                    <td class="num">0</td>
+                    <td class="dim">5.1×1.7"</td>
+                    <td class="src"><span class="prt">PRT 215</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form-factor" data-ff="No Card Outline">
+            <div class="ff-header">
+                <span class="crd-tag crd-none">No Card Outline</span>
+                <span class="count">13 boards</span>
+            </div>
+            <table>
+                <tr>
+                    <th>Board</th>
+                    <th>Description</th>
+                    <th style="text-align:right">Bodies</th>
+                    <th style="text-align:right">S1 Pts</th>
+                    <th style="text-align:right">S2 Pts</th>
+                    <th style="text-align:right">Vias</th>
+                    <th>Size</th>
+                    <th>Data Sources</th>
+                    <th>Ver</th>
+                </tr>
+                <tr class="board-row" data-name="a20" data-title="">
+                    <td><a class="board-link" href="a20_board.html">a20</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">21</td>
+                    <td class="num">166</td>
+                    <td class="num">162</td>
+                    <td class="num">0</td>
+                    <td class="dim">0.3×5.7"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="ax" data-title="">
+                    <td><a class="board-link" href="ax_board.html">ax</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">21</td>
+                    <td class="num">166</td>
+                    <td class="num">162</td>
+                    <td class="num">0</td>
+                    <td class="dim">0.3×5.7"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="back" data-title="back1">
+                    <td><a class="board-link" href="back_board.html">back</a></td>
+                    <td class="title-col">BACK1</td>
+                    <td class="num">253</td>
+                    <td class="num">1,210</td>
+                    <td class="num">1,206</td>
+                    <td class="num">0</td>
+                    <td class="dim">3.8×5.5"</td>
+                    <td class="src"><span class="prt">PRT 261</span> <span class="wd">WD 235</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="ether" data-title="">
+                    <td><a class="board-link" href="ether_board.html">ether</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">37</td>
+                    <td class="num">180</td>
+                    <td class="num">180</td>
+                    <td class="num">0</td>
+                    <td class="dim">0.6×1.1"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="m2silk" data-title="">
+                    <td><a class="board-link" href="m2silk_board.html">m2silk</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">0</td>
+                    <td class="num">316</td>
+                    <td class="num">6</td>
+                    <td class="num">0</td>
+                    <td class="dim">0×0"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="m2sola" data-title="">
+                    <td><a class="board-link" href="m2sola_board.html">m2sola</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">43</td>
+                    <td class="num">534</td>
+                    <td class="num">494</td>
+                    <td class="num">133</td>
+                    <td class="dim">0.8×1.2"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="mouse" data-title="">
+                    <td><a class="board-link" href="mouse_board.html">mouse</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">23</td>
+                    <td class="num">383</td>
+                    <td class="num">391</td>
+                    <td class="num">108</td>
+                    <td class="dim">0.8×1.3"</td>
+                    <td class="src"><span class="wd">WD 45</span> <span class="stf">STF 29</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="mouse2" data-title="">
+                    <td><a class="board-link" href="mouse2_board.html">mouse2</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">43</td>
+                    <td class="num">572</td>
+                    <td class="num">507</td>
+                    <td class="num">121</td>
+                    <td class="dim">0.8×1.2"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="mousef" data-title="">
+                    <td><a class="board-link" href="mousef_board.html">mousef</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">44</td>
+                    <td class="num">409</td>
+                    <td class="num">453</td>
+                    <td class="num">106</td>
+                    <td class="dim">0.8×1.2"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="msilk" data-title="">
+                    <td><a class="board-link" href="msilk_board.html">msilk</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">0</td>
+                    <td class="num">208</td>
+                    <td class="num">6</td>
+                    <td class="num">0</td>
+                    <td class="dim">0×0"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="mupac" data-title="">
+                    <td><a class="board-link" href="mupac_board.html">mupac</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">3</td>
+                    <td class="num">743</td>
+                    <td class="num">633</td>
+                    <td class="num">440</td>
+                    <td class="dim">0.9×0.4"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="p" data-title="p1">
+                    <td><a class="board-link" href="p_board.html">p</a></td>
+                    <td class="title-col">P1</td>
+                    <td class="num">208</td>
+                    <td class="num">4,955</td>
+                    <td class="num">6,905</td>
+                    <td class="num">960</td>
+                    <td class="dim">8.3×81.9"</td>
+                    <td class="src"><span class="prt">PRT 210</span> <span class="wd">WD 208</span> <span class="stf">STF 207</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+                <tr class="board-row" data-name="ratsht" data-title="">
+                    <td><a class="board-link" href="ratsht_board.html">ratsht</a></td>
+                    <td class="title-col"></td>
+                    <td class="num">44</td>
+                    <td class="num">411</td>
+                    <td class="num">453</td>
+                    <td class="num">106</td>
+                    <td class="dim">0.8×1.2"</td>
+                    <td class="src"><span class="dip">DIP lib</span></td>
+                    <td class="dim">v17</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <script>
+        function filterBoards(query) {
+            const q = query.toLowerCase();
+            const rows = document.querySelectorAll('.board-row');
+            let visible = 0;
+            rows.forEach(r => {
+                const match = r.dataset.name.includes(q) || r.dataset.title.includes(q);
+                r.style.display = match ? '' : 'none';
+                if (match) visible++;
+            });
+            // Hide empty form-factor groups
+            document.querySelectorAll('.form-factor').forEach(ff => {
+                const visRows = ff.querySelectorAll('.board-row:not([style*="display: none"])');
+                ff.style.display = visRows.length ? '' : 'none';
+            });
+            const counter = document.getElementById('filter-count');
+            counter.textContent = q ? `${visible} of ${rows.length} boards` : '';
+        }
+    </script>
+</body>
+</html>
