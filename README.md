@@ -3,7 +3,8 @@
 **Stanford University Drawing System (SUDS) — Modern Format Recovery Project**
 
 This project decodes and renders archival SUDS `.DRW` schematic drawing files
-from the Stanford AI Lab (SAIL) / Sun Microsystems era into modern SVG vector graphics.
+and `.PC` board layout files from the Stanford AI Lab (SAIL) / Sun Microsystems
+era into modern SVG vector graphics.
 
 ## What is SUDS?
 
@@ -30,6 +31,89 @@ SUDS was also ported to ITS at the MIT AI Lab, where it was used to design:
 The DRW files in this archive contain the actual schematics for Sun Microsystems
 boards drawn by Andy Bechtolsheim and others.
 
+## Data Flow
+
+```mermaid
+graph TD
+    subgraph "Source Archive (smi/octal)"
+        DRW[".drw.O<br/>Schematic Drawings<br/>(685 files)"]
+        PC[".pc.O<br/>PCB Layouts<br/>(64 files)"]
+        WD[".wd.O<br/>Wire Data<br/>(per-sheet netlists)"]
+        DIP[".dip.O<br/>DIP Library<br/>(package database)"]
+        CRD[".crd.O<br/>Card Definitions<br/>(board outlines)"]
+    end
+
+    subgraph "Supplemental Data (smi/)"
+        PRT[".prt<br/>Parts Lists<br/>(100 files)"]
+        STF[".stf<br/>Stuffing Files<br/>(29 files)"]
+        WL[".wl<br/>Wirelists<br/>(68 files)"]
+        LIB["Library .drw.O<br/>(12 symbol files)"]
+    end
+
+    subgraph "Parsers (src/)"
+        DRW_P["drw_parser.py"]
+        PC_P["pc_parser.py"]
+        WD_P["wd_parser.py"]
+        DIP_P["dip_library.py"]
+        CRD_P["crd_parser.py"]
+        PRT_P["prt_parser.py"]
+        STF_P["stf_parser.py"]
+        WL_P["wl_parser.py"]
+        LIB_P["library.py"]
+    end
+
+    subgraph "Aggregation (src/)"
+        DIPM["dip_type_map.py<br/>Unified DIP Type Lookup"]
+        VC["version_coherence.py<br/>Board Version Selection"]
+    end
+
+    subgraph "Renderers (src/)"
+        SVG_R["svg_renderer.py<br/>Schematic → SVG"]
+        PC_R["pc_svg_renderer.py<br/>PCB → SVG/HTML"]
+    end
+
+    subgraph "Output (data/)"
+        PDF["board_pdfs/<br/>Schematic PDFs"]
+        PCB["pc_boards/<br/>PCB HTML/SVG<br/>(64 boards)"]
+        IDX["JSON indices<br/>(version, authority,<br/>provenance)"]
+    end
+
+    DRW --> DRW_P
+    PC --> PC_P
+    WD --> WD_P
+    DIP --> DIP_P
+    CRD --> CRD_P
+    PRT --> PRT_P
+    STF --> STF_P
+    WL --> WL_P
+    LIB --> LIB_P
+
+    WD_P --> DIPM
+    PRT_P --> DIPM
+    STF_P --> DIPM
+
+    DRW_P --> VC
+    WL_P --> VC
+
+    DRW_P --> SVG_R
+    LIB_P --> SVG_R
+    VC --> SVG_R
+
+    PC_P --> PC_R
+    CRD_P --> PC_R
+    DIP_P --> PC_R
+    DIPM --> PC_R
+
+    SVG_R --> PDF
+    PC_R --> PCB
+    VC --> IDX
+
+    style DRW fill:#4a9eff,color:#fff
+    style PC fill:#4a9eff,color:#fff
+    style PDF fill:#2ecc71,color:#fff
+    style PCB fill:#2ecc71,color:#fff
+```
+
 ## Data Sources
 
 | Source | Location | Description |
@@ -39,46 +123,8 @@ boards drawn by Andy Bechtolsheim and others.
 | SUDS Repo | `../../saildart/SUDS/` | PDP-10/SUDS GitHub repo with tools & docs |
 | PDP-10 Source | `../../saildart/SUDS/bits/saildart/` | Authoritative DRAW program assembly source |
 
-### Data Directory Layout
-```text
-data/
-├── drw/                        # 685 DRW files (best canonical version per page)
-├── wirelists/                  # 68 WL wirelist files — canonical board→page mappings
-├── wd/                         # WD wire data files (binary) — intermediate netlists
-├── parts/                      # 100 PRT parts list files (text)
-├── bom/                        # 54 BOM bill-of-materials files (text)
-├── wirelist_errors/            # 90 WLS error summary files (text)
-├── commands/                   # COM/TXT batch command scripts for WL tool
-├── board_pdfs/                 # Best-version PDFs for each board (checked in)
-├── board_pdfs/index.html       # Provenance-rich HTML index
-├── drw_version_index.json      # Complete index of all 2,215 DRW file versions
-├── canonical_board_sets.json   # 352 board sets with scoring and page selection
-├── drw_provenance_manifest.json # Which version was selected per page and why
-├── wl_authority.json           # WL per-page board authority map (66 WLs, 564 pages)
-├── version_recovery.json       # Recovery audit trail
-├── board_registry.json         # Cross-referenced board registry
-└── pdf_groupings.json          # OCR-extracted PDF page assignments
-```
-
-### File Extension Reference
-| Extension | Type | Purpose |
-|-----------|------|---------|
-| `.drw.O` | Binary (octal) | Schematic drawing page |
-| `.wl` | Text | Wirelist — canonical board→page mapping + netlist |
-| `.prt` | Text | Parts list / BOM |
-| `.plt.O` | Binary (octal) | Pen plotter output |
-| `.pc.O` | Binary (octal) | PCB layout |
-| `.wpc.O` | Binary (octal) | Wire-to-PC mapping |
-| `.wd.O` | Binary (octal) | Wire data (intermediate) |
-| `.wls` | Text | Wirelist error/warning summary |
-| `.bom` | Text | Bill of materials |
-| `.con` | Text | Connectivity table |
-| `.vrn.O` | Binary (octal) | DRC verification data |
-| `.net` | Text | Raw pin-to-pin netlist |
-| `.dip.O` | Binary (octal) | IC package database |
-| `.lsd` | Text | Human-readable DIP dump |
-| `.mss` | Text | Scribe document sources |
-| `.msg` | Text | Email/notes archive |
+> See [`data/README.md`](data/README.md) for detailed data directory layout,
+> file extension reference, and regeneration instructions.
 
 ## Component Designators
 
@@ -136,11 +182,17 @@ source for page-to-board assignment.
 
 ## Output
 
-The best-version PDFs and provenance index are checked in under `data/board_pdfs/`:
+### Schematic PDFs (`data/board_pdfs/`)
 
 - **`data/board_pdfs/index.html`** — Browse all boards with provenance info
 - **`data/board_pdfs/{board_id}/{board_id}_v{N}_..._{BEST}.pdf`** — Best version per board
 - Each PDF filename encodes: version number, board designator, page total, coherence score
+
+### PCB Board Renders (`data/pc_boards/`)
+
+- **64 interactive HTML/SVG** renderings of all PC board layout files
+- Multi-layer visualization with toggleable traces, pads, vias, and bodies
+- Component labels sourced from PRT, WD, and STF files via unified DIP type lookup
 
 ## Project Structure
 
@@ -158,38 +210,45 @@ suds-tools/
 │   ├── unpack.py                   # Binary format decoder (octal/ITS)
 │   ├── drw_model.py                # Data model (13 dataclasses)
 │   ├── drw_parser.py               # DRW binary parser (all 13 sections)
-│   ├── svg_renderer.py             # SVG rendering engine
+│   ├── svg_renderer.py             # SVG rendering engine (schematics)
+│   ├── pc_model.py                 # PC board data model
+│   ├── pc_parser.py                # PC board binary parser
+│   ├── pc_svg_renderer.py          # PC board SVG/HTML renderer
+│   ├── crd_parser.py               # Board outline (CRD) parser
+│   ├── dip_library.py              # DIP package library parser
+│   ├── dip_type_map.py             # Unified DIP type aggregator (PRT+WD+STF)
+│   ├── prt_parser.py               # Parts list (PRT) text parser
+│   ├── stf_parser.py               # Stuffing file (STF) parser
+│   ├── wd_parser.py                # Wire Data (WD) binary parser
 │   ├── library.py                  # Library file loader with auto-discovery
 │   ├── dip_generator.py            # Synthetic DIP fallback body generator
 │   ├── board_registry.py           # Board discovery (WL + metadata)
 │   ├── wl_parser.py                # Wirelist netlist parser
-│   ├── wd_parser.py                # Wire Data intermediate format parser
 │   ├── version_coherence.py        # Designator-first coherence scoring
 │   └── cli.py                      # CLI entry point
 ├── scripts/
-│   ├── batch_render.py             # Batch SVG/PDF renderer with --versions
+│   ├── batch_render.py             # Batch schematic SVG/PDF renderer
+│   ├── render_pc_boards.py         # Batch PC board HTML renderer
 │   ├── generate_index.py           # Provenance-rich HTML index generator
 │   ├── build_version_index.py      # Scan all 2,215 DRW files for metadata
 │   ├── build_canonical_sets.py     # Build 352 canonical board sets
 │   └── populate_best_versions.py   # Copy best versions to data/drw/
 ├── data/
+│   ├── README.md                   # Data directory documentation
 │   ├── drw/                        # 685 DRW files (canonical from smi/octal)
+│   ├── pc_boards/                  # 64 rendered PC board HTML files
+│   ├── board_pdfs/                 # Best-version schematic PDFs
 │   ├── wirelists/                  # 68 WL wirelist files
 │   ├── wd/                         # WD wire data files
 │   ├── parts/                      # 100 PRT parts list files
 │   ├── bom/                        # 54 BOM files
 │   ├── wirelist_errors/            # 90 WLS error files
 │   ├── commands/                   # COM/TXT batch scripts
-│   ├── wl_authority.json           # WL per-page board authority map
-│   ├── version_recovery.json       # Recovery audit trail (189 replacements)
-│   ├── board_registry.json         # Cross-referenced board registry
-│   └── pdf_groupings.json          # OCR-extracted PDF page assignments
+│   └── *.json                      # Indices and registries
 ├── output/
 │   └── boards/                     # Rendered SVG + PDF output per board
 │       ├── index.html              # Provenance-rich HTML index
-│       ├── x/                      # SUN-3/F board (14/15 pages)
-│       ├── q/                      # SUN-2 CPU board (multiple revisions)
-│       └── ...                     # 163 board directories total
+│       └── .../                    # 163 board directories total
 └── test/
     ├── test_unpack.py              # Unpack verification tests
     └── foo.drw.*                   # Test DRW files
@@ -198,18 +257,23 @@ suds-tools/
 ## Usage
 
 ```bash
-# Full pipeline: index all versions, build canonical sets, populate best, render
+# Full schematic pipeline: index → build sets → populate → render → index
 python3 scripts/build_version_index.py
 python3 scripts/build_canonical_sets.py
 python3 scripts/populate_best_versions.py
 python3 scripts/batch_render.py --all --pdf --versions
 python3 scripts/generate_index.py
 
-# Or, quick single-board render
+# Render all PC board layouts
+python3 scripts/render_pc_boards.py
+
+# Quick single-board renders
 python3 scripts/batch_render.py --board x --pdf --versions
+python3 scripts/render_pc_boards.py -b g
 
 # List all discovered boards
 python3 scripts/batch_render.py --list
+python3 scripts/render_pc_boards.py --list
 ```
 
 ### Version-Aware PDF Output
@@ -232,7 +296,8 @@ x_v3_sun_3_of12_s63%.pdf                # 1/12 SUN-3 (earlier revision)
 | 5. Version Recovery | Correct file version selection | ✅ 189 files recovered |
 | 6. Coherence Algorithm | Designator-first board grouping | ✅ Complete |
 | 7. Provenance Index | HTML index with full provenance | ✅ Complete |
-| 8. KiCad Export | Netlist extraction → KiCad format | 🔲 Planned |
+| 8. PC Board Renderer | PCB layout → interactive HTML/SVG | ✅ 64/64 boards (100%) |
+| 9. KiCad Export | Netlist extraction → KiCad format | 🔲 Planned |
 
 ### Corpus Statistics
 
@@ -240,11 +305,12 @@ x_v3_sun_3_of12_s63%.pdf                # 1/12 SUN-3 (earlier revision)
 |--------|-------|
 | Total DRW files indexed (octal + prev) | 2,215 |
 | DRW files in data/drw/ (canonical best) | 685 |
+| PC board layout files rendered | 64 |
 | Body definitions discovered | 1,433 |
 | Body placements | 33,339 |
 | Connection points | 461,931 |
 | Library body defs (auto-discovered) | 669 |
-| Files rendered | 685/685 (100%) |
+| Schematic files rendered | 685/685 (100%) |
 | Board directories | 163 |
 | Canonical board sets identified | 352 |
 | Board sets using version history | 146 |
@@ -264,4 +330,3 @@ output (`.plt` files rendered via `harscn`). Key parameters:
 | Coordinate system | 1 unit = 12.5 mils | Standard SUDS grid |
 | Y-axis | Flipped via `scale(1,-1)` | SUDS Y-up → SVG Y-down |
 | Body resolution | Auto-discover 12 library files | Library defs override synthetic DIPs |
-

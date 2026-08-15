@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SUDS PC Board: vmxpig.pc</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0a0a; color: #eee; font-family: 'Consolas', 'Monaco', monospace; }
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 14px 20px;
+            border-bottom: 1px solid #333;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { font-size: 16px; color: #e94560; letter-spacing: 0.5px; }
+        .header .stats { font-size: 11px; color: #888; }
+        .controls {
+            background: #141420;
+            padding: 10px 20px;
+            display: flex; gap: 14px; flex-wrap: wrap;
+            border-bottom: 1px solid #222;
+        }
+        .layer-toggle {
+            display: flex; align-items: center; gap: 5px;
+            font-size: 12px; cursor: pointer; color: #bbb;
+        }
+        .layer-toggle:hover { color: #fff; }
+        .layer-toggle input { cursor: pointer; accent-color: #e94560; }
+        .svg-container {
+            overflow: auto; padding: 16px;
+            display: flex; justify-content: center;
+        }
+        #coord-readout {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: rgba(10,10,10,0.92); border-top: 1px solid #444;
+            padding: 6px 16px; font-size: 13px; color: #ccc;
+            display: flex; gap: 24px; z-index: 100;
+            font-family: 'Consolas','Monaco',monospace;
+        }
+        #coord-readout .val { color: #e94560; font-weight: bold; }
+        #coord-readout .body-info { color: #5dade2; }
+        .dip-body-group:hover rect.dip-body {
+            stroke: #FFD700 !important; stroke-width: 2.5 !important;
+            filter: brightness(1.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SUDS PC Board: vmxpig.pc</h1>
+        <div class="stats">
+            7 bodies &middot; 120 s1 pts &middot; 116 s2 pts &middot; 0 vias &middot; ~6.3&times;5.9" &middot; v17
+        </div>
+    </div>
+    <div class="controls">
+        <label class="layer-toggle"><input type="checkbox" checked onchange="toggleLayer('board-outline', this.checked)">Board Outline</label>
+        <label class="layer-toggle"><input type="checkbox" checked onchange="toggleLayer('dip-bodies', this.checked)">DIP Bodies</label>
+        <label class="layer-toggle"><input type="checkbox" checked onchange="toggleLayer('side1-traces', this.checked)">Side 1 Traces (Component)</label>
+        <label class="layer-toggle"><input type="checkbox" checked onchange="toggleLayer('side2-traces', this.checked)">Side 2 Traces (Solder)</label>
+        <label class="layer-toggle"><input type="checkbox" checked onchange="toggleLayer('side1-pads', this.checked)">Side 1 Pads</label>
+        <label class="layer-toggle"><input type="checkbox" checked onchange="toggleLayer('side2-pads', this.checked)">Side 2 Pads</label>
+        <label class="layer-toggle"><input type="checkbox" checked onchange="toggleLayer('feed-throughs', this.checked)">Feed-throughs (Vias)</label>
+        <label class="layer-toggle"><input type="checkbox" checked onchange="toggleLayer('labels', this.checked)">Text Labels</label>
+        <label class="layer-toggle"><input type="checkbox" checked onchange="toggleLayer('board-text', this.checked)">Board Text</label>
+    </div>
+    <div class="svg-container">
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="6120" viewBox="0 0 6520 6120" id="board-svg">
+  <style>
+            .board-outline { fill: #2B3320; stroke: #555555; stroke-width: 3; }
+            .dip-body { fill: #1A1A1A; stroke: #888888; stroke-width: 2; opacity: 0.85; }
+            .body-label { fill: #CCCCCC; font-family: monospace; font-size: 10px; text-anchor: middle; dominant-baseline: middle; }
+            .body-name { fill: #FFFFFF; font-family: 'Helvetica','Arial',sans-serif; font-size: 8px; text-anchor: middle; }
+            .side1-trace { stroke: #CC3333; stroke-width: 6.0; fill: none; stroke-linecap: round; }
+            .side2-trace { stroke: #3366CC; stroke-width: 6.0; fill: none; stroke-linecap: round; }
+            .side1-pad { fill: #BB2222; stroke: #DD4444; stroke-width: 1; }
+            .side2-pad { fill: #2244AA; stroke: #4466DD; stroke-width: 1; }
+            .feed-through { fill: none; stroke: #22AA22; stroke-width: 2; }
+            .pin1-marker { fill: #DD7700; stroke: #FF9900; stroke-width: 1; }
+            .finger { fill: #FFD700; stroke: #B8860B; stroke-width: 1; }
+            .shorting-bar { stroke: #C0C0C0; stroke-width: 6; fill: none; }
+            .label { fill: #999999; font-family: monospace; font-size: 12px; }
+            .board-text { fill: #DDDDDD; font-family: 'Helvetica','Arial',sans-serif; }
+            .silk-text { fill: #FFFFFF; font-family: 'Helvetica','Arial',sans-serif; }
+        </style>
+  <title>SUDS PC Board: vmxpig.pc</title>
+  <rect width="100%" height="100%" fill="#111111" />
+  <g id="board-outline">
+    <polygon points="100.0,5820.0 100.0,3340.0 200.0,3240.0 4800.0,3240.0 4900.0,3340.0 4900.0,5820.0 4644.0,5820.0 4644.0,6020.0 3412.0,6020.0 3412.0,5820.0 2984.0,5820.0 2984.0,6020.0 250.0,6020.0 250.0,5820.0 100.0,5820.0" fill="#2B3320" stroke="#555555" stroke-width="3" />
+    <rect x="290.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="352.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="414.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="476.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="538.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="602.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="664.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="726.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="788.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="850.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="914.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="976.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1038.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1100.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1162.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1226.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1288.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1350.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1412.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1474.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1538.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1600.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1662.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1724.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1786.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1850.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1912.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1974.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2036.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2098.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2162.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2224.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2286.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2348.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2410.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2474.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2536.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2598.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2660.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2722.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2786.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="3436.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3476.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3516.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3556.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3596.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3636.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3676.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3716.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3756.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3796.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3836.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3876.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3916.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3956.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3996.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4036.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4076.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4116.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4156.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4196.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4236.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4276.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4316.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4356.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4396.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4436.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4476.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="290.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="352.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="414.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="476.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="538.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="602.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="664.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="726.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="788.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="850.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="914.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="976.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1038.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1100.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1162.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1226.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1288.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1350.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1412.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1474.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1538.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1600.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1662.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1724.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1786.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1850.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1912.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="1974.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2036.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2098.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2162.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2224.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2286.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2348.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2410.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2474.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2536.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2598.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2660.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2722.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="2786.0" y="5820.0" width="36.0" height="200.0" class="finger" />
+    <rect x="3436.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3476.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3516.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3556.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3596.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3636.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3676.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3716.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3756.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3796.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3836.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3876.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3916.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3956.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="3996.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4036.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4076.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4116.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4156.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4196.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4236.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4276.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4316.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4356.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4396.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4436.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <rect x="4476.0" y="5820.0" width="24.0" height="200.0" class="finger" />
+    <line x1="250.0" y1="6020.0" x2="2984.0" y2="6020.0" class="shorting-bar" />
+    <line x1="3412.0" y1="6020.0" x2="4644.0" y2="6020.0" class="shorting-bar" />
+    <line x1="250.0" y1="6020.0" x2="2984.0" y2="6020.0" class="shorting-bar" />
+    <line x1="3412.0" y1="6020.0" x2="4644.0" y2="6020.0" class="shorting-bar" />
+  </g>
+  <g id="side2-traces" />
+  <g id="side1-traces">
+    <line x1="3480.0" y1="220.0" x2="6000.0" y2="220.0" class="side1-trace" />
+    <line x1="3480.0" y1="220.0" x2="3480.0" y2="3900.0" class="side1-trace" />
+    <line x1="3480.0" y1="3900.0" x2="6000.0" y2="3900.0" class="side1-trace" />
+    <line x1="6000.0" y1="3900.0" x2="6000.0" y2="220.0" class="side1-trace" />
+  </g>
+  <g id="side2-pads">
+    <circle cx="6420.0" cy="460.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="420.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="380.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="340.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="300.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="260.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="220.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="180.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="140.0" r="8.0" class="side2-pad" />
+    <rect x="6410.0" y="90.0" width="20.0" height="20.0" class="pin1-marker" />
+    <circle cx="6220.0" cy="700.0" r="8.0" class="side2-pad" />
+    <circle cx="6220.0" cy="660.0" r="8.0" class="side2-pad" />
+    <circle cx="6220.0" cy="620.0" r="8.0" class="side2-pad" />
+    <circle cx="6220.0" cy="580.0" r="8.0" class="side2-pad" />
+    <circle cx="6220.0" cy="540.0" r="8.0" class="side2-pad" />
+    <circle cx="6220.0" cy="500.0" r="8.0" class="side2-pad" />
+    <circle cx="6220.0" cy="460.0" r="8.0" class="side2-pad" />
+    <circle cx="6220.0" cy="420.0" r="8.0" class="side2-pad" />
+    <circle cx="6220.0" cy="380.0" r="8.0" class="side2-pad" />
+    <rect x="6210.0" y="330.0" width="20.0" height="20.0" class="pin1-marker" />
+    <circle cx="480.0" cy="5400.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="5400.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="5360.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="5360.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="5320.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="5320.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="5280.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="5280.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="5240.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="5240.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="5200.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="5200.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="5160.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="5160.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="5120.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="5120.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="5080.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="5080.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="5040.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="5040.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="5000.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="5000.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="4960.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="4960.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="4920.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="4920.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="4880.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="4880.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="4840.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="4840.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="4800.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="4800.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="4760.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="4760.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="4720.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="4720.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="4680.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="4680.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="4640.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="4640.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="4600.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="4600.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="4560.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="4560.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="4520.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="4520.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="4480.0" r="8.0" class="side2-pad" />
+    <circle cx="440.0" cy="4480.0" r="8.0" class="side2-pad" />
+    <circle cx="480.0" cy="4440.0" r="8.0" class="side2-pad" />
+    <rect x="430.0" y="4430.0" width="20.0" height="20.0" class="pin1-marker" />
+    <circle cx="6300.0" cy="660.0" r="8.0" class="side2-pad" />
+    <circle cx="6260.0" cy="660.0" r="8.0" class="side2-pad" />
+    <circle cx="6300.0" cy="620.0" r="8.0" class="side2-pad" />
+    <circle cx="6260.0" cy="620.0" r="8.0" class="side2-pad" />
+    <circle cx="6300.0" cy="580.0" r="8.0" class="side2-pad" />
+    <circle cx="6260.0" cy="580.0" r="8.0" class="side2-pad" />
+    <circle cx="6300.0" cy="540.0" r="8.0" class="side2-pad" />
+    <circle cx="6260.0" cy="540.0" r="8.0" class="side2-pad" />
+    <circle cx="6300.0" cy="500.0" r="8.0" class="side2-pad" />
+    <circle cx="6260.0" cy="500.0" r="8.0" class="side2-pad" />
+    <circle cx="6300.0" cy="460.0" r="8.0" class="side2-pad" />
+    <circle cx="6260.0" cy="460.0" r="8.0" class="side2-pad" />
+    <circle cx="6300.0" cy="420.0" r="8.0" class="side2-pad" />
+    <circle cx="6260.0" cy="420.0" r="8.0" class="side2-pad" />
+    <circle cx="6300.0" cy="380.0" r="8.0" class="side2-pad" />
+    <rect x="6250.0" y="370.0" width="20.0" height="20.0" class="pin1-marker" />
+    <circle cx="6420.0" cy="2560.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="2520.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="2480.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="2440.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="2400.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="2360.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="2320.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="2280.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="2240.0" r="8.0" class="side2-pad" />
+    <rect x="6410.0" y="2190.0" width="20.0" height="20.0" class="pin1-marker" />
+    <circle cx="6420.0" cy="4660.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="4620.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="4580.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="4540.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="4500.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="4460.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="4420.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="4380.0" r="8.0" class="side2-pad" />
+    <circle cx="6420.0" cy="4340.0" r="8.0" class="side2-pad" />
+    <rect x="6410.0" y="4290.0" width="20.0" height="20.0" class="pin1-marker" />
+    <circle cx="6220.0" cy="2800.0" r="8.0" class="side2-pad" />
+    <circle cx="6220.0" cy="2760.0" r="8.0" class="side2-pad" />
+    <circle cx="6220.0" cy="2720.0" r="8.0" class="side2-pad" />
+    <circle cx="6220.0" cy="2680.0" r="8.0" class="side2-pad" />
+    <circle cx="6220.0" cy="2640.0" r="8.0" class="side2-pad" />
+    <circle cx="6220.0" cy="2600.0" r="8.0" class="side2-pad" />
+    <circle cx="6220.0" cy="2560.0" r="8.0" class="side2-pad" />
+    <circle cx="6220.0" cy="2520.0" r="8.0" class="side2-pad" />
+    <circle cx="6220.0" cy="2480.0" r="8.0" class="side2-pad" />
+    <rect x="6210.0" y="2430.0" width="20.0" height="20.0" class="pin1-marker" />
+  </g>
+  <g id="side1-pads">
+    <circle cx="6420.0" cy="460.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="420.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="380.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="340.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="300.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="260.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="220.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="180.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="140.0" r="8.0" class="side1-pad" />
+    <rect x="6410.0" y="90.0" width="20.0" height="20.0" class="pin1-marker" />
+    <circle cx="6220.0" cy="700.0" r="8.0" class="side1-pad" />
+    <circle cx="6220.0" cy="660.0" r="8.0" class="side1-pad" />
+    <circle cx="6220.0" cy="620.0" r="8.0" class="side1-pad" />
+    <circle cx="6220.0" cy="580.0" r="8.0" class="side1-pad" />
+    <circle cx="6220.0" cy="540.0" r="8.0" class="side1-pad" />
+    <circle cx="6220.0" cy="500.0" r="8.0" class="side1-pad" />
+    <circle cx="6220.0" cy="460.0" r="8.0" class="side1-pad" />
+    <circle cx="6220.0" cy="420.0" r="8.0" class="side1-pad" />
+    <circle cx="6220.0" cy="380.0" r="8.0" class="side1-pad" />
+    <rect x="6210.0" y="330.0" width="20.0" height="20.0" class="pin1-marker" />
+    <circle cx="480.0" cy="5400.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="5400.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="5360.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="5360.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="5320.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="5320.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="5280.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="5280.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="5240.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="5240.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="5200.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="5200.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="5160.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="5160.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="5120.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="5120.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="5080.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="5080.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="5040.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="5040.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="5000.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="5000.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="4960.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="4960.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="4920.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="4920.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="4880.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="4880.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="4840.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="4840.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="4800.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="4800.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="4760.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="4760.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="4720.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="4720.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="4680.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="4680.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="4640.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="4640.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="4600.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="4600.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="4560.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="4560.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="4520.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="4520.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="4480.0" r="8.0" class="side1-pad" />
+    <circle cx="440.0" cy="4480.0" r="8.0" class="side1-pad" />
+    <circle cx="480.0" cy="4440.0" r="8.0" class="side1-pad" />
+    <rect x="430.0" y="4430.0" width="20.0" height="20.0" class="pin1-marker" />
+    <circle cx="6300.0" cy="660.0" r="8.0" class="side1-pad" />
+    <circle cx="6260.0" cy="660.0" r="8.0" class="side1-pad" />
+    <circle cx="6300.0" cy="620.0" r="8.0" class="side1-pad" />
+    <circle cx="6260.0" cy="620.0" r="8.0" class="side1-pad" />
+    <circle cx="6300.0" cy="580.0" r="8.0" class="side1-pad" />
+    <circle cx="6260.0" cy="580.0" r="8.0" class="side1-pad" />
+    <circle cx="6300.0" cy="540.0" r="8.0" class="side1-pad" />
+    <circle cx="6260.0" cy="540.0" r="8.0" class="side1-pad" />
+    <circle cx="6300.0" cy="500.0" r="8.0" class="side1-pad" />
+    <circle cx="6260.0" cy="500.0" r="8.0" class="side1-pad" />
+    <circle cx="6300.0" cy="460.0" r="8.0" class="side1-pad" />
+    <circle cx="6260.0" cy="460.0" r="8.0" class="side1-pad" />
+    <circle cx="6300.0" cy="420.0" r="8.0" class="side1-pad" />
+    <circle cx="6260.0" cy="420.0" r="8.0" class="side1-pad" />
+    <circle cx="6300.0" cy="380.0" r="8.0" class="side1-pad" />
+    <rect x="6250.0" y="370.0" width="20.0" height="20.0" class="pin1-marker" />
+    <circle cx="6420.0" cy="2560.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="2520.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="2480.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="2440.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="2400.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="2360.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="2320.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="2280.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="2240.0" r="8.0" class="side1-pad" />
+    <rect x="6410.0" y="2190.0" width="20.0" height="20.0" class="pin1-marker" />
+    <circle cx="6420.0" cy="4660.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="4620.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="4580.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="4540.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="4500.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="4460.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="4420.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="4380.0" r="8.0" class="side1-pad" />
+    <circle cx="6420.0" cy="4340.0" r="8.0" class="side1-pad" />
+    <rect x="6410.0" y="4290.0" width="20.0" height="20.0" class="pin1-marker" />
+    <circle cx="6220.0" cy="2800.0" r="8.0" class="side1-pad" />
+    <circle cx="6220.0" cy="2760.0" r="8.0" class="side1-pad" />
+    <circle cx="6220.0" cy="2720.0" r="8.0" class="side1-pad" />
+    <circle cx="6220.0" cy="2680.0" r="8.0" class="side1-pad" />
+    <circle cx="6220.0" cy="2640.0" r="8.0" class="side1-pad" />
+    <circle cx="6220.0" cy="2600.0" r="8.0" class="side1-pad" />
+    <circle cx="6220.0" cy="2560.0" r="8.0" class="side1-pad" />
+    <circle cx="6220.0" cy="2520.0" r="8.0" class="side1-pad" />
+    <circle cx="6220.0" cy="2480.0" r="8.0" class="side1-pad" />
+    <rect x="6210.0" y="2430.0" width="20.0" height="20.0" class="pin1-marker" />
+  </g>
+  <g id="feed-throughs" />
+  <g id="dip-bodies">
+    <g id="body-426" class="dip-body-group">
+      <title>Body #426  P2101  P96  522pin  loc=(6220,5620)</title>
+      <rect x="6400.0" y="3230.0" width="20.0" height="20.0" class="dip-body" rx="4.0" />
+      <text x="5650.0" y="1850.0" class="body-label" font-size="112">P2101</text>
+      <text x="5650.0" y="3226.0" class="body-name" font-size="150">P96</text>
+    </g>
+    <g id="body-489" class="dip-body-group">
+      <title>Body #489  J2101  DB50  1074pin  loc=(240,1280)</title>
+      <rect x="430.0" y="4430.0" width="60.0" height="980.0" class="dip-body" rx="4.0" />
+      <text x="460.0" y="4920.0" class="body-label" font-size="112">J2101</text>
+      <text x="460.0" y="4426.0" class="body-name" font-size="150">DB50</text>
+    </g>
+    <g id="body-425" class="dip-body-group">
+      <title>Body #425  P2104  P96  522pin  loc=(6020,5380)</title>
+      <rect x="6200.0" y="3230.0" width="20.0" height="20.0" class="dip-body" rx="4.0" />
+      <text x="5550.0" y="1970.0" class="body-label" font-size="112">P2104</text>
+      <text x="5550.0" y="3226.0" class="body-name" font-size="150">P96</text>
+    </g>
+    <g id="body-405" class="dip-body-group">
+      <title>Body #405  J2100  J.16  1040pin  loc=(6060,5340)</title>
+      <rect x="6240.0" y="3230.0" width="20.0" height="20.0" class="dip-body" rx="4.0" />
+      <text x="5570.0" y="1950.0" class="body-label" font-size="112">J2100</text>
+      <text x="5570.0" y="3226.0" class="body-name" font-size="150">J.16</text>
+    </g>
+    <g id="body-427" class="dip-body-group">
+      <title>Body #427  P2102  P96  522pin  loc=(6220,3520)</title>
+      <rect x="6400.0" y="3230.0" width="20.0" height="20.0" class="dip-body" rx="4.0" />
+      <text x="5650.0" y="2900.0" class="body-label" font-size="112">P2102</text>
+      <text x="5650.0" y="3226.0" class="body-name" font-size="150">P96</text>
+    </g>
+    <g id="body-428" class="dip-body-group">
+      <title>Body #428  P2103  P96  522pin  loc=(6220,1420)</title>
+      <rect x="6400.0" y="4290.0" width="20.0" height="380.0" class="dip-body" rx="4.0" />
+      <text x="5650.0" y="4480.0" class="body-label" font-size="112">P2103</text>
+      <text x="5650.0" y="4286.0" class="body-name" font-size="150">P96</text>
+    </g>
+    <g id="body-424" class="dip-body-group">
+      <title>Body #424  P2105  P96  522pin  loc=(6020,3280)</title>
+      <rect x="6200.0" y="3230.0" width="20.0" height="20.0" class="dip-body" rx="4.0" />
+      <text x="5550.0" y="3020.0" class="body-label" font-size="112">P2105</text>
+      <text x="5550.0" y="3226.0" class="body-name" font-size="150">P96</text>
+    </g>
+  </g>
+  <g id="labels" />
+  <g id="board-text" />
+</svg>
+    </div>
+    <div id="coord-readout">
+        <span>Board: <span class="val" id="cr-board">—</span></span>
+        <span>SVG: <span class="val" id="cr-svg">—</span></span>
+        <span id="cr-body" class="body-info"></span>
+    </div>
+    <script>
+        function toggleLayer(id, visible) {
+            const el = document.getElementById(id);
+            if (el) el.style.display = visible ? 'inline' : 'none';
+        }
+
+        // Board-space coordinate readout
+        const MIN_X = -100;
+        const MAX_Y = 5940;
+        const SCALE = 1.0;
+        const svg = document.getElementById('board-svg');
+        const crBoard = document.getElementById('cr-board');
+        const crSvg = document.getElementById('cr-svg');
+        const crBody = document.getElementById('cr-body');
+
+        svg.addEventListener('mousemove', function(e) {
+            const pt = svg.createSVGPoint();
+            pt.x = e.clientX;
+            pt.y = e.clientY;
+            const svgPt = pt.matrixTransform(svg.getScreenCTM().inverse());
+            const bx = (svgPt.x / SCALE) + MIN_X;
+            const by = MAX_Y - (svgPt.y / SCALE);
+            crSvg.textContent = Math.round(svgPt.x) + ', ' + Math.round(svgPt.y);
+            crBoard.textContent = Math.round(bx) + ', ' + Math.round(by);
+        });
+
+        // Highlight hovered body in the status bar
+        svg.addEventListener('mouseover', function(e) {
+            const bg = e.target.closest('.dip-body-group');
+            if (bg) {
+                const title = bg.querySelector('title');
+                crBody.textContent = title ? title.textContent : bg.id;
+            }
+        });
+        svg.addEventListener('mouseout', function(e) {
+            const bg = e.target.closest('.dip-body-group');
+            if (bg) crBody.textContent = '';
+        });
+    </script>
+</body>
+</html>
