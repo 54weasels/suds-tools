@@ -15,6 +15,7 @@ data/
 ├── wirelist_errors/                # 90 WLS error summary files (text)
 ├── commands/                       # COM/TXT batch command scripts for WL tool
 ├── pc_boards/                      # 64 rendered PC board HTML files (interactive SVG)
+│   └── index.html                  # Searchable board index grouped by form factor
 ├── board_pdfs/                     # Best-version PDFs for each board (checked in)
 │   └── index.html                  # Provenance-rich HTML index
 ├── drw_version_index.json          # Complete index of all 2,215 DRW file versions
@@ -75,6 +76,7 @@ Component type labels are resolved from the highest-priority available source:
 
 ```bash
 python3 scripts/render_pc_boards.py          # Render all 64 boards
+python3 scripts/generate_pc_index.py         # Generate searchable index
 python3 scripts/render_pc_boards.py -b g     # Render single board
 python3 scripts/render_pc_boards.py --list   # List available boards
 ```

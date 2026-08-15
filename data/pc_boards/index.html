@@ -12,13 +12,9 @@
         }
         .header {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            padding: 32px 40px;
-            border-bottom: 2px solid #e94560;
+            padding: 32px 40px; border-bottom: 2px solid #e94560;
         }
-        .header h1 {
-            font-size: 28px; color: #fff; font-weight: 300;
-            letter-spacing: 1px; margin-bottom: 8px;
-        }
+        .header h1 { font-size: 28px; color: #fff; font-weight: 300; letter-spacing: 1px; margin-bottom: 8px; }
         .header h1 span { color: #e94560; font-weight: 600; }
         .header .subtitle { font-size: 14px; color: #8899aa; }
         .stats-bar {
@@ -28,22 +24,15 @@
         }
         .stats-bar .val { color: #e94560; font-weight: 600; }
         .content { padding: 24px 40px 60px; }
-        .form-factor {
-            margin-bottom: 32px;
-        }
+        .form-factor { margin-bottom: 32px; }
         .ff-header {
             font-size: 18px; color: #5dade2; font-weight: 500;
             margin-bottom: 12px; padding-bottom: 6px;
             border-bottom: 1px solid #2a2a3a;
             display: flex; align-items: baseline; gap: 12px;
         }
-        .ff-header .count {
-            font-size: 12px; color: #666; font-weight: 400;
-        }
-        table {
-            width: 100%; border-collapse: collapse;
-            font-size: 13px;
-        }
+        .ff-header .count { font-size: 12px; color: #666; font-weight: 400; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
         th {
             text-align: left; padding: 8px 12px;
             background: #1a1a2a; color: #8899aa;
@@ -52,45 +41,27 @@
             border-bottom: 1px solid #333;
             position: sticky; top: 0;
         }
-        td {
-            padding: 7px 12px;
-            border-bottom: 1px solid #1a1a1a;
-        }
-        tr:hover td {
-            background: #151525;
-        }
-        .board-link {
-            color: #e94560; text-decoration: none;
-            font-weight: 600; font-size: 14px;
-        }
-        .board-link:hover {
-            color: #ff6b81; text-decoration: underline;
-        }
+        td { padding: 7px 12px; border-bottom: 1px solid #1a1a1a; }
+        tr:hover td { background: #151525; }
+        .board-link { color: #e94560; text-decoration: none; font-weight: 600; font-size: 14px; }
+        .board-link:hover { color: #ff6b81; text-decoration: underline; }
         .title-col { color: #aaa; max-width: 280px; }
         .num { text-align: right; font-family: 'Consolas','Monaco',monospace; color: #bbb; }
         .dim { color: #777; font-family: 'Consolas','Monaco',monospace; font-size: 12px; }
         .src { font-size: 11px; }
-        .src span { 
-            display: inline-block; padding: 1px 6px; border-radius: 3px;
-            margin-right: 3px; font-family: monospace;
-        }
+        .src span { display: inline-block; padding: 1px 6px; border-radius: 3px; margin-right: 3px; font-family: monospace; }
         .src .prt { background: #1a3a2a; color: #4ade80; }
         .src .wd  { background: #2a2a1a; color: #fbbf24; }
         .src .stf { background: #1a2a3a; color: #60a5fa; }
         .src .dip { background: #2a1a2a; color: #c084fc; }
-        .crd-tag {
-            font-size: 11px; padding: 2px 8px; border-radius: 3px;
-            font-family: monospace;
-        }
+        .crd-tag { font-size: 11px; padding: 2px 8px; border-radius: 3px; font-family: monospace; }
         .crd-multi { background: #2a1a1a; color: #f87171; }
         .crd-vme   { background: #1a2a1a; color: #4ade80; }
         .crd-vme3  { background: #1a3a1a; color: #22c55e; }
         .crd-euro  { background: #1a1a3a; color: #818cf8; }
         .crd-at    { background: #3a2a1a; color: #fb923c; }
         .crd-none  { background: #1a1a1a; color: #555; }
-        .filter-bar {
-            margin-bottom: 16px; display: flex; gap: 12px; align-items: center;
-        }
+        .filter-bar { margin-bottom: 16px; display: flex; gap: 12px; align-items: center; }
         .filter-bar input {
             background: #1a1a2a; border: 1px solid #333; color: #ddd;
             padding: 8px 14px; border-radius: 6px; font-size: 14px;
@@ -103,9 +74,7 @@
 <body>
     <div class="header">
         <h1>SUDS <span>PC Board</span> Index</h1>
-        <div class="subtitle">
-            Stanford University Drawing System — Sun Microsystems PCB Layout Archive
-        </div>
+        <div class="subtitle">Stanford University Drawing System — Sun Microsystems PCB Layout Archive</div>
     </div>
     <div class="stats-bar">
         <span>Boards: <span class="val">64</span></span>
@@ -126,15 +95,12 @@
             </div>
             <table>
                 <tr>
-                    <th>Board</th>
-                    <th>Description</th>
+                    <th>Board</th><th>Description</th>
                     <th style="text-align:right">Bodies</th>
                     <th style="text-align:right">S1 Pts</th>
                     <th style="text-align:right">S2 Pts</th>
                     <th style="text-align:right">Vias</th>
-                    <th>Size</th>
-                    <th>Data Sources</th>
-                    <th>Ver</th>
+                    <th>Size</th><th>Data Sources</th><th>Ver</th>
                 </tr>
                 <tr class="board-row" data-name="25" data-title="2501">
                     <td><a class="board-link" href="25_board.html">25</a></td>
@@ -432,15 +398,12 @@
             </div>
             <table>
                 <tr>
-                    <th>Board</th>
-                    <th>Description</th>
+                    <th>Board</th><th>Description</th>
                     <th style="text-align:right">Bodies</th>
                     <th style="text-align:right">S1 Pts</th>
                     <th style="text-align:right">S2 Pts</th>
                     <th style="text-align:right">Vias</th>
-                    <th>Size</th>
-                    <th>Data Sources</th>
-                    <th>Ver</th>
+                    <th>Size</th><th>Data Sources</th><th>Ver</th>
                 </tr>
                 <tr class="board-row" data-name="cg" data-title="cg1">
                     <td><a class="board-link" href="cg_board.html">cg</a></td>
@@ -606,15 +569,12 @@
             </div>
             <table>
                 <tr>
-                    <th>Board</th>
-                    <th>Description</th>
+                    <th>Board</th><th>Description</th>
                     <th style="text-align:right">Bodies</th>
                     <th style="text-align:right">S1 Pts</th>
                     <th style="text-align:right">S2 Pts</th>
                     <th style="text-align:right">Vias</th>
-                    <th>Size</th>
-                    <th>Data Sources</th>
-                    <th>Ver</th>
+                    <th>Size</th><th>Data Sources</th><th>Ver</th>
                 </tr>
                 <tr class="board-row" data-name="em" data-title="em1">
                     <td><a class="board-link" href="em_board.html">em</a></td>
@@ -714,15 +674,12 @@
             </div>
             <table>
                 <tr>
-                    <th>Board</th>
-                    <th>Description</th>
+                    <th>Board</th><th>Description</th>
                     <th style="text-align:right">Bodies</th>
                     <th style="text-align:right">S1 Pts</th>
                     <th style="text-align:right">S2 Pts</th>
                     <th style="text-align:right">Vias</th>
-                    <th>Size</th>
-                    <th>Data Sources</th>
-                    <th>Ver</th>
+                    <th>Size</th><th>Data Sources</th><th>Ver</th>
                 </tr>
                 <tr class="board-row" data-name="xm" data-title="x1">
                     <td><a class="board-link" href="xm_board.html">xm</a></td>
@@ -756,15 +713,12 @@
             </div>
             <table>
                 <tr>
-                    <th>Board</th>
-                    <th>Description</th>
+                    <th>Board</th><th>Description</th>
                     <th style="text-align:right">Bodies</th>
                     <th style="text-align:right">S1 Pts</th>
                     <th style="text-align:right">S2 Pts</th>
                     <th style="text-align:right">Vias</th>
-                    <th>Size</th>
-                    <th>Data Sources</th>
-                    <th>Ver</th>
+                    <th>Size</th><th>Data Sources</th><th>Ver</th>
                 </tr>
                 <tr class="board-row" data-name="pc" data-title="xx1">
                     <td><a class="board-link" href="pc_board.html">pc</a></td>
@@ -787,15 +741,12 @@
             </div>
             <table>
                 <tr>
-                    <th>Board</th>
-                    <th>Description</th>
+                    <th>Board</th><th>Description</th>
                     <th style="text-align:right">Bodies</th>
                     <th style="text-align:right">S1 Pts</th>
                     <th style="text-align:right">S2 Pts</th>
                     <th style="text-align:right">Vias</th>
-                    <th>Size</th>
-                    <th>Data Sources</th>
-                    <th>Ver</th>
+                    <th>Size</th><th>Data Sources</th><th>Ver</th>
                 </tr>
                 <tr class="board-row" data-name="a20" data-title="">
                     <td><a class="board-link" href="a20_board.html">a20</a></td>
@@ -954,13 +905,12 @@
                 r.style.display = match ? '' : 'none';
                 if (match) visible++;
             });
-            // Hide empty form-factor groups
             document.querySelectorAll('.form-factor').forEach(ff => {
-                const visRows = ff.querySelectorAll('.board-row:not([style*="display: none"])');
-                ff.style.display = visRows.length ? '' : 'none';
+                const vis = ff.querySelectorAll('.board-row:not([style*="display: none"])');
+                ff.style.display = vis.length ? '' : 'none';
             });
-            const counter = document.getElementById('filter-count');
-            counter.textContent = q ? `${visible} of ${rows.length} boards` : '';
+            document.getElementById('filter-count').textContent =
+                q ? `${visible} of ${rows.length} boards` : '';
         }
     </script>
 </body>

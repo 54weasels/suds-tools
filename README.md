@@ -229,6 +229,7 @@ suds-tools/
 ├── scripts/
 │   ├── batch_render.py             # Batch schematic SVG/PDF renderer
 │   ├── render_pc_boards.py         # Batch PC board HTML renderer
+│   ├── generate_pc_index.py        # PC board searchable HTML index
 │   ├── generate_index.py           # Provenance-rich HTML index generator
 │   ├── build_version_index.py      # Scan all 2,215 DRW files for metadata
 │   ├── build_canonical_sets.py     # Build 352 canonical board sets
@@ -236,7 +237,7 @@ suds-tools/
 ├── data/
 │   ├── README.md                   # Data directory documentation
 │   ├── drw/                        # 685 DRW files (canonical from smi/octal)
-│   ├── pc_boards/                  # 64 rendered PC board HTML files
+│   ├── pc_boards/                  # 64 rendered PC board HTML files + index
 │   ├── board_pdfs/                 # Best-version schematic PDFs
 │   ├── wirelists/                  # 68 WL wirelist files
 │   ├── wd/                         # WD wire data files
@@ -264,8 +265,9 @@ python3 scripts/populate_best_versions.py
 python3 scripts/batch_render.py --all --pdf --versions
 python3 scripts/generate_index.py
 
-# Render all PC board layouts
+# Render all PC board layouts + generate index
 python3 scripts/render_pc_boards.py
+python3 scripts/generate_pc_index.py
 
 # Quick single-board renders
 python3 scripts/batch_render.py --board x --pdf --versions
