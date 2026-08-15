@@ -28,7 +28,7 @@ from typing import Optional
 from .pc_model import PCFile, PCPoint, PCBody
 from .crd_model import CRDFile
 from .dip_library import DIPLibrary
-from .stf_parser import STFFile
+from .dip_type_map import DIPTypeMap
 
 
 # ============================================================================
@@ -100,13 +100,13 @@ class PCSVGRenderer:
     def __init__(self, pc: PCFile, crd: CRDFile | None = None,
                  dip_lib: DIPLibrary | None = None,
                  silk_pc: PCFile | None = None,
-                 stf: STFFile | None = None,
+                 dip_types: DIPTypeMap | None = None,
                  scale: float = 1.0, margin: int = 100):
         self.pc = pc
         self.crd = crd
         self.dip_lib = dip_lib
         self.silk_pc = silk_pc
-        self.stf = stf
+        self.dip_types = dip_types or DIPTypeMap()
         self.scale = scale
         self.margin = margin
 
@@ -667,10 +667,10 @@ class PCSVGRenderer:
             else:
                 dip_name = ''
 
-            # STF lookup: match by component designator (loc_code)
-            stf_type = ''
-            if self.stf and loc_code:
-                stf_type = self.stf.type_for_designator(loc_code) or ''
+            # DIP type lookup: WD → STF → DIP library (via DIPTypeMap)
+            chip_type = ''
+            if loc_code:
+                chip_type = self.dip_types.get_type(loc_code)
 
             # Body group with tooltip
             body_g = ET.SubElement(g, 'g')
@@ -680,8 +680,8 @@ class PCSVGRenderer:
             tip_parts = [f'Body #{body.body_id}']
             if loc_code:
                 tip_parts.append(loc_code)
-            if stf_type:
-                tip_parts.append(stf_type)
+            if chip_type:
+                tip_parts.append(chip_type)
             elif dip_name:
                 tip_parts.append(dip_name)
             tip_parts.append(f'{body.num_pins}pin')
@@ -704,7 +704,13 @@ class PCSVGRenderer:
 
             cx = (x1 + x2) / 2
             cy = (y1 + y2) / 2
-            font_size = min(12, max(5, min(w, h) / (3 * self.scale))) * self.scale
+
+            # pcdvi.sai line 1146: plottext(curx, cury, 2, 0, loc)
+            #   → designator "U704" at DVI size 2 = 112 mils
+            # pcdvi.sai line 1168: plottext(x-0.5*charw*length(name), y, 3, 0, name)
+            #   → type name "74LS374" at DVI size 3 = 150 mils
+            loc_font_size = TEXT_SIZE_MILS[2] * self.scale
+            type_font_size = TEXT_SIZE_MILS[3] * self.scale
 
             # Component designator centered on body (matches plotbox loc label)
             if loc_code:
@@ -712,20 +718,19 @@ class PCSVGRenderer:
                 label.set('x', f'{cx:.1f}')
                 label.set('y', f'{cy:.1f}')
                 label.set('class', 'body-label')
-                label.set('font-size', f'{font_size:.0f}')
+                label.set('font-size', f'{loc_font_size:.0f}')
                 label.text = loc_code
 
             # Chip type name above the body (matches plottext at line 1168)
-            # Prefer STF type (74LS374) over DIP library name (8T97)
-            type_label = stf_type or dip_name
+            # Priority: WD/STF chip type (74LS374) > DIP library name (8T97)
+            type_label = chip_type or dip_name
             if type_label:
                 name_y = y1 - 4 * self.scale
-                name_size = max(5, min(10, font_size * 0.75))
                 name_el = ET.SubElement(body_g, 'text')
                 name_el.set('x', f'{cx:.1f}')
                 name_el.set('y', f'{name_y:.1f}')
                 name_el.set('class', 'body-name')
-                name_el.set('font-size', f'{name_size:.0f}')
+                name_el.set('font-size', f'{type_font_size:.0f}')
                 name_el.text = type_label
 
     def _render_labels(self, svg: ET.Element) -> None:
@@ -801,10 +806,11 @@ class PCSVGRenderer:
 def render_pc_svg(pc: PCFile, output_path: str | Path,
                   crd: CRDFile | None = None,
                   dip_lib: DIPLibrary | None = None,
-                  stf: STFFile | None = None,
+                  dip_types: DIPTypeMap | None = None,
                   scale: float = 1.0, margin: int = 100) -> None:
     """Render a parsed PCFile to SVG."""
-    renderer = PCSVGRenderer(pc, crd=crd, dip_lib=dip_lib, stf=stf,
+    renderer = PCSVGRenderer(pc, crd=crd, dip_lib=dip_lib,
+                              dip_types=dip_types,
                               scale=scale, margin=margin)
     renderer.render(output_path)
 
@@ -813,7 +819,7 @@ def render_pc_html(pc: PCFile, output_path: str | Path,
                    crd: CRDFile | None = None,
                    dip_lib: DIPLibrary | None = None,
                    silk_pc: PCFile | None = None,
-                   stf: STFFile | None = None,
+                   dip_types: DIPTypeMap | None = None,
                    scale: float = 1.0, margin: int = 100) -> None:
     """Render a parsed PCFile to an interactive HTML file with layer toggles.
 
@@ -821,7 +827,7 @@ def render_pc_html(pc: PCFile, output_path: str | Path,
     visibility of each layer group.
     """
     renderer = PCSVGRenderer(pc, crd=crd, dip_lib=dip_lib, silk_pc=silk_pc,
-                             stf=stf, scale=scale, margin=margin)
+                             dip_types=dip_types, scale=scale, margin=margin)
     width = (renderer.max_x - renderer.min_x) * scale
     height = (renderer.max_y - renderer.min_y) * scale
 
