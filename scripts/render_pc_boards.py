@@ -34,8 +34,12 @@ from src.pc_svg_renderer import render_pc_html
 
 
 # Known silk-screen overlay files (separate PC file with board outline text)
+# In SUDS, silk screens are generated from the main board PC file + STF;
+# these are pre-rendered silk artwork stored as separate PC files.
 SILK_OVERLAYS = {
-    'd': 'mupac.pc.O',
+    'd': 'mupac.pc.O',       # Mupac wire-wrap board outline for d board
+    'mouse': 'msilk.pc.O',   # Silk screen for mouse board
+    'mouse2': 'm2silk.pc.O', # Silk screen for mouse2 board
 }
 
 # Known PRT file mappings (board prefix → PRT filename)
@@ -78,6 +82,7 @@ NO_CRD_BOARDS = {
     'a20', 'ax',                # Small test/adapter boards
     'back',                     # Backplane (custom shape)
     'p',                        # Extremely tall — custom layout
+    'vmemb',                    # Corrupt data: S2 X-shifted ~200 mils, 16% non-45° traces
 }
 
 # Explicit CRD overrides (board → CRD file or None).

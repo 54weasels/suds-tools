@@ -56,6 +56,7 @@ STF_MAP = {
 NO_CRD_BOARDS = {
     'mouse', 'mousef', 'mupac', 'msilk', 'm2silk',
     'm2sola', 'ether', 'ratsht', 'a20', 'ax', 'back', 'p', 'mouse2',
+    'vmemb',  # Corrupt data: S2 X-shifted, non-45° traces
 }
 
 CRD_OVERRIDES: dict[str, str | None] = {'mouse2': None}

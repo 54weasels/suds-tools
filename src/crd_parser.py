@@ -281,6 +281,78 @@ class CRDParser:
 
 
 # ============================================================================
+# Post-parse corrections
+# ============================================================================
+
+def _make_cpin(l1_char: str, l2_char: str, pin: int) -> int:
+    """Build a BYTE(6) CPIN location word: 0,0,0,L1,L2,PN."""
+    l1 = ord(l1_char) - ord('A') + 1
+    l2 = ord(l2_char) - ord('A') + 1
+    return (l1 << 12) | (l2 << 6) | pin
+
+
+def _patch_multi0_fingers(crd: CRDFile) -> None:
+    """Fix missing fingers in the compiled multi0.crd.O file.
+
+    The card.fai assembly source for MULTI0 (CRDTYP=24) has a bug where
+    the FOR loop end values are too low, generating fewer fingers than
+    the Multibus specification requires:
+
+      P1: FOR K←520,6822,156  → 41 fingers (should be 43; comment says "86 PINS")
+      P2: FOR K←8370,11020,100 → 27 fingers (should be 30; comment says "60 PINS")
+
+    This function adds the missing 2 P1 and 3 P2 fingers per side,
+    matching the physical board connector and the source comments.
+    Coordinates are computed using the same integer arithmetic as the
+    FAIL assembler: X = K_mils // 5 * 2.
+    """
+    # All fingers share the same Y coordinates
+    start_y = 120  # K=300 → 300//5*2 = 120
+    end_y = -80    # K=-200 → -200 is negative; stored as -80
+
+    # --- P1: add 2 fingers at the end of MA (front) and MB (back) ---
+    # Existing last P1 finger: K=6760, X=2704, pin 41
+    # Missing: K=6916→X=2766 (pin 42), K=7072→X=2828 (pin 43)
+    p1_missing = [
+        (6916 // 5 * 2, 42),  # X=2766
+        (7072 // 5 * 2, 43),  # X=2828
+    ]
+    for x, pin in p1_missing:
+        crd.front_fingers.append(CRDFinger(
+            start=(x, start_y), end=(x, end_y),
+            location=_make_cpin('M', 'A', pin),
+        ))
+        crd.back_fingers.append(CRDFinger(
+            start=(x, start_y), end=(x, end_y),
+            location=_make_cpin('M', 'B', pin),
+        ))
+
+    # --- P2: add 3 fingers at the end of MC ---
+    # Existing last P2 finger: K=10970, X=4388
+    # Front (odd PNs): last is MC53, add MC55/57/59
+    # Back (even PNs): last is MC54, add MC56/58/60
+    p2_missing_x = [
+        11070 // 5 * 2,  # X=4428
+        11170 // 5 * 2,  # X=4468
+        11270 // 5 * 2,  # X=4508
+    ]
+    front_pns = [55, 57, 59]  # odd: component side
+    back_pns = [56, 58, 60]   # even: solder side
+    for x, fpn, bpn in zip(p2_missing_x, front_pns, back_pns):
+        crd.front_fingers.append(CRDFinger(
+            start=(x, start_y), end=(x, end_y),
+            location=_make_cpin('M', 'C', fpn),
+        ))
+        crd.back_fingers.append(CRDFinger(
+            start=(x, start_y), end=(x, end_y),
+            location=_make_cpin('M', 'C', bpn),
+        ))
+
+    logger.debug(f"Patched multi0: added 5 front + 5 back fingers "
+                 f"(now {len(crd.front_fingers)}+{len(crd.back_fingers)})")
+
+
+# ============================================================================
 # Convenience functions
 # ============================================================================
 
@@ -289,7 +361,14 @@ def parse_crd_file(path: str | Path, debug: bool = False) -> CRDFile:
     from .unpack import read_file
     words = read_file(str(path))
     parser = CRDParser(words, source_path=str(path), debug=debug)
-    return parser.parse()
+    crd = parser.parse()
+
+    # Apply known errata corrections
+    basename = Path(path).name.lower()
+    if basename == 'multi0.crd.o':
+        _patch_multi0_fingers(crd)
+
+    return crd
 
 
 def parse_crd_words(words: list[int], source_path: str = "",
@@ -297,3 +376,4 @@ def parse_crd_words(words: list[int], source_path: str = "",
     """Parse a CRD card definition file from a pre-loaded word list."""
     parser = CRDParser(words, source_path=source_path, debug=debug)
     return parser.parse()
+
