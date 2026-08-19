@@ -43,6 +43,16 @@
             stroke: #FFD700 !important; stroke-width: 2.5 !important;
             filter: brightness(1.4);
         }
+        /* Click-to-copy */
+        line[class*="trace"]:hover, .dip-body-group:hover { cursor: pointer; }
+        #copy-toast {
+            position: fixed; top: 16px; right: 16px;
+            background: #1a8; color: #fff; padding: 8px 16px;
+            border-radius: 6px; font-size: 13px;
+            opacity: 0; transition: opacity 0.3s;
+            pointer-events: none; z-index: 200;
+        }
+        #copy-toast.show { opacity: 1; }
     </style>
 </head>
 <body>
@@ -5213,6 +5223,7 @@
         <span>SVG: <span class="val" id="cr-svg">—</span></span>
         <span id="cr-body" class="body-info"></span>
     </div>
+    <div id="copy-toast">Copied!</div>
     <script>
         function toggleLayer(id, visible) {
             const el = document.getElementById(id);
@@ -5250,6 +5261,37 @@
         svg.addEventListener('mouseout', function(e) {
             const bg = e.target.closest('.dip-body-group');
             if (bg) crBody.textContent = '';
+        });
+
+        // Click-to-copy: any element with a <title> child
+        const toast = document.getElementById('copy-toast');
+        let toastTimer;
+        svg.addEventListener('click', function(e) {
+            // Walk up from the click target to find an element with a <title>
+            let el = e.target;
+            let text = null;
+            while (el && el !== svg) {
+                const t = el.querySelector(':scope > title');
+                if (t) { text = t.textContent; break; }
+                el = el.parentElement;
+            }
+            if (!text) return;
+
+            // Append current board coordinates
+            const pt = svg.createSVGPoint();
+            pt.x = e.clientX;
+            pt.y = e.clientY;
+            const svgPt = pt.matrixTransform(svg.getScreenCTM().inverse());
+            const bx = Math.round((svgPt.x / SCALE) + MIN_X);
+            const by = Math.round(MAX_Y - (svgPt.y / SCALE));
+            text += ' @board(' + bx + ',' + by + ')';
+
+            navigator.clipboard.writeText(text).then(function() {
+                toast.textContent = 'Copied: ' + text;
+                toast.classList.add('show');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(function() { toast.classList.remove('show'); }, 2000);
+            });
         });
     </script>
 </body>

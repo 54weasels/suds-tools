@@ -43,6 +43,16 @@
             stroke: #FFD700 !important; stroke-width: 2.5 !important;
             filter: brightness(1.4);
         }
+        /* Click-to-copy */
+        line[class*="trace"]:hover, .dip-body-group:hover { cursor: pointer; }
+        #copy-toast {
+            position: fixed; top: 16px; right: 16px;
+            background: #1a8; color: #fff; padding: 8px 16px;
+            border-radius: 6px; font-size: 13px;
+            opacity: 0; transition: opacity 0.3s;
+            pointer-events: none; z-index: 200;
+        }
+        #copy-toast.show { opacity: 1; }
     </style>
 </head>
 <body>
@@ -86,204 +96,596 @@
   <rect width="100%" height="100%" fill="#111111" />
   <g id="board-outline" />
   <g id="side2-traces">
-    <line x1="1020.0" y1="1500.0" x2="1020.0" y2="140.0" class="side2-trace" />
-    <line x1="1020.0" y1="140.0" x2="980.0" y2="100.0" class="side2-trace" />
-    <line x1="980.0" y1="100.0" x2="140.0" y2="100.0" class="side2-trace" />
-    <line x1="140.0" y1="100.0" x2="100.0" y2="140.0" class="side2-trace" />
+    <line x1="1020.0" y1="1500.0" x2="1020.0" y2="140.0" class="side2-trace">
+      <title>pid=0o126 body=86 (920,0) → pid=0o125 body=85 (920,1360) len=1360</title>
+    </line>
+    <line x1="1020.0" y1="140.0" x2="980.0" y2="100.0" class="side2-trace">
+      <title>pid=0o125 body=85 (920,1360) → pid=0o124 body=84 (880,1400) len=57</title>
+    </line>
+    <line x1="980.0" y1="100.0" x2="140.0" y2="100.0" class="side2-trace">
+      <title>pid=0o124 body=84 (880,1400) → pid=0o123 body=83 (40,1400) len=840</title>
+    </line>
+    <line x1="140.0" y1="100.0" x2="100.0" y2="140.0" class="side2-trace">
+      <title>pid=0o123 body=83 (40,1400) → pid=0o122 body=82 (0,1360) len=57</title>
+    </line>
   </g>
   <g id="side1-traces">
-    <line x1="940.0" y1="1020.0" x2="140.0" y2="1020.0" class="side1-trace" />
-    <line x1="940.0" y1="1020.0" x2="940.0" y2="1300.0" class="side1-trace" />
-    <line x1="340.0" y1="780.0" x2="300.0" y2="780.0" class="side1-trace" />
-    <line x1="340.0" y1="780.0" x2="340.0" y2="540.0" class="side1-trace" />
-    <line x1="140.0" y1="1020.0" x2="140.0" y2="1300.0" class="side1-trace" />
-    <line x1="300.0" y1="780.0" x2="300.0" y2="540.0" class="side1-trace" />
-    <line x1="300.0" y1="780.0" x2="260.0" y2="780.0" class="side1-trace" />
-    <line x1="140.0" y1="1460.0" x2="180.0" y2="1460.0" class="side1-trace" />
-    <line x1="140.0" y1="1460.0" x2="140.0" y2="1380.0" class="side1-trace" />
-    <line x1="300.0" y1="540.0" x2="260.0" y2="540.0" class="side1-trace" />
-    <line x1="300.0" y1="540.0" x2="340.0" y2="540.0" class="side1-trace" />
-    <line x1="180.0" y1="1460.0" x2="180.0" y2="1380.0" class="side1-trace" />
-    <line x1="220.0" y1="540.0" x2="260.0" y2="540.0" class="side1-trace" />
-    <line x1="220.0" y1="540.0" x2="220.0" y2="540.0" class="side1-trace" />
-    <line x1="180.0" y1="1380.0" x2="140.0" y2="1380.0" class="side1-trace" />
-    <line x1="180.0" y1="1380.0" x2="180.0" y2="1300.0" class="side1-trace" />
-    <line x1="260.0" y1="540.0" x2="260.0" y2="780.0" class="side1-trace" />
-    <line x1="140.0" y1="1380.0" x2="140.0" y2="1300.0" class="side1-trace" />
-    <line x1="260.0" y1="780.0" x2="220.0" y2="780.0" class="side1-trace" />
-    <line x1="140.0" y1="1300.0" x2="180.0" y2="1300.0" class="side1-trace" />
-    <line x1="220.0" y1="780.0" x2="220.0" y2="540.0" class="side1-trace" />
-    <line x1="180.0" y1="1300.0" x2="180.0" y2="1260.0" class="side1-trace" />
-    <line x1="180.0" y1="1300.0" x2="940.0" y2="1300.0" class="side1-trace" />
-    <line x1="220.0" y1="540.0" x2="180.0" y2="540.0" class="side1-trace" />
-    <line x1="180.0" y1="540.0" x2="180.0" y2="780.0" class="side1-trace" />
-    <line x1="470.0" y1="1390.0" x2="470.0" y2="1470.0" class="side1-trace" />
-    <line x1="470.0" y1="1390.0" x2="500.0" y2="1390.0" class="side1-trace" />
-    <line x1="1020.0" y1="1020.0" x2="980.0" y2="1020.0" class="side1-trace" />
-    <line x1="1040.0" y1="1480.0" x2="1040.0" y2="152.0" class="side1-trace" />
-    <line x1="1040.0" y1="1480.0" x2="110.0" y2="1480.0" class="side1-trace" />
-    <line x1="980.0" y1="1100.0" x2="1020.0" y2="1100.0" class="side1-trace" />
-    <line x1="1040.0" y1="152.0" x2="980.0" y2="112.0" class="side1-trace" />
-    <line x1="980.0" y1="112.0" x2="160.0" y2="112.0" class="side1-trace" />
-    <line x1="1020.0" y1="1180.0" x2="980.0" y2="1180.0" class="side1-trace" />
-    <line x1="160.0" y1="112.0" x2="110.0" y2="152.0" class="side1-trace" />
-    <line x1="340.0" y1="120.0" x2="380.0" y2="120.0" class="side1-trace" />
-    <line x1="340.0" y1="120.0" x2="340.0" y2="140.0" class="side1-trace" />
-    <line x1="380.0" y1="120.0" x2="380.0" y2="360.0" class="side1-trace" />
-    <line x1="340.0" y1="360.0" x2="380.0" y2="360.0" class="side1-trace" />
-    <line x1="380.0" y1="360.0" x2="380.0" y2="600.0" class="side1-trace" />
-    <line x1="820.0" y1="120.0" x2="780.0" y2="120.0" class="side1-trace" />
-    <line x1="820.0" y1="120.0" x2="820.0" y2="140.0" class="side1-trace" />
-    <line x1="780.0" y1="120.0" x2="780.0" y2="360.0" class="side1-trace" />
-    <line x1="550.0" y1="1340.0" x2="550.0" y2="1300.0" class="side1-trace" />
-    <line x1="550.0" y1="1340.0" x2="630.0" y2="1340.0" class="side1-trace" />
-    <line x1="550.0" y1="1340.0" x2="550.0" y2="1380.0" class="side1-trace" />
-    <line x1="550.0" y1="1420.0" x2="630.0" y2="1420.0" class="side1-trace" />
-    <line x1="510.0" y1="1300.0" x2="510.0" y2="1340.0" class="side1-trace" />
-    <line x1="940.0" y1="740.0" x2="940.0" y2="700.0" class="side1-trace" />
-    <line x1="940.0" y1="700.0" x2="980.0" y2="700.0" class="side1-trace" />
-    <line x1="820.0" y1="740.0" x2="820.0" y2="600.0" class="side1-trace" />
-    <line x1="820.0" y1="740.0" x2="980.0" y2="740.0" class="side1-trace" />
-    <line x1="820.0" y1="780.0" x2="820.0" y2="1020.0" class="side1-trace" />
-    <line x1="820.0" y1="780.0" x2="780.0" y2="780.0" class="side1-trace" />
-    <line x1="820.0" y1="780.0" x2="940.0" y2="780.0" class="side1-trace" />
-    <line x1="820.0" y1="600.0" x2="780.0" y2="600.0" class="side1-trace" />
-    <line x1="820.0" y1="600.0" x2="820.0" y2="470.0" class="side1-trace" />
-    <line x1="780.0" y1="600.0" x2="780.0" y2="360.0" class="side1-trace" />
-    <line x1="820.0" y1="360.0" x2="780.0" y2="360.0" class="side1-trace" />
-    <line x1="660.0" y1="290.0" x2="750.0" y2="290.0" class="side1-trace" />
-    <line x1="660.0" y1="290.0" x2="630.0" y2="240.0" class="side1-trace" />
-    <line x1="750.0" y1="290.0" x2="750.0" y2="190.0" class="side1-trace" />
-    <line x1="750.0" y1="190.0" x2="660.0" y2="190.0" class="side1-trace" />
-    <line x1="660.0" y1="190.0" x2="630.0" y2="240.0" class="side1-trace" />
-    <line x1="510.0" y1="190.0" x2="510.0" y2="280.0" class="side1-trace" />
-    <line x1="510.0" y1="190.0" x2="410.0" y2="190.0" class="side1-trace" />
-    <line x1="510.0" y1="280.0" x2="460.0" y2="310.0" class="side1-trace" />
-    <line x1="460.0" y1="310.0" x2="410.0" y2="280.0" class="side1-trace" />
-    <line x1="410.0" y1="280.0" x2="410.0" y2="190.0" class="side1-trace" />
-    <line x1="540.0" y1="140.0" x2="540.0" y2="380.0" class="side1-trace" />
-    <line x1="540.0" y1="140.0" x2="580.0" y2="140.0" class="side1-trace" />
-    <line x1="540.0" y1="380.0" x2="580.0" y2="380.0" class="side1-trace" />
-    <line x1="580.0" y1="140.0" x2="620.0" y2="140.0" class="side1-trace" />
-    <line x1="580.0" y1="140.0" x2="580.0" y2="380.0" class="side1-trace" />
-    <line x1="620.0" y1="140.0" x2="620.0" y2="380.0" class="side1-trace" />
-    <line x1="620.0" y1="380.0" x2="580.0" y2="380.0" class="side1-trace" />
-    <line x1="180.0" y1="1020.0" x2="180.0" y2="780.0" class="side1-trace" />
-    <line x1="220.0" y1="1020.0" x2="220.0" y2="780.0" class="side1-trace" />
-    <line x1="220.0" y1="780.0" x2="180.0" y2="780.0" class="side1-trace" />
-    <line x1="180.0" y1="620.0" x2="140.0" y2="620.0" class="side1-trace" />
-    <line x1="180.0" y1="620.0" x2="180.0" y2="420.0" class="side1-trace" />
-    <line x1="140.0" y1="620.0" x2="140.0" y2="380.0" class="side1-trace" />
-    <line x1="140.0" y1="380.0" x2="180.0" y2="380.0" class="side1-trace" />
-    <line x1="140.0" y1="380.0" x2="140.0" y2="140.0" class="side1-trace" />
-    <line x1="180.0" y1="420.0" x2="180.0" y2="140.0" class="side1-trace" />
-    <line x1="180.0" y1="420.0" x2="300.0" y2="420.0" class="side1-trace" />
-    <line x1="180.0" y1="140.0" x2="340.0" y2="140.0" class="side1-trace" />
-    <line x1="180.0" y1="140.0" x2="140.0" y2="140.0" class="side1-trace" />
-    <line x1="340.0" y1="140.0" x2="340.0" y2="380.0" class="side1-trace" />
-    <line x1="300.0" y1="380.0" x2="300.0" y2="420.0" class="side1-trace" />
-    <line x1="300.0" y1="380.0" x2="340.0" y2="380.0" class="side1-trace" />
-    <line x1="300.0" y1="420.0" x2="340.0" y2="420.0" class="side1-trace" />
-    <line x1="340.0" y1="380.0" x2="340.0" y2="600.0" class="side1-trace" />
-    <line x1="380.0" y1="600.0" x2="340.0" y2="600.0" class="side1-trace" />
-    <line x1="640.0" y1="720.0" x2="640.0" y2="750.0" class="side1-trace" />
-    <line x1="640.0" y1="720.0" x2="670.0" y2="730.0" class="side1-trace" />
-    <line x1="640.0" y1="750.0" x2="670.0" y2="730.0" class="side1-trace" />
-    <line x1="670.0" y1="750.0" x2="670.0" y2="710.0" class="side1-trace" />
-    <line x1="400.0" y1="720.0" x2="400.0" y2="750.0" class="side1-trace" />
-    <line x1="400.0" y1="720.0" x2="430.0" y2="730.0" class="side1-trace" />
-    <line x1="400.0" y1="750.0" x2="430.0" y2="730.0" class="side1-trace" />
-    <line x1="430.0" y1="750.0" x2="430.0" y2="710.0" class="side1-trace" />
-    <line x1="750.0" y1="750.0" x2="750.0" y2="720.0" class="side1-trace" />
-    <line x1="750.0" y1="750.0" x2="720.0" y2="740.0" class="side1-trace" />
-    <line x1="750.0" y1="720.0" x2="720.0" y2="740.0" class="side1-trace" />
-    <line x1="720.0" y1="720.0" x2="720.0" y2="760.0" class="side1-trace" />
-    <line x1="510.0" y1="750.0" x2="510.0" y2="720.0" class="side1-trace" />
-    <line x1="510.0" y1="750.0" x2="480.0" y2="740.0" class="side1-trace" />
-    <line x1="510.0" y1="720.0" x2="480.0" y2="740.0" class="side1-trace" />
-    <line x1="480.0" y1="720.0" x2="480.0" y2="760.0" class="side1-trace" />
-    <line x1="820.0" y1="1020.0" x2="780.0" y2="1020.0" class="side1-trace" />
-    <line x1="320.0" y1="1000.0" x2="250.0" y2="1000.0" class="side1-trace" />
-    <line x1="320.0" y1="1000.0" x2="320.0" y2="800.0" class="side1-trace" />
-    <line x1="250.0" y1="1000.0" x2="250.0" y2="800.0" class="side1-trace" />
-    <line x1="250.0" y1="800.0" x2="320.0" y2="800.0" class="side1-trace" />
-    <line x1="620.0" y1="1000.0" x2="550.0" y2="1000.0" class="side1-trace" />
-    <line x1="620.0" y1="1000.0" x2="620.0" y2="800.0" class="side1-trace" />
-    <line x1="550.0" y1="1000.0" x2="550.0" y2="800.0" class="side1-trace" />
-    <line x1="550.0" y1="800.0" x2="620.0" y2="800.0" class="side1-trace" />
-    <line x1="660.0" y1="1020.0" x2="660.0" y2="780.0" class="side1-trace" />
-    <line x1="700.0" y1="1020.0" x2="700.0" y2="780.0" class="side1-trace" />
-    <line x1="740.0" y1="1020.0" x2="740.0" y2="780.0" class="side1-trace" />
-    <line x1="780.0" y1="1020.0" x2="780.0" y2="780.0" class="side1-trace" />
-    <line x1="780.0" y1="780.0" x2="740.0" y2="780.0" class="side1-trace" />
-    <line x1="740.0" y1="780.0" x2="700.0" y2="780.0" class="side1-trace" />
-    <line x1="700.0" y1="780.0" x2="660.0" y2="780.0" class="side1-trace" />
-    <line x1="500.0" y1="780.0" x2="500.0" y2="1020.0" class="side1-trace" />
-    <line x1="500.0" y1="780.0" x2="460.0" y2="780.0" class="side1-trace" />
-    <line x1="460.0" y1="1020.0" x2="460.0" y2="780.0" class="side1-trace" />
-    <line x1="460.0" y1="780.0" x2="420.0" y2="780.0" class="side1-trace" />
-    <line x1="420.0" y1="780.0" x2="420.0" y2="1020.0" class="side1-trace" />
-    <line x1="420.0" y1="780.0" x2="380.0" y2="780.0" class="side1-trace" />
-    <line x1="380.0" y1="1020.0" x2="380.0" y2="780.0" class="side1-trace" />
-    <line x1="380.0" y1="780.0" x2="340.0" y2="780.0" class="side1-trace" />
-    <line x1="340.0" y1="780.0" x2="340.0" y2="1020.0" class="side1-trace" />
-    <line x1="980.0" y1="1460.0" x2="980.0" y2="1380.0" class="side1-trace" />
-    <line x1="980.0" y1="1460.0" x2="820.0" y2="1460.0" class="side1-trace" />
-    <line x1="980.0" y1="1380.0" x2="860.0" y2="1380.0" class="side1-trace" />
-    <line x1="860.0" y1="1380.0" x2="860.0" y2="1420.0" class="side1-trace" />
-    <line x1="860.0" y1="1420.0" x2="820.0" y2="1420.0" class="side1-trace" />
-    <line x1="780.0" y1="1460.0" x2="820.0" y2="1460.0" class="side1-trace" />
-    <line x1="780.0" y1="1460.0" x2="780.0" y2="1340.0" class="side1-trace" />
-    <line x1="820.0" y1="1460.0" x2="820.0" y2="1340.0" class="side1-trace" />
-    <line x1="820.0" y1="1340.0" x2="780.0" y2="1340.0" class="side1-trace" />
-    <line x1="470.0" y1="1380.0" x2="470.0" y2="1340.0" class="side1-trace" />
-    <line x1="470.0" y1="1380.0" x2="550.0" y2="1380.0" class="side1-trace" />
-    <line x1="510.0" y1="1340.0" x2="470.0" y2="1340.0" class="side1-trace" />
-    <line x1="470.0" y1="1340.0" x2="470.0" y2="1300.0" class="side1-trace" />
-    <line x1="630.0" y1="1340.0" x2="630.0" y2="1380.0" class="side1-trace" />
-    <line x1="630.0" y1="1380.0" x2="550.0" y2="1380.0" class="side1-trace" />
-    <line x1="630.0" y1="1380.0" x2="630.0" y2="1420.0" class="side1-trace" />
-    <line x1="550.0" y1="1380.0" x2="550.0" y2="1460.0" class="side1-trace" />
-    <line x1="630.0" y1="1420.0" x2="630.0" y2="1460.0" class="side1-trace" />
-    <line x1="630.0" y1="1460.0" x2="550.0" y2="1460.0" class="side1-trace" />
-    <line x1="470.0" y1="1470.0" x2="500.0" y2="1470.0" class="side1-trace" />
-    <line x1="500.0" y1="1470.0" x2="530.0" y2="1440.0" class="side1-trace" />
-    <line x1="530.0" y1="1440.0" x2="530.0" y2="1420.0" class="side1-trace" />
-    <line x1="530.0" y1="1420.0" x2="500.0" y2="1390.0" class="side1-trace" />
-    <line x1="850.0" y1="800.0" x2="850.0" y2="1000.0" class="side1-trace" />
-    <line x1="850.0" y1="800.0" x2="920.0" y2="800.0" class="side1-trace" />
-    <line x1="850.0" y1="1000.0" x2="920.0" y2="1000.0" class="side1-trace" />
-    <line x1="920.0" y1="1000.0" x2="920.0" y2="800.0" class="side1-trace" />
-    <line x1="940.0" y1="1020.0" x2="980.0" y2="1020.0" class="side1-trace" />
-    <line x1="940.0" y1="1020.0" x2="940.0" y2="780.0" class="side1-trace" />
-    <line x1="980.0" y1="740.0" x2="980.0" y2="780.0" class="side1-trace" />
-    <line x1="980.0" y1="740.0" x2="980.0" y2="620.0" class="side1-trace" />
-    <line x1="980.0" y1="1180.0" x2="980.0" y2="1260.0" class="side1-trace" />
-    <line x1="980.0" y1="1180.0" x2="980.0" y2="940.0" class="side1-trace" />
-    <line x1="980.0" y1="1260.0" x2="1020.0" y2="1260.0" class="side1-trace" />
-    <line x1="1020.0" y1="1260.0" x2="1020.0" y2="940.0" class="side1-trace" />
-    <line x1="1020.0" y1="940.0" x2="980.0" y2="940.0" class="side1-trace" />
-    <line x1="980.0" y1="940.0" x2="980.0" y2="780.0" class="side1-trace" />
-    <line x1="940.0" y1="780.0" x2="980.0" y2="780.0" class="side1-trace" />
-    <line x1="820.0" y1="470.0" x2="980.0" y2="470.0" class="side1-trace" />
-    <line x1="820.0" y1="470.0" x2="820.0" y2="420.0" class="side1-trace" />
-    <line x1="980.0" y1="620.0" x2="1020.0" y2="620.0" class="side1-trace" />
-    <line x1="980.0" y1="620.0" x2="980.0" y2="420.0" class="side1-trace" />
-    <line x1="1020.0" y1="620.0" x2="1020.0" y2="380.0" class="side1-trace" />
-    <line x1="1020.0" y1="140.0" x2="1020.0" y2="380.0" class="side1-trace" />
-    <line x1="1020.0" y1="140.0" x2="980.0" y2="140.0" class="side1-trace" />
-    <line x1="1020.0" y1="380.0" x2="980.0" y2="380.0" class="side1-trace" />
-    <line x1="980.0" y1="380.0" x2="940.0" y2="380.0" class="side1-trace" />
-    <line x1="940.0" y1="380.0" x2="940.0" y2="420.0" class="side1-trace" />
-    <line x1="980.0" y1="420.0" x2="980.0" y2="140.0" class="side1-trace" />
-    <line x1="980.0" y1="420.0" x2="820.0" y2="420.0" class="side1-trace" />
-    <line x1="980.0" y1="140.0" x2="820.0" y2="140.0" class="side1-trace" />
-    <line x1="180.0" y1="1460.0" x2="410.0" y2="1460.0" class="side1-trace" />
-    <line x1="820.0" y1="140.0" x2="820.0" y2="420.0" class="side1-trace" />
-    <line x1="410.0" y1="1340.0" x2="410.0" y2="1460.0" class="side1-trace" />
-    <line x1="410.0" y1="1340.0" x2="180.0" y2="1340.0" class="side1-trace" />
-    <line x1="110.0" y1="152.0" x2="110.0" y2="1480.0" class="side1-trace" />
-    <line x1="130.0" y1="1260.0" x2="180.0" y2="1260.0" class="side1-trace" />
+    <line x1="940.0" y1="1020.0" x2="140.0" y2="1020.0" class="side1-trace">
+      <title>pid=0o1377 body=767 (840,480) → pid=0o1376 body=766 (40,480) len=800</title>
+    </line>
+    <line x1="940.0" y1="1020.0" x2="940.0" y2="1300.0" class="side1-trace">
+      <title>pid=0o1377 body=767 (840,480) → pid=0o1400 body=768 (840,200) len=280</title>
+    </line>
+    <line x1="340.0" y1="780.0" x2="300.0" y2="780.0" class="side1-trace">
+      <title>pid=0o4377 body=2303 (240,720) → pid=0o4376 body=2302 (200,720) len=40</title>
+    </line>
+    <line x1="340.0" y1="780.0" x2="340.0" y2="540.0" class="side1-trace">
+      <title>pid=0o4377 body=2303 (240,720) → pid=0o4400 body=2304 (240,960) len=240</title>
+    </line>
+    <line x1="140.0" y1="1020.0" x2="140.0" y2="1300.0" class="side1-trace">
+      <title>pid=0o1376 body=766 (40,480) → pid=0o1371 body=761 (40,200) len=280</title>
+    </line>
+    <line x1="300.0" y1="780.0" x2="300.0" y2="540.0" class="side1-trace">
+      <title>pid=0o4376 body=2302 (200,720) → pid=0o4375 body=2301 (200,960) len=240</title>
+    </line>
+    <line x1="300.0" y1="780.0" x2="260.0" y2="780.0" class="side1-trace">
+      <title>pid=0o4376 body=2302 (200,720) → pid=0o4372 body=2298 (160,720) len=40</title>
+    </line>
+    <line x1="140.0" y1="1460.0" x2="180.0" y2="1460.0" class="side1-trace">
+      <title>pid=0o1375 body=765 (40,40) → pid=0o1374 body=764 (80,40) len=40</title>
+    </line>
+    <line x1="140.0" y1="1460.0" x2="140.0" y2="1380.0" class="side1-trace">
+      <title>pid=0o1375 body=765 (40,40) → pid=0o1372 body=762 (40,120) len=80</title>
+    </line>
+    <line x1="300.0" y1="540.0" x2="260.0" y2="540.0" class="side1-trace">
+      <title>pid=0o4375 body=2301 (200,960) → pid=0o4373 body=2299 (160,960) len=40</title>
+    </line>
+    <line x1="300.0" y1="540.0" x2="340.0" y2="540.0" class="side1-trace">
+      <title>pid=0o4375 body=2301 (200,960) → pid=0o4400 body=2304 (240,960) len=40</title>
+    </line>
+    <line x1="180.0" y1="1460.0" x2="180.0" y2="1380.0" class="side1-trace">
+      <title>pid=0o1374 body=764 (80,40) → pid=0o1373 body=763 (80,120) len=80</title>
+    </line>
+    <line x1="220.0" y1="540.0" x2="260.0" y2="540.0" class="side1-trace">
+      <title>pid=0o4374 body=2300 (120,960) → pid=0o4373 body=2299 (160,960) len=40</title>
+    </line>
+    <line x1="220.0" y1="540.0" x2="220.0" y2="540.0" class="side1-trace">
+      <title>pid=0o4374 body=2300 (120,960) → pid=0o4370 body=2296 (120,960) len=0</title>
+    </line>
+    <line x1="180.0" y1="1380.0" x2="140.0" y2="1380.0" class="side1-trace">
+      <title>pid=0o1373 body=763 (80,120) → pid=0o1372 body=762 (40,120) len=40</title>
+    </line>
+    <line x1="180.0" y1="1380.0" x2="180.0" y2="1300.0" class="side1-trace">
+      <title>pid=0o1373 body=763 (80,120) → pid=0o1370 body=760 (80,200) len=80</title>
+    </line>
+    <line x1="260.0" y1="540.0" x2="260.0" y2="780.0" class="side1-trace">
+      <title>pid=0o4373 body=2299 (160,960) → pid=0o4372 body=2298 (160,720) len=240</title>
+    </line>
+    <line x1="140.0" y1="1380.0" x2="140.0" y2="1300.0" class="side1-trace">
+      <title>pid=0o1372 body=762 (40,120) → pid=0o1371 body=761 (40,200) len=80</title>
+    </line>
+    <line x1="260.0" y1="780.0" x2="220.0" y2="780.0" class="side1-trace">
+      <title>pid=0o4372 body=2298 (160,720) → pid=0o4371 body=2297 (120,720) len=40</title>
+    </line>
+    <line x1="140.0" y1="1300.0" x2="180.0" y2="1300.0" class="side1-trace">
+      <title>pid=0o1371 body=761 (40,200) → pid=0o1370 body=760 (80,200) len=40</title>
+    </line>
+    <line x1="220.0" y1="780.0" x2="220.0" y2="540.0" class="side1-trace">
+      <title>pid=0o4371 body=2297 (120,720) → pid=0o4370 body=2296 (120,960) len=240</title>
+    </line>
+    <line x1="180.0" y1="1300.0" x2="180.0" y2="1260.0" class="side1-trace">
+      <title>pid=0o1370 body=760 (80,200) → pid=0o1402 body=770 (80,240) len=40</title>
+    </line>
+    <line x1="180.0" y1="1300.0" x2="940.0" y2="1300.0" class="side1-trace">
+      <title>pid=0o1370 body=760 (80,200) → pid=0o1400 body=768 (840,200) len=760</title>
+    </line>
+    <line x1="220.0" y1="540.0" x2="180.0" y2="540.0" class="side1-trace">
+      <title>pid=0o4370 body=2296 (120,960) → pid=0o4367 body=2295 (80,960) len=40</title>
+    </line>
+    <line x1="180.0" y1="540.0" x2="180.0" y2="780.0" class="side1-trace">
+      <title>pid=0o4367 body=2295 (80,960) → pid=0o3215 body=1677 (80,720) len=240</title>
+    </line>
+    <line x1="470.0" y1="1390.0" x2="470.0" y2="1470.0" class="side1-trace">
+      <title>pid=0o4366 body=2294 (370,110) → pid=0o3065 body=1589 (370,30) len=80</title>
+    </line>
+    <line x1="470.0" y1="1390.0" x2="500.0" y2="1390.0" class="side1-trace">
+      <title>pid=0o4366 body=2294 (370,110) → pid=0o3060 body=1584 (400,110) len=30</title>
+    </line>
+    <line x1="1020.0" y1="1020.0" x2="980.0" y2="1020.0" class="side1-trace">
+      <title>pid=0o10354 body=4332 (920,480) → pid=0o3050 body=1576 (880,480) len=40</title>
+    </line>
+    <line x1="1040.0" y1="1480.0" x2="1040.0" y2="152.0" class="side1-trace">
+      <title>pid=0o1353 body=747 (940,20) → pid=0o1352 body=746 (940,1348) len=1328</title>
+    </line>
+    <line x1="1040.0" y1="1480.0" x2="110.0" y2="1480.0" class="side1-trace">
+      <title>pid=0o1353 body=747 (940,20) → pid=0o2 body=2 (10,20) len=930</title>
+    </line>
+    <line x1="980.0" y1="1100.0" x2="1020.0" y2="1100.0" class="side1-trace">
+      <title>pid=0o10353 body=4331 (880,400) → pid=0o10352 body=4330 (920,400) len=40</title>
+    </line>
+    <line x1="1040.0" y1="152.0" x2="980.0" y2="112.0" class="side1-trace">
+      <title>pid=0o1352 body=746 (940,1348) → pid=0o1351 body=745 (880,1388) len=72</title>
+    </line>
+    <line x1="980.0" y1="112.0" x2="160.0" y2="112.0" class="side1-trace">
+      <title>pid=0o1351 body=745 (880,1388) → pid=0o1350 body=744 (60,1388) len=820</title>
+    </line>
+    <line x1="1020.0" y1="1180.0" x2="980.0" y2="1180.0" class="side1-trace">
+      <title>pid=0o10351 body=4329 (920,320) → pid=0o3044 body=1572 (880,320) len=40</title>
+    </line>
+    <line x1="160.0" y1="112.0" x2="110.0" y2="152.0" class="side1-trace">
+      <title>pid=0o1350 body=744 (60,1388) → pid=0o6 body=6 (10,1348) len=64</title>
+    </line>
+    <line x1="340.0" y1="120.0" x2="380.0" y2="120.0" class="side1-trace">
+      <title>pid=0o10350 body=4328 (240,1380) → pid=0o10347 body=4327 (280,1380) len=40</title>
+    </line>
+    <line x1="340.0" y1="120.0" x2="340.0" y2="140.0" class="side1-trace">
+      <title>pid=0o10350 body=4328 (240,1380) → pid=0o3205 body=1669 (240,1360) len=20</title>
+    </line>
+    <line x1="380.0" y1="120.0" x2="380.0" y2="360.0" class="side1-trace">
+      <title>pid=0o10347 body=4327 (280,1380) → pid=0o10345 body=4325 (280,1140) len=240</title>
+    </line>
+    <line x1="340.0" y1="360.0" x2="380.0" y2="360.0" class="side1-trace">
+      <title>pid=0o10346 body=4326 (240,1140) → pid=0o10345 body=4325 (280,1140) len=40</title>
+    </line>
+    <line x1="380.0" y1="360.0" x2="380.0" y2="600.0" class="side1-trace">
+      <title>pid=0o10345 body=4325 (280,1140) → pid=0o3177 body=1663 (280,900) len=240</title>
+    </line>
+    <line x1="820.0" y1="120.0" x2="780.0" y2="120.0" class="side1-trace">
+      <title>pid=0o10344 body=4324 (720,1380) → pid=0o10343 body=4323 (680,1380) len=40</title>
+    </line>
+    <line x1="820.0" y1="120.0" x2="820.0" y2="140.0" class="side1-trace">
+      <title>pid=0o10344 body=4324 (720,1380) → pid=0o3015 body=1549 (720,1360) len=20</title>
+    </line>
+    <line x1="780.0" y1="120.0" x2="780.0" y2="360.0" class="side1-trace">
+      <title>pid=0o10343 body=4323 (680,1380) → pid=0o3242 body=1698 (680,1140) len=240</title>
+    </line>
+    <line x1="550.0" y1="1340.0" x2="550.0" y2="1300.0" class="side1-trace">
+      <title>pid=0o10342 body=4322 (450,160) → pid=0o10340 body=4320 (450,200) len=40</title>
+    </line>
+    <line x1="550.0" y1="1340.0" x2="630.0" y2="1340.0" class="side1-trace">
+      <title>pid=0o10342 body=4322 (450,160) → pid=0o3075 body=1597 (530,160) len=80</title>
+    </line>
+    <line x1="550.0" y1="1340.0" x2="550.0" y2="1380.0" class="side1-trace">
+      <title>pid=0o10342 body=4322 (450,160) → pid=0o3073 body=1595 (450,120) len=40</title>
+    </line>
+    <line x1="550.0" y1="1420.0" x2="630.0" y2="1420.0" class="side1-trace">
+      <title>pid=0o10341 body=4321 (450,80) → pid=0o3071 body=1593 (530,80) len=80</title>
+    </line>
+    <line x1="510.0" y1="1300.0" x2="510.0" y2="1340.0" class="side1-trace">
+      <title>pid=0o10337 body=4319 (410,200) → pid=0o3100 body=1600 (410,160) len=40</title>
+    </line>
+    <line x1="940.0" y1="740.0" x2="940.0" y2="700.0" class="side1-trace">
+      <title>pid=0o10335 body=4317 (840,760) → pid=0o10334 body=4316 (840,800) len=40</title>
+    </line>
+    <line x1="940.0" y1="700.0" x2="980.0" y2="700.0" class="side1-trace">
+      <title>pid=0o10334 body=4316 (840,800) → pid=0o10333 body=4315 (880,800) len=40</title>
+    </line>
+    <line x1="820.0" y1="740.0" x2="820.0" y2="600.0" class="side1-trace">
+      <title>pid=0o10331 body=4313 (720,760) → pid=0o3245 body=1701 (720,900) len=140</title>
+    </line>
+    <line x1="820.0" y1="740.0" x2="980.0" y2="740.0" class="side1-trace">
+      <title>pid=0o10331 body=4313 (720,760) → pid=0o3047 body=1575 (880,760) len=160</title>
+    </line>
+    <line x1="820.0" y1="780.0" x2="820.0" y2="1020.0" class="side1-trace">
+      <title>pid=0o10330 body=4312 (720,720) → pid=0o5550 body=2920 (720,480) len=240</title>
+    </line>
+    <line x1="820.0" y1="780.0" x2="780.0" y2="780.0" class="side1-trace">
+      <title>pid=0o10330 body=4312 (720,720) → pid=0o3131 body=1625 (680,720) len=40</title>
+    </line>
+    <line x1="820.0" y1="780.0" x2="940.0" y2="780.0" class="side1-trace">
+      <title>pid=0o10330 body=4312 (720,720) → pid=0o3034 body=1564 (840,720) len=120</title>
+    </line>
+    <line x1="820.0" y1="600.0" x2="780.0" y2="600.0" class="side1-trace">
+      <title>pid=0o3245 body=1701 (720,900) → pid=0o3244 body=1700 (680,900) len=40</title>
+    </line>
+    <line x1="820.0" y1="600.0" x2="820.0" y2="470.0" class="side1-trace">
+      <title>pid=0o3245 body=1701 (720,900) → pid=0o3030 body=1560 (720,1030) len=130</title>
+    </line>
+    <line x1="780.0" y1="600.0" x2="780.0" y2="360.0" class="side1-trace">
+      <title>pid=0o3244 body=1700 (680,900) → pid=0o3242 body=1698 (680,1140) len=240</title>
+    </line>
+    <line x1="820.0" y1="360.0" x2="780.0" y2="360.0" class="side1-trace">
+      <title>pid=0o3243 body=1699 (720,1140) → pid=0o3242 body=1698 (680,1140) len=40</title>
+    </line>
+    <line x1="660.0" y1="290.0" x2="750.0" y2="290.0" class="side1-trace">
+      <title>pid=0o3240 body=1696 (560,1210) → pid=0o3237 body=1695 (650,1210) len=90</title>
+    </line>
+    <line x1="660.0" y1="290.0" x2="630.0" y2="240.0" class="side1-trace">
+      <title>pid=0o3240 body=1696 (560,1210) → pid=0o3234 body=1692 (530,1260) len=58</title>
+    </line>
+    <line x1="750.0" y1="290.0" x2="750.0" y2="190.0" class="side1-trace">
+      <title>pid=0o3237 body=1695 (650,1210) → pid=0o3236 body=1694 (650,1310) len=100</title>
+    </line>
+    <line x1="750.0" y1="190.0" x2="660.0" y2="190.0" class="side1-trace">
+      <title>pid=0o3236 body=1694 (650,1310) → pid=0o3235 body=1693 (560,1310) len=90</title>
+    </line>
+    <line x1="660.0" y1="190.0" x2="630.0" y2="240.0" class="side1-trace">
+      <title>pid=0o3235 body=1693 (560,1310) → pid=0o3234 body=1692 (530,1260) len=58</title>
+    </line>
+    <line x1="510.0" y1="190.0" x2="510.0" y2="280.0" class="side1-trace">
+      <title>pid=0o3233 body=1691 (410,1310) → pid=0o3232 body=1690 (410,1220) len=90</title>
+    </line>
+    <line x1="510.0" y1="190.0" x2="410.0" y2="190.0" class="side1-trace">
+      <title>pid=0o3233 body=1691 (410,1310) → pid=0o3227 body=1687 (310,1310) len=100</title>
+    </line>
+    <line x1="510.0" y1="280.0" x2="460.0" y2="310.0" class="side1-trace">
+      <title>pid=0o3232 body=1690 (410,1220) → pid=0o3231 body=1689 (360,1190) len=58</title>
+    </line>
+    <line x1="460.0" y1="310.0" x2="410.0" y2="280.0" class="side1-trace">
+      <title>pid=0o3231 body=1689 (360,1190) → pid=0o3230 body=1688 (310,1220) len=58</title>
+    </line>
+    <line x1="410.0" y1="280.0" x2="410.0" y2="190.0" class="side1-trace">
+      <title>pid=0o3230 body=1688 (310,1220) → pid=0o3227 body=1687 (310,1310) len=90</title>
+    </line>
+    <line x1="540.0" y1="140.0" x2="540.0" y2="380.0" class="side1-trace">
+      <title>pid=0o3226 body=1686 (440,1360) → pid=0o3225 body=1685 (440,1120) len=240</title>
+    </line>
+    <line x1="540.0" y1="140.0" x2="580.0" y2="140.0" class="side1-trace">
+      <title>pid=0o3226 body=1686 (440,1360) → pid=0o3224 body=1684 (480,1360) len=40</title>
+    </line>
+    <line x1="540.0" y1="380.0" x2="580.0" y2="380.0" class="side1-trace">
+      <title>pid=0o3225 body=1685 (440,1120) → pid=0o3221 body=1681 (480,1120) len=40</title>
+    </line>
+    <line x1="580.0" y1="140.0" x2="620.0" y2="140.0" class="side1-trace">
+      <title>pid=0o3224 body=1684 (480,1360) → pid=0o3223 body=1683 (520,1360) len=40</title>
+    </line>
+    <line x1="580.0" y1="140.0" x2="580.0" y2="380.0" class="side1-trace">
+      <title>pid=0o3224 body=1684 (480,1360) → pid=0o3221 body=1681 (480,1120) len=240</title>
+    </line>
+    <line x1="620.0" y1="140.0" x2="620.0" y2="380.0" class="side1-trace">
+      <title>pid=0o3223 body=1683 (520,1360) → pid=0o3222 body=1682 (520,1120) len=240</title>
+    </line>
+    <line x1="620.0" y1="380.0" x2="580.0" y2="380.0" class="side1-trace">
+      <title>pid=0o3222 body=1682 (520,1120) → pid=0o3221 body=1681 (480,1120) len=40</title>
+    </line>
+    <line x1="180.0" y1="1020.0" x2="180.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3220 body=1680 (80,480) → pid=0o3215 body=1677 (80,720) len=240</title>
+    </line>
+    <line x1="220.0" y1="1020.0" x2="220.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3217 body=1679 (120,480) → pid=0o3216 body=1678 (120,720) len=240</title>
+    </line>
+    <line x1="220.0" y1="780.0" x2="180.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3216 body=1678 (120,720) → pid=0o3215 body=1677 (80,720) len=40</title>
+    </line>
+    <line x1="180.0" y1="620.0" x2="140.0" y2="620.0" class="side1-trace">
+      <title>pid=0o3214 body=1676 (80,880) → pid=0o3213 body=1675 (40,880) len=40</title>
+    </line>
+    <line x1="180.0" y1="620.0" x2="180.0" y2="420.0" class="side1-trace">
+      <title>pid=0o3214 body=1676 (80,880) → pid=0o3207 body=1671 (80,1080) len=200</title>
+    </line>
+    <line x1="140.0" y1="620.0" x2="140.0" y2="380.0" class="side1-trace">
+      <title>pid=0o3213 body=1675 (40,880) → pid=0o3211 body=1673 (40,1120) len=240</title>
+    </line>
+    <line x1="140.0" y1="380.0" x2="180.0" y2="380.0" class="side1-trace">
+      <title>pid=0o3211 body=1673 (40,1120) → pid=0o3210 body=1672 (80,1120) len=40</title>
+    </line>
+    <line x1="140.0" y1="380.0" x2="140.0" y2="140.0" class="side1-trace">
+      <title>pid=0o3211 body=1673 (40,1120) → pid=0o4401 body=2305 (40,1360) len=240</title>
+    </line>
+    <line x1="180.0" y1="420.0" x2="180.0" y2="140.0" class="side1-trace">
+      <title>pid=0o3207 body=1671 (80,1080) → pid=0o3206 body=1670 (80,1360) len=280</title>
+    </line>
+    <line x1="180.0" y1="420.0" x2="300.0" y2="420.0" class="side1-trace">
+      <title>pid=0o3207 body=1671 (80,1080) → pid=0o3203 body=1667 (200,1080) len=120</title>
+    </line>
+    <line x1="180.0" y1="140.0" x2="340.0" y2="140.0" class="side1-trace">
+      <title>pid=0o3206 body=1670 (80,1360) → pid=0o3205 body=1669 (240,1360) len=160</title>
+    </line>
+    <line x1="180.0" y1="140.0" x2="140.0" y2="140.0" class="side1-trace">
+      <title>pid=0o3206 body=1670 (80,1360) → pid=0o4401 body=2305 (40,1360) len=40</title>
+    </line>
+    <line x1="340.0" y1="140.0" x2="340.0" y2="380.0" class="side1-trace">
+      <title>pid=0o3205 body=1669 (240,1360) → pid=0o3201 body=1665 (240,1120) len=240</title>
+    </line>
+    <line x1="300.0" y1="380.0" x2="300.0" y2="420.0" class="side1-trace">
+      <title>pid=0o3204 body=1668 (200,1120) → pid=0o3203 body=1667 (200,1080) len=40</title>
+    </line>
+    <line x1="300.0" y1="380.0" x2="340.0" y2="380.0" class="side1-trace">
+      <title>pid=0o3204 body=1668 (200,1120) → pid=0o3201 body=1665 (240,1120) len=40</title>
+    </line>
+    <line x1="300.0" y1="420.0" x2="340.0" y2="420.0" class="side1-trace">
+      <title>pid=0o3203 body=1667 (200,1080) → pid=0o3202 body=1666 (240,1080) len=40</title>
+    </line>
+    <line x1="340.0" y1="380.0" x2="340.0" y2="600.0" class="side1-trace">
+      <title>pid=0o3201 body=1665 (240,1120) → pid=0o3176 body=1662 (240,900) len=220</title>
+    </line>
+    <line x1="380.0" y1="600.0" x2="340.0" y2="600.0" class="side1-trace">
+      <title>pid=0o3177 body=1663 (280,900) → pid=0o3176 body=1662 (240,900) len=40</title>
+    </line>
+    <line x1="640.0" y1="720.0" x2="640.0" y2="750.0" class="side1-trace">
+      <title>pid=0o3175 body=1661 (540,780) → pid=0o3174 body=1660 (540,750) len=30</title>
+    </line>
+    <line x1="640.0" y1="720.0" x2="670.0" y2="730.0" class="side1-trace">
+      <title>pid=0o3175 body=1661 (540,780) → pid=0o3173 body=1659 (570,770) len=32</title>
+    </line>
+    <line x1="640.0" y1="750.0" x2="670.0" y2="730.0" class="side1-trace">
+      <title>pid=0o3174 body=1660 (540,750) → pid=0o3173 body=1659 (570,770) len=36</title>
+    </line>
+    <line x1="670.0" y1="750.0" x2="670.0" y2="710.0" class="side1-trace">
+      <title>pid=0o3172 body=1658 (570,750) → pid=0o3171 body=1657 (570,790) len=40</title>
+    </line>
+    <line x1="400.0" y1="720.0" x2="400.0" y2="750.0" class="side1-trace">
+      <title>pid=0o3167 body=1655 (300,780) → pid=0o3166 body=1654 (300,750) len=30</title>
+    </line>
+    <line x1="400.0" y1="720.0" x2="430.0" y2="730.0" class="side1-trace">
+      <title>pid=0o3167 body=1655 (300,780) → pid=0o3165 body=1653 (330,770) len=32</title>
+    </line>
+    <line x1="400.0" y1="750.0" x2="430.0" y2="730.0" class="side1-trace">
+      <title>pid=0o3166 body=1654 (300,750) → pid=0o3165 body=1653 (330,770) len=36</title>
+    </line>
+    <line x1="430.0" y1="750.0" x2="430.0" y2="710.0" class="side1-trace">
+      <title>pid=0o3164 body=1652 (330,750) → pid=0o3163 body=1651 (330,790) len=40</title>
+    </line>
+    <line x1="750.0" y1="750.0" x2="750.0" y2="720.0" class="side1-trace">
+      <title>pid=0o3161 body=1649 (650,750) → pid=0o3160 body=1648 (650,780) len=30</title>
+    </line>
+    <line x1="750.0" y1="750.0" x2="720.0" y2="740.0" class="side1-trace">
+      <title>pid=0o3161 body=1649 (650,750) → pid=0o3157 body=1647 (620,760) len=32</title>
+    </line>
+    <line x1="750.0" y1="720.0" x2="720.0" y2="740.0" class="side1-trace">
+      <title>pid=0o3160 body=1648 (650,780) → pid=0o3157 body=1647 (620,760) len=36</title>
+    </line>
+    <line x1="720.0" y1="720.0" x2="720.0" y2="760.0" class="side1-trace">
+      <title>pid=0o3156 body=1646 (620,780) → pid=0o3155 body=1645 (620,740) len=40</title>
+    </line>
+    <line x1="510.0" y1="750.0" x2="510.0" y2="720.0" class="side1-trace">
+      <title>pid=0o3153 body=1643 (410,750) → pid=0o3152 body=1642 (410,780) len=30</title>
+    </line>
+    <line x1="510.0" y1="750.0" x2="480.0" y2="740.0" class="side1-trace">
+      <title>pid=0o3153 body=1643 (410,750) → pid=0o3151 body=1641 (380,760) len=32</title>
+    </line>
+    <line x1="510.0" y1="720.0" x2="480.0" y2="740.0" class="side1-trace">
+      <title>pid=0o3152 body=1642 (410,780) → pid=0o3151 body=1641 (380,760) len=36</title>
+    </line>
+    <line x1="480.0" y1="720.0" x2="480.0" y2="760.0" class="side1-trace">
+      <title>pid=0o3150 body=1640 (380,780) → pid=0o3147 body=1639 (380,740) len=40</title>
+    </line>
+    <line x1="820.0" y1="1020.0" x2="780.0" y2="1020.0" class="side1-trace">
+      <title>pid=0o5550 body=2920 (720,480) → pid=0o3132 body=1626 (680,480) len=40</title>
+    </line>
+    <line x1="320.0" y1="1000.0" x2="250.0" y2="1000.0" class="side1-trace">
+      <title>pid=0o3145 body=1637 (220,500) → pid=0o3144 body=1636 (150,500) len=70</title>
+    </line>
+    <line x1="320.0" y1="1000.0" x2="320.0" y2="800.0" class="side1-trace">
+      <title>pid=0o3145 body=1637 (220,500) → pid=0o3142 body=1634 (220,700) len=200</title>
+    </line>
+    <line x1="250.0" y1="1000.0" x2="250.0" y2="800.0" class="side1-trace">
+      <title>pid=0o3144 body=1636 (150,500) → pid=0o3143 body=1635 (150,700) len=200</title>
+    </line>
+    <line x1="250.0" y1="800.0" x2="320.0" y2="800.0" class="side1-trace">
+      <title>pid=0o3143 body=1635 (150,700) → pid=0o3142 body=1634 (220,700) len=70</title>
+    </line>
+    <line x1="620.0" y1="1000.0" x2="550.0" y2="1000.0" class="side1-trace">
+      <title>pid=0o3141 body=1633 (520,500) → pid=0o3140 body=1632 (450,500) len=70</title>
+    </line>
+    <line x1="620.0" y1="1000.0" x2="620.0" y2="800.0" class="side1-trace">
+      <title>pid=0o3141 body=1633 (520,500) → pid=0o3136 body=1630 (520,700) len=200</title>
+    </line>
+    <line x1="550.0" y1="1000.0" x2="550.0" y2="800.0" class="side1-trace">
+      <title>pid=0o3140 body=1632 (450,500) → pid=0o3137 body=1631 (450,700) len=200</title>
+    </line>
+    <line x1="550.0" y1="800.0" x2="620.0" y2="800.0" class="side1-trace">
+      <title>pid=0o3137 body=1631 (450,700) → pid=0o3136 body=1630 (520,700) len=70</title>
+    </line>
+    <line x1="660.0" y1="1020.0" x2="660.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3135 body=1629 (560,480) → pid=0o3126 body=1622 (560,720) len=240</title>
+    </line>
+    <line x1="700.0" y1="1020.0" x2="700.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3134 body=1628 (600,480) → pid=0o3127 body=1623 (600,720) len=240</title>
+    </line>
+    <line x1="740.0" y1="1020.0" x2="740.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3133 body=1627 (640,480) → pid=0o3130 body=1624 (640,720) len=240</title>
+    </line>
+    <line x1="780.0" y1="1020.0" x2="780.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3132 body=1626 (680,480) → pid=0o3131 body=1625 (680,720) len=240</title>
+    </line>
+    <line x1="780.0" y1="780.0" x2="740.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3131 body=1625 (680,720) → pid=0o3130 body=1624 (640,720) len=40</title>
+    </line>
+    <line x1="740.0" y1="780.0" x2="700.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3130 body=1624 (640,720) → pid=0o3127 body=1623 (600,720) len=40</title>
+    </line>
+    <line x1="700.0" y1="780.0" x2="660.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3127 body=1623 (600,720) → pid=0o3126 body=1622 (560,720) len=40</title>
+    </line>
+    <line x1="500.0" y1="780.0" x2="500.0" y2="1020.0" class="side1-trace">
+      <title>pid=0o3125 body=1621 (400,720) → pid=0o3124 body=1620 (400,480) len=240</title>
+    </line>
+    <line x1="500.0" y1="780.0" x2="460.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3125 body=1621 (400,720) → pid=0o3122 body=1618 (360,720) len=40</title>
+    </line>
+    <line x1="460.0" y1="1020.0" x2="460.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3123 body=1619 (360,480) → pid=0o3122 body=1618 (360,720) len=240</title>
+    </line>
+    <line x1="460.0" y1="780.0" x2="420.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3122 body=1618 (360,720) → pid=0o3121 body=1617 (320,720) len=40</title>
+    </line>
+    <line x1="420.0" y1="780.0" x2="420.0" y2="1020.0" class="side1-trace">
+      <title>pid=0o3121 body=1617 (320,720) → pid=0o3120 body=1616 (320,480) len=240</title>
+    </line>
+    <line x1="420.0" y1="780.0" x2="380.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3121 body=1617 (320,720) → pid=0o3116 body=1614 (280,720) len=40</title>
+    </line>
+    <line x1="380.0" y1="1020.0" x2="380.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3117 body=1615 (280,480) → pid=0o3116 body=1614 (280,720) len=240</title>
+    </line>
+    <line x1="380.0" y1="780.0" x2="340.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3116 body=1614 (280,720) → pid=0o3115 body=1613 (240,720) len=40</title>
+    </line>
+    <line x1="340.0" y1="780.0" x2="340.0" y2="1020.0" class="side1-trace">
+      <title>pid=0o3115 body=1613 (240,720) → pid=0o3114 body=1612 (240,480) len=240</title>
+    </line>
+    <line x1="980.0" y1="1460.0" x2="980.0" y2="1380.0" class="side1-trace">
+      <title>pid=0o3113 body=1611 (880,40) → pid=0o3112 body=1610 (880,120) len=80</title>
+    </line>
+    <line x1="980.0" y1="1460.0" x2="820.0" y2="1460.0" class="side1-trace">
+      <title>pid=0o3113 body=1611 (880,40) → pid=0o3105 body=1605 (720,40) len=160</title>
+    </line>
+    <line x1="980.0" y1="1380.0" x2="860.0" y2="1380.0" class="side1-trace">
+      <title>pid=0o3112 body=1610 (880,120) → pid=0o3111 body=1609 (760,120) len=120</title>
+    </line>
+    <line x1="860.0" y1="1380.0" x2="860.0" y2="1420.0" class="side1-trace">
+      <title>pid=0o3111 body=1609 (760,120) → pid=0o3110 body=1608 (760,80) len=40</title>
+    </line>
+    <line x1="860.0" y1="1420.0" x2="820.0" y2="1420.0" class="side1-trace">
+      <title>pid=0o3110 body=1608 (760,80) → pid=0o3107 body=1607 (720,80) len=40</title>
+    </line>
+    <line x1="780.0" y1="1460.0" x2="820.0" y2="1460.0" class="side1-trace">
+      <title>pid=0o3106 body=1606 (680,40) → pid=0o3105 body=1605 (720,40) len=40</title>
+    </line>
+    <line x1="780.0" y1="1460.0" x2="780.0" y2="1340.0" class="side1-trace">
+      <title>pid=0o3106 body=1606 (680,40) → pid=0o3103 body=1603 (680,160) len=120</title>
+    </line>
+    <line x1="820.0" y1="1460.0" x2="820.0" y2="1340.0" class="side1-trace">
+      <title>pid=0o3105 body=1605 (720,40) → pid=0o3104 body=1604 (720,160) len=120</title>
+    </line>
+    <line x1="820.0" y1="1340.0" x2="780.0" y2="1340.0" class="side1-trace">
+      <title>pid=0o3104 body=1604 (720,160) → pid=0o3103 body=1603 (680,160) len=40</title>
+    </line>
+    <line x1="470.0" y1="1380.0" x2="470.0" y2="1340.0" class="side1-trace">
+      <title>pid=0o3102 body=1602 (370,120) → pid=0o3077 body=1599 (370,160) len=40</title>
+    </line>
+    <line x1="470.0" y1="1380.0" x2="550.0" y2="1380.0" class="side1-trace">
+      <title>pid=0o3102 body=1602 (370,120) → pid=0o3073 body=1595 (450,120) len=80</title>
+    </line>
+    <line x1="510.0" y1="1340.0" x2="470.0" y2="1340.0" class="side1-trace">
+      <title>pid=0o3100 body=1600 (410,160) → pid=0o3077 body=1599 (370,160) len=40</title>
+    </line>
+    <line x1="470.0" y1="1340.0" x2="470.0" y2="1300.0" class="side1-trace">
+      <title>pid=0o3077 body=1599 (370,160) → pid=0o3076 body=1598 (370,200) len=40</title>
+    </line>
+    <line x1="630.0" y1="1340.0" x2="630.0" y2="1380.0" class="side1-trace">
+      <title>pid=0o3075 body=1597 (530,160) → pid=0o3074 body=1596 (530,120) len=40</title>
+    </line>
+    <line x1="630.0" y1="1380.0" x2="550.0" y2="1380.0" class="side1-trace">
+      <title>pid=0o3074 body=1596 (530,120) → pid=0o3073 body=1595 (450,120) len=80</title>
+    </line>
+    <line x1="630.0" y1="1380.0" x2="630.0" y2="1420.0" class="side1-trace">
+      <title>pid=0o3074 body=1596 (530,120) → pid=0o3071 body=1593 (530,80) len=40</title>
+    </line>
+    <line x1="550.0" y1="1380.0" x2="550.0" y2="1460.0" class="side1-trace">
+      <title>pid=0o3073 body=1595 (450,120) → pid=0o3067 body=1591 (450,40) len=80</title>
+    </line>
+    <line x1="630.0" y1="1420.0" x2="630.0" y2="1460.0" class="side1-trace">
+      <title>pid=0o3071 body=1593 (530,80) → pid=0o3070 body=1592 (530,40) len=40</title>
+    </line>
+    <line x1="630.0" y1="1460.0" x2="550.0" y2="1460.0" class="side1-trace">
+      <title>pid=0o3070 body=1592 (530,40) → pid=0o3067 body=1591 (450,40) len=80</title>
+    </line>
+    <line x1="470.0" y1="1470.0" x2="500.0" y2="1470.0" class="side1-trace">
+      <title>pid=0o3065 body=1589 (370,30) → pid=0o3064 body=1588 (400,30) len=30</title>
+    </line>
+    <line x1="500.0" y1="1470.0" x2="530.0" y2="1440.0" class="side1-trace">
+      <title>pid=0o3064 body=1588 (400,30) → pid=0o3063 body=1587 (430,60) len=42</title>
+    </line>
+    <line x1="530.0" y1="1440.0" x2="530.0" y2="1420.0" class="side1-trace">
+      <title>pid=0o3063 body=1587 (430,60) → pid=0o3061 body=1585 (430,80) len=20</title>
+    </line>
+    <line x1="530.0" y1="1420.0" x2="500.0" y2="1390.0" class="side1-trace">
+      <title>pid=0o3061 body=1585 (430,80) → pid=0o3060 body=1584 (400,110) len=42</title>
+    </line>
+    <line x1="850.0" y1="800.0" x2="850.0" y2="1000.0" class="side1-trace">
+      <title>pid=0o3055 body=1581 (750,700) → pid=0o3054 body=1580 (750,500) len=200</title>
+    </line>
+    <line x1="850.0" y1="800.0" x2="920.0" y2="800.0" class="side1-trace">
+      <title>pid=0o3055 body=1581 (750,700) → pid=0o3052 body=1578 (820,700) len=70</title>
+    </line>
+    <line x1="850.0" y1="1000.0" x2="920.0" y2="1000.0" class="side1-trace">
+      <title>pid=0o3054 body=1580 (750,500) → pid=0o3053 body=1579 (820,500) len=70</title>
+    </line>
+    <line x1="920.0" y1="1000.0" x2="920.0" y2="800.0" class="side1-trace">
+      <title>pid=0o3053 body=1579 (820,500) → pid=0o3052 body=1578 (820,700) len=200</title>
+    </line>
+    <line x1="940.0" y1="1020.0" x2="980.0" y2="1020.0" class="side1-trace">
+      <title>pid=0o3051 body=1577 (840,480) → pid=0o3050 body=1576 (880,480) len=40</title>
+    </line>
+    <line x1="940.0" y1="1020.0" x2="940.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3051 body=1577 (840,480) → pid=0o3034 body=1564 (840,720) len=240</title>
+    </line>
+    <line x1="980.0" y1="740.0" x2="980.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3047 body=1575 (880,760) → pid=0o3033 body=1563 (880,720) len=40</title>
+    </line>
+    <line x1="980.0" y1="740.0" x2="980.0" y2="620.0" class="side1-trace">
+      <title>pid=0o3047 body=1575 (880,760) → pid=0o3026 body=1558 (880,880) len=120</title>
+    </line>
+    <line x1="980.0" y1="1180.0" x2="980.0" y2="1260.0" class="side1-trace">
+      <title>pid=0o3044 body=1572 (880,320) → pid=0o3043 body=1571 (880,240) len=80</title>
+    </line>
+    <line x1="980.0" y1="1180.0" x2="980.0" y2="940.0" class="side1-trace">
+      <title>pid=0o3044 body=1572 (880,320) → pid=0o3040 body=1568 (880,560) len=240</title>
+    </line>
+    <line x1="980.0" y1="1260.0" x2="1020.0" y2="1260.0" class="side1-trace">
+      <title>pid=0o3043 body=1571 (880,240) → pid=0o3042 body=1570 (920,240) len=40</title>
+    </line>
+    <line x1="1020.0" y1="1260.0" x2="1020.0" y2="940.0" class="side1-trace">
+      <title>pid=0o3042 body=1570 (920,240) → pid=0o3041 body=1569 (920,560) len=320</title>
+    </line>
+    <line x1="1020.0" y1="940.0" x2="980.0" y2="940.0" class="side1-trace">
+      <title>pid=0o3041 body=1569 (920,560) → pid=0o3040 body=1568 (880,560) len=40</title>
+    </line>
+    <line x1="980.0" y1="940.0" x2="980.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3040 body=1568 (880,560) → pid=0o3033 body=1563 (880,720) len=160</title>
+    </line>
+    <line x1="940.0" y1="780.0" x2="980.0" y2="780.0" class="side1-trace">
+      <title>pid=0o3034 body=1564 (840,720) → pid=0o3033 body=1563 (880,720) len=40</title>
+    </line>
+    <line x1="820.0" y1="470.0" x2="980.0" y2="470.0" class="side1-trace">
+      <title>pid=0o3030 body=1560 (720,1030) → pid=0o3027 body=1559 (880,1030) len=160</title>
+    </line>
+    <line x1="820.0" y1="470.0" x2="820.0" y2="420.0" class="side1-trace">
+      <title>pid=0o3030 body=1560 (720,1030) → pid=0o3014 body=1548 (720,1080) len=50</title>
+    </line>
+    <line x1="980.0" y1="620.0" x2="1020.0" y2="620.0" class="side1-trace">
+      <title>pid=0o3026 body=1558 (880,880) → pid=0o3025 body=1557 (920,880) len=40</title>
+    </line>
+    <line x1="980.0" y1="620.0" x2="980.0" y2="420.0" class="side1-trace">
+      <title>pid=0o3026 body=1558 (880,880) → pid=0o3017 body=1551 (880,1080) len=200</title>
+    </line>
+    <line x1="1020.0" y1="620.0" x2="1020.0" y2="380.0" class="side1-trace">
+      <title>pid=0o3025 body=1557 (920,880) → pid=0o3023 body=1555 (920,1120) len=240</title>
+    </line>
+    <line x1="1020.0" y1="140.0" x2="1020.0" y2="380.0" class="side1-trace">
+      <title>pid=0o3024 body=1556 (920,1360) → pid=0o3023 body=1555 (920,1120) len=240</title>
+    </line>
+    <line x1="1020.0" y1="140.0" x2="980.0" y2="140.0" class="side1-trace">
+      <title>pid=0o3024 body=1556 (920,1360) → pid=0o3016 body=1550 (880,1360) len=40</title>
+    </line>
+    <line x1="1020.0" y1="380.0" x2="980.0" y2="380.0" class="side1-trace">
+      <title>pid=0o3023 body=1555 (920,1120) → pid=0o3022 body=1554 (880,1120) len=40</title>
+    </line>
+    <line x1="980.0" y1="380.0" x2="940.0" y2="380.0" class="side1-trace">
+      <title>pid=0o3022 body=1554 (880,1120) → pid=0o3021 body=1553 (840,1120) len=40</title>
+    </line>
+    <line x1="940.0" y1="380.0" x2="940.0" y2="420.0" class="side1-trace">
+      <title>pid=0o3021 body=1553 (840,1120) → pid=0o3020 body=1552 (840,1080) len=40</title>
+    </line>
+    <line x1="980.0" y1="420.0" x2="980.0" y2="140.0" class="side1-trace">
+      <title>pid=0o3017 body=1551 (880,1080) → pid=0o3016 body=1550 (880,1360) len=280</title>
+    </line>
+    <line x1="980.0" y1="420.0" x2="820.0" y2="420.0" class="side1-trace">
+      <title>pid=0o3017 body=1551 (880,1080) → pid=0o3014 body=1548 (720,1080) len=160</title>
+    </line>
+    <line x1="980.0" y1="140.0" x2="820.0" y2="140.0" class="side1-trace">
+      <title>pid=0o3016 body=1550 (880,1360) → pid=0o3015 body=1549 (720,1360) len=160</title>
+    </line>
+    <line x1="180.0" y1="1460.0" x2="410.0" y2="1460.0" class="side1-trace">
+      <title>pid=0o1416 body=782 (80,40) → pid=0o1406 body=774 (310,40) len=230</title>
+    </line>
+    <line x1="820.0" y1="140.0" x2="820.0" y2="420.0" class="side1-trace">
+      <title>pid=0o3015 body=1549 (720,1360) → pid=0o3014 body=1548 (720,1080) len=280</title>
+    </line>
+    <line x1="410.0" y1="1340.0" x2="410.0" y2="1460.0" class="side1-trace">
+      <title>pid=0o1407 body=775 (310,160) → pid=0o1406 body=774 (310,40) len=120</title>
+    </line>
+    <line x1="410.0" y1="1340.0" x2="180.0" y2="1340.0" class="side1-trace">
+      <title>pid=0o1407 body=775 (310,160) → pid=0o1404 body=772 (80,160) len=230</title>
+    </line>
+    <line x1="110.0" y1="152.0" x2="110.0" y2="1480.0" class="side1-trace">
+      <title>pid=0o6 body=6 (10,1348) → pid=0o2 body=2 (10,20) len=1328</title>
+    </line>
+    <line x1="130.0" y1="1260.0" x2="180.0" y2="1260.0" class="side1-trace">
+      <title>pid=0o1403 body=771 (30,240) → pid=0o1402 body=770 (80,240) len=50</title>
+    </line>
   </g>
   <g id="side2-pads" />
   <g id="side1-pads" />
@@ -418,6 +820,7 @@
         <span>SVG: <span class="val" id="cr-svg">—</span></span>
         <span id="cr-body" class="body-info"></span>
     </div>
+    <div id="copy-toast">Copied!</div>
     <script>
         function toggleLayer(id, visible) {
             const el = document.getElementById(id);
@@ -455,6 +858,37 @@
         svg.addEventListener('mouseout', function(e) {
             const bg = e.target.closest('.dip-body-group');
             if (bg) crBody.textContent = '';
+        });
+
+        // Click-to-copy: any element with a <title> child
+        const toast = document.getElementById('copy-toast');
+        let toastTimer;
+        svg.addEventListener('click', function(e) {
+            // Walk up from the click target to find an element with a <title>
+            let el = e.target;
+            let text = null;
+            while (el && el !== svg) {
+                const t = el.querySelector(':scope > title');
+                if (t) { text = t.textContent; break; }
+                el = el.parentElement;
+            }
+            if (!text) return;
+
+            // Append current board coordinates
+            const pt = svg.createSVGPoint();
+            pt.x = e.clientX;
+            pt.y = e.clientY;
+            const svgPt = pt.matrixTransform(svg.getScreenCTM().inverse());
+            const bx = Math.round((svgPt.x / SCALE) + MIN_X);
+            const by = Math.round(MAX_Y - (svgPt.y / SCALE));
+            text += ' @board(' + bx + ',' + by + ')';
+
+            navigator.clipboard.writeText(text).then(function() {
+                toast.textContent = 'Copied: ' + text;
+                toast.classList.add('show');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(function() { toast.classList.remove('show'); }, 2000);
+            });
         });
     </script>
 </body>

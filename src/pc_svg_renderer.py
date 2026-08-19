@@ -139,21 +139,115 @@ class PCSVGRenderer:
     def _compute_body_bboxes(self) -> None:
         """Compute bounding box of pins for each body from actual point data.
 
-        Uses only side1 (component side) pins to avoid doubling the bbox
-        from pins that exist on both sides at the same coordinates.
+        Uses pins from both sides because some bodies have most or all of
+        their pins defined only on side 2 (solder side).
+
+        Pins are deduplicated by (body_id, pin_id), with S2 coordinates
+        preferred over S1 when they differ (S2 data is empirically more
+        reliable in corrupted files since through-hole pads are at the
+        same position on both sides).
+
+        Outlier pins (corrupted coordinates far from the body's other pins)
+        are excluded using IQR-based detection to prevent one bad record
+        from stretching a body across the entire canvas.
         """
-        body_pins: dict[int, list[PCPoint]] = {}
+        # Build body pin-count lookup for pin_id validation
+        body_max_pin: dict[int, int] = {}
+        for b in self.pc.bodies:
+            body_max_pin[b.body_id] = max(b.num_pins, body_max_pin.get(b.body_id, 0))
+
+        # PIN_ID_CAP: S2 pins with pin_id above this are corrupt.
+        # The largest real connector has ~1074 pins; 2048 provides margin.
+        PIN_ID_CAP = 2048
+
+        # Collect one location per (body, pin).
+        # S1 provides the base; S2 supplements (fills gaps for S2-only
+        # bodies) and corrects (overrides S1 when pin_id is valid).
+        body_pin_locs: dict[int, dict[int, tuple[int, int]]] = {}
+
         for pt in self.pc.side1_points:
             if pt.is_pin:
                 bid = pt.body_id
-                if bid not in body_pins:
-                    body_pins[bid] = []
-                body_pins[bid].append(pt)
+                if bid not in body_pin_locs:
+                    body_pin_locs[bid] = {}
+                body_pin_locs[bid][pt.pin_id] = self._pc_loc(pt.loc)
 
-        for bid, pins in body_pins.items():
-            locs = [self._pc_loc(p.loc) for p in pins]
+        # Also collect S2 locs separately for conflict resolution
+        s2_pin_locs: dict[int, dict[int, tuple[int, int]]] = {}
+        for pt in self.pc.side2_points:
+            if pt.is_pin:
+                bid = pt.body_id
+                # Only accept S2 pins with reasonable pin_ids.
+                # Corrupt S2 points carry garbage pin_ids (245760, etc.)
+                max_valid = max(body_max_pin.get(bid, 0), 200)
+                if pt.pin_id > min(max_valid, PIN_ID_CAP):
+                    continue
+                if bid not in s2_pin_locs:
+                    s2_pin_locs[bid] = {}
+                s2_pin_locs[bid][pt.pin_id] = self._pc_loc(pt.loc)
+                # Add S2-only pins (no S1 counterpart) to the main map
+                if bid not in body_pin_locs:
+                    body_pin_locs[bid] = {}
+                if pt.pin_id not in body_pin_locs[bid]:
+                    body_pin_locs[bid][pt.pin_id] = self._pc_loc(pt.loc)
+
+        # Resolve S1/S2 conflicts: when both sides define the same pin_id
+        # with different coordinates, keep the value closer to the median
+        # of the body's other pins. This is data-driven — neither side is
+        # universally more reliable.
+        for bid, s2_map in s2_pin_locs.items():
+            if bid not in body_pin_locs:
+                continue
+            pin_map = body_pin_locs[bid]
+            conflicts = [
+                pid for pid in s2_map
+                if pid in pin_map and s2_map[pid] != pin_map[pid]
+            ]
+            if not conflicts or len(pin_map) < 4:
+                continue  # too few pins for meaningful median
+
+            # Compute median from non-conflicting pins
+            stable = [loc for pid, loc in pin_map.items()
+                      if pid not in conflicts]
+            if len(stable) < 3:
+                continue
+            sorted_x = sorted(loc[0] for loc in stable)
+            sorted_y = sorted(loc[1] for loc in stable)
+            med_x = sorted_x[len(sorted_x) // 2]
+            med_y = sorted_y[len(sorted_y) // 2]
+
+            for pid in conflicts:
+                s1_loc = pin_map[pid]
+                s2_loc = s2_map[pid]
+                d_s1 = abs(s1_loc[0] - med_x) + abs(s1_loc[1] - med_y)
+                d_s2 = abs(s2_loc[0] - med_x) + abs(s2_loc[1] - med_y)
+                if d_s2 < d_s1:
+                    pin_map[pid] = s2_loc
+
+        for bid, pin_map in body_pin_locs.items():
+            locs = list(pin_map.values())
             xs = [loc[0] for loc in locs]
             ys = [loc[1] for loc in locs]
+
+            # For bodies with enough pins, filter outliers via IQR
+            if len(xs) >= 4:
+                sxs = sorted(xs)
+                sys_ = sorted(ys)
+                n = len(sxs)
+                q1x, q3x = sxs[n // 4], sxs[3 * n // 4]
+                q1y, q3y = sys_[n // 4], sys_[3 * n // 4]
+                iqrx = max(q3x - q1x, 500)  # min 500 mils fence
+                iqry = max(q3y - q1y, 500)
+                fence = 5
+                good_locs = [
+                    (x, y) for x, y in zip(xs, ys)
+                    if (q1x - fence * iqrx <= x <= q3x + fence * iqrx and
+                        q1y - fence * iqry <= y <= q3y + fence * iqry)
+                ]
+                if good_locs and len(good_locs) < len(xs):
+                    xs = [l[0] for l in good_locs]
+                    ys = [l[1] for l in good_locs]
+
             self._body_pin_bboxes[bid] = (min(xs), min(ys), max(xs), max(ys))
 
     def _compute_bounds(self) -> None:
@@ -169,11 +263,36 @@ class PCSVGRenderer:
         anchor_x: list[int] = []
         anchor_y: list[int] = []
 
-        # Bodies are always placed at real board locations (apply XY offset)
-        for body in self.pc.bodies:
-            if abs(body.loc[0]) < 50000 and abs(body.loc[1]) < 50000:
-                anchor_x.append(self._pc_x(body.loc[0]))
-                anchor_y.append(self._pc_y(body.loc[1]))
+        # When a CRD outline is available it defines the physical board
+        # boundary — use it exclusively for the board area.  Body coords
+        # are only used as fallback (with IQR outlier filtering) when
+        # there is no CRD.
+        if self.crd and self.crd.outline:
+            pass  # CRD anchors added below
+        else:
+            # No CRD: use IQR-filtered body coordinates
+            raw_x = sorted(body.loc[0] for body in self.pc.bodies
+                           if abs(body.loc[0]) < 50000)
+            raw_y = sorted(body.loc[1] for body in self.pc.bodies
+                           if abs(body.loc[1]) < 50000)
+            if len(raw_x) >= 4:
+                n = len(raw_x)
+                q1x, q3x = raw_x[n // 4], raw_x[3 * n // 4]
+                q1y, q3y = raw_y[n // 4], raw_y[3 * n // 4]
+                iqrx = max(q3x - q1x, 2000)
+                iqry = max(q3y - q1y, 2000)
+                fence = 5
+                for body in self.pc.bodies:
+                    bx, by = body.loc
+                    if (q1x - fence * iqrx <= bx <= q3x + fence * iqrx and
+                            q1y - fence * iqry <= by <= q3y + fence * iqry):
+                        anchor_x.append(self._pc_x(bx))
+                        anchor_y.append(self._pc_y(by))
+            else:
+                for body in self.pc.bodies:
+                    if abs(body.loc[0]) < 50000 and abs(body.loc[1]) < 50000:
+                        anchor_x.append(self._pc_x(body.loc[0]))
+                        anchor_y.append(self._pc_y(body.loc[1]))
 
         # CRD outline defines the physical board edge (already in CRD space)
         if self.crd:
@@ -215,16 +334,21 @@ class PCSVGRenderer:
         view_x: list[int] = []
         view_y: list[int] = []
 
-        # Bodies define the component area
+        # Bodies define the component area — only include those within
+        # the established board area to exclude corrupt coordinates
         for body in self.pc.bodies:
-            if abs(body.loc[0]) < 50000 and abs(body.loc[1]) < 50000:
-                view_x.append(self._pc_x(body.loc[0]))
-                view_y.append(self._pc_y(body.loc[1]))
+            pc_loc = self._pc_loc(body.loc)
+            if self._pt_in_board_area(pc_loc):
+                view_x.append(pc_loc[0])
+                view_y.append(pc_loc[1])
 
-        # Include pin bounding boxes (extend beyond body centers)
+        # Include pin bounding boxes that fall within the board area
         for bid, bbox in self._body_pin_bboxes.items():
-            view_x.extend([bbox[0], bbox[2]])
-            view_y.extend([bbox[1], bbox[3]])
+            for bx in (bbox[0], bbox[2]):
+                for by in (bbox[1], bbox[3]):
+                    if self._pt_in_board_area((bx, by)):
+                        view_x.append(bx)
+                        view_y.append(by)
 
         # Include in-area points (traces, pads)
         for pt in self.pc.all_points:
@@ -267,11 +391,16 @@ class PCSVGRenderer:
     def _is_valid_point(self, pt: PCPoint) -> bool:
         """Check if a point is a valid renderable entity.
 
-        Filters out unplaced entries at the origin (0,0) which appear
-        in many PC files as uninitialized/sentinel data regardless
-        of their point_id.
+        Filters out:
+          - Unplaced entries at (0,0) — uninitialised/sentinel data.
+          - point_id == 0 — never a valid assigned ID in any known board;
+            always indicates an uninitialised or corrupt record.  These
+            appear as near-origin artefacts (e.g. loc=(1,0)) in files
+            with parsing alignment issues (notably p.pc.O).
         """
         if pt.loc == (0, 0):
+            return False
+        if pt.point_id == 0:
             return False
         return self._pt_in_board_area(self._pc_loc(pt.loc))
 
@@ -295,13 +424,15 @@ class PCSVGRenderer:
         """Translate a PC file (x,y) location to CRD board space."""
         return (loc[0] + self.pc_offset_x, loc[1] + self.pc_offset_y)
 
-    def _build_point_index(self) -> dict[int, PCPoint]:
+    def _build_point_index(self, points: list[PCPoint]) -> dict[int, PCPoint]:
         """Build a lookup from point_id to PCPoint for neighbor resolution.
 
-        Only includes valid points within the board area.
+        Only includes valid points within the board area.  Each side gets
+        its own index so that corrupt neighbor IDs from one side cannot
+        accidentally resolve to a point on the other side.
         """
         idx: dict[int, PCPoint] = {}
-        for pt in self.pc.all_points:
+        for pt in points:
             if pt.point_id not in idx and self._is_valid_point(pt):
                 idx[pt.point_id] = pt
         return idx
@@ -328,7 +459,17 @@ class PCSVGRenderer:
         bg.set('height', '100%')
         bg.set('fill', '#111111')
 
-        point_idx = self._build_point_index()
+        # Build per-side point indices so neighbor resolution stays
+        # within the same copper layer.  A combined index would let
+        # corrupt neighbor IDs from one side resolve to a valid point
+        # on the other side, producing impossible cross-board traces.
+        s1_idx = self._build_point_index(self.pc.side1_points)
+        s2_idx = self._build_point_index(self.pc.side2_points)
+        # Combined index is still needed for feed-through resolution
+        # (feed-throughs intentionally connect across sides).
+        all_idx: dict[int, PCPoint] = {}
+        all_idx.update(s2_idx)
+        all_idx.update(s1_idx)  # S1 wins on collisions
 
         # Render layers back to front
         if self.crd:
@@ -336,11 +477,11 @@ class PCSVGRenderer:
         else:
             # No CRD: draw a filled rectangle from the body-derived board area
             self._render_inferred_board(svg)
-        self._render_traces(svg, self.pc.side2_points, 'side2', point_idx)
-        self._render_traces(svg, self.pc.side1_points, 'side1', point_idx)
+        self._render_traces(svg, self.pc.side2_points, 'side2', s2_idx)
+        self._render_traces(svg, self.pc.side1_points, 'side1', s1_idx)
         self._render_pads(svg, self.pc.side2_points, 'side2')
         self._render_pads(svg, self.pc.side1_points, 'side1')
-        self._render_feed_throughs(svg, point_idx)
+        self._render_feed_throughs(svg, all_idx)
         self._render_bodies(svg)
         self._render_labels(svg)
         self._render_text_annotations(svg, self.pc, 'board-text', 'board-text')
@@ -524,12 +665,28 @@ class PCSVGRenderer:
 
     def _render_traces(self, svg: ET.Element, points: list[PCPoint],
                        side: str, point_idx: dict[int, PCPoint]) -> None:
-        """Render trace segments for one side."""
+        """Render trace segments for one side.
+
+        Includes angle validation: real PCB traces use manhattan routing
+        (0°/90°) or 45° diagonals.  Segments longer than 300 mils at
+        non-standard angles are rejected as corrupt neighbor links.
+        """
         g = ET.SubElement(svg, 'g')
         g.set('id', f'{side}-traces')
 
         css_class = f'{side}-trace'
         drawn: set[tuple[int, int]] = set()
+
+        # Trace-angle validation constants.
+        # MAX_DEVIATION: maximum allowed perpendicular offset (mils) for
+        # a trace segment to qualify as manhattan or 45°.  60 mils = one
+        # DIP pin spacing, generous enough for routing jogs.
+        MAX_DEVIATION = 60  # mils
+        MIN_LEN_FOR_CHECK = 300  # mils — short segments can be any angle
+        # MAX_DIAG_LEN: maximum length (mils) for a non-manhattan trace.
+        # Across all known-good boards the longest 45° segment is 502 mils.
+        # Longer diagonals are always corrupt neighbor connections.
+        MAX_DIAG_LEN = 600  # mils
 
         for pt in points:
             if not self._is_valid_point(pt):
@@ -546,12 +703,52 @@ class PCSVGRenderer:
                 if not self._pt_in_board_area(self._pc_loc(nb.loc)):
                     continue
 
+                # Reciprocal check: on clean boards every neighbor
+                # link is bidirectional.  One-way links are corrupt.
+                if pt.point_id not in nb.neighbors:
+                    continue
+
+                dx = abs(pt.loc[0] - nb.loc[0])
+                dy = abs(pt.loc[1] - nb.loc[1])
+                seg_len = (dx * dx + dy * dy) ** 0.5
+
+                # Trace-angle validation for segments longer than a DIP.
+                # Real PCB traces are manhattan (0°/90°) or 45°.
+                # For manhattan: the minor axis should be ≤ MAX_DEVIATION.
+                # For 45°: |dx - dy| should be ≤ MAX_DEVIATION.
+                # Short segments (routing jogs, pin escapes) are exempt.
+                # A trace is "diagonal" only if both axes exceed 10 mils
+                # (1-mil coordinate noise does not make a horizontal trace
+                # diagonal).
+                is_diagonal = dx > 10 and dy > 10
+                if seg_len > MIN_LEN_FOR_CHECK and is_diagonal:
+                    minor = min(dx, dy)
+                    diff_45 = abs(dx - dy)
+                    if minor > MAX_DEVIATION and diff_45 > MAX_DEVIATION:
+                        continue  # skip corrupt diagonal
+
+                # Length cap for diagonal (non-manhattan) segments.
+                # Manhattan traces (bus wires) can span the board, but
+                # diagonal segments are always short routing jogs.
+                if is_diagonal and seg_len > MAX_DIAG_LEN:
+                    continue
+
                 line = ET.SubElement(g, 'line')
                 line.set('x1', f'{self._sx(self._pc_x(pt.loc[0])):.1f}')
                 line.set('y1', f'{self._sy(self._pc_y(pt.loc[1])):.1f}')
                 line.set('x2', f'{self._sx(self._pc_x(nb.loc[0])):.1f}')
                 line.set('y2', f'{self._sy(self._pc_y(nb.loc[1])):.1f}')
                 line.set('class', css_class)
+
+                # Tooltip for debugging
+                title = ET.SubElement(line, 'title')
+                title.text = (
+                    f"pid=0o{pt.point_id:o} body={pt.body_id} "
+                    f"({pt.loc[0]},{pt.loc[1]}) → "
+                    f"pid=0o{nb.point_id:o} body={nb.body_id} "
+                    f"({nb.loc[0]},{nb.loc[1]}) "
+                    f"len={seg_len:.0f}"
+                )
 
     def _render_pads(self, svg: ET.Element, points: list[PCPoint],
                      side: str) -> None:
@@ -867,17 +1064,21 @@ def render_pc_html(pc: PCFile, output_path: str | Path,
     bg.set('height', '100%')
     bg.set('fill', '#111111')
 
-    point_idx = renderer._build_point_index()
+    s1_idx = renderer._build_point_index(pc.side1_points)
+    s2_idx = renderer._build_point_index(pc.side2_points)
+    all_idx: dict[int, 'PCPoint'] = {}
+    all_idx.update(s2_idx)
+    all_idx.update(s1_idx)
 
     if crd:
         renderer._render_board_outline(svg)
     else:
         renderer._render_inferred_board(svg)
-    renderer._render_traces(svg, pc.side2_points, 'side2', point_idx)
-    renderer._render_traces(svg, pc.side1_points, 'side1', point_idx)
+    renderer._render_traces(svg, pc.side2_points, 'side2', s2_idx)
+    renderer._render_traces(svg, pc.side1_points, 'side1', s1_idx)
     renderer._render_pads(svg, pc.side2_points, 'side2')
     renderer._render_pads(svg, pc.side1_points, 'side1')
-    renderer._render_feed_throughs(svg, point_idx)
+    renderer._render_feed_throughs(svg, all_idx)
     renderer._render_bodies(svg)
     renderer._render_labels(svg)
     renderer._render_text_annotations(svg, pc, 'board-text', 'board-text')
@@ -953,6 +1154,16 @@ def render_pc_html(pc: PCFile, output_path: str | Path,
             stroke: #FFD700 !important; stroke-width: 2.5 !important;
             filter: brightness(1.4);
         }}
+        /* Click-to-copy */
+        line[class*="trace"]:hover, .dip-body-group:hover {{ cursor: pointer; }}
+        #copy-toast {{
+            position: fixed; top: 16px; right: 16px;
+            background: #1a8; color: #fff; padding: 8px 16px;
+            border-radius: 6px; font-size: 13px;
+            opacity: 0; transition: opacity 0.3s;
+            pointer-events: none; z-index: 200;
+        }}
+        #copy-toast.show {{ opacity: 1; }}
     </style>
 </head>
 <body>
@@ -979,6 +1190,7 @@ def render_pc_html(pc: PCFile, output_path: str | Path,
         <span>SVG: <span class="val" id="cr-svg">—</span></span>
         <span id="cr-body" class="body-info"></span>
     </div>
+    <div id="copy-toast">Copied!</div>
     <script>
         function toggleLayer(id, visible) {{
             const el = document.getElementById(id);
@@ -1016,6 +1228,37 @@ def render_pc_html(pc: PCFile, output_path: str | Path,
         svg.addEventListener('mouseout', function(e) {{
             const bg = e.target.closest('.dip-body-group');
             if (bg) crBody.textContent = '';
+        }});
+
+        // Click-to-copy: any element with a <title> child
+        const toast = document.getElementById('copy-toast');
+        let toastTimer;
+        svg.addEventListener('click', function(e) {{
+            // Walk up from the click target to find an element with a <title>
+            let el = e.target;
+            let text = null;
+            while (el && el !== svg) {{
+                const t = el.querySelector(':scope > title');
+                if (t) {{ text = t.textContent; break; }}
+                el = el.parentElement;
+            }}
+            if (!text) return;
+
+            // Append current board coordinates
+            const pt = svg.createSVGPoint();
+            pt.x = e.clientX;
+            pt.y = e.clientY;
+            const svgPt = pt.matrixTransform(svg.getScreenCTM().inverse());
+            const bx = Math.round((svgPt.x / SCALE) + MIN_X);
+            const by = Math.round(MAX_Y - (svgPt.y / SCALE));
+            text += ' @board(' + bx + ',' + by + ')';
+
+            navigator.clipboard.writeText(text).then(function() {{
+                toast.textContent = 'Copied: ' + text;
+                toast.classList.add('show');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(function() {{ toast.classList.remove('show'); }}, 2000);
+            }});
         }});
     </script>
 </body>

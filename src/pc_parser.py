@@ -271,6 +271,69 @@ class PCParser:
 
         self._dbg(f"  Total bodies: {len(self.result.bodies)}")
 
+    def _reconstruct_missing_bodies(self) -> None:
+        """Synthesize body records for IDs present in pins but not in bodies.
+
+        Some PC files (notably p.pc.O) have corrupt body records where the
+        body_id field was garbled.  The pins still reference the correct
+        body_id, so we can reconstruct the missing body from pin positions.
+
+        Only body_ids < 300 are considered (larger values are corrupt pin
+        data, not real body IDs).  Orientation is inferred from the pin
+        layout (vertical or horizontal row).
+        """
+        existing_ids = set(b.body_id for b in self.result.bodies)
+
+        # Collect S1 pin bodies that are missing
+        missing: dict[int, list[PCPoint]] = {}
+        for pt in self.result.side1_points:
+            if pt.is_pin and pt.body_id < 300 and pt.body_id not in existing_ids:
+                missing.setdefault(pt.body_id, []).append(pt)
+
+        if not missing:
+            return
+
+        for bid in sorted(missing):
+            pins = sorted(missing[bid], key=lambda p: p.pin_id)
+            pin1 = pins[0]
+            num_pins = len(pins)
+
+            # Infer orientation from pin 1 → pin 2 direction
+            orient = 0
+            if num_pins >= 2:
+                dx = pins[1].loc[0] - pins[0].loc[0]
+                dy = pins[1].loc[1] - pins[0].loc[1]
+                if dy < 0:
+                    orient = 1   # vertical, pin 2 above pin 1
+                elif dx > 0:
+                    orient = 2   # horizontal
+                elif dy > 0:
+                    orient = 3   # vertical flipped
+
+            # Infer spacing for 2-pin components
+            spacing = 0
+            if num_pins == 2:
+                dx = abs(pins[1].loc[0] - pins[0].loc[0])
+                dy = abs(pins[1].loc[1] - pins[0].loc[1])
+                spacing = max(dx, dy) // 5  # spacing in 5-mil units
+
+            body = PCBody(
+                loc=pin1.loc,
+                dip_type_name="",
+                dip_lib_index=0,
+                sequence_num=0,
+                orientation=orient,
+                body_bits=0,
+                body_id=bid,
+                spacing_5mil=spacing,
+                num_pins=num_pins,
+            )
+            self.result.bodies.append(body)
+            self._dbg(f"  Reconstructed body {bid}: loc={pin1.loc} "
+                       f"pins={num_pins} orient={orient}")
+
+        self._dbg(f"  Reconstructed {len(missing)} missing bodies")
+
     def _parse_points(self, side_name: str) -> list[PCPoint]:
         """Parse a point section (side 1 or side 2).
 
@@ -305,12 +368,20 @@ class PCParser:
             point_id = self._read_word()
 
             # Neighbor list (terminated by 0)
+            # Maximum 4 neighbors observed across all known-good boards.
+            # More than 4 indicates the parser lost alignment (e.g. a
+            # previous record's text or neighbor overflow consumed the
+            # zero terminator).  We keep only the first 4 and skip the
+            # rest so the stream stays aligned for subsequent records.
+            MAX_NEIGHBORS = 4
             neighbors: list[int] = []
             while not self._at_end():
                 w = self._read_word()
                 if w == 0:
                     break
-                neighbors.append(w)
+                if len(neighbors) < MAX_NEIGHBORS:
+                    neighbors.append(w)
+                # else: skip overflowed word, keep reading until 0
 
             # XWD BITS, PAD NUMBER
             bits, pad_type = self._read_halves()
@@ -514,11 +585,15 @@ class PCParser:
         # 4. Body placements
         self._parse_bodies()
 
+
         # 5. Side 1 points (component side)
         self.result.side1_points = self._parse_points("Side 1 (component)")
 
         # 6. Side 2 points (solder side)
         self.result.side2_points = self._parse_points("Side 2 (solder)")
+
+        # 6a. Reconstruct any missing bodies from pin data
+        self._reconstruct_missing_bodies()
 
         # 7. Set centers
         self._parse_sets()

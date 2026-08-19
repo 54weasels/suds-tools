@@ -81,7 +81,6 @@ NO_CRD_BOARDS = {
     'ratsht',                   # Rat's nest / test pattern
     'a20', 'ax',                # Small test/adapter boards
     'back',                     # Backplane (custom shape)
-    'p',                        # Extremely tall — custom layout
     'vmemb',                    # Corrupt data: S2 X-shifted ~200 mils, 16% non-45° traces
 }
 
@@ -91,6 +90,9 @@ NO_CRD_BOARDS = {
 CRD_OVERRIDES: dict[str, str | None] = {
     # mouse2 has DECPC type in WLD but is physically a small board
     'mouse2': None,
+    # p has corrupt body coordinates that confuse auto-detection;
+    # valid components fit within Multibus outline
+    'p': 'multi0.crd.O',
 }
 
 

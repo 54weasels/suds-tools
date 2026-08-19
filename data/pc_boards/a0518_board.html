@@ -43,6 +43,16 @@
             stroke: #FFD700 !important; stroke-width: 2.5 !important;
             filter: brightness(1.4);
         }
+        /* Click-to-copy */
+        line[class*="trace"]:hover, .dip-body-group:hover { cursor: pointer; }
+        #copy-toast {
+            position: fixed; top: 16px; right: 16px;
+            background: #1a8; color: #fff; padding: 8px 16px;
+            border-radius: 6px; font-size: 13px;
+            opacity: 0; transition: opacity 0.3s;
+            pointer-events: none; z-index: 200;
+        }
+        #copy-toast.show { opacity: 1; }
     </style>
 </head>
 <body>
@@ -89,10 +99,18 @@
   </g>
   <g id="side2-traces" />
   <g id="side1-traces">
-    <line x1="2960.0" y1="120.0" x2="2960.0" y2="5760.0" class="side1-trace" />
-    <line x1="2960.0" y1="120.0" x2="2880.0" y2="120.0" class="side1-trace" />
-    <line x1="2960.0" y1="5760.0" x2="2880.0" y2="5760.0" class="side1-trace" />
-    <line x1="2880.0" y1="5760.0" x2="2880.0" y2="120.0" class="side1-trace" />
+    <line x1="2960.0" y1="120.0" x2="2960.0" y2="5760.0" class="side1-trace">
+      <title>pid=0o17 body=15 (2880,5720) → pid=0o16 body=14 (2880,80) len=5640</title>
+    </line>
+    <line x1="2960.0" y1="120.0" x2="2880.0" y2="120.0" class="side1-trace">
+      <title>pid=0o17 body=15 (2880,5720) → pid=0o14 body=12 (2800,5720) len=80</title>
+    </line>
+    <line x1="2960.0" y1="5760.0" x2="2880.0" y2="5760.0" class="side1-trace">
+      <title>pid=0o16 body=14 (2880,80) → pid=0o15 body=13 (2800,80) len=80</title>
+    </line>
+    <line x1="2880.0" y1="5760.0" x2="2880.0" y2="120.0" class="side1-trace">
+      <title>pid=0o15 body=13 (2800,80) → pid=0o14 body=12 (2800,5720) len=5640</title>
+    </line>
   </g>
   <g id="side2-pads">
     <circle cx="360.0" cy="4880.0" r="8.0" class="side2-pad" />
@@ -21048,6 +21066,7 @@
         <span>SVG: <span class="val" id="cr-svg">—</span></span>
         <span id="cr-body" class="body-info"></span>
     </div>
+    <div id="copy-toast">Copied!</div>
     <script>
         function toggleLayer(id, visible) {
             const el = document.getElementById(id);
@@ -21085,6 +21104,37 @@
         svg.addEventListener('mouseout', function(e) {
             const bg = e.target.closest('.dip-body-group');
             if (bg) crBody.textContent = '';
+        });
+
+        // Click-to-copy: any element with a <title> child
+        const toast = document.getElementById('copy-toast');
+        let toastTimer;
+        svg.addEventListener('click', function(e) {
+            // Walk up from the click target to find an element with a <title>
+            let el = e.target;
+            let text = null;
+            while (el && el !== svg) {
+                const t = el.querySelector(':scope > title');
+                if (t) { text = t.textContent; break; }
+                el = el.parentElement;
+            }
+            if (!text) return;
+
+            // Append current board coordinates
+            const pt = svg.createSVGPoint();
+            pt.x = e.clientX;
+            pt.y = e.clientY;
+            const svgPt = pt.matrixTransform(svg.getScreenCTM().inverse());
+            const bx = Math.round((svgPt.x / SCALE) + MIN_X);
+            const by = Math.round(MAX_Y - (svgPt.y / SCALE));
+            text += ' @board(' + bx + ',' + by + ')';
+
+            navigator.clipboard.writeText(text).then(function() {
+                toast.textContent = 'Copied: ' + text;
+                toast.classList.add('show');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(function() { toast.classList.remove('show'); }, 2000);
+            });
         });
     </script>
 </body>
