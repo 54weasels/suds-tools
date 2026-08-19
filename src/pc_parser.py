@@ -252,7 +252,13 @@ class PCParser:
             body_bits, body_id = self._read_halves()
 
             # XWD SPACING, # PINS
-            spacing_5mil, num_pins = self._read_halves()
+            # Per pcdvi.sai line 1276-1277:
+            #   pins ← righthalf(word) LAND 511   (bits 0-8)
+            #   type ← (word DIV 512) LAND 3      (bits 9-10)
+            # type: 0=DIP, 1=SIP (SIMM), 2=JIP (zigzag/connector)
+            spacing_5mil, pins_raw = self._read_halves()
+            num_pins = pins_raw & 0o777      # low 9 bits
+            pkg_type = (pins_raw >> 9) & 3   # bits 9-10
 
             body = PCBody(
                 loc=loc,
@@ -264,10 +270,11 @@ class PCParser:
                 body_id=body_id,
                 spacing_5mil=spacing_5mil,
                 num_pins=num_pins,
+                pkg_type=pkg_type,
             )
             self.result.bodies.append(body)
             self._dbg(f"  Body {body_id}: loc={loc} L={dip_lib_index} "
-                       f"N={sequence_num} pins={num_pins} spacing={spacing_5mil}")
+                       f"N={sequence_num} pins={num_pins} pkg={pkg_type} spacing={spacing_5mil}")
 
         self._dbg(f"  Total bodies: {len(self.result.bodies)}")
 

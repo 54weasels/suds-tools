@@ -36,7 +36,9 @@ class PCBody:
     body_bits: int = 0                   # Body attribute bits
     body_id: int = 0                     # Generated body ID
     spacing_5mil: int = 0                # Pin spacing * 5 mils (for 2-pin DIPs)
-    num_pins: int = 0                    # Number of pins on this DIP
+    num_pins: int = 0                    # Number of pins (bits 0-8 of raw word)
+    pkg_type: int = 0                    # Package type (bits 9-10 of raw word)
+                                         #   0=DIP, 1=SIP (SIMM), 2=JIP (connector)
 
 
 @dataclass

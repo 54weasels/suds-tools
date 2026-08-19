@@ -116,10 +116,12 @@ def auto_detect_crd(pc, crd_list):
         ox = [p[0] for p in crd.outline]
         oy = [p[1] for p in crd.outline]
         orig = crd.pc_origin
-        # Check if all components fit within the CRD outline (50 mil tolerance)
+        # Check if all components fit within the CRD outline.
+        # Tolerance of 200 mils accounts for edge-mount components
+        # and pc_origin offsets near the board boundary.
         comp_max_x = max(bx) + orig[0]
         comp_max_y = max(by) + orig[1]
-        if comp_max_x <= max(ox) + 50 and comp_max_y <= max(oy) + 50:
+        if comp_max_x <= max(ox) + 200 and comp_max_y <= max(oy) + 200:
             return crd_name, crd
 
     return None, None

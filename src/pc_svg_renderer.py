@@ -168,11 +168,21 @@ class PCSVGRenderer:
         for pt in self.pc.side1_points:
             if pt.is_pin:
                 bid = pt.body_id
+                max_valid = max(body_max_pin.get(bid, 0), 200)
+                if pt.pin_id > min(max_valid, PIN_ID_CAP):
+                    continue
                 if bid not in body_pin_locs:
                     body_pin_locs[bid] = {}
                 body_pin_locs[bid][pt.pin_id] = self._pc_loc(pt.loc)
 
-        # Also collect S2 locs separately for conflict resolution
+        # Also collect S2 locs separately for conflict resolution.
+        # First pass: count S2 pins per body_id to detect garbage
+        s2_pin_counts: dict[int, int] = {}
+        for pt in self.pc.side2_points:
+            if pt.is_pin:
+                bid = pt.body_id
+                s2_pin_counts[bid] = s2_pin_counts.get(bid, 0) + 1
+
         s2_pin_locs: dict[int, dict[int, tuple[int, int]]] = {}
         for pt in self.pc.side2_points:
             if pt.is_pin:
@@ -181,6 +191,14 @@ class PCSVGRenderer:
                 # Corrupt S2 points carry garbage pin_ids (245760, etc.)
                 max_valid = max(body_max_pin.get(bid, 0), 200)
                 if pt.pin_id > min(max_valid, PIN_ID_CAP):
+                    continue
+                # Skip S2 pins for bodies where S2 count vastly exceeds
+                # the declared pin count — these are garbage S2 points
+                # whose small body_id (from RH of point_id) coincides
+                # with a real body.  The threshold is 4x to accommodate
+                # legitimate S2 pins on both-side components.
+                declared = body_max_pin.get(bid, 0)
+                if declared > 0 and s2_pin_counts.get(bid, 0) > max(declared * 4, 10):
                     continue
                 if bid not in s2_pin_locs:
                     s2_pin_locs[bid] = {}
@@ -663,6 +681,49 @@ class PCSVGRenderer:
         fill_rect.set('stroke-width', '3')
         fill_rect.set('rx', '8')
 
+    def _find_orphan_pids(self, points: list[PCPoint],
+                           point_idx: dict[int, PCPoint]) -> set[int]:
+        """Find point IDs in small trace chains not connected to any pin/via.
+
+        An 'orphan chain' is a connected component of ≤ MAX_ORPHAN_SIZE
+        non-pin trace points where no member has a feed-through via or
+        is a pin.  These are leftover routing stubs from deleted nets.
+        """
+        MAX_ORPHAN_SIZE = 8
+        visited: set[int] = set()
+        orphan_pids: set[int] = set()
+
+        for pt in points:
+            pid = pt.point_id
+            if pid in visited or pid not in point_idx:
+                continue
+            # BFS this connected component
+            queue = [pid]
+            component: list[int] = []
+            has_pin = False
+            has_via = False
+            while queue:
+                cur = queue.pop(0)
+                if cur in visited:
+                    continue
+                visited.add(cur)
+                p = point_idx.get(cur)
+                if p is None:
+                    continue
+                component.append(cur)
+                if p.is_pin:
+                    has_pin = True
+                if p.feed_through_id:
+                    has_via = True
+                for nb_id in p.neighbors:
+                    if nb_id not in visited and nb_id in point_idx:
+                        queue.append(nb_id)
+
+            if not has_pin and not has_via and len(component) <= MAX_ORPHAN_SIZE:
+                orphan_pids.update(component)
+
+        return orphan_pids
+
     def _render_traces(self, svg: ET.Element, points: list[PCPoint],
                        side: str, point_idx: dict[int, PCPoint]) -> None:
         """Render trace segments for one side.
@@ -688,6 +749,10 @@ class PCSVGRenderer:
         # Longer diagonals are always corrupt neighbor connections.
         MAX_DIAG_LEN = 600  # mils
 
+        # Pre-compute orphan point IDs — small trace chains not reaching
+        # any pin or via.  Skip these to reduce visual noise.
+        orphans = self._find_orphan_pids(points, point_idx)
+
         for pt in points:
             if not self._is_valid_point(pt):
                 continue
@@ -701,6 +766,10 @@ class PCSVGRenderer:
                 if nb is None:
                     continue
                 if not self._pt_in_board_area(self._pc_loc(nb.loc)):
+                    continue
+
+                # Skip orphan trace segments (both ends in orphan chains)
+                if pt.point_id in orphans and nb_id in orphans:
                     continue
 
                 # Reciprocal check: on clean boards every neighbor
@@ -846,12 +915,6 @@ class PCSVGRenderer:
             bx2 = max_px + m
             by2 = max_py + m
 
-            if self.crd and self.crd.outline:
-                crd_min_x, crd_min_y, crd_max_x, crd_max_y = self.crd.board_extents
-                bx1 = max(bx1, crd_min_x)
-                by1 = max(by1, crd_min_y)
-                bx2 = min(bx2, crd_max_x)
-                by2 = min(by2, crd_max_y)
 
             x1 = self._sx(bx1)
             y1 = self._sy(by2)  # flip Y
@@ -900,7 +963,9 @@ class PCSVGRenderer:
                 tip_parts.append(chip_type)
             elif dip_name:
                 tip_parts.append(dip_name)
-            tip_parts.append(f'{body.num_pins}pin')
+            PKG_NAMES = {0: 'DIP', 1: 'SIP', 2: 'JIP'}
+            pkg_label = PKG_NAMES.get(body.pkg_type, f'pkg{body.pkg_type}')
+            tip_parts.append(f'{body.num_pins}pin {pkg_label}')
             tip_parts.append(f'loc=({body.loc[0]},{body.loc[1]})')
             tip = ET.SubElement(body_g, 'title')
             tip.text = '  '.join(tip_parts)
