@@ -1,0 +1,138 @@
+# pd.mss
+
+From: Andy Bechtolsheim
+To:   Web Augustine
+Subj: Proposed Rewrite of Model 50 Product Description
+
+Web,
+
+  I liked your Model 50 Product Plan quite well.
+Below is my suggestion on how to improve the product description.
+I think it is key to emphasize the desktop package, and
+to separate the following concepts:
+-  Sun-2 Architecture (the software compatibility issue)
+-  Packaging (Monitor, keyboard, mouse, desktop)
+-  Functionality (CPU, MMU, Memory, etc).
+
+Below, I have used the numbers 2050 and 2051 to refer to the
+CPU and memory expansion boards.
+
+
+---
+Product Specification
+---------------------
+
+The Sun-2/50 is a high-performance desktop workstation.
+It consists of a 19-inch high-resolution display,
+a low-profile ergonomic keyboard, and a mouse pointing device.
+
+Being a member of the Sun-2 family of workstations,
+the Sun-2/50 is completely software compatible with other Sun-2 workstations.
+The Sun-2/50 runs the Sun-2 UNIX 4.2 BSD operating system,
+including SunWindows, SunCore, standard languages, and a large
+number of utilities.
+
+All the electronics is contained in the base of the display.
+This base contains a two-slot cardcage that accepts two large-format boards:
+the 2050 CPU Board and the optional 2051 Expansion Board.
+
+2050 CPU Board
+--------------
+
+The 2050 CPU Board is a triple-height, triple width Eurocard (400 mm by 366.67 mm).
+It contains the CPU, Virtual Memory Management,
+1 or 4 Megabytes of physical memory, video display subsystem,
+Ethernet interface, two Serial I/O ports, and a VME System Bus interface.
+The CPU Board Back Panel provides connectors for Video, Ethernet,
+two Serial Ports, Keyboard, and Mouse.
+
+CPU/MMU/Memory:  The 2050 CPU Board implements the standard
+Sun-2 architecture, providing virtual memory management for
+multiple processes with up to 16 MBytes of virtual memory per process.
+The CPU is a 10 MHz 68010, executing from main memory with zero wait states.
+Size of main memory is 1 Mbyte with 64K RAMs, 4 Mbyte with 256K RAMs.
+Main memory is equipped with byte-parity error detection.
+
+Display Subsystem: The 2050 includes a display subsystem comprised
+of a 1152 by 900 pixel frame buffer
+and a video controller capable of refreshing the display
+flickerfree at 70 Hz non-interlaced.
+Hardware assist for raster operations (RasterOPs) is provided by
+a custom VLSI processor.
+When invoked by low-level window system and graphics software,
+the RasterOp chip performs high-speed bit-shifting and bit-manipulation.
+
+Network Interface: The 2050 CPU Board includes an integral Ethernet
+interface. This interface directly deposits data in main memory
+with DVMA (direct virtual memory access).
+The Ethernet interface is implemented with a VLSI controller
+that provides high-performance and extensive diagnostic capabilities.
+
+Serial I/O Ports: The 2050 CPU Board contains two RS423 serial
+I/O ports, configured as RS232C compatible DTEs with full modem control.
+The serial ports have I/O speeds of 19.2K baud output and 9.6K baud input.
+
+VME Bus Interface: The 2050 CPU Board includes a VME System Bus interface
+with full dual-port capabilities.
+This interface is used to connect to the Floating Point Processor Option,
+the SCSI Disk option, and other options SUN might offer in the future.
+In the Model 50 Package, this bus is not user accessible and is
+solely intended for options supplied by Sun.
+
+
+---
+2051 Expansion Board
+--------------------
+
+The 2050 Expansion Board is also a triple-height, triple width Eurocard
+(400 mm by 366.67 mm).
+The 2051 Expansion Board provides memory expansion and I/O expansion.
+Memory Expansion consists of either 1 MByte (64K RAM)
+or 4 MByte (256K RAM) of main memory, accessible
+by the CPU with zero-wait states.
+I/O expansion is a provision for accomodating one "piggyback"
+standard-size VME Board.
+
+One use of the I/O expansion is the SKY-VME Floating Point Processor.
+A second use of the I/O expansion is the SUN-VME SCSI Interface.
+
+Note: At most one I/O expansion board can be used, and it requires the presence
+of the 2051 Expansion board as a prerequisite.
+
+Software
+--------
+
+The Sun-2/50 is shipped with the standard Sun software:
+UNIX operating system, SunWindows, SunCore, and C, Pascal, and
+Fortran languages.
+
+Also supported are over 220 utilities that are standard part of UNIX.
+These include editors, text formatters, spelling and style checkers,
+a general purpose sort utility, and electronic mail and bulletin programs.
+
+The Sun-2/50 is shipped with a software license only,
+without software distribution tape(s).
+Each workstation will still include a complete set of documentation.
+
+
+---
+Notes:
+------
+
+The Sun-2/50 does not implement the Sun-2 architecture on a single board.
+The Sun-2/50 implements the Sun-2 architecture in a desktop package.
+The Sun-2/50 is a workstation, a package, not a board.
+Please make sure you keep those concepts apart.
+
+I think that the Ethernet tranceiver should be an option and should
+not be shipped as part of the product.
+There are 2 reasons for this:
+1) it will reduce the list price of the machine to the magic $9900 number.
+2) we are making the assumption that an Ethernet transceiver is required
+   for each Model 50. This is not correct given current
+   Multidrop transceiver products and for customers that are already
+   doing their own Ethernet installations.
+
+I think it is time to separate the workstation business from the
+network installation business. We should offer transceivers as options,
+and provide multidrop tranceivers as an option also.

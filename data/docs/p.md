@@ -1,0 +1,1397 @@
+---
+
+
+---
+
+
+# SUN 68000 Board
+
+
+# Principles of Operation
+
+
+SUN MICROSYSTEMS INC.
+
+September 1982
+
+
+>
+**Trade Secret Notice**
+
+This document contains unpublished, proprietary information
+and describes subject matter proprietary to SUN MICROSYSTEMS INC.
+This document may not be disclosed to third parties or copied
+or duplicated in any form without the prior written consent of
+SUN MICROSYSTEMS INC.
+
+
+>
+Multibus is a trademark of Intel Corporation.
+
+
+---
+
+
+---
+
+# Principles of Operation
+
+
+## Introduction
+
+
+This chapter provides a description of the SUN 68000 Board circuit operation.
+The discussion assumes that the reader is familiar with the SUN 68000 Board
+User Manual, which covers in three chapters the architecture,
+the installation, and the programming of the SUN 68000 board.
+In addition, the discussion assumes that the reader has a working knowledge
+of digital electronics and has access to descriptions of the components
+used on the board.
+
+A set of schematic diagrams for the SUN 68000 Board are included
+in Chapter 6 of this manual and a complete wirelist is included
+in Chapter 7. The following two sections illustrate the conventions
+employed in the schematics and the wirelist.
+
+
+## Schematic Conventions: Signals
+
+
+When possible, the schematics were drawn to standard drafting conventions
+with input signal entering from the left and output signals exiting to the right.
+
+Both active-high and active-low signals are used.
+A signal name that is followed by a backslash ("\") indicates
+that the signal is asserted active low (<0.4V), e.g. OE\.
+Conversely, a signal without a backslash denotes a
+signal that is asserted active high (>2.0V).
+
+For signals with multiple meanings or synonyms,
+the synonyms are listed separated by a slash "/".
+For example, the signal name for a read-write signal
+that is active low for write is "READ/WRITE\".
+For signals with multiple functions that are exclusive of each other,
+the names are listed separated by a vertical bar or "|".
+
+Signals that are part of busses are indicated by a common prefix
+followed by a number. For example, a 16 bit data bus might be labelled
+"D0", "D1", "D2", and so on until "D15".
+A group of signals that are part of a signal vector are denoted by
+a common prefix separated by the suffix with ".".
+For example, all Multibus signals start with the prefix "B.".
+
+Clock signals that are labelled C#1.#2-#3 are periodic clocks that are
+described by their signal name.
+The first number after the "C" indicates the clock period in nanoseconds,
+the second number the beginning of the active clock phase,
+and the third number the end of the active clock phase.
+Other clocks are labelled according to their function.
+
+---
+
+## Schematic Conventions: Components
+
+
+Components in the schematics are identified by Component Name
+(also referred to as Body Name in the wirelist).
+Components are named according to "generic" or industry standard names.
+The way components are drawn reflects their circuit function rather than
+the manufacturer's definition.
+Components that are used in the logical inverse of their normal form,
+such as inverted-input gates, are identified by a name followed
+by a backslash (e.g. 74LS00\).
+
+Each component carries a location label identifying its component type
+and approximate location on the board.
+Location labels consist of one letter followed by three digits.
+The letter indicates the type of component and is one of:
+
+
+```
+
+Letter	Component Type
+--------------------------------
+C,K,X   Capacitor
+J       Jumper of Connector
+M       Memory Chip
+R       discrete Resistor
+S       single-in-line component
+U       dual-in-line component
+
+```
+
+
+The three digits give the approximate component position on the board,
+with the first digit indicating the row position and the last two digits
+the position along the row.
+
+Component names (Body Names) are translated into Diptypes that specify
+a particular physical component associated with the component name.
+A Diptype specifies a particular physical component
+associated with one or several component names.
+There is only one diptype for components that are sections
+of the same physical package (e.g. gates of a 74LS00 diptype).
+
+Location labels are cross-indexed in the wirelist
+into diptype and component names and locations on the schematics.
+Diptypes are translated by the parts list
+into manufacturer codes and part names.
+
+
+## Schematic Conventions: Programmable Logic
+
+
+Programmable logic elements such as PALs and PROMs are described
+in a high-level functional language from which they are translated
+automatically into the bitpatterns for programming.
+
+Programmable logic elements are identified by name.
+The source code for the programmable logic is included in chapter 5 of this manual.
+Tables and timing diagrams explaining programmable logic elements
+are included in the description of the particular
+functional block whenever appropriate.
+
+---
+
+## Functional Overview of Board
+
+
+The SUN 68000 Board is a single-board computer comprised of the
+following major pieces:
+
+
+68000 Processor with INIT, BERR, and DTACK logic
+
+Multibus Interface with multimaster interface
+
+Memory Management Unit
+
+Main Memory and Byte Parity Logic
+
+Input/Output
+
+
+---
+
+## Power
+
+
+The processor board is designed for 5V-only operation.
+On-board voltage converter 7660 (U300) generates a -5V supply
+for the RS423 interface drivers.
+
+
+## Initialization
+
+
+Upon application of power, capacitor C304 begins to charge through resistor R300.
+Time constant of capacitor charging operation allows 100 msec Reset pulse
+to 68000 after power-up.
+When the charge developed reaches the threshold voltage of the precision
+voltage comparator 8211 (U302), output RESET.HARD\ is deasserted.
+Feedback resistor R301 introduces a schmitt-trigger threshold into the
+operation of the voltage comparator.
+
+RESET.HARD and the output of the watchdog timer RESET.SOFT are wired-or
+to produce INIT\.
+INIT causes 68000 RESET\ and HALT\ to be asserted.
+INIT\ also sets the boot flipflop 74LS74 (U702)
+and clears the parity enable flipflop.
+The boot flipflop generates BOOTREAD on read cycles via 74S08 (U802).
+BOOTREAD causes address decoder 74S288 (U502) to map PROM0 into
+address space A21..23 = 0 and thus starting 68000 execution from PROM0.
+The Boot flipflop is reset in software by CLR.BOOT\,
+caused by writing to location PROM0.
+
+The on-board UART is wired to 68000 reset and is thus
+reset by the same events that cause a 68000 reset.
+The on-board timer has no reset input and must be initialized by software;
+however, powerup disables the timer via built-in reset circuitry.
+
+
+---
+
+## Clocks
+
+
+All on-board clocks are derived from 19.6608-MHz crystal oscillator K1114A (U401).
+The oscillator clock C50 is divided by flipflop 74S74 (U401)
+into C100 and C200.
+C100 drives the 68000 and 68000 related timing, C200 clocks 9513 timer chip.
+
+
+### 9513 Timer Clocks
+
+
+Timer chip AM9513 (U301) contains five 16-bit timers that are programmed
+in software to provide the appropriate clocks sources for the following:
+
+
+```
+
+    TIMER1:	Watchdog timer, typically 3 msec.
+    TIMER2:	User Programmable Timer, with Interrupt Option.
+    TIMER3:	Refresh timer, causes non-maskable interrupt every 2 msec.
+    TIMER4:	UART Channel A clock, 150 KHz for 9600 baud.
+    TIMER5:	UART Channel B clock, 150 KHz for 9600 baud.
+
+```
+
+
+### 68000-derived Clocks
+
+
+Most on-board timing is derived from 68000 signals via flipflops 74S74
+(U600, U601). Timing starts with Address Strobe AS becoming active.
+First clock asserted is C.S3, with C.S4 and C.S5 following.
+Clock C.S4-5 is asserted for 68000 state C.S4.
+In parallel, 68000 Address Strobe AS generates memory RAS
+via driver AM2966 (U407).
+
+Clock C.S3 and C.S3\ is used to disable memory RAS address
+driver AM2966 (U106) and enable memory CAS address driver AM2966 (U611).
+
+Clock C.S4 generates memory CAS via CAS decoder 74S138 (U912).
+C.S4 also enables the BERR\ and DTACK\ signals to the 68000
+via multiplexor 74S158 (U500).
+
+Clock C.S5 enables read/write strobe decoder 8205 (U800).
+An output strobe is issued while access is granted (no BERR)
+and while DS and C.S5 are active.
+C.S5 also updates the page-access and modify bits
+in RAM 2148 (U604) via multiplexor 74LS257 (U703).
+Also, C.S5 generates DTACK via multiplexor 74S158 (U500) in order
+to acknowledge cycles to on-board I/O devices in system state.
+
+**Timing Diagram for 68000 Derived Clocks**
+
+```
+
+
+68000 States		0   1   2   3   4   5   6   7   8   9
+
+RAM RAS		RASX\	---------_____________________--------
+
+Address MUX	C.S3\	-------------_________________--------
+
+CAS\		C.S4\	-----------------_____________--------
+
+Read Strobes	C.S5\	---------------------_________--------
+
+
+```
+
+
+---
+
+## Address Decoding and Translation
+
+
+68000 Addresses are split into four sections:
+
+
+```
+
+A21..A23 are used to decode access to on-board I/O devices;
+A11..A20 are subject to address translation;
+A01..A10 are not modified and pass through directly.
+A00      the byte address determined by 68000 UDS and LDS.
+
+```
+
+
+### Decoding of A21..A23
+
+
+The three high-order addresses from the 68000 CPU, A21..23,
+are decoded by two 74S288 (U502, U602) to generate chip-enable,
+read-strobes, and write-strobes for the on-board I/O devices.
+Strobes are enabled with DS\ and pullup up resistors S601, S602.
+The following table shows the decoding of A21..A23.
+Strobes are only enabled if FC2 is true indicating 68000 superuser state.
+
+
+```
+
+-------------------------------------------------------------------------
+|	A21..23		Chip Enable	Read-Strobe	Write-Strobe	|
+-------------------------------------------------------------------------
+|	0		---		---		---		|
+|	1		CE.PROM0\	---		CLR.BOOT\	|
+|	2		CE.PROM1\	---		---		|
+|	3		CE.SIO\		---		---		|
+|	4		----		OE.TIMER\	WE.TIMER\	|
+|	5		CE.PMAP\	---		WE.PMAP\	|
+|	6		CE.SMAP\	OE.CX\		WE.SMAP\	|
+|	7		----		OE.PORT\	WE.CX\		|
+-------------------------------------------------------------------------
+
+```
+
+
+With BOOTREAD, CE.PROM0\ and SYS.ACCESS\ is also generated for A21..23 = 0.
+This forces the 68000 on hardware reset to fetch the initial PC and SP from
+PROM0 locations 0..7.
+
+SYS.ACCESS\ is generated for A21..23 > 0, indicating access to onboard devices.
+SYS.ACCESS\ disables protection decoder 3622 (U503), thereby disabling
+read-write strobe decoder 8205 (U800).
+For A21..23 = 0 and BOOTREAD idle, SYS.ACCESS is not asserted and
+thus enables protection decoder 3622 (U503).
+
+
+### Address Translation of A12..A20
+
+
+The SUN 68000 Board contains a two-level, segment-page memory management unit (MMU),
+described in detail in the SUN 68000 Board user manual.
+The MMU consists of four-bit context register AM25LS2518 (U403),
+1k by 12-bit segment map (3*2148, U404..U406), and
+1k by 16-bit page map (4*2148, U504..U507).
+The segment map is read and written thru buffers 8304B (U504, U505),
+and the page map is accessed thru buffers 8304B (U805,U804).
+
+Addresses flow from the 68000 and the context register thru the
+segment map and the page map.
+From the 68000 address bits being translated, the six most significant ones
+(A15..A20) in conjunction with the four Context Register bits enter the
+segment map. Eight intermediate address bits exit the segment map, XA15..XA22,
+from which the low-order six plus four 68000 address lines (A11..A14)
+enter the page map. The page map produces 12 physical address bits MA11..MA22
+that are used to address on-board memory and the Multibus.
+
+
+---
+
+## On-board Device Addresses
+
+
+The following table gives assignment of on-board addresses in hexadecimal.
+The actual amount of RAM and PROM depends on the system configuration.
+Unused address bits are generally not further decoded.
+All locations are read and write, except those explicitely marked.
+
+
+```
+
+
+Address		Data	Description
+
+000000..1FFFFF	0..15	Logical address space. (Write-Only during boot).
+000000..03FFFF	0..15	PROM0 during boot state (Read-Only).
+200000..FFFFFF	0..15	System address space (available to supervisor only).
+200000..23FFFF	0..15	On-Board PROM0 (Read-Only). Exit boot state (Write-Only).
+400000..43FFFF	0..15	On-board PROM1.
+600000..600006	8..15	UART
+			600000  Uart A Data Register
+			600002  Uart A Command Register
+			600004  Uart B Data Register
+			600006  Uart B Command Register
+800000..800002	0..15	Timer
+			800000	Timer Data Register
+			800002	Timer Command Register
+A00000..BFF800	0..15	Page Map
+		0..11	Physical Address Bits 11..22
+		12..13	Physical Address Space
+			0 - On-board RAM
+			1 - Non-existing page
+			2 - Multibus memory space
+			3 - Multibus I/O space
+		14	Modified Bit
+		15	Accessed Bit
+			The page map is addressed through the segment map
+			and via address bits A11..A14 from the processor.
+			The lower order 11 address bits are ignored.
+			When the segment map is initialized to idendity,
+			page n is located at address A00000 + n * 2↑11.
+			A00000	Page 0
+			A00800	Page 1
+			...
+			BFF800	Page 3FF
+
+C00000..DFF800	0..15	Segment Map
+		0..5	Virtual address bits 15..20
+		6..7	Reserved for future use
+		8..11	Protection bits
+		12..15	Current Context (Read-Only)
+			Segment n is located at address C00000 + n * 2↑15.
+			The lower order 15 address bits are discarded.
+			C00000  Segment 0
+			C08000  Segment 1
+			...
+			DF8000  Segment 3F
+
+E00000		0..15	16-bit input port (Read-Only)
+		12..15	4-bit context register (Write-Only)
+
+```
+
+
+---
+
+## DTACK Generation
+
+
+Data Transfer Acknowledge (DTACK\) is an input to the 68000
+indicating to the CPU that a data transfer has been completed
+on the data bus and that the CPU cycle can continue.
+DTACK has to be asserted before the beginning of 68000 state 5
+for CPU operation without wait states. If DTACK is not ready at
+asserted by this time, the CPU generates wait states until
+DTACK becomes valid.
+
+DTACK is generated by Multiplexor 74S158 (U500) and two NAND gates 74S00 (U801).
+
+If the cycle accesses on-board I/O (SYS.ACCESS\ true) then DTACK is asserted
+when C.S5 comes true. This inserts one wait states into 68000 operation
+providing an access time of 350 nsec for on-board I/O and EPROMs.
+
+If the cycle is mapped via the MMU to on-board RAM (SYS.ACCESS\ and B/L\ false)
+then DTACK is always true and is asserted when the Multiplexor 74S158 (U500)
+is enabled at state C.S4, providing no-wait state operation.
+
+If the cycle is mapped to the Multibus (SYS.ACCESS\ false and B/L\ true)
+then DTACK is derived from Multibus XACK if the board is the master (AEN true).
+
+
+---
+
+## BERR Generation
+
+
+Bus Error (BERR) is an asynchronous input to the 68000 similar to DTACK
+in that it terminates a cycle in process except that it aborts that cycle.
+BERR is also enabled during time C.S4 via multiplexor 74S158 (U500).
+
+For accesses to on-board devices (SYS.ACCESS\ true) the only possible
+bus error condition is that such an access is not in supervisor mode (FC2 false).
+For other accesses (SYS.ACCESS\ false) there are four bus error conditions:
+
+
+SMAP.ERR\, or segment map error, is output by PROM 3622 (U503)
+to abort an access violating a segment protection code.
+The PROM U503 stores the meaning of the different protection codes
+and evaluates the 68000 function codes and read write signals
+to determine whether a given access is allowed.
+
+PMAP.ERR\, or page map error, indicates an access to a non-existing page
+(IO/M\ and B\/L true) and is generated by gate 74LS20 (U700).
+
+TIMEOUT\, or timeout error, (see description below).
+
+PAR.ERR\, or parity error, denotes a parity error on a read-cycle
+to on-board RAM in the previous cycle (see Parity Error section).
+
+
+These four error conditions are ORed with gate 74LS20 (U801) to form signal BERR.
+BERR disables strobe generation in read-write decoder 8205 (U800).
+Thus, any existing bus error condition blocks read-write strobes
+and any occuring bus error condition (such as timeout) terminates
+read-write strobes.
+
+
+---
+
+## Timeout and Watchdog Timer
+
+
+A watchdog timer is provided in 9513 counter 1 (U301).
+This timer fulfills a double functions:
+First, it detects missing Multibus acknowledges which can occur, for example,
+when a non-existing Multibus device has been addressed.
+Second, it resets the processor in case the processor halts.
+
+The watchdog counter is initialized and maintained in software.
+It is set by the monitor to a period between 1 and 1.5 times the interval
+of the memory refresh time. A typical value for 2 msec refresh is
+a 2.9 msec watchdog interval. After being set, the watchdog timer
+is maintained by the memory refresh routine, being reloaded to its
+full interval value during every memory refresh time.
+
+If the watchdog timer ever reaches terminal count without being reloaded
+the memory refresh routine has not executed properly.
+ it indicates that the refresh routine has not
+executed in the meanwhile.
+
+The first terminal count pulse of the watchdog timer will cause a bus-error,
+thereby aborting any pending cycle in progress.
+If indeed a Multibus timeout had occured the 68000 will continue execution
+and subsequently reset the watchdog timer in software by the regular
+refresh routine.
+
+However, if the 68000 does not continue normal execution after
+the first terminal count pulse, the watchdog timer, being set to
+a repetitive count mode, will issue a second terminal count pulse.
+Note that due to the choice of intervals of the refresh timer versus
+the watchdog timer the output of the refresh timer is low during this
+second pulse.
+As a result, gates 7406 (U109) generate an INIT\ pulse
+that resets the 68000 processor the same way as a RESET.HARD.
+
+**Timing Diagram for Watchdog Timer Waveforms**
+
+```
+
+
+Signal		Normal Refresh		Timeout		Watchdog Reset
+------------------------------------------------------------------------
+
+TIME (MSEC)	____----____----____----____----____----____----____----
+
+C.REFRESH	________-_______-_______-------_________--------________
+
+TIMEOUT		___________________________-_______________-___________-
+
+BERR		____________________________-_______________-___________
+
+INIT		_______________________________________________________-
+
+
+```
+
+
+---
+
+## Interrupts
+
+
+The SUN 68000 board operates the 68000 in auto-vector mode,
+that is interrupt vectors are generated internally to the 68000
+and pheripheral devices do not provide interrupt vectors.
+The interrupt vector capabilities of the Multibus are not used.
+
+Autovector operation is forced by asserting 68000 VPA\ whenever
+the 68000 A21..23 are all ones, as is the case during interrupt acknowledge.
+
+Interrupts from the Multibus are synchronized via octal latch 74LS374 (U905)
+to avoid spurious interrupts and are encoded in priority encoder 74LS148 (U908).
+Boot state disables interrupts via enable input on U900.
+
+The board has three on-board interrupt sources wired as follows:
+
+
+```
+
+INT7    REFRESH TIMER (non-maskable interrupt)
+INT6    TIMER2  (user programmable timer)
+INT5    SERIAL I/O CHIP (UART).
+
+```
+
+
+These interrupt levels are normally disconnected from the Multibus.
+Interrupt level 1 thru 4 are available on the Multibus.
+
+Note: interrupt levels were labelled according to 68000 order.
+Thus Interrupt level 7 is the highest priority (non-maskable) interrupt,
+interrupt level 1 is the least priority.
+This ordering is different from the standard Multibus order where
+Level 0 is the highest priority and level 7 is the least.
+Since the 68000 only has 7 interrupt levels versus 8 for the Multibus,
+Interrupt level 0 on the Multibus is unused.
+
+Interrupt level assignments can be modified via Jumper J904.
+The default is the assignment described above
+with on-board interrupts isolated from Multibus.
+
+---
+
+## Main Memory
+
+
+The SUN 68000 board has 256 KByte of dynamic RAM on-board as main memory.
+Memory consists of two banks of 128 KByte each. Bank 0 is comprised of
+memory chips M100 through M208, and Bank 1 includes memory chips M300 through M408.
+
+The memory is equipped with byte-parity memory to detect all odd-bit memory errors.
+All memory chips are accessed during every 68000 cycle.
+Memory access begins with the 68000 Address Strobe generating memory RAS
+(row-address-strobe) latching the eight low-order address bits into the RAM chips.
+After the high-order address bits are translated, CAS (column-address-strobe)
+is decoded in decoder 74S138 (U912), driving the CAS lines of one of the
+memory banks and latching the high-order address bits into the RAM chips.
+
+Memory is refreshed in software by a non-maskable interrupt routine
+starting up every 2 milliseconds and accessing 128 consecutive RAS locations.
+
+The 68000 HALT\ signal via driver 2966 (U407) is connected to pin 1
+of the 64k RAM chips to cause automatic refresh in RAMs with pin 1 refresh
+in case the processor halts. The same signal also drives HALT LED J101.
+
+
+---
+
+## Parity Error Logic
+
+
+The parity error logic generates byte parity for all writes to on-board memory
+and checks byte parity for all reads from on-board memory.
+Parity error logic is comprised of parity generators 82S62 (U201,U202),
+parity error flipflop 74LS74 (U110) and parity enable flipflop (U110).
+
+On writing to memory, odd parity is written by forcing the P9 input
+of the parity generators low via NOR gates 74S02 (U203).
+On reading, the inverted RAM parity bit M.DOL and M.DOU feeds into
+the parity generators to check for odd parity.
+Even parity of either byte, ANDed with OE.RAM to qualify RAM Read cycles,
+sets the parity error flipflop at the end of the current 68000 cycle,
+causing a bus-error abort in the next 68000 cycle.
+Since the current 68000 cycle already has been acknowledged and
+parity error is only detected at the very end of the cycle,
+it is not possible to abort the current 68000 cycle via bus error.
+In addition, parity error also signals SYNCA of the 7201 UART,
+setting a flag inside the 7201 that can be tested in software.
+This allows the 68000 to verify that a parity error has occured.
+
+The Parity Enable flipflop is set in software by the CLR.BOOT strobe.
+If D0 is high, parity error checking is enabled, otherwise disabled.
+Parity enable also drives PARITY LED (J102); the LED will light up
+whenever parity is disabled. INIT\ resets the parity enable flipflop.
+
+
+---
+
+## Multibus Interface
+
+
+### Multibus Address and Data Drivers
+
+
+Inverting latches/drivers 74LS533 (U904, U907, U908) latch 68000 address bits
+A1..A10 and mapped address bits M11..M19 during clock C.S4-5.
+In addition, (LDS AND UDS) is latched to form Multibus BHEN, and
+one of LDS\ or UDS\ is latched to form Multibus A0. See below.
+
+Inverting bidirectional drivers 8303 (U909, U910, and U911) exchange
+data bits D0..D15 between on-board data bus und Multibus.
+Buffer U910 is the byte swap buffer that is enabled whenever the 68000
+does not issue LDS\, as latched on the rising edge of C.S3 in 74LS74 (U702).
+Direction of buffers is selected from Multibus to on-board bus via gate U802
+if control signal IORC\ or MRDC\ is active.
+
+Both address and data buffers are enabled with AEN\ from the 8289
+indicating bus mastership.
+
+
+## Byte order and A0 Address Generation
+
+
+The SUN 68000 Board uses 68000 Byte order on the Multibus
+to offer a consistent memory model for the 68000.
+Notice that the 68000 byte order is incompatible with the Multibus byte order
+in that the 68000 numbers the upper byte (Data bits 8 through 15) the even byte
+whereas the Multibus calles the lower byte (Data bits 0 thru 7) the even byte.
+
+
+```
+
+			 D15 ........D8	 D7 ..........D0
+			---------------------------------
+68000 Byte Order	|  Byte 0	| Byte 1	|
+			---------------------------------
+Multibus Byte Order	|  Byte 1	| Byte 0	|
+			---------------------------------
+
+```
+
+
+In addition, the 68000 differs from the Multibus in that it transfers
+even bytes on data lines D8 through D15 and odd bytes on D0 through D7,
+whereas the Multibus transfer both odd and even bytes via D0 through D7.
+Finally, the 68000 does not output address bit A0. This address bit needs
+to be reconstructed from the 68000 data strobes. To achieve 68000 byte-order
+on the Multibus, the A0 on the Multibus must be the inverse of 68000 A0
+for byte transfers.
+
+The following table summarizes the state of different signal lines
+for word and byte transfers between 68000 and Multibus.
+
+
+```
+
+--------------------------------------------------------------------------
+68000		68000	68000	68000	Multib.	WORD\	BYTE\	Multibus
+Transfer	UDS\	LDS\	A0	A0	Buffer	Buffer	Transfer
+--------------------------------------------------------------------------
+16-bit D0..15	0	0	0	0	0	1	D0..15
+8-bit D0..7	1	0	1	0	0	1	D0..7
+8-bit D8..15	0	1	0	1	1	0	D0..7
+
+
+```
+
+
+From the table it can be seen that Word Buffer\ = 68000 LDS\
+and that Multibus A0 = LDS\.
+The SUN 68000 Board allows the possibility of selecting an generating
+Multibus byte order for the Multibus by redefining A0 to be UDS\
+via Jumper J801.
+
+
+### Multibus Multimaster Logic
+
+
+The Multibus provides multiple master on the bus, exchanging bus mastership
+via a standard protocol (see IEEE-796 Bus standard).
+The SUN 68000 Board uses the Intel 8289 multimaster chip (U902) to
+implement this protocol.
+
+The 8289 was adapted to the 68000 CPU as follows:
+8289 is configured in "RESB" mode (IOB high and RESB high).
+This means the Multibus is requested whenever the processor status
+lines go active and SYSB is asserted low (B/L\ low); and
+allows the Multibus to be surrendered if SYSB low (B/L\ low),
+during idle (S0\, S1\, S2\ high), for common bus requests,
+and if there is a higher priority bus request.
+8289 S0\, S1\, and S2\ are tied to AS\, generating an I/O command
+for AS asserted and an idle cycle for AS deasserted.
+8289 LOCK\ and 8289 CBRQL are not used, ANYREQ is enabled,
+allowing the bus to be given up on common bus requests.
+
+When the 8289 obtains mastership (generates AEN\) the address and data buffers
+on the board are enabled immediately, whereas the bus control signal buffer
+74S244 (U901) is only enabled about 60 nsec later thru delay line 74LS244 (U900),
+generating CEN.
+
+
+## Wait States for Multibus Operation
+
+
+Multibus strobes are asserted at times C.S5 via decoder 8205 (U800).
+DTACK has to be received by the 68000 before C.S5 for no-wait-states operation.
+Thus, access to a Multibus device will at least cause one wait state.
+Estimating the minimal delay path for a Multibus strobe to XACK as 100 nsec,
+the number of wait states for a Multibus access can be estimated as one
+plus the slave access time in units of 100 nsec.
+If the SUN 68000 Board does not currently own Multibus mastership,
+a minimum of three additional wait states are required to obtain mastership.
+
+
+### Multibus Clocks
+
+
+The SUN 68000 Board normally generates Multibus BCLK and CCLK
+via driver 74S240 (U903).
+In a multimaster system, only one master may drive these clocks.
+To configure the SUN 68000 board for such a system,
+BCLK can be disconnected by cutting jumper J901-6..6, and
+CCLK can be disconnected by cutting jumper J901-9..10.
+
+
+### Multibus INIT
+
+
+Multibus B.INIT\ is normally generated from RESET via jumper J901.3-4.
+In this configuration, Multibus INIT is active whenever 68000 RESET is active,
+which is both on INIT\ and during a 68000 RESET instruction.
+This option not fully conformes to the IEEE796 standard in that
+B.INIT is a Tri-state driver instead of Open Collector.
+
+Another Reset Option exists by cutting J901.2-3 and installing J901.1-2.
+In this configuration, Multibus INIT is driven from poweron init RESET.HARD
+and watchdog timer RESET.SOFT. The Multibus can also reset the board.
+The 68000 cannot drive Multibus INIT directly by executing RESET instruction;
+however, 68000 can force Multibus INIT via a watchdog timer reset.
+
+---
+
+# Programmable Logic
+
+
+## Introduction
+
+
+This chapter contains the source files and object files for
+programmable logic elements such as PALs and PROMs.
+The content of these elements is defined in a high-level
+functional language which is automatically translated
+into bitpatterns for programming.
+
+Without attempting to give a full definition of the language,
+the following explanation should provide sufficient information
+to understand the programs.
+
+*begin "name"* begins a program with the name *name*.
+
+*require "prom.sai" source!file* requests inclusion of the prom library.
+
+*$#* defines a PROM with *#* addressable locations.
+
+*define "name" = [definition]* defines expressions or equations
+that describe the function of the PROM.
+The following are reserved identifiers: *D#* is the value of
+data bit *#*, *A#* is true if address bit *#* is present in the
+current value of the location counter (see below).
+All standard operators, including logical AND and OR, are allowed
+in expressions. Conditional and case expressions are also possible.
+
+*prombegin* tells the program to evaluate the following statements
+until *promend* for each location value of the location counter.
+
+*prom(#1, #2,	expression)* means to put the value of *expression*
+into PROM *#1* bit position *#2*.
+
+*promend* terminates the evaluation of statements.
+
+*writeprom("file",#)* writes the object code of PROM *#* into file *file*.
+Each separate PROM needs to be written into a separate file.
+
+*end* terminates the program.
+
+In the following listings, the PROM source code is followed by the generated
+hexadecimal object code which also includes a 16-bit checksum.
+
+---
+
+## PROM P0
+
+
+```
+
+begin "p0"
+require "prom.sai" source!file;
+$32;
+
+define
+
+a23	=[a0],
+a22	=[a1],
+a21	=[a2],
+boot	=[a3],
+fc2	=[a4],
+
+adrs	=[(a23*d2 + a22*d1 + a21*d0)],
+
+s.access=[(boot ∨ (adrs > 0))],
+ce.prom0=[(fc2 ∧ ((adrs=1) ∨ boot ∧ (adrs=0)))],
+ce.prom1=[(fc2 ∧ (adrs=2))],
+ce.sio	=[(fc2 ∧ (adrs=3))],
+ce.timer=[(fc2 ∧ (adrs=4))],
+ce.pmap	=[(fc2 ∧ (adrs=5))],
+ce.smap	=[(fc2 ∧ (adrs=6))];
+
+prombegin
+
+prom(0, d0,	¬ce.timer);
+prom(0, d1,	¬ce.prom0);
+prom(0, d2,	¬ce.sio);
+prom(0, d3,	¬ce.prom1);
+prom(0, d4,	0);
+prom(0, d5,	¬ce.pmap);
+prom(0, d6,	¬ce.smap);
+prom(0, d7,	¬s.access);
+
+promend;
+writeprom("p0",0);
+end;
+
+PROM:	p0	Checksum:	0E00
+
+
+   0  EF  6F  6F  6F  6F  6F  6F  6F  6F  6F  6F  6F  6F  6F  6F  6F
+  16  EF  6E  67  2F  6D  4F  6B  6F  6D  6E  67  2F  6D  4F  6B  6F
+
+
+```
+
+
+---
+
+## PROM P1
+
+
+```
+
+begin "p1"
+require "prom.sai" source!file;
+$32;
+
+define
+
+a23	=[a0],
+a22	=[a1],
+a21	=[a2],
+read	=[a3],
+fc2	=[a4],
+
+adrs	=[(a23*d2 + a22*d1 + a21*d0)],
+write	=[(¬read)],
+
+clr.boot=[(fc2 ∧ write ∧ (adrs=1))],
+oe.timer=[(fc2 ∧ read  ∧ (adrs=4))],
+we.timer=[(fc2 ∧ write ∧ (adrs=4))],
+we.pmap	=[(fc2 ∧ write ∧ (adrs=5))],
+we.smap	=[(fc2 ∧ write ∧ (adrs=6))],
+oe.cx	=[(fc2 ∧ read  ∧ (adrs=6))],
+we.cx	=[(fc2 ∧ write ∧ (adrs=7))],
+oe.port	=[(fc2 ∧ read  ∧ (adrs=7))];
+
+prombegin
+
+prom(0, d0,	¬we.smap);
+prom(0, d1,	¬clr.boot);
+prom(0, d2,	¬we.timer);
+prom(0, d3,	¬oe.timer);
+prom(0, d4,	¬we.pmap);
+prom(0, d5,	¬we.cx);
+prom(0, d6,	¬oe.cx);
+prom(0, d7,	¬oe.port);
+
+promend;
+writeprom("p1",0);
+end;
+
+PROM:	p1	Checksum:	1EE1
+
+
+   0  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF
+  16  FF  FB  FF  FE  FD  EF  FF  DF  FF  F7  FF  BF  FF  FF  FF  7F
+
+```
+
+
+---
+
+## PROM P2
+
+
+```
+
+begin "p2"
+require "prom.sai" source!file;
+$512;
+
+define
+
+prot1		=[a0],
+prot2		=[a1],
+prot3		=[a2],
+prot0		=[a3],
+sys.access.i	=[a4],
+fc1		=[a5],
+fc0		=[a6],
+read		=[a7],
+fc2		=[a8],
+
+prot		=[(prot0*d0 + prot1*d1 + prot2*d2 + prot3*d3)],
+sys.access	=[(¬sys.access.i)],
+execute.cycle	=[( fc1 ∧ ¬fc0 ∧ read)],
+read.cycle	=[(¬fc1 ∧  fc0 ∧ read)],
+write.cycle	=[(¬fc1 ∧  fc0 ∧¬read)],
+
+protcode	=[(case prot of (
+		"______",
+		"__x___",
+		"r_____",
+		"r_x___",
+		"rw____",
+		"rwx___",
+		"r__r__",
+		"rw_r__",
+		"r__rw_",
+		"rw_rw_",
+		"rw_r_x",
+		"rw_rwx",
+		"r_xr_x",
+		"rwxr_x",
+		"rwx__x",
+		"rwxrwx")
+		)],
+
+en.access	=[(¬sys.access ∧ (
+		  fc2 ∧ read.cycle ∧ protcode[1 for 1]="r"
+ 		∨ fc2 ∧ write.cycle ∧ protcode[2 for 1]="w"
+		∨ fc2 ∧ execute.cycle ∧ protcode[3 for 1]="x"
+		∨¬fc2 ∧ read.cycle ∧ protcode[4 for 1]="r"
+ 		∨¬fc2 ∧ write.cycle ∧ protcode[5 for 1]="w"
+		∨¬fc2 ∧ execute.cycle ∧ protcode[6 for 1]="x"
+		))];
+prombegin
+
+prom(0, d0,	0);
+prom(0, d1,	0);
+prom(0, d2,	en.access);
+prom(0, d3,	¬en.access);
+
+promend;
+writeprom("p2",0);
+end;
+
+```
+
+
+```
+
+PROM:	p2	Checksum:	0F3C
+
+
+   0  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+  16  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+  32  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+  48  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+  64  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+  80  08  08  08  08  04  08  08  08  08  08  08  08  04  04  08  04
+  96  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 112  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 128  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 144  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 160  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 176  08  08  08  08  08  04  04  04  08  08  08  08  08  04  04  04
+ 192  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 208  08  08  08  04  04  04  04  08  08  08  08  04  04  04  04  04
+ 224  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 240  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 256  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 272  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 288  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 304  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 320  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 336  08  08  04  08  08  04  08  04  08  08  04  04  04  04  04  04
+ 352  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 368  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 384  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 400  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 416  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 432  08  08  08  08  08  08  04  04  04  04  04  08  08  08  04  04
+ 448  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 464  08  04  04  04  04  04  04  04  08  04  04  04  04  04  04  04
+ 480  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+ 496  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08  08
+
+```
+
+
+---
+
+# Schematics
+
+
+This chapter contains the signal summary, the parts list,
+the parts location diagram and the schematics of the SUN 68000 Board.
+
+
+## Signal Summary
+
+
+----------------------------------------------------------------------------
+Mnemonic	Description
+----------------------------------------------------------------------------
+
+A0..A23		68000 Address Bus
+ACK\		Acknowledge
+AEN		Address Enable
+AS		68000 Address Strobe
+B.A0\..A19\	Multibus address bus (20)
+B.AACK\		UNUSED, Multibus advanced acknowledge
+B.BCLK\		Multibus bus clock
+B.BHEN\		Multibus byte high enable
+B.BPRN\		Multibus priority in
+B.BPRO\		Multibus priority out
+B.BREQ\		Multibus bus request
+B.BUSY\		Multibus busy
+B.CBRQ\		Multibus common bus request
+B.CCLK\		Multibus constant clock
+B.D0\..D15\	Multibus data bus (16)
+B.INH1\..2\	Multibus inhibit lines
+B.INIT\		Multibus init
+B.INT0\..INT7\	Multibus interrupt request
+B.INTA\		UNUSED Multibus interrupt acknowledge
+B.IORC\		Multibus I/O read control
+B.IOWC\		Multibus I/O write control
+B.MRDC\		Multibus memory read control
+B.MWTC\		Multibus memory write control
+B.XACK\		Multibus transfer acknowledge
+BCLK\		Onboard Bus Clock
+INIT\		Onboard INIT
+B/L\		Bus/Local\
+BERR		Bus Error
+BHEN		Bus High Enable
+BOOT		Boot
+BOOTREAD	Boot and Read
+CXXX.YY-ZZ	Clock with XXX period, active from YY-ZZ
+C.P1		Clock Serial Port 1
+C.P2		Clock Serial Port 2
+C.REFRESH	Clock Refresh
+C.S3..5		Clocks derived from 68000, active State S3..5
+C.TIMER1	Clock Timer 1
+C.TIMER2	Clock Timer 2
+CAS0\..3\	Column Address Strobe 0..3
+CE.BYTE\	Chip Enable Byte Buffer
+CE.PMAP\	Chip Enable Page Map
+CE.PROM0\	Chip Enable PROM Set 0
+CE.PROM1\	Chip Enable PROM Set 1
+CE.SIO\		Chip Enable Serial I/O
+CE.SMAP\	Chip Enable Segment Map
+CE.SPARE\	UNUSED
+CE.WORD\	Chip Enable Word Buffer
+CEN\		Multibus Control Enable
+CLR.BOOT\	Clear Boot State
+CTSA\		Clear to Send Port A
+CX0..3		Context Register (4)
+D0..15		Data Bus (16)
+DCDA\		Data Carrier Detect Port A
+DIRTY		Modify Bit in Page Map
+DS		Data Strobe
+DTACK		Data Transfer Acknowledge
+DTRA\		Data Terminal Ready Port A
+EN.PMAX\	Enable Page Map Extension
+FC0..2		68000 Function Codes (3)
+HALT\		68000 Halt
+IN0..16		Input Port (16)
+INIT		Onboard INIT
+INT.SIO\	Interrupt Serial I/O
+INT.TIMER2\	Interrupt Timer 2
+INT1S\..7S\	Interrupt Synchronized (7)
+IO/M\		IO/Memory\
+IPL0..2\	68000 Interrupt Priority Level (3)
+LDS		Lower Data Strobe
+M.A0\..A7\	Memory Address Bus
+M.CAS0\..CAS3\	Memory Column Address Strobes (4)
+M.DI0..M.DI15	Memory Data In Bus (16)
+M.DIL		Memory Data In Parity Lower
+M.DIU		Memory Data In Parity Upper
+M.DO0..M.DO15	Memory Data Out Bus (16)
+M.DOL		Memory Data Out Parity Lower
+M.DOU		Memory Data Out Parity Upper
+M.RAS\		Memory Row-Address
+M.RAS0\		Memory Row-Address 0
+M.RAS1\		Memory Row-Address 1
+M.REF\		Memory Refresh
+M.WEU\		Memory Write Enable Strobe Upper Byte
+M.WEL\		Memory Write Enable Strobe Lower Byte
+MA11..22	Mapped Address (12)
+MRDC\		Memory Read Control
+MWTC\		Memory Write Control
+OE.CX\		Output Enable Context Register
+OE.PORT\	Output Enable Port
+OE.RAM\		Output Enable RAM
+OE.TIMER\	Output Enable Timer
+P1.CTS		Port1 Clear To Send
+P1.DSR		Port1 Data Set Ready
+P1.DTR		Port1 Data Terminal Ready
+P1.RTS		Port1 Ready To Send
+P1.RXD		Port1 Receiver Data
+P1.TXD		Port1 Transmitter Data
+P2.RXD		Port2 Receiver Data
+P2.TXD		Port2 Transmitter Data
+PAR.EN		Parity Enable
+PAR.ERR		Parity Error
+PARERRL		Parity Error Lower
+PARERRU		Parity Error Upper
+PMAP.ERR\	Page Map Error
+PROT0..3	Protection (4)
+PU..PU3		Pull-up
+R/W\		Read/Write\
+RDD\		Read Data from Multibus
+RESET		68000/7201 Reset
+RESET.HARD	Powerup Reset
+RESET.SOFT	Watchdog Reset
+RTSA\		Ready To Send A
+RXDA		Receive Data A
+RXDB		Receive Data B
+SET.INIT\	Set Init\
+SMAP.ERR\	Segment Map Error
+SYS.ACCESS\	System Access
+TIMEOUT		Timeout Error
+TXDA		Transmit Data Port A
+TXDB		Transmit Data Port B
+UDS		Upper Data Strobe
+USED		Used (Accessed) Bit in Page Map
+VCC		+5V
+VEE		-5V
+WE.CX\		Write Enable Context Register
+WE.PMAP\	Write Enable Page Map
+WE.PMAX\	Write Enable Page Map Extension
+WE.RAM\		Write Enable RAM
+WE.SMAP\	Write Enable Segment Map
+WE.TIMER\	Write Enable Timer
+XA15..20	Intermediate Address (6)
+XACK		Transfer Acknowledge
+
+
+---
+
+## Parts List
+
+
+As an aid in specifying and ordering components, this parts list
+translates diptypes into manufacturer names and manufacturer codes.
+Only one manufacturer code is given, alternative sources
+may be substituted. A manufacturer code of "ANY" is used
+for generic parts with a large number of second sources.
+
+
+```
+
+----------------------------------------------------------------------------
+GENERIC	 QTY BRAND   PART NUMBER   DESCRIPTION
+----------------------------------------------------------------------------
+2148       7 INTEL   D2148H-3      1K-BY-4 STATIC RAM 45 NSEC
+26LS29     1 AMD     AM26LS29PC    QUAD RS-423 DRIVER
+26LS32     1 AMD     AM26LS32PC    QUAD DIFFERENTIAL LINE RECEIVER
+2764       4 INTEL   D2764         8K-BY-8 EPROM
+3622       1 SIG     N82S131       512-BY-4 BIPOLAR PROM
+4164      36 ANY     4164          64K-BY-1 DYNAMIC RAM 150 NSEC
+7201       1 NEC     UPD7201       DUAL UART
+7406       1 TI      SN7405N       HEX BUFFER OPEN COLLECTOR OUTPUT
+74LS04     1 TI      SN74LS04N     HEX INVERTER
+74LS05     1 TI      SN74LS05N     HEX INVERTER OPEN COLLECTOR OUTPUT
+74LS148    1 TI      SN74LS148N    8-LINE TO 3-LINE PRIORITY DECODER
+74LS20     1 TI      SN74LS20      DUAL 4-INPUT NAND GATES
+74LS244    3 TI      SN74LS244N    OCTAL NONINVERTED BUFFERS
+74LS257    1 TI      SN74LS257N    QUAD DATA SELECTOR
+74LS374    1 TI      SN74LS374N    OCTAL REGISTER
+74LS533    3 AMD     SN74LS533N    OCTAL TRANSPARENT LATCH INVERTING
+74LS74     2 TI      SN74LS74      DUAL D-TYPE FLIPFLOPS
+74S00      1 TI      SN74S00N      QUAD 2-INPUT NAND GATES
+74S02      1 TI      SN74S02N      QUAD 2-INPUT NOR GATES
+74S08      2 TI      SN74S08N      QUAD 2-INPUT AND GATES
+74S138     1 TI      SN74S139N     1-TO-8 LINE DECODER
+74S158     1 TI      SN74S158N     QUAD INVERTING 2-TO-1-LINE MUX
+74S240     6 TI      SN74S240N     OCTAL INVERTING BUFFER
+74S244     1 TI      SN74S244N     OCTAL NONINVERTED BUFFERS
+74S288     2 TI      TBP18S030N    32-BY-8 BIPOLAR PROM
+74S32      1 TI      SN74S32N      QUAD 2-INPUT OR GATES
+74S74      3 TI      SN74S74N      DUAL D-TYPE FLIPFLOP
+7660       1 INTSIL  ICL7660CPA    VOLTAGE INVERTER
+8205       1 INTEL   P8205         3-TO-8 DECODER
+8211       1 INTSIL  ICL8211CPA    PRECISION VOLTAGE COMPARATOR
+8289       1 INTEL   D8289         MULTIMASTER BUS CONTROLLER
+82S62      2 AMD     N82S62N       9-INPUT PARITY CHECKER
+8303B      3 AMD/NAT DP8303N       OCTAL INVERTING TRANSCEIVER
+8304B      4 AMD/NAT DP8304BN      OCTAL NON-INVERTING TRANSCEIVER
+AM2966     3 AMD     AM2966PC      OCTAL DYNAMIC RAM DRIVER
+AM9513     1 AMD     AM9513PC      LSI TIMER
+C         76 AVX     MD015C104MAA  DIPGUARD CAPACITORS 0.1 UF
+J.50       2 AUGAT   110-50001-102 50-PIN PCB SOLDERTAIL HEADER
+K.2        2 ANY     REDLED        LED WITH BUILTIN RESISTOR
+K1114A     1 MOTOROL K1114A        CRYSTAL OSCILLATOR 20 MHZ
+LS2518     1 AMD     AM25LS2518    QUAD D-REGISTER
+MC68000    1 MOTOROL MC68000L10    CPU 10 MHZ
+R          1 ANY     1/8WATT       DISCRETE RESISTOR 15K
+R          1 ANY     1/8WATT       DISCRETE RESISTOR 100K
+R          1 ANY     1/8WATT       DISCRETE RESISTOR 4K8
+R          2 ANY     1/8WATT       DISCRETE RESISTOR 1K
+R          2 ANY     1/8WATT       DISCRETE RESISTOR 33OHM
+R7.SIP     3 BURNS   4308R-101-1K  RESISTOR SIP, 7 RESISTORS 1K OHM
+R9.SIP     5 BURNS   4310R-101-4K7 RESISTOR SIP, 9 RESISTORS 4.7K OHM
+
+```
+
+
+---
+
+## Parts Location Diagram
+
+
+---
+
+## Schematic P1 (Page 1 of 5)
+
+
+---
+
+## Schematic P2 (Page 2 of 5)
+
+
+---
+
+## Schematic P3 (Page 3 of 5)
+
+
+---
+
+## Schematic P4 (Page 4 of 5)
+
+
+---
+
+## Schematic P5 (Page 5 of 5)
+
+
+---
+
+# Wirelist
+
+
+This chapter contains the wirelist of the SUN 68000 Board.
+The wirelist is comprised of the following sections which are
+distinguished by the header lines on each page.
+
+
+#### Schematics List
+
+
+The schematics list summarizes all schematics files with titles and pages.
+It starts with the following header:
+
+
+```
+
+
+FILNAM	P,PN		DATE	   TIME	MODULE(DWG NUM)	REV	AUTHOR
+	TITLE 1				PROJECT		BOARD TYPE
+
+
+```
+
+
+#### Location List
+
+
+The location list translates all location labels
+into diptype and component names and locations on the schematics.
+The location list start with the following header:
+
+
+```
+
+
+LOC	DIPTYPE	BODY	FILE	POS
+
+
+```
+
+
+#### Signal List
+
+
+The signal list describes all signals and synonyms in alphabetical order.
+Signals that have no explicit name are automatically assigned a
+computer-generated name that consists of the percent symbol ("%")
+followed by the alphabetically lowest location and pin name connected to
+this particular signal run. The signal list pages carry the following header:
+
+
+```
+
+
+SIGNAL NAME
+	LOC(PIN#) TYPE	LOW	HI	USE	DIPTYPE	BODY	FILE	POS
+
+
+```
+
+
+For each signal, the connected component locations are listed together
+with the pin number, type (input, output, tri-state, open-collector),
+low and high currents, usage on component, the component diptype and bodyname,
+and a crossreference to the schematic file where this location is used.
+Each signal is followed by a calculation of static current loading.
+
+
+#### Unused Pin List
+
+
+The last section of the wirelist displays all unused pin locations in a format
+similar to the signal list. The header for this section is:
+
+
+```
+
+
+UNUSED PINS
+	LOC(PIN#) TYPE	LOW	HI	USE	DIPTYPE	BODY	FILE	POS
+
+
+```
